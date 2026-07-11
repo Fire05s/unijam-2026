@@ -4,7 +4,7 @@ public class enemySightlines : MonoBehaviour
 {
     [Header("Sightline")]
     public Transform sightLineOrigin;
-    public float sightLineDirection;
+    public float sightLineDistance;
     [Header("Scene Transition")]
     public GameObject transitionObject;
     public string battleScene;
@@ -33,7 +33,7 @@ public class enemySightlines : MonoBehaviour
     private void FixedUpdate()
     {
         RaycastHit hit;
-        if (Physics.Raycast(sightLineOrigin.transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, layerMask))
+        if (Physics.Raycast(sightLineOrigin.transform.position, transform.TransformDirection(Vector3.forward), out hit, sightLineDistance, layerMask))
         {
             if(hit.collider.CompareTag("Player"))
             {
@@ -50,7 +50,7 @@ public class enemySightlines : MonoBehaviour
         }
         else
         {
-            Debug.DrawRay(sightLineOrigin.transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.white);
+            Debug.DrawRay(sightLineOrigin.transform.position, transform.TransformDirection(Vector3.forward) * sightLineDistance, Color.white);
             Debug.Log("Hit nothing");
         }
     }
