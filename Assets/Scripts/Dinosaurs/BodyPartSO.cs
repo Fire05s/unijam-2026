@@ -18,10 +18,10 @@ public class BodyPartSO : ScriptableObject
 [Serializable]
 public struct StatParameters
 {
-    StatType type;
-    float minValue;
-    float maxValue;
-    float appearanceChance;
+    public StatType type;
+    public float minValue;
+    public float maxValue;
+    public float appearanceChance;
 }
 
 public enum BodyPartType
