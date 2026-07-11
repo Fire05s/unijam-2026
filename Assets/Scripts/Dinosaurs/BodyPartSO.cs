@@ -11,17 +11,17 @@ public class BodyPartSO : ScriptableObject
     public GameObject Model {  get; private set; }
     [field: SerializeField]
     public List<StatParameters> Stats { get; private set; }
-
-    // TODO: Add bonus ability references here
+    [field: SerializeField]
+    public WildCard Wild { get; private set; }
 }
 
 [Serializable]
 public struct StatParameters
 {
-    public StatType type;
-    public float minValue;
-    public float maxValue;
-    public float appearanceChance;
+    public StatType Type;
+    public float MinValue;
+    public float MaxValue;
+    public float AppearanceChance;
 }
 
 public enum BodyPartType
