@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 public enum EntitySide {Player,Enemy}
 public class BattleEntity
@@ -12,7 +11,7 @@ public class BattleEntity
         maxHealth = hp;
         health = maxHealth;
         speed = sp;
-        attack = atl;
+        attack = atk;
         crit = cc;
         wild = w;
     }

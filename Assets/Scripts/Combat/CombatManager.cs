@@ -1,8 +1,7 @@
 using System.Collections.Generic;
-using System.Collections;
+using BeardedPlatypus.Collections.Generic;
 using System;
 using UnityEngine;
-using BeardedPlatypus.Collections.Generic;
 
 /// <summary>
 /// Based on the given creatures, order them, and allow them to take their turns.
@@ -30,12 +29,12 @@ public class CombatManager : MonoBehaviour
 
     void Start()
     {
-        Dinosaurs.append(new BattleEntity(EntitySide.Player, sp=8));
-        Dinosaurs.append(new BattleEntity(EntitySide.Enemy, sp=8));
-        Dinosaurs.append(new BattleEntity(EntitySide.Enemy, sp=7));
-        Dinosaurs.append(new BattleEntity(EntitySide.Enemy, sp=4));
-        Dinosaurs.append(new BattleEntity(EntitySide.Player, sp=2));
-        Dinosaurs.append(new BattleEntity(EntitySide.Player, sp=1));
+        Dinosaurs.Add(new BattleEntity(EntitySide.Player, sp: 8));
+        Dinosaurs.Add(new BattleEntity(EntitySide.Enemy, sp: 8));
+        Dinosaurs.Add(new BattleEntity(EntitySide.Enemy, sp: 7));
+        Dinosaurs.Add(new BattleEntity(EntitySide.Enemy, sp: 4));
+        Dinosaurs.Add(new BattleEntity(EntitySide.Player, sp: 2));
+        Dinosaurs.Add(new BattleEntity(EntitySide.Player, sp: 1));
 
         BuildInitialQueue();
         
@@ -58,12 +57,12 @@ public class CombatManager : MonoBehaviour
             List<int> SameSpeedP = new List<int>();
             foreach (BattleEntity entity in PlayerDinosaurs)
             {
-                if (entity.side==EntitySide.Player && entity.GetSpeed()==i) {SameSpeedP.append(Dinosaurs.IndexOf(entity));}
+                if (entity.side==EntitySide.Player && entity.GetSpeed()==i) {SameSpeedP.Add(Dinosaurs.IndexOf(entity));}
             }
             List<int> SameSpeedE = new List<int>();
             foreach (BattleEntity entity in EnemyDinosaurs)
             {
-                if (entity.side==EntitySide.Enemy && entity.GetSpeed()==i) {SameSpeedE.append(Dinosaurs.IndexOf(entity));}
+                if (entity.side==EntitySide.Enemy && entity.GetSpeed()==i) {SameSpeedE.Add(Dinosaurs.IndexOf(entity));}
             }
 
             //If there are no dinosaurs with this speed, move to next speed level
@@ -107,7 +106,7 @@ public class CombatManager : MonoBehaviour
         }
 
         int dinoNum = PopFromQueue(turnNumber);
-        if (!Dinosaur[dinoNum].IsAlive())
+        if (!Dinosaurs[dinoNum].IsAlive())
         {
             ApplyDoT();
             turnNumber++;
