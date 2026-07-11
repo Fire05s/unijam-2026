@@ -21,11 +21,11 @@ public class DinosaurData
         // remove existing body part
         if (_bodyParts.TryGetValue(bodyPart.PartType, out BodyPartSO part))
         {
-            _stats -= part.BonusStats;
+           // _stats -= part.BonusStats;
         }
 
-        _bodyParts[bodyPart.PartType] = bodyPart;
-        _stats += bodyPart.BonusStats;
+        // _bodyParts[bodyPart.PartType] = bodyPart;
+        // _stats += bodyPart.BonusStats;
     }
 
     /// <summary>

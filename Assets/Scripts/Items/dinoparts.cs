@@ -1,9 +1,9 @@
 using System.Collections.Generic;
-enum WildCard
+public enum WildCard
 {
     Multihit, Bleed, Doublehit, Ravenousbite, Luckystreak, Bloodlust, Dodge, Scavenger, Packtreats, Packmentality
 }
-class DinosaurPart
+public class DinosaurPart
 {
     DinosaurPart(short r, BodyPartType t, BodyPartSO re) {rarity = r; type = t; reference = re;}
     short rarity;
@@ -11,10 +11,4 @@ class DinosaurPart
     public List<Stat> stats = new List<Stat>();
     WildCard wildcard;
     BodyPartSO reference;
-}
-
-struct Stat
-{
-    StatType type;
-    float value;
 }

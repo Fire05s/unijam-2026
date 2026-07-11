@@ -37,3 +37,9 @@ public enum StatType
     Health, Attack, Speed, CritChance
 }
 
+public struct Stat
+{
+    StatType type;
+    float value;
+}
+
