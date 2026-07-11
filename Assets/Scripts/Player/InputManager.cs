@@ -10,9 +10,6 @@ public class InputManager : MonoBehaviour
 
     public Vector2 Move => _actions.Player.Move.ReadValue<Vector2>();
 
-    public event Action JumpPressed;
-    public event Action AttackPressed;
-    public event Action DashPressed;
     public event Action InteractPressed;
 
     private void Awake()
