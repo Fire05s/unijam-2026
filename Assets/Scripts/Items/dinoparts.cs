@@ -2,6 +2,7 @@ struct DinosaurPart
 {
     BodyPartType type;
     List<Stat> stats;
+    WildCard wildcard;
 }
 
 struct Stat
@@ -39,4 +40,8 @@ struct Stat
 enum StatType
 {
     Attack,Speed,Health,CritRate,CritDamage
+}
+enum WildCard
+{
+    Multihit, Bleed, Doublehit, Ravenousbite, Luckystreak, Bloodlust, Dodge, Scavenger, Packtreats, Packmentality
 }
