@@ -22,15 +22,7 @@ public class PlayerInventory : MonoBehaviour
 
     public void AddBodyPart(BodyPartSO part)
     {
-        // Sort by highest attack
-        int index = _bodyParts.FindIndex(
-            existing => existing.BonusStats.Attack < part.BonusStats.Attack
-        );
-
-        if (index == -1)
-            _bodyParts.Add(part); // Lowest stat, put at end
-        else
-            _bodyParts.Insert(index, part);
+        _bodyParts.Add(part);
     }
 
     public void RemoveBodyPart(BodyPartSO part)
