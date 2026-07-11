@@ -25,6 +25,7 @@ public struct StatParameters
     public StatType Type;
     public float MinValue;
     public float MaxValue;
+    [Range(0f, 1f)]
     public float AppearanceChance;
 }
 

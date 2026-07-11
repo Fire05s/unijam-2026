@@ -26,7 +26,7 @@ public class DinosaurData
 
         DinosaurPart newPart = new DinosaurPart(bodyPart);
         _bodyParts[bodyPart.PartType] = newPart;
-        // _stats += bodyPart.BonusStats;
+        _stats.Add(newPart.Stats);
     }
 
     /// <summary>
