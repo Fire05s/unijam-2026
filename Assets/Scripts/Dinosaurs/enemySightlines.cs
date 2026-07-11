@@ -2,8 +2,15 @@ using UnityEngine;
 
 public class enemySightlines : MonoBehaviour
 {
+    [Header("Sightline")]
     public Transform sightLineOrigin;
     public float sightLineDirection;
+    [Header("Scene Transition")]
+    public GameObject transitionObject;
+    public string battleScene;
+    public float transitionDuration;
+
+
     private LineRenderer laserLine;
     private bool hasLineOfSight;
     private GameObject player;
@@ -28,13 +35,23 @@ public class enemySightlines : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(sightLineOrigin.transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, layerMask))
         {
-            Debug.DrawRay(sightLineOrigin.transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
-            Debug.Log("Did Hit");
+            if(hit.collider.CompareTag("Player"))
+            {
+                Debug.DrawRay(sightLineOrigin.transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
+                Debug.Log("Hit player");
+                transitionObject.GetComponent<screenTransition>().FadeAndLoad(battleScene, transitionDuration);
+            }
+            else
+            {
+                Debug.DrawRay(sightLineOrigin.transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.red);
+                Debug.Log("Did not hit player");
+            }
+            
         }
         else
         {
             Debug.DrawRay(sightLineOrigin.transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.white);
-            Debug.Log("Did not Hit");
+            Debug.Log("Hit nothing");
         }
     }
 }
