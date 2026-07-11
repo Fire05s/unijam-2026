@@ -6,6 +6,10 @@ using System.Collections.Generic;
 public class BodyPartSO : ScriptableObject
 {
     [field: SerializeField]
+    public string Name { get; private set; }
+    [field: SerializeField]
+    public Rarity Rarity { get; private set; }
+    [field: SerializeField]
     public BodyPartType PartType { get; private set; }
     [field: SerializeField]
     public GameObject Model {  get; private set; }
@@ -27,4 +31,9 @@ public struct StatParameters
 public enum BodyPartType
 {
     Head, Arms, Legs
+}
+
+public enum Rarity
+{
+    Normal, Fossil
 }
