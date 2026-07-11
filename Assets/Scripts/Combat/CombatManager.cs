@@ -1,5 +1,8 @@
 using System.Collections.Generic;
+using System.Collections;
+using System;
 using UnityEngine;
+using BeardedPlatypus.Collections.Generic;
 
 /// <summary>
 /// Based on the given creatures, order them, and allow them to take their turns.
@@ -25,6 +28,19 @@ public class CombatManager : MonoBehaviour
         Setup();
     }
 
+    void Start()
+    {
+        Dinosaurs.append(new BattleEntity(EntitySide.Player, sp=8));
+        Dinosaurs.append(new BattleEntity(EntitySide.Enemy, sp=8));
+        Dinosaurs.append(new BattleEntity(EntitySide.Enemy, sp=7));
+        Dinosaurs.append(new BattleEntity(EntitySide.Enemy, sp=4));
+        Dinosaurs.append(new BattleEntity(EntitySide.Player, sp=2));
+        Dinosaurs.append(new BattleEntity(EntitySide.Player, sp=1));
+
+        BuildInitialQueue();
+        
+        Debug.Log(MoveOrderQueue);
+    }
     void Setup()
     {
         turnNumber = 0;
@@ -101,7 +117,7 @@ public class CombatManager : MonoBehaviour
         canSelectDinosaurs = true;
         while(selectedDinosaur==-1)
         {
-            //do nothing while waiting for UI response
+            //some logic here- to be decided
         }
         canSelectDinosaurs = false;
 

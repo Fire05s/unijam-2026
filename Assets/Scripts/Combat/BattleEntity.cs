@@ -6,7 +6,16 @@ public class BattleEntity
     /// <summary>
     /// Create a new Battle Entity
     /// </summary>
-    public BattleEntity() {}
+    public BattleEntity(EntitySide s, float hp=10, float sp=1, float atk=2, float cc=0, WildCard w=WildCard.None)
+    {
+        side = s;
+        maxHealth = hp;
+        health = maxHealth;
+        speed = sp;
+        attack = atl;
+        crit = cc;
+        wild = w;
+    }
     public EntitySide side;
     private float maxHealth;
     private float health;
