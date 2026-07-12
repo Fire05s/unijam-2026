@@ -9,9 +9,17 @@ public class FieldTiller
 
     int playerNum;
     int enemyNum;
+
+    int selectedEnemy;
     FieldTiller(int initialPlayerNum, int initialEnemyNum)
     {
         playerNum = initialPlayerNum;
         enemyNum = initialEnemyNum;
+        selectedEnemy = 0;
+    }
+
+    void UpdateField(int remainingEnemies, int remainingPlayers)
+    {
+        
     }
 }
