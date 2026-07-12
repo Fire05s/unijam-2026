@@ -11,14 +11,12 @@ public class enemySightlines : MonoBehaviour
     public float transitionDuration;
 
 
-    private LineRenderer laserLine;
     private bool hasLineOfSight;
     private GameObject player;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        laserLine = GetComponent<LineRenderer>();
     }
     LayerMask layerMask;
     void Awake()
