@@ -20,7 +20,7 @@ public class BattleEntity
     private float health;
     private float speed;
     private float attack;
-    private float crit;
+    private float crit; 
     private WildCard wild;
 
     public int GetSpeed() {return (int)speed;}

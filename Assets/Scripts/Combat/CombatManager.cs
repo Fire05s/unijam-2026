@@ -17,22 +17,29 @@ public class CombatManager : MonoBehaviour
     public event IntDelegate TurnAdvanced;
 
     //Dinosaur Storage
-    private List<BattleEntity> Dinosaurs =  new List<BattleEntity>();
-    private int numPlayerDinosaurs;
-    private int numEnemyDinosaurs;
+    [SerializeField] private List<BattleEntity> Dinosaurs =  new List<BattleEntity>();
+    public int numPlayerDinosaurs;
+    public int numEnemyDinosaurs;
+    [SerializeField] public int remainingPlayerDinosaurs;
+    [SerializeField] public int remainingEnemyDinosaurs;
+    public List<int> PlayerDinosaurIndicies = new List<int>();
+    public List<int> EnemyDinosaurIndicies = new List<int>();
+
+    //Delay floats (for animations and pacing)
+    [SerializeField] private float EmptyTurnDelay;
+    [SerializeField] private float AttackDelay;
+    [SerializeField] private float InterTurnDelay;
 
     //Turn Combat Data
-    [SerializeField] private int turnNumber;
+    [SerializeField] private int currentTurnNumber;
     [SerializeField] private List<int> NonEmptyTurns = new List<int>();
     [SerializeField] private PriorityQueue<int, int> MoveOrderQueue = new PriorityQueue<int, int>();
 
     //Miscellaneous Values
     [SerializeField] public int currentActingNum;
-    public bool canSelectDinosaur;
-    [SerializeField] public int selectedDinosaur;
-    private enum TurnPhase {Calculations, SelectTarget, Attack, None}
-    [SerializeField] private TurnPhase state;
-    [SerializeField] private bool awaitNext;
+    [SerializeField] public int targetedDinosaur;
+    public enum TurnPhase {None, EmptyCheck, AwaitSelect, SelectPhase, AwaitAttack, Attack, AwaitEnd, EndPhase, Victory, Lose}
+    [SerializeField] public TurnPhase state;
 
     void Awake()
     {
@@ -40,23 +47,23 @@ public class CombatManager : MonoBehaviour
         else { Destroy(gameObject); }
 
         Setup();
+
+        Dinosaurs.Add(new BattleEntity(EntitySide.Player, sp: 8, atk:10,cc:25));
+        Dinosaurs.Add(new BattleEntity(EntitySide.Player, sp: 8));
+        Dinosaurs.Add(new BattleEntity(EntitySide.Enemy, sp: 8,cc:90));
+        Dinosaurs.Add(new BattleEntity(EntitySide.Player, sp: 8));
+        Dinosaurs.Add(new BattleEntity(EntitySide.Enemy, sp: 7,atk:5));
+        Dinosaurs.Add(new BattleEntity(EntitySide.Enemy, sp: 4));
+        Dinosaurs.Add(new BattleEntity(EntitySide.Player, sp: 4,atk:1));
+        Dinosaurs.Add(new BattleEntity(EntitySide.Player, sp: 4,atk:5,cc:50));
+        Dinosaurs.Add(new BattleEntity(EntitySide.Enemy, sp: 2,cc:20));
+        Dinosaurs.Add(new BattleEntity(EntitySide.Enemy, sp: 1));
+
+        BuildInitialQueue();
     }
     void Start()
     {
-        Dinosaurs.Add(new BattleEntity(EntitySide.Player, sp: 8));
-        Dinosaurs.Add(new BattleEntity(EntitySide.Player, sp: 8));
-        Dinosaurs.Add(new BattleEntity(EntitySide.Enemy, sp: 8));
-        Dinosaurs.Add(new BattleEntity(EntitySide.Player, sp: 8));
-        Dinosaurs.Add(new BattleEntity(EntitySide.Enemy, sp: 7));
-        Dinosaurs.Add(new BattleEntity(EntitySide.Enemy, sp: 4));
-        Dinosaurs.Add(new BattleEntity(EntitySide.Player, sp: 4));
-        Dinosaurs.Add(new BattleEntity(EntitySide.Player, sp: 4));
-        Dinosaurs.Add(new BattleEntity(EntitySide.Player, sp: 2));
-        Dinosaurs.Add(new BattleEntity(EntitySide.Player, sp: 1));
-
-        BuildInitialQueue();
-
-        TurnAdvanced?.Invoke(turnNumber);
+        TurnAdvanced?.Invoke(currentTurnNumber);
         
         // Debug.Log("Queue:");
         // for(int i=0; i<10; i++)
@@ -64,15 +71,12 @@ public class CombatManager : MonoBehaviour
         //     int dino = PopFromQueue(i);
         //     Debug.Log($"Side: {Dinosaurs[dino].side} | Speed: {Dinosaurs[dino].GetSpeed()}");
         // }
-
-        state = TurnPhase.None;
-        awaitNext = true;
     }
     void Setup()
     {
-        turnNumber = 0;
-        canSelectDinosaur = false;
-        selectedDinosaur = -1;
+        currentTurnNumber = 0;
+        targetedDinosaur = -1;
+        state = TurnPhase.None;
     }
     void BuildInitialQueue()
     {
@@ -120,80 +124,49 @@ public class CombatManager : MonoBehaviour
 
             //Repeat
         }
+
+        for(int i=0; i<Dinosaurs.Count; i++)
+        {
+            BattleEntity dinosaur = Dinosaurs[i];
+            if (dinosaur.side == EntitySide.Player) {
+                numPlayerDinosaurs++;
+                PlayerDinosaurIndicies.Add(i);
+            }
+            else {
+                numEnemyDinosaurs++;
+                EnemyDinosaurIndicies.Add(i);
+            }
+            remainingPlayerDinosaurs = numPlayerDinosaurs;
+            remainingEnemyDinosaurs = numEnemyDinosaurs;
+        }
     }
     void Update()
     {
-        //Main driver of Turn Logic
-        if (!awaitNext && state==TurnPhase.SelectTarget && canSelectDinosaur && selectedDinosaur!=-1)
+        if (state == TurnPhase.None)
         {
-            canSelectDinosaur = false;
-            awaitNext = true;
+            state = TurnPhase.EmptyCheck;
+            HandleEmptyTurnChecks();
         }
-        if (!awaitNext) {return;}
-
-        if (state==TurnPhase.None)
+        else if (state == TurnPhase.AwaitSelect)
         {
-            Debug.Log("Entered Calculations Phase.");
-            //If slot is empty or the dinosaur in the slot is dead, skip
-            state = TurnPhase.Calculations;
-            if (!NonEmptyTurns.Contains(turnNumber))
-            {
-                Debug.Log("not in nonemptyturns");
-                Debug.Log(NonEmptyTurns);
-                EmptyTurn();
-                return;
-            } 
-            
-            currentActingNum = PopFromQueue(turnNumber);
-            if (!Dinosaurs[currentActingNum].IsAlive())
-            {
-                Debug.Log("dinosaur already dead");
-                EmptyTurn();
-                return;
-            } 
+            state = TurnPhase.SelectPhase;
+            HandleTargetSelection();
         }
-        else if (state==TurnPhase.Calculations)
+        else if (state == TurnPhase.SelectPhase && targetedDinosaur!=-1)
         {
-            Debug.Log("Select Target Phase");
-            state = TurnPhase.SelectTarget;
-            awaitNext = false;
-            if (Dinosaurs[currentActingNum].side == EntitySide.Enemy)
-            {
-                selectedDinosaur = UnityEngine.Random.Range(0, numPlayerDinosaurs);
-            } else
-            {
-                canSelectDinosaur = true;
-            }
+            state = TurnPhase.AwaitAttack;
         }
-        else if (state==TurnPhase.SelectTarget)
+        else if (state == TurnPhase.AwaitAttack)
         {
-            Debug.Log("Attack Phase");
             state = TurnPhase.Attack;
-            StartCoroutine(Delay(3f));
-            (float,bool) result = Dinosaurs[currentActingNum].CalculateDamage();
-            Dinosaurs[selectedDinosaur].DealDamage(result.Item1);
-            HandleWildCard(Dinosaurs[selectedDinosaur].GetWildCard());
-            AddToQueue(Dinosaurs[currentActingNum].NextTurn(turnNumber), currentActingNum);
-            selectedDinosaur = -1;
+            StartCoroutine(HandleAttack());
         }
-        else if (state==TurnPhase.Attack)
+        else if (state == TurnPhase.AwaitEnd)
         {
-            Debug.Log("End of Turn Phase");
-            state = TurnPhase.None;
-            turnNumber++;
-            currentActingNum = -1;
-            TurnAdvanced?.Invoke(turnNumber);
+            StartCoroutine(HandleEndTurn());
         }
     }
-    void EmptyTurn()
-    {
-        Debug.Log("Empty Turn");
-        StartCoroutine(Delay(2f));
-        ApplyDoT();
-        turnNumber++;
-        state = TurnPhase.None;
-        TurnAdvanced?.Invoke(turnNumber);
-    }
+    
     int PopFromQueue(int turn)
     {
         int dinoNum = MoveOrderQueue.Dequeue();
@@ -214,10 +187,89 @@ public class CombatManager : MonoBehaviour
     {
         //toDo
     }
-    IEnumerator Delay(float delayLen) {awaitNext=false; yield return new WaitForSeconds(delayLen); awaitNext=true;}
     void HandleWildCard(WildCard card)
     {
         //todo
     }
-    
+    void HandleEmptyTurnChecks()
+    {
+        // If the current turn number is not in the list, the slot must be empty
+        if (!NonEmptyTurns.Contains(currentTurnNumber))
+        {
+            Debug.Log("not in nonemptyturns");
+            StartCoroutine(EmptyTurn());
+            return;
+        } 
+        // If the current acting dinosaur is already dead, the slot must be empty
+        // The dead dinosaur is not readded to the queue
+        currentActingNum = PopFromQueue(currentTurnNumber);
+        if (!Dinosaurs[currentActingNum].IsAlive())
+        {
+            Debug.Log("dinosaur already dead");
+            StartCoroutine(EmptyTurn());
+            return;
+        }
+        state = TurnPhase.AwaitSelect;
+    }
+    IEnumerator EmptyTurn()
+    {
+        ApplyDoT();
+        yield return new WaitForSeconds(EmptyTurnDelay);
+        state = TurnPhase.AwaitEnd;
+    }
+    void HandleTargetSelection()
+    {
+        if (Dinosaurs[currentActingNum].side == EntitySide.Enemy)
+        {
+            Debug.Log("Random target");
+            targetedDinosaur = PlayerDinosaurIndicies[UnityEngine.Random.Range(0, numPlayerDinosaurs)];
+        }
+    }
+    IEnumerator HandleAttack()
+    {
+        (float,bool) result = Dinosaurs[currentActingNum].CalculateDamage();
+        Dinosaurs[targetedDinosaur].DealDamage(result.Item1);
+        Debug.Log($"{currentActingNum} dealt {result.Item1} damage to {targetedDinosaur}.");
+        if (!Dinosaurs[targetedDinosaur].IsAlive())
+        {
+            Debug.Log($"{targetedDinosaur} ran out of HP and died.");
+            if (Dinosaurs[targetedDinosaur].side == EntitySide.Player)
+            {
+                remainingPlayerDinosaurs--;
+                PlayerDinosaurIndicies.Remove(targetedDinosaur);
+            }
+            else
+            {
+                remainingEnemyDinosaurs--;
+                EnemyDinosaurIndicies.Remove(targetedDinosaur);
+            }
+        }
+        HandleWildCard(Dinosaurs[targetedDinosaur].GetWildCard());
+        yield return new WaitForSeconds(AttackDelay);
+        Debug.Log($"{currentActingNum} with speed of {Dinosaurs[currentActingNum].GetSpeed()} will move on or after turn {Dinosaurs[currentActingNum].NextTurn(currentTurnNumber)}");
+        AddToQueue(Dinosaurs[currentActingNum].NextTurn(currentTurnNumber), currentActingNum);
+        targetedDinosaur = -1;
+        state = TurnPhase.AwaitEnd;
+    }
+    IEnumerator HandleEndTurn()
+    {
+        state = TurnPhase.EndPhase;
+        if (remainingEnemyDinosaurs<=0)
+        {
+            state = TurnPhase.Victory;
+            //handle win
+        }
+        else if (remainingPlayerDinosaurs<=0)
+        {
+            state = TurnPhase.Lose;
+            //handle loss
+        }
+        else {
+            yield return new WaitForSeconds(InterTurnDelay);
+            state = TurnPhase.None;
+            currentTurnNumber++;
+            currentActingNum = -1;
+            TurnAdvanced?.Invoke(currentTurnNumber);
+        }
+    }
 }

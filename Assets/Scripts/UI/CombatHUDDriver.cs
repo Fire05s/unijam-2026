@@ -11,17 +11,16 @@ public class CombatHUDDriver : MonoBehaviour
     void Start()
     {
         CombatManager.Instance.TurnAdvanced += UpdateUI;
+        CombatManager.Instance.TurnAdvanced += UpdateField;
     }
     public void UpdateUI(int turn)
     {
         currentTurn.Next(turn);
         nextTurn.Next(turn + 1);
     }
-    void Update()
+    public void UpdateField(int turn)
     {
-        if (!CombatManager.Instance.canSelectDinosaur) {return;}
-
-
-
+        
     }
+    
 }

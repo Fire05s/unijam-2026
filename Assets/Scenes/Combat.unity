@@ -1639,8 +1639,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7f28ea61cb8dd54081583830dbd27db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canSelectDinosaur: 0
-  selectedDinosaur: 0
+  numPlayerDinosaurs: 0
+  numEnemyDinosaurs: 0
+  remainingPlayerDinosaurs: 0
+  remainingEnemyDinosaurs: 0
+  PlayerDinosaurIndicies: 
+  EnemyDinosaurIndicies: 
+  EmptyTurnDelay: 1
+  AttackDelay: 1
+  InterTurnDelay: 1
+  currentTurnNumber: 0
+  NonEmptyTurns: 
+  currentActingNum: 0
+  targetedDinosaur: 0
+  state: 0
 --- !u!4 &1445563437
 Transform:
   m_ObjectHideFlags: 0
@@ -1670,6 +1682,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentTurn: {fileID: 1785225772185910837}
   nextTurn: {fileID: 2010282324}
+  playerSide: {fileID: 1294586407}
+  enemySide: {fileID: 517816085}
 --- !u!1 &1475365590
 GameObject:
   m_ObjectHideFlags: 0
@@ -2007,6 +2021,7 @@ GameObject:
   - component: {fileID: 1864725818}
   - component: {fileID: 1864725817}
   - component: {fileID: 1864725820}
+  - component: {fileID: 1864725821}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2081,13 +2096,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1864725816}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.16519341, y: 0.40349087, z: -0.09878402, w: 0.89451}
-  m_LocalPosition: {x: -8.032, y: 4.833, z: -12.484}
+  m_LocalRotation: {x: 0.17358425, y: 0.282925, z: -0.036158413, w: 0.9426105}
+  m_LocalPosition: {x: -4.76, y: 4.51, z: -14.38}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 22.04, y: 48.035, z: -2.685}
+  m_LocalEulerAnglesHint: {x: 20.347, y: 33.744, z: 1.837}
 --- !u!114 &1864725820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2132,6 +2147,105 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!114 &1864725821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1864725816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2c42f6e9905d3e43a54961cbd8276d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _left:
+    m_Name: Left
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 30b4e8b6-f189-4600-ab70-06cd447c4cbc
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: a97d67d6-5c5e-4001-9101-513d0c100c81
+      m_Path: <Keyboard>/a
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Left
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 9e97ed7d-71f8-4365-be2d-87f0c7c59435
+      m_Path: <Keyboard>/leftArrow
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Left
+      m_Flags: 0
+    m_Flags: 0
+  _right:
+    m_Name: Right
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 7e8b6520-e979-4964-a43a-e5e15214ca03
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: dd183070-08fe-4eb4-ab31-3764fb6e4839
+      m_Path: <Keyboard>/d
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Right
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 7f4077b2-21e6-4487-bf3c-d2845d42d693
+      m_Path: <Keyboard>/rightArrow
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Right
+      m_Flags: 0
+    m_Flags: 0
+  _select:
+    m_Name: Select
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 5cc6ff87-67d9-404b-a0a4-11bd228e5f3b
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: e789e4d3-1112-4172-b1bd-863917aafbbc
+      m_Path: <Keyboard>/e
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Select
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 2ffe969c-eb46-4ee3-a46e-70c63bf4266b
+      m_Path: <Keyboard>/space
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Select
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 0fbae728-dd9d-4254-b070-f148419c83f0
+      m_Path: <Keyboard>/enter
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Select
+      m_Flags: 0
+    m_Flags: 0
+  NormalCameraPosition: {x: -4.76, y: 4.51, z: -14.38}
+  NormalCameraRotation: {x: 20.347, y: 33.744, z: 1.837}
+  SelectCameraPosition: {x: -7.47, y: 2.86, z: -7.16}
+  SelectCameraRotation: {x: 16.041, y: 73.148, z: -0.748}
 --- !u!1 &1931915977
 GameObject:
   m_ObjectHideFlags: 0
