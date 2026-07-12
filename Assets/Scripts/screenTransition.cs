@@ -36,7 +36,7 @@ public class screenTransition : MonoBehaviour
         while (t < 1)
         {
             t += Time.deltaTime;
-            c.a = 1f / (t - 1f);
+            c.a = 1f - (t / 1f);
             faderImage.color = c;
             yield return null;
         }
