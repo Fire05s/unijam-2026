@@ -4,11 +4,30 @@ using UnityEngine;
 
 public class PlayerInventory : MonoBehaviour
 {
-    private List<DinosaurData> _creatures;
-    private List<BodyPartSO> _bodyParts;
+    [Header("Debug")]
+    [SerializeField] private List<BodyPartSO> _initialParts;
+    public static PlayerInventory Instance { get; private set; }
+    private List<DinosaurData> _creatures = new();
+    private List<DinosaurPart> _bodyParts = new();
 
     public IReadOnlyList<DinosaurData> Creatures => _creatures;
-    public IReadOnlyList<BodyPartSO> BodyParts => _bodyParts;
+    public IReadOnlyList<DinosaurPart> BodyParts => _bodyParts;
+
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+
+        // DEBUG
+        foreach (var partData in _initialParts)
+        {
+            AddBodyPart(new DinosaurPart(partData));
+        }
+    }
 
     public void AddCreature(DinosaurData creature)
     {
@@ -20,12 +39,12 @@ public class PlayerInventory : MonoBehaviour
         _creatures.Remove(creature);
     }
 
-    public void AddBodyPart(BodyPartSO part)
+    public void AddBodyPart(DinosaurPart part)
     {
         _bodyParts.Add(part);
     }
 
-    public void RemoveBodyPart(BodyPartSO part)
+    public void RemoveBodyPart(DinosaurPart part)
     {
         _bodyParts.Remove(part);
     }
