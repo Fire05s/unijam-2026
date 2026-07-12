@@ -50,7 +50,7 @@ public class BattleEntity
     }
     public int NextTurn(int currentTurn)
     {
-        return currentTurn += 11 - speed;
+        return currentTurn += 11 - (int)speed;
     }
 
 }
