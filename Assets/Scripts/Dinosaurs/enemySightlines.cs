@@ -23,7 +23,7 @@ public class enemySightlines : MonoBehaviour
     LayerMask layerMask;
     void Awake()
     {
-        layerMask = LayerMask.GetMask("Wall", "Character");
+        layerMask = LayerMask.GetMask("Wall", "Default");
     }
     // Update is called once per frame
     void Update()
@@ -44,7 +44,8 @@ public class enemySightlines : MonoBehaviour
             else
             {
                 Debug.DrawRay(sightLineOrigin.transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.red);
-                Debug.Log("Did not hit player");
+                Debug.Log("Did not hit player, hit object with tag " + hit.transform.gameObject.tag.ToString());
+                Debug.Log(hit.collider.CompareTag("Player"));
             }
             
         }
