@@ -34,7 +34,7 @@ public class DinosaurPart
                 Stat newStat = new Stat
                 {
                     Type = stat.Type,
-                    Value = Random.Range(stat.MinValue, stat.MaxValue)
+                    Value = (int)Random.Range(stat.MinValue, stat.MaxValue) // floors the value
                 };
                 Stats.Add(newStat);
             }

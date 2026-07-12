@@ -7,7 +7,7 @@ using UnityEngine;
 /// </summary>
 public class DinosaurData
 {
-    private CreatureStats _stats;
+    private CreatureStats _stats = new();
     private Dictionary<BodyPartType, DinosaurPart> _bodyParts = new();
 
     // TODO: create a list of abilities obtained from body parts
@@ -16,17 +16,16 @@ public class DinosaurData
     /// Applies the body part and its stats
     /// </summary>
     /// <param name="bodyPart"></param>
-    public void ApplyBodyPart(BodyPartSO bodyPart)
+    public void ApplyBodyPart(DinosaurPart dinoPart)
     {
         // remove existing body part
-        if (_bodyParts.TryGetValue(bodyPart.PartType, out DinosaurPart part))
+        if (_bodyParts.TryGetValue(dinoPart.Type, out DinosaurPart part))
         {
            _stats.Subtract(part.Stats);
         }
 
-        DinosaurPart newPart = new DinosaurPart(bodyPart);
-        _bodyParts[bodyPart.PartType] = newPart;
-        _stats.Add(newPart.Stats);
+        _bodyParts[dinoPart.Type] = dinoPart;
+        _stats.Add(dinoPart.Stats);
     }
 
     /// <summary>

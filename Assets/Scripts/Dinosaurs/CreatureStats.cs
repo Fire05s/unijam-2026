@@ -1,9 +1,11 @@
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 
 public class CreatureStats
 {
-    private Dictionary<StatType, float> _statValues;
+    private Dictionary<StatType, float> _statValues = new();
     public float Get(StatType stat)
     {
         return _statValues.GetValueOrDefault(stat);
@@ -28,7 +30,7 @@ public class CreatureStats
     {
         foreach (Stat stat in stats)
         {
-            _statValues[stat.Type] += stat.Value;
+            _statValues[stat.Type] = Get(stat.Type) + stat.Value;
         }
     }
 
@@ -36,6 +38,7 @@ public class CreatureStats
     {
         foreach (Stat stat in stats)
         {
+            if (Get(stat.Type) == 0) continue;
             _statValues[stat.Type] -= stat.Value;
         }
     }
@@ -46,6 +49,7 @@ public enum StatType
     Health, Attack, Speed, CritChance
 }
 
+[Serializable]
 public struct Stat
 {
     public StatType Type;
