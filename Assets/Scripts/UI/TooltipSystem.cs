@@ -36,6 +36,7 @@ public class TooltipSystem : MonoBehaviour
         {
             content += $"{stat.Type.ToString()}: {stat.Value}\n";
         }
+        if (part.Wildcard != null) content += $"{part.Wildcard.Name}: {part.Wildcard.Description}";
         Instance.Tooltip.SetText(content, header);
         Instance.Tooltip.gameObject.SetActive(true);
     }

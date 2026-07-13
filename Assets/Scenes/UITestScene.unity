@@ -4296,7 +4296,7 @@ MonoBehaviour:
   _contentField: {fileID: 368002327}
   _layoutElement: {fileID: 1136988172}
   _rectTransform: {fileID: 1136988171}
-  _characterWrapLimit: 80
+  _characterWrapLimit: 20
 --- !u!1 &1165755644
 GameObject:
   m_ObjectHideFlags: 0

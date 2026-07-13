@@ -5,7 +5,7 @@ public class DinosaurPart
     public Rarity Rarity;
     public BodyPartType Type;
     public List<Stat> Stats = new List<Stat>();
-    public WildCard Wildcard;
+    public WildCardSO Wildcard;
     public BodyPartSO Reference;
 
     public DinosaurPart(BodyPartSO partRef)
