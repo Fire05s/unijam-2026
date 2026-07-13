@@ -4918,6 +4918,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3447da29275ac5c4ab9bb04f985d78d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _baseStats: {fileID: 11400000, guid: 7c0542bcad977394091feec2d9ff8a0d, type: 2}
   _testParts: []
 --- !u!4 &1416009998
 Transform:
@@ -6669,7 +6670,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1719691233}
   m_HandleRect: {fileID: 1719691232}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 1
   m_OnValueChanged:

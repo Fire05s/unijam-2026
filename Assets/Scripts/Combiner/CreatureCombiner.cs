@@ -7,6 +7,8 @@ using System;
 
 public class CreatureCombiner : MonoBehaviour
 {
+    [Header("Base Player Dino Stats")]
+    [SerializeField] private BaseStatsSO _baseStats;
     [Header("Slots")]
     [SerializeField] private Dictionary<BodyPartType, DinosaurPart> _partSlots = new();
 
@@ -86,12 +88,13 @@ public class CreatureCombiner : MonoBehaviour
 
     private void GenerateDinosaur()
     {
-        if (_displayDinosaur == null) _displayDinosaur = new DinosaurData();
+        if (_displayDinosaur == null) _displayDinosaur = new DinosaurData(_baseStats);
 
         _displayDinosaur.ClearBodyParts();
 
         foreach (var part in _partSlots.Values)
         {
+            if (part == null) { continue; }
             _displayDinosaur.ApplyBodyPart(part);
         }
 
