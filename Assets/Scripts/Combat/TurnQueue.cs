@@ -15,7 +15,7 @@ public class TurnQueue {
 
     public int Enqueue(int desiredTurn, int id, List<WildCard> wildcards) {
         int finalTurn = desiredTurn;
-        while (_queue.TryGetValue(desiredTurn, out TurnData value)) {
+        while (_queue.TryGetValue(finalTurn, out TurnData value)) {
             finalTurn++;
         }
 
