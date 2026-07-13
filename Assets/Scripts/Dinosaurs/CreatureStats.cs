@@ -55,8 +55,4 @@ public struct Stat
     public StatType Type;
     public float Value;
 }
-public enum WildCard
-{
-    None, Multihit, Bleed, Doublehit, Ravenousbite, Luckystreak, Bloodlust, Dodge, Scavenger, Packtreats, Packmentality
-}
 

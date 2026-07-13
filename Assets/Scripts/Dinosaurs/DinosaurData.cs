@@ -55,15 +55,17 @@ public class DinosaurData
     public void ApplyBodyPart(DinosaurPart dinoPart)
     {
         // remove existing body part
-        if (_bodyParts.TryGetValue(dinoPart.Type, out DinosaurPart part))
+        if (_bodyParts.TryGetValue(dinoPart.Type, out DinosaurPart existing))
         {
-            _stats.Subtract(part.Stats);
-            _wildcardAbilities.Remove(dinoPart.Wildcard);
+            _stats.Subtract(existing.Stats);
+            if (existing.Wildcard != null)
+                _wildcardAbilities.Remove(existing.Wildcard.WildType);
         }
 
         _bodyParts[dinoPart.Type] = dinoPart;
         _stats.Add(dinoPart.Stats);
-        _wildcardAbilities.Add(dinoPart.Wildcard);
+        if (dinoPart.Wildcard != null)
+            _wildcardAbilities.Add(dinoPart.Wildcard.WildType);
     }
 
     /// <summary>
