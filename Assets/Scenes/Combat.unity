@@ -156,6 +156,9 @@ MonoBehaviour:
   RemainingEnemyDinosaurs: 
   currentTurnNumber: 0
   NonEmptyTurns: 
+  state: 0
+  currentActingNum: 0
+  targetedDinosaur: 0
 --- !u!4 &29185617
 Transform:
   m_ObjectHideFlags: 0
