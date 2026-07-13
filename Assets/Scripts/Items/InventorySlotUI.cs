@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class InventorySlotUI : MonoBehaviour, IPointerClickHandler, IDeselectHandler
+public class InventorySlotUI : MonoBehaviour, IPointerClickHandler, IDeselectHandler, IPointerEnterHandler, IPointerExitHandler
 {
     private TextMeshProUGUI _nameText;
     private DinosaurPart _heldItem;
@@ -48,5 +48,15 @@ public class InventorySlotUI : MonoBehaviour, IPointerClickHandler, IDeselectHan
     public void OnPointerClick(PointerEventData eventData)
     {
         CreatureCombiner.Instance?.SelectPart(_heldItem);
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        TooltipSystem.ShowPart(_heldItem);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        TooltipSystem.Hide();
     }
 }

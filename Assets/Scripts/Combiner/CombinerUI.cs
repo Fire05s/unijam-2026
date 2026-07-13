@@ -13,6 +13,10 @@ public class CombinerUI : MonoBehaviour
     private void OnEnable()
     {
         CreatureCombiner.Instance.DisplayUpdate += OnDisplayUpdate;
+    }
+
+    private void Start()
+    {
         OnDisplayUpdate();
     }
 

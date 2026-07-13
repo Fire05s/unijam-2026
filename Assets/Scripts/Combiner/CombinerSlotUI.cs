@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class CombinerSlotUI : MonoBehaviour, IPointerClickHandler, IDeselectHandler
+public class CombinerSlotUI : MonoBehaviour, IPointerClickHandler, IDeselectHandler, IPointerEnterHandler, IPointerExitHandler
 {
     [Header("Settings")]
     [SerializeField] private BodyPartType _slotType;
@@ -72,5 +72,15 @@ public class CombinerSlotUI : MonoBehaviour, IPointerClickHandler, IDeselectHand
         {
             _slotBg.color = _defaultColor;
         }
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if (_heldPart != null) TooltipSystem.ShowPart(_heldPart);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        TooltipSystem.Hide();
     }
 }
