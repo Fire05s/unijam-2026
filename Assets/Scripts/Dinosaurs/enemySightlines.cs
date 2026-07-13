@@ -32,24 +32,24 @@ public class enemySightlines : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(sightLineOrigin.transform.position, transform.TransformDirection(Vector3.forward), out hit, sightLineDistance, layerMask))
         {
-            if(hit.collider.CompareTag("Player"))
+            if(hit.transform.gameObject.CompareTag("Player"))
             {
                 Debug.DrawRay(sightLineOrigin.transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
-                Debug.Log("Hit player");
+                //Debug.Log("Hit player");
                 //I added in a fading transition from a tutorial which is what this goes to. Should be easy to replace if something else is needed for the transition or scene change.
                 transitionObject.GetComponent<screenTransition>().FadeAndLoad(battleScene, transitionDuration);
             }
             else
             {
                 Debug.DrawRay(sightLineOrigin.transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.red);
-                Debug.Log("Did not hit player, hit object with tag " + hit.transform.gameObject.tag.ToString());
+                //Debug.Log("Did not hit player, hit object with tag " + hit.transform.gameObject.tag.ToString());
             }
             
         }
         else
         {
             Debug.DrawRay(sightLineOrigin.transform.position, transform.TransformDirection(Vector3.forward) * sightLineDistance, Color.white);
-            Debug.Log("Hit nothing");
+            //Debug.Log("Hit nothing");
         }
     }
 }
