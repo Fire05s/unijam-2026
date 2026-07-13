@@ -12,7 +12,41 @@ public class DinosaurData
     private Dictionary<BodyPartType, DinosaurPart> _bodyParts = new();
     private List<WildCard> _wildcardAbilities= new();
 
-    // TODO: create a list of abilities obtained from body parts
+    public DinosaurData(BaseStatsSO baseStats) {
+        _baseStats = baseStats;
+        ApplyBaseStats();
+    }
+
+    public DinosaurData(BaseStatsSO baseStats, List<BodyPartSO> bodyParts) {
+        _baseStats = baseStats;
+        ApplyBaseStats();
+        foreach (BodyPartSO part in bodyParts)
+        {
+            ApplyBodyPart(new DinosaurPart(part));
+        }
+    }
+
+    /// <summary>
+    /// Generatees and applies the base stats for this dino
+    /// </summary>
+    /// <param name="baseStats"> Receives the base stats scriptable object for this dino </param>
+    public void ApplyBaseStats() {
+        if (_baseStats == null)
+        {
+            Debug.LogWarning("Can't generate base stats bc baseStats is null");
+            return;
+        }
+
+        foreach (var stat in _baseStats.Stats)
+        {
+            float rolledChance = Random.Range(0f,1f);
+            if (rolledChance <= stat.AppearanceChance)
+            {
+                int value = (int)Random.Range(stat.MinValue, stat.MaxValue); // floors the value
+                _stats.Add(stat.Type, value);
+            }
+        }
+    }
 
     /// <summary>
     /// Applies the body part and its stats
