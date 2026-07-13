@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections.Generic;
 
 public class PlayerInteract : MonoBehaviour
 {
@@ -7,13 +8,49 @@ public class PlayerInteract : MonoBehaviour
     [Header("InteractSightline")]
     public Transform sightLineOrigin;
     public float sightLineDistance;
+    [Header("Fossil Parts")]
+    [SerializeField] private List<BodyPartSO> inventoryList;
 
+    public static PlayerInventory Instance { get; private set; }
+    private List<DinosaurPart> partsList = new();
+
+    public IReadOnlyList<DinosaurPart> BodyParts => partsList;
+
+    private PlayerInventory playerInventory;
     private LayerMask layerMask;
     private GameObject previousObject;
 
     void Awake()
     {
         layerMask = LayerMask.GetMask("Wall", "Interactables");
+
+        foreach (var partData in inventoryList)
+        {
+            partsList.Add(new DinosaurPart(partData));
+        }
+    }
+
+    private void Start()
+    {
+        Debug.Log(inventoryList.Count);
+        Debug.Log(partsList.Count);
+        playerInventory = GameObject.Find("Inventory").GetComponent<PlayerInventory>();
+        Debug.Log(playerInventory);
+        List<DinosaurPart> playerPartsInventory = playerInventory.GetBodyParts();
+        for(int i = 0; i < playerPartsInventory.Count; i++)
+        {
+            Debug.Log(playerPartsInventory[i].Reference + " " + partsList.Count);
+            for(int j = 0; j < partsList.Count; j++)
+            {
+                Debug.Log("Checking " + playerPartsInventory[i].Reference + " and " + partsList[j].Reference);
+                if(playerPartsInventory[i].Reference == partsList[j].Reference)
+                {
+                    Debug.Log("REMOVING " + partsList[j] + " But not actually since I still need it");
+                    //partsList.RemoveAt(j);
+                    break;
+                }
+            }
+        }
     }
 
     private void Update()
@@ -56,13 +93,16 @@ public class PlayerInteract : MonoBehaviour
     void CheckForInput()
     {
         //I'm going to be honest I haven't used the new input system much so I'm just using the old one for the moment for the sake of writing this code tonight. I plan on switching it over.
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.F))
         {
-            Debug.Log("E pressed");
             if (previousObject && previousObject.CompareTag("Interactable"))
             {
-                //Replace later on with what the interactable should do.
+                //Adds random part from the list partsList to the player inventory.
                 Debug.Log("Interactable interacted with.");
+                DinosaurPart randomPart = partsList[Random.Range(0, partsList.Count)];
+                Debug.Log("Adding part " + randomPart.Reference.name);
+                playerInventory.AddBodyPart(randomPart);
+
             }
         }
     }
