@@ -29,6 +29,7 @@ public class CombatManager : MonoBehaviour
     [SerializeField] private float EmptyTurnDelay;
     [SerializeField] private float AttackDelay;
     [SerializeField] private float InterTurnDelay;
+    [SerializeField] private float DoTDelay;
 
     //Turn Combat Data
     [SerializeField] private int currentTurnNumber;
@@ -38,7 +39,7 @@ public class CombatManager : MonoBehaviour
     //Miscellaneous Values
     [SerializeField] public int currentActingNum;
     [SerializeField] public int targetedDinosaur;
-    public enum TurnPhase {None, EmptyCheck, AwaitSelect, SelectPhase, AwaitAttack, Attack, AwaitEnd, EndPhase, Victory, Lose}
+    public enum TurnPhase {None, DoT, AwaitCheck, EmptyCheck, AwaitSelect, SelectPhase, PlayerSelect, EnemySelect, AwaitAttack, Attack, AwaitEnd, EndPhase, Victory, Lose}
     [SerializeField] public TurnPhase state;
 
     void Awake()
@@ -144,6 +145,11 @@ public class CombatManager : MonoBehaviour
     {
         if (state == TurnPhase.None)
         {
+            state = TurnPhase.DoT;
+            StartCoroutine(HandleDoT());
+        }
+        else if (state == TurnPhase.AwaitCheck)
+        {
             state = TurnPhase.EmptyCheck;
             HandleEmptyTurnChecks();
         }
@@ -152,7 +158,7 @@ public class CombatManager : MonoBehaviour
             state = TurnPhase.SelectPhase;
             HandleTargetSelection();
         }
-        else if (state == TurnPhase.SelectPhase && targetedDinosaur!=-1)
+        else if (state == TurnPhase.PlayerSelect && targetedDinosaur!=-1)
         {
             state = TurnPhase.AwaitAttack;
         }
@@ -183,9 +189,11 @@ public class CombatManager : MonoBehaviour
         NonEmptyTurns.Add(turn);
         MoveOrderQueue.Enqueue(dinoNum, turn);
     }
-    void ApplyDoT()
+    IEnumerator HandleDoT()
     {
         //toDo
+        yield return new WaitForSeconds(DoTDelay);
+        state = TurnPhase.AwaitCheck;
     }
     void HandleWildCard(WildCard card)
     {
@@ -213,7 +221,6 @@ public class CombatManager : MonoBehaviour
     }
     IEnumerator EmptyTurn()
     {
-        ApplyDoT();
         yield return new WaitForSeconds(EmptyTurnDelay);
         state = TurnPhase.AwaitEnd;
     }
@@ -221,8 +228,13 @@ public class CombatManager : MonoBehaviour
     {
         if (Dinosaurs[currentActingNum].side == EntitySide.Enemy)
         {
+            state = TurnPhase.EnemySelect;
             Debug.Log("Random target");
             targetedDinosaur = PlayerDinosaurIndicies[UnityEngine.Random.Range(0, numPlayerDinosaurs)];
+            state = TurnPhase.AwaitAttack;
+        } else
+        {
+            state = TurnPhase.PlayerSelect;
         }
     }
     IEnumerator HandleAttack()
