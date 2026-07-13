@@ -7,7 +7,7 @@ using UnityEngine;
 /// </summary>
 public class DinosaurData
 {
-    private BaseStatsSO _baseStats = new();
+    private BaseStatsSO _baseStats;
     private CreatureStats _stats = new();
     private Dictionary<BodyPartType, DinosaurPart> _bodyParts = new();
     private List<WildCard> _wildcardAbilities= new();
