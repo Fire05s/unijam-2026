@@ -7,10 +7,10 @@ using UnityEngine;
 /// </summary>
 public class DinosaurData
 {
-    private BaseStatsSO _baseStats;
+    [SerializeField] private BaseStatsSO _baseStats;
     private CreatureStats _stats = new();
-    private Dictionary<BodyPartType, DinosaurPart> _bodyParts = new();
-    private List<WildCard> _wildcardAbilities= new();
+    [SerializeField] private Dictionary<BodyPartType, DinosaurPart> _bodyParts = new();
+    private List<WildCard> _wildcardAbilities = new();
 
     public DinosaurData(BaseStatsSO baseStats) {
         _baseStats = baseStats;
@@ -107,5 +107,14 @@ public class DinosaurData
             case StatType.Speed: return Mathf.Clamp(statValue, 1, 10);
             default: Debug.LogError("invalid type given to retrieve"); return 0;
         }
+    }
+
+    /// <summary>
+    /// Gets all Wildcard abilities this dino has
+    /// </summary>
+    /// <returns> Returns a list of wildcard ability enum types </returns>
+    public List<WildCard> GetWildCardAbilities()
+    {
+        return _wildcardAbilities;
     }
 }
