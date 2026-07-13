@@ -16,7 +16,7 @@ public class BodyPartSO : ScriptableObject
     [field: SerializeField]
     public List<StatParameters> Stats { get; private set; }
     [field: SerializeField]
-    public WildCard Wild { get; private set; }
+    public WildCardSO Wild { get; private set; }
 }
 
 [Serializable]
