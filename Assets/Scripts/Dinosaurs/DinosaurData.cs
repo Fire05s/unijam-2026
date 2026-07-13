@@ -117,4 +117,13 @@ public class DinosaurData
     {
         return _wildcardAbilities;
     }
+
+    /// <summary>
+    /// Gets all the body parts on the dinosaur
+    /// </summary>
+    /// <returns> Dictionary of all the body parts </returns>
+    public Dictionary<BodyPartType, DinosaurPart> GetBodyParts()
+    {
+        return _bodyParts;
+    }
 }
