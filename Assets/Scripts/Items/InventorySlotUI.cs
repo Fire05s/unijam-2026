@@ -1,8 +1,9 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class InventorySlotUI : MonoBehaviour
+public class InventorySlotUI : MonoBehaviour, IPointerClickHandler, IDeselectHandler
 {
     private TextMeshProUGUI _nameText;
     private DinosaurPart _heldItem;
@@ -18,6 +19,11 @@ public class InventorySlotUI : MonoBehaviour
         UpdateSlot();
     }
 
+    public DinosaurPart GetItem()
+    {
+        return _heldItem;
+    }
+
     private void UpdateSlot()
     {
         if (_heldItem != null)
@@ -31,5 +37,16 @@ public class InventorySlotUI : MonoBehaviour
         }
     }
 
+    public void OnDeselect(BaseEventData eventData)
+    {
+        if (CreatureCombiner.Instance?.SelectedPart == _heldItem)
+        {
+            CreatureCombiner.Instance?.UnselectPart();
+        }
+    }
 
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        CreatureCombiner.Instance?.SelectPart(_heldItem);
+    }
 }

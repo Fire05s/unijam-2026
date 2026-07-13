@@ -29,6 +29,18 @@ public class DinosaurData
     }
 
     /// <summary>
+    /// Clears all body parts and their stats
+    /// </summary>
+    public void ClearBodyParts()
+    {
+        foreach (var part in _bodyParts.Values)
+        {
+            _stats.Subtract(part.Stats);
+        }
+        _bodyParts.Clear();
+    }
+
+    /// <summary>
     /// Retrieves the corresponding stat
     /// </summary>
     /// <param name="type"> Stat to retrieve </param>
