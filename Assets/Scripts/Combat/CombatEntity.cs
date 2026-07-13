@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Combat {
@@ -11,12 +12,12 @@ public class CombatEntity
     public float _speed {get; private set;}
     private float _attack;
     private float _crit; 
-    public WildCard _wild {get; private set;}
+    public List<WildCard> _wildcards {get; private set;}
     public Vector2 _boardPosition {get; private set;}
 
-    CombatEntity(int id, EntitySide side, float health, float speed, float attack, float critchance, WildCard wildcard)
+    public CombatEntity(int id, EntitySide side, float health, float speed, float attack, float critchance, List<WildCard> wildcards)
     {
-        _id = id; _side = side; _maxHealth = health; _health = _maxHealth; _speed = speed; _attack = attack; _crit = critchance; _wild = wildcard;
+        _id = id; _side = side; _maxHealth = health; _health = _maxHealth; _speed = speed; _attack = attack; _crit = critchance; _wildcards = wildcards;
     }
     public void SetPosition(Vector2 newPos) {_boardPosition = newPos;}
     /// <summary>
