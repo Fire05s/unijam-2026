@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b04e7c60c599374b949ad76b8262baf, type: 3}
+  m_Name: Fossil Dino
+  m_EditorClassIdentifier: 
+  <Stats>k__BackingField:
+  - Type: 1
+    MinValue: 8
+    MaxValue: 10
+    AppearanceChance: 1
+  - Type: 3
+    MinValue: 5
+    MaxValue: 15
+    AppearanceChance: 1
+  - Type: 0
+    MinValue: 25
+    MaxValue: 30
+    AppearanceChance: 1
+  - Type: 2
+    MinValue: 3
+    MaxValue: 5
+    AppearanceChance: 1
