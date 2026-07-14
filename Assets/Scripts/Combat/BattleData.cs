@@ -9,6 +9,11 @@ namespace Combat
     {
         public List<EnemyDino> enemyDinos = new();
 
+        public BattleData(BattleData other)
+        {
+            enemyDinos = new List<EnemyDino>(other.enemyDinos);
+        }
+
         public List<DinosaurData> InitializeEnemyDinos()
         {
             List<DinosaurData> enemyDinosData = new();

@@ -36529,6 +36529,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 0080a51658798204da4123d3b4a6e16e, type: 2}
     - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[0].BodyParts.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: 'enemyDinos.Array.data[0].BodyParts.Array.data[0]'
       value: 
       objectReference: {fileID: 11400000, guid: 1065d948b00f6f54abbd1573ac3a25f6, type: 2}

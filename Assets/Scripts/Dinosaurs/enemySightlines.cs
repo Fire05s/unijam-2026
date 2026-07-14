@@ -58,7 +58,14 @@ public class EnemySightlines : MonoBehaviour
                 Debug.Log("Hit player, triggering battle");
                 _mapManager.MarkEnemyEncountered(_enemyID);
                 _mapManager.SavePlayerPosition(hit.transform.position);
-                // CombatManager.Instance.SetupCombat(_battleData);
+
+                if (BattleDataLoader.Instance == null)
+                {
+                    Debug.LogError("BattleDataLoader does not exist.");
+                    return;
+                }
+                BattleDataLoader.Instance.StartBattle(_battleData);
+
                 _transitionObject.FadeAndLoad(_battleScene, _transitionDuration);
             }
         }

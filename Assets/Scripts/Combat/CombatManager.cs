@@ -53,19 +53,23 @@ namespace Combat
         /// </summary>
         /// <param name="players">A list of player dinosaur data</param>
         /// <param name="enemies">A list of enemy dinosaur data</param>
-        public void SetupCombat(BattleData currentBattle)//List<DinosaurData> players, List<DinosaurData> enemies)
+        public void SetupCombat(List<DinosaurData> enemyDinosData)
         {
             currentTurnNumber = 0;
             targetedDinosaur = -1;
             state = TurnStep.None;
             thisMoveCrit = false;
 
-            if (PlayerInventory.Instance.Creatures.Count > 4) {throw new Exception("Error in CombatManager: CombatSetup - Player Dinosaur Count Has Exceeded Limit");}
+            Debug.Log($"player dinos {PlayerInventory.Instance.Creatures.Count}");
+            Debug.Log($"enemy dinos {enemyDinosData.Count}");
+
+            if (PlayerInventory.Instance.Creatures.Count > 5) {throw new Exception("Error in CombatManager: CombatSetup - Player Dinosaur Count Has Exceeded Limit");}
             // player dino id's go from 0-4
             for (int id = 0; id < PlayerInventory.Instance.Creatures.Count; id++)
             {
                 // building the IDs for all the player dinos, adding them to the alive player dinos list,
                 // and creating their combat entity
+                Debug.Log("Adding a player dino");
                 DinosaurData curDinosaur = PlayerInventory.Instance.Creatures[id];
                 RemainingPlayerDinosaurs.Add(id);
                 Dinosaurs[id] = new CombatEntity(id, EntitySide.Player, curDinosaur.GetAdjustedStat(StatType.Health), 
@@ -74,24 +78,26 @@ namespace Combat
             }
 
             // enemy dino id's go from 5-14
-            List<DinosaurData> enemyDinosData = currentBattle.InitializeEnemyDinos();
-            for (int id = 5; id < enemyDinosData.Count; id++)
+            for (int id = 5; id < enemyDinosData.Count + 5; id++)
             {
                 // building the IDs for all the enemy dinos, adding them to the alive enemy dinos list,
                 // and creating their combat entity
-
-                DinosaurData curDinosaur = enemyDinosData[id];
+                Debug.Log("Adding an enemy dino");
+                DinosaurData curDinosaur = enemyDinosData[id - 5];
                 RemainingEnemyDinosaurs.Add(id);
-                Dinosaurs[id] = new CombatEntity(id, EntitySide.Player, curDinosaur.GetAdjustedStat(StatType.Health), 
+                Dinosaurs[id] = new CombatEntity(id, EntitySide.Enemy, curDinosaur.GetAdjustedStat(StatType.Health), 
                     curDinosaur.GetAdjustedStat(StatType.Speed), curDinosaur.GetAdjustedStat(StatType.Attack),
                     curDinosaur.GetAdjustedStat(StatType.CritChance), curDinosaur.GetWildCardAbilities());
             }
+
+            Debug.Log($"total dinosaurs {Dinosaurs.Count}");
+            Debug.Log($"player dinosaurs list {RemainingPlayerDinosaurs.Count}");
+            Debug.Log($"enemy dinosaurs list {RemainingEnemyDinosaurs.Count}");
 
             BuildInitialQueue();
         }
         private void BuildInitialQueue()
         {
-            int currentSlotNum;
             for (int i=10; i>0; i--)
             {
                 //Build list of Dinosaurs with equivalent speed
@@ -131,16 +137,6 @@ namespace Combat
                 }
 
                 //Repeat
-            }
-
-            foreach(CombatEntity dinosaur in Dinosaurs.Values)
-            {
-                if (dinosaur._side == EntitySide.Player) {
-                    RemainingPlayerDinosaurs.Add(dinosaur._id);
-                }
-                else {
-                    RemainingEnemyDinosaurs.Add(dinosaur._id);
-                }
             }
         }
         public void TriggerCombatStart()
