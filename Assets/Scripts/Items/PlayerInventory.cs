@@ -21,6 +21,7 @@ public class PlayerInventory : MonoBehaviour
             return;
         }
         Instance = this;
+        DontDestroyOnLoad(gameObject);
 
         // DEBUG
         foreach (var partData in _initialParts)

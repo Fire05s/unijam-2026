@@ -72,7 +72,6 @@ public class DinosaurData
         {
             _wildcardData.Add(dinoPart.Wildcard);
             _wildcardAbilities.Add(dinoPart.Wildcard.WildType);
-            Debug.Log($"Added Wildcard: {dinoPart.Wildcard.Name}; current count: {_wildcardData.Count}");
         }
     }
 
