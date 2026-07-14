@@ -17,10 +17,17 @@ namespace Combat {
         PlayerAttack,
         AwaitEnemyAttack,
         EnemyAttack,
+        AwaitWildCard,
         WildCardActivity,
         AwaitEnd,
         TurnEnd,
         CombatVictory,
         CombatLose
+    }
+
+    public enum DoT
+    {
+        None,
+        Bleed
     }
 }
