@@ -5,8 +5,8 @@ public class MapData : MonoBehaviour
 {
     public static MapData Instance { get; private set; }
 
-    [SerializeField] private Vector3 PlayerPosition;
-    private List<int> enemiesEncountered;
+    [SerializeField] private Vector3 _PlayerPosition;
+    private List<int> _enemiesEncountered;
     private void Awake()
     {
         if (Instance != null)
@@ -14,25 +14,25 @@ public class MapData : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-        enemiesEncountered = new List<int>();
+        _enemiesEncountered = new List<int>();
         Instance = this;
         DontDestroyOnLoad(gameObject);
     }
 
     public void MarkEnemyEncountered(int id)
     {
-        if(!enemiesEncountered.Contains(id))
+        if(!_enemiesEncountered.Contains(id))
         {
-            enemiesEncountered.Add(id);
+            _enemiesEncountered.Add(id);
         }
     }
     public void SavePlayerPosition(Vector3 pos)
     {
-        PlayerPosition = pos;
+        _PlayerPosition = pos;
     }
     public bool EnemyEncounteredBefore(int id)
     {
-        if(enemiesEncountered.Contains(id))
+        if(_enemiesEncountered.Contains(id))
         {
             return true;
         }
@@ -40,6 +40,6 @@ public class MapData : MonoBehaviour
     }
     public Vector3 GetPlayerPosition()
     {
-        return PlayerPosition;
+        return _PlayerPosition;
     }
 }
