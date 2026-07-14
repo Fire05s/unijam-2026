@@ -10,8 +10,11 @@ public class PartyManager : MonoBehaviour
     public event Action UpdateDisplay;
 
     private DinosaurData _selectedDinosaur;
-    private int _selectedSlot;
+    [SerializeField] private int _selectedSlot = -1; // no slots selected
     private int _maxDinosaurs = 5;
+
+    public DinosaurData SelectedDinosaur => _selectedDinosaur;
+    public int SelectedSlot => _selectedSlot;
 
     private void Awake()
     {
@@ -29,6 +32,7 @@ public class PartyManager : MonoBehaviour
         {
             Debug.Log($"Selected invalid slot num: {slotNum}");
         }
+        Debug.Log($"Selected slot: {slotNum}");
         _selectedSlot = slotNum;
         _selectedDinosaur = PlayerInventory.Instance.Creatures[slotNum];
 
@@ -37,7 +41,7 @@ public class PartyManager : MonoBehaviour
 
     public void UnselectSlot()
     {
-        _selectedSlot = 0;
+        _selectedSlot = -1;
         _selectedDinosaur = null;
 
         UpdateDisplay?.Invoke();
@@ -53,6 +57,7 @@ public class PartyManager : MonoBehaviour
 
         if (_selectedDinosaur == null)
         {
+            Debug.Log("Creating new slot");
             _selectedSlot = PlayerInventory.Instance.Creatures.Count;
         }
 

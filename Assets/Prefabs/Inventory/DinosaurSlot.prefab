@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: 6440315069056188713}
   - component: {fileID: 720924370959382252}
   m_Layer: 5
-  m_Name: Label
+  m_Name: NumLabel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -256,10 +256,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 6237061592701792658}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 47.62, y: -41.105}
-  m_SizeDelta: {x: 95.24, y: 82.21}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1092078670131576039
 CanvasRenderer:
@@ -372,6 +372,7 @@ GameObject:
   - component: {fileID: 5655798832205261479}
   - component: {fileID: 6252614088649991578}
   - component: {fileID: 7076570658770789814}
+  - component: {fileID: 8559819207530761253}
   m_Layer: 5
   m_Name: DinosaurSlot
   m_TagString: Untagged
@@ -462,7 +463,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -482,6 +483,24 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &8559819207530761253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4899782409618250774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36d2c8fa035f41342b18d9f001d03c42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _slotNumText: {fileID: 720924370959382252}
+  _statLabels: {fileID: 5892120181993643274}
+  _statValues: {fileID: 3701654806615127098}
+  _bgImage: {fileID: 6252614088649991578}
+  _selectedColor: {r: 0.6359545, g: 1, b: 0.40566027, a: 1}
+  _defaultColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &4903370725684172752
 GameObject:
   m_ObjectHideFlags: 0
@@ -514,10 +533,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 6237061592701792658}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 105.265, y: -41.105}
-  m_SizeDelta: {x: 10.05, y: 82.21}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2951825605399471526
 CanvasRenderer:

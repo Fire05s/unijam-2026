@@ -1,16 +1,51 @@
+using System;
+using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
-public class PartySlotUI : MonoBehaviour
+public class PartySlotUI : MonoBehaviour, IPointerClickHandler
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [Header("References")]
+    [SerializeField] private TextMeshProUGUI _slotNumText;
+    [SerializeField] private TextMeshProUGUI _statLabels;
+    [SerializeField] private TextMeshProUGUI _statValues;
+    [SerializeField] private Image _bgImage;
+    [Header("Settings")]
+    [SerializeField] private Color _selectedColor;
+    [SerializeField] private Color _defaultColor;
+    public int SlotNum { get; private set; }
+    private DinosaurData _heldDinosaur;
+
+    public void SetSlot(int partyNum, DinosaurData slotData)
     {
-        
+        SlotNum = partyNum;
+        _heldDinosaur = slotData;
+
+        UpdateSlotDisplay();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void UpdateSlotDisplay()
     {
-        
+        _slotNumText.text = (SlotNum + 1).ToString();
+        string labels = "";
+        string values = "";
+        foreach (StatType stat in Enum.GetValues(typeof(StatType)))
+        {
+            labels += $"{stat.ToString()}:\n";
+            values += _heldDinosaur.GetAdjustedStat(stat).ToString() + "\n";
+        }
+        _statLabels.text = labels;
+        _statValues.text = values;
+    }
+
+    public void ToggleSelection(bool isSelected)
+    {
+        _bgImage.color = isSelected ? _selectedColor : _defaultColor;
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        PartyManager.Instance.SelectSlot(SlotNum);
     }
 }

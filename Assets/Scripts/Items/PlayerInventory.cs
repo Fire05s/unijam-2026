@@ -36,6 +36,10 @@ public class PlayerInventory : MonoBehaviour
 
     public bool SetCreature(DinosaurData creature, int indexNum)
     {
+        if (indexNum == 0 && _creatures.Count == 0)
+        {
+            AddCreature(creature); // Handles empty list
+        }
         if (indexNum < 0 || indexNum >= _creatures.Count)
         {
             Debug.Log($"Can't set creature at index {indexNum}, current max: {_creatures.Count}");

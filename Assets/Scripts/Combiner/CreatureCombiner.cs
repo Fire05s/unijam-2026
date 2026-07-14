@@ -50,6 +50,7 @@ public class CreatureCombiner : MonoBehaviour
 
     public void Initialize(int selectedSlot, DinosaurData selectedData)
     {
+        Debug.Log($"Editing slot: {selectedSlot}");
         _selectedPartySlot = selectedSlot;
         _displayDinosaur = selectedData;
         if (selectedData == null) return; // New slot
@@ -120,6 +121,7 @@ public class CreatureCombiner : MonoBehaviour
         {
             PlayerInventory.Instance.RemoveBodyPart(part);
         }
+        _partSlots.Clear();
         UnselectPart();
         _screenManager.SwitchScreen(0); // Party management screen
     }
