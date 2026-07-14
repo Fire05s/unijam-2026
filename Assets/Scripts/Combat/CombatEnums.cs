@@ -6,6 +6,7 @@ namespace Combat {
 
     public enum TurnStep
     {
+        None,
         TurnStart,
         ApplyDoT,
         AwaitEmptyCheck,

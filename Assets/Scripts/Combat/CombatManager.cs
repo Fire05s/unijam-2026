@@ -57,7 +57,7 @@ namespace Combat
         {
             currentTurnNumber = 0;
             targetedDinosaur = -1;
-            state = TurnStep.TurnStart;
+            state = TurnStep.None;
             thisMoveCrit = false;
 
             if (PlayerInventory.Instance.Creatures.Count > 4) {throw new Exception("Error in CombatManager: CombatSetup - Player Dinosaur Count Has Exceeded Limit");}
@@ -91,7 +91,7 @@ namespace Combat
         }
         private void BuildInitialQueue()
         {
-            int currentSlotNum = 0;
+            int currentSlotNum;
             for (int i=10; i>0; i--)
             {
                 //Build list of Dinosaurs with equivalent speed
@@ -146,6 +146,7 @@ namespace Combat
         public void TriggerCombatStart()
         {
             TurnAdvanced?.Invoke(currentTurnNumber);
+            state = TurnStep.TurnStart;
         }
         void Update()
         {
@@ -167,12 +168,14 @@ namespace Combat
             {
                 VerifyTarget();
             }
-            else if (state == TurnStep.PlayerAttack)
+            else if (state == TurnStep.AwaitPlayerAttack)
             {
+                state = TurnStep.PlayerAttack;
                 StartCoroutine(HandleAttack());
             }
-            else if (state == TurnStep.EnemyAttack)
+            else if (state == TurnStep.AwaitEnemyAttack)
             {
+                state = TurnStep.EnemyAttack;
                 StartCoroutine(HandleAttack());
             }
             else if (state == TurnStep.AwaitWildCard)
@@ -241,7 +244,7 @@ namespace Combat
         void VerifyTarget()
         {
             if (targetedDinosaur < 4 && targetedDinosaur > 15) {throw new Exception("Error in Target Selection: id number out of bounds");}
-            else {state = TurnStep.PlayerAttack;}
+            else {state = TurnStep.AwaitPlayerAttack;}
         }
         IEnumerator HandleAttack()
         {
@@ -258,6 +261,7 @@ namespace Combat
         }
         IEnumerator HandleWildCard()
         {
+            bool repeat = false;
             for (int i=0; i<Dinosaurs[currentActingNum]._wildcards.Count; i++)
             {
                 switch(Dinosaurs[currentActingNum]._wildcards[i])
@@ -268,10 +272,50 @@ namespace Combat
                         int right = currentActingNum - 1;
                         if (RemainingPlayerDinosaurs.Contains(right) || RemainingEnemyDinosaurs.Contains(right)) {Dinosaurs[right].ApplyDamage(thisMoveAttack);}
                         break;
+                    case WildCard.Bleed:
+                        Dinosaurs[targetedDinosaur].ApplyDoT(DoT.Bleed);
+                        break;
+                    case WildCard.Doublehit:
+                        currentMoveData.addToQueue = false;
+                        repeat = true;
+                        break;
+                    case WildCard.Ravenousbite:
+                        Dinosaurs[currentActingNum].Heal(thisMoveAttack * 0.25f);
+                        break;
+                    case WildCard.Luckystreak:
+                        if (thisMoveCrit) {Dinosaurs[targetedDinosaur].ApplyDamage(thisMoveAttack);}
+                        break;
+                    case WildCard.Bloodlust:
+                        if (!Dinosaurs[targetedDinosaur].IsAlive())
+                        {
+                            currentMoveData.addToQueue = false;
+                            repeat = true;
+                        }
+                        break;
+                    case WildCard.Scavenger:
+                        if (!Dinosaurs[targetedDinosaur].IsAlive())
+                        {
+                            Dinosaurs[currentActingNum].Heal(Dinosaurs[currentActingNum]._maxHealth * 0.25f);
+                        }
+                        break;
+                    case WildCard.Packtreats:
+                        float lowestHP = float.MaxValue;
+                        int lowestHPID = -1;
+                        foreach (int id in RemainingPlayerDinosaurs)
+                        {
+                            if (Dinosaurs[id]._health < lowestHP)
+                            {
+                                lowestHPID = id;
+                            }
+                        }
+                        if (lowestHPID==-1) {throw new Exception("Error in WildCards: Packtreats did not find any dinosaurs");}
+                        Dinosaurs[lowestHPID].Heal(thisMoveAttack * .2f);
+                        break;
                 }
             }
             yield return new WaitForSeconds(WildCardDelay);
-            state = TurnStep.AwaitEnd;
+            if (repeat) {ProcessDeath(); state = TurnStep.AwaitSelect;}
+            else { state = TurnStep.AwaitEnd;}
         }
         IEnumerator EndTurn()
         {
