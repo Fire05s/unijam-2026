@@ -11,6 +11,7 @@ public class PartySlotUI : MonoBehaviour, IPointerClickHandler
     [SerializeField] private TextMeshProUGUI _statLabels;
     [SerializeField] private TextMeshProUGUI _statValues;
     [SerializeField] private Image _bgImage;
+    [SerializeField] private AbilityTooltipTrigger _ability;
     [Header("Settings")]
     [SerializeField] private Color _selectedColor;
     [SerializeField] private Color _defaultColor;
@@ -37,6 +38,7 @@ public class PartySlotUI : MonoBehaviour, IPointerClickHandler
         }
         _statLabels.text = labels;
         _statValues.text = values;
+        _ability.SetWildCards(_heldDinosaur.GetWildCardData());
     }
 
     public void ToggleSelection(bool isSelected)

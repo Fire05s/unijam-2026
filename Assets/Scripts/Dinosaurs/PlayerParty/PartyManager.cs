@@ -57,7 +57,6 @@ public class PartyManager : MonoBehaviour
 
         if (_selectedDinosaur == null)
         {
-            Debug.Log("Creating new slot");
             _selectedSlot = PlayerInventory.Instance.Creatures.Count;
         }
 
