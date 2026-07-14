@@ -10,14 +10,14 @@ public class EnemySightlines : MonoBehaviour
     [Header("ID")]
     [SerializeField] private int _enemyID;
     [Header("Scene Transition")]
-    [SerializeField] private GameObject _transitionObject;
+    [SerializeField] private ScreenTransition _transitionObject;
     [SerializeField] private string _battleScene;
     [SerializeField] private float _transitionDuration;
     [Header("Associated Battle")]
     [SerializeField] private BattleData _battleData;
 
     private MapData _mapManager;
-    private LayerMask layerMask;
+    private LayerMask _layerMask;
     void Awake()
     {
         _layerMask = LayerMask.GetMask("Wall", "Default");
