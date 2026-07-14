@@ -57,7 +57,7 @@ namespace Combat
         {
             currentTurnNumber = 0;
             targetedDinosaur = -1;
-            state = TurnStep.TurnStart;
+            state = TurnStep.None;
             thisMoveCrit = false;
 
             if (PlayerInventory.Instance.Creatures.Count > 4) {throw new Exception("Error in CombatManager: CombatSetup - Player Dinosaur Count Has Exceeded Limit");}
@@ -146,6 +146,7 @@ namespace Combat
         public void TriggerCombatStart()
         {
             TurnAdvanced?.Invoke(currentTurnNumber);
+            state = TurnStep.TurnStart;
         }
         void Update()
         {
