@@ -298,7 +298,7 @@ namespace Combat
                         }
                         break;
                     case WildCard.Packtreats:
-                        int lowestHP = 1000000;
+                        float lowestHP = float.MaxValue;
                         int lowestHPID = -1;
                         foreach (int id in RemainingPlayerDinosaurs)
                         {
