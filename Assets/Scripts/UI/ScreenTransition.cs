@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections;
 
-public class screenTransition : MonoBehaviour
+public class ScreenTransition : MonoBehaviour
 {
     public Image faderImage;
     private void Start()
