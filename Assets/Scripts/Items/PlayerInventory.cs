@@ -21,6 +21,7 @@ public class PlayerInventory : MonoBehaviour
             return;
         }
         Instance = this;
+        DontDestroyOnLoad(gameObject);
 
         // DEBUG
         foreach (var partData in _initialParts)
@@ -32,6 +33,21 @@ public class PlayerInventory : MonoBehaviour
     public void AddCreature(DinosaurData creature)
     {
         _creatures.Add(creature);
+    }
+
+    public bool SetCreature(DinosaurData creature, int indexNum)
+    {
+        if (indexNum == 0 && _creatures.Count == 0)
+        {
+            AddCreature(creature); // Handles empty list
+        }
+        if (indexNum < 0 || indexNum >= _creatures.Count)
+        {
+            Debug.Log($"Can't set creature at index {indexNum}, current max: {_creatures.Count}");
+            return false;
+        }
+        _creatures[indexNum] = creature;
+        return true;
     }
 
     public void RemoveCreature(DinosaurData creature)

@@ -11,6 +11,9 @@ public class CreatureCombiner : MonoBehaviour
     [SerializeField] private BaseStatsSO _baseStats;
     [Header("Slots")]
     [SerializeField] private Dictionary<BodyPartType, DinosaurPart> _partSlots = new();
+    [SerializeField] private int _requiredPartCount = 3;
+    [Header("Reference")]
+    [SerializeField] private UIScreenManager _screenManager;
 
     [Header("Debug")]
     [SerializeField] private List<BodyPartSO> _testParts;
@@ -20,7 +23,6 @@ public class CreatureCombiner : MonoBehaviour
 
     private DinosaurData _displayDinosaur;
     private DinosaurPart _selectedPart;
-    private PlayerInventory _playerInventory;
     private int _selectedPartySlot;
 
     public DinosaurData DisplayDinosaur => _displayDinosaur;
@@ -44,6 +46,21 @@ public class CreatureCombiner : MonoBehaviour
         {
             EquipPart(new DinosaurPart(partData));
         }
+    }
+
+    public void Initialize(int selectedSlot, DinosaurData selectedData)
+    {
+        Debug.Log($"Editing slot: {selectedSlot}");
+        _selectedPartySlot = selectedSlot;
+        _displayDinosaur = selectedData;
+        if (selectedData == null) return; // New slot
+
+        foreach (var part in selectedData.GetBodyParts().Values)
+        {
+            PlayerInventory.Instance.AddBodyPart(part);
+        }
+        _partSlots = new Dictionary<BodyPartType, DinosaurPart>(selectedData.GetBodyParts());
+        GenerateDinosaur();
     }
     public void EquipPart(DinosaurPart part)
     {
@@ -84,6 +101,29 @@ public class CreatureCombiner : MonoBehaviour
     public void UnselectPart()
     {
         _selectedPart = null;
+    }
+
+    public void FinalizeDinosaur()
+    {
+        if (_partSlots.Count < _requiredPartCount)
+        {
+            Debug.Log($"Not enough parts selected, must select {_requiredPartCount}");
+            return;
+        }
+
+        // Add creature to inventory
+        if (!PlayerInventory.Instance.SetCreature(_displayDinosaur, _selectedPartySlot))
+        {
+            // Fallback in case set creature fails
+            PlayerInventory.Instance.AddCreature(_displayDinosaur);
+        }
+        foreach (var part in _partSlots.Values)
+        {
+            PlayerInventory.Instance.RemoveBodyPart(part);
+        }
+        _partSlots.Clear();
+        UnselectPart();
+        _screenManager.SwitchScreen(0); // Party management screen
     }
 
     private void GenerateDinosaur()

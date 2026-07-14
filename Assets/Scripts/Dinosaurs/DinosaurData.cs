@@ -11,6 +11,7 @@ public class DinosaurData
     private CreatureStats _stats = new();
     [SerializeField] private Dictionary<BodyPartType, DinosaurPart> _bodyParts = new();
     private List<WildCard> _wildcardAbilities = new();
+    private List<WildCardSO> _wildcardData = new();
 
     public DinosaurData(BaseStatsSO baseStats) {
         _baseStats = baseStats;
@@ -59,13 +60,19 @@ public class DinosaurData
         {
             _stats.Subtract(existing.Stats);
             if (existing.Wildcard != null)
+            {
+                _wildcardData.Remove(existing.Wildcard);
                 _wildcardAbilities.Remove(existing.Wildcard.WildType);
+            }
         }
 
         _bodyParts[dinoPart.Type] = dinoPart;
         _stats.Add(dinoPart.Stats);
         if (dinoPart.Wildcard != null)
+        {
+            _wildcardData.Add(dinoPart.Wildcard);
             _wildcardAbilities.Add(dinoPart.Wildcard.WildType);
+        }
     }
 
     /// <summary>
@@ -79,6 +86,7 @@ public class DinosaurData
         }
         _bodyParts.Clear();
         _wildcardAbilities.Clear();
+        _wildcardData.Clear();
     }
 
     /// <summary>
@@ -116,5 +124,23 @@ public class DinosaurData
     public List<WildCard> GetWildCardAbilities()
     {
         return _wildcardAbilities;
+    }
+
+    /// <summary>
+    /// Gets all wildcard data on this dino
+    /// </summary>
+    /// <returns> List of wildcard scriptable objects </returns>
+    public List<WildCardSO> GetWildCardData()
+    {
+        return _wildcardData;
+    }
+
+    /// <summary>
+    /// Gets all the body parts on the dinosaur
+    /// </summary>
+    /// <returns> Dictionary of all the body parts </returns>
+    public Dictionary<BodyPartType, DinosaurPart> GetBodyParts()
+    {
+        return _bodyParts;
     }
 }
