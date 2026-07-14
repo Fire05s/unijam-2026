@@ -8,7 +8,9 @@ namespace Combat
     /// </summary>
     public class TurnData
     {
+        public TurnData(int id, bool atq=true) {dinoID = id; addToQueue = atq;}
         public int dinoID = -1;
+        public bool addToQueue = true;
         public bool canMultihit = false; // Multihit
         public bool causesBleed = false; // Bleed
         public bool canAttackAgain = false; // Doublehit, Bloodlust
@@ -48,10 +50,8 @@ namespace Combat
                 finalTurn++;
             }
 
-            TurnData newTurn = new TurnData
-            {
-                dinoID = id
-            };
+            TurnData newTurn = new TurnData(id);
+
             foreach (WildCard wc in wildcards)
             {
                 switch (wc) {
@@ -70,16 +70,21 @@ namespace Combat
 
             return finalTurn;
         }
+        // public int PriorityEnqueue(int turn, int id)
+        // {
+        //     int slot = turn;
+        //     while(_queue.TryGetValue())
+        // }
 
         /// <summary>
         /// Dequeue the next turn, removing it from the turn queue and returning it.
         /// </summary>
         /// <returns> The key-value pair of the turn number (int) and a TurnData object </returns>
-        public KeyValuePair<int, TurnData> Dequeue()
+        public (int, TurnData) Dequeue()
         {
             KeyValuePair<int, TurnData> dequeuedTurn = _queue.First();
             _queue.Remove(dequeuedTurn.Key);
-            return dequeuedTurn;
+            return (dequeuedTurn.Key, dequeuedTurn.Value);
         }
 
         /// <summary>
