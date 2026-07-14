@@ -7,6 +7,7 @@ public class PartyScreenUI : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private List<PartySlotUI> _partySlots;
+    [SerializeField] private List<RenderTexture> _partyCameraTextures;
     [SerializeField] private TextMeshProUGUI _combinerScreenText;
     [SerializeField] private Button _cancelSelectButton;
 
@@ -45,7 +46,7 @@ public class PartyScreenUI : MonoBehaviour
             if (i < PlayerInventory.Instance.Creatures.Count)
             {
                 slot.gameObject.SetActive(true);
-                slot.SetSlot(i, PlayerInventory.Instance.Creatures[i]);
+                slot.SetSlot(i, PlayerInventory.Instance.Creatures[i], _partyCameraTextures[i]);
             }
             else
             {

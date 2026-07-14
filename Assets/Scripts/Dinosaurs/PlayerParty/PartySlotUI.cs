@@ -10,7 +10,7 @@ public class PartySlotUI : MonoBehaviour, IPointerClickHandler
     [SerializeField] private TextMeshProUGUI _slotNumText;
     [SerializeField] private TextMeshProUGUI _statLabels;
     [SerializeField] private TextMeshProUGUI _statValues;
-    [SerializeField] private Image _bgImage;
+    [SerializeField] private RawImage _bgImage;
     [SerializeField] private AbilityTooltipTrigger _ability;
     [Header("Settings")]
     [SerializeField] private Color _selectedColor;
@@ -18,10 +18,11 @@ public class PartySlotUI : MonoBehaviour, IPointerClickHandler
     public int SlotNum { get; private set; }
     private DinosaurData _heldDinosaur;
 
-    public void SetSlot(int partyNum, DinosaurData slotData)
+    public void SetSlot(int partyNum, DinosaurData slotData, RenderTexture camTex)
     {
         SlotNum = partyNum;
         _heldDinosaur = slotData;
+        _bgImage.texture = camTex;
 
         UpdateSlotDisplay();
     }
