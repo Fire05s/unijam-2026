@@ -1,3 +1,5 @@
+using NUnit.Framework;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class BodyPartSlot : MonoBehaviour
@@ -9,6 +11,11 @@ public class BodyPartSlot : MonoBehaviour
 
     public void SetPart(int index)
     {
+        if (index >= transform.childCount)
+        {
+            Debug.Log($"Part id {index} doesn't exist, using default model");
+            return;
+        }
         for (int i = 0; i < transform.childCount; i++)
             transform.GetChild(i).gameObject.SetActive(i == index);
     }
