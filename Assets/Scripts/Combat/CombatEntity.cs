@@ -13,13 +13,14 @@ public class CombatEntity
     private float _attack;
     private float _crit; 
     public List<WildCard> _wildcards {get; private set;}
-    public Vector2 _boardPosition {get; private set;}
+    private DoT _effect;
+    private short _dotLen;
 
     public CombatEntity(int id, EntitySide side, float health, float speed, float attack, float critchance, List<WildCard> wildcards)
     {
         _id = id; _side = side; _maxHealth = health; _health = _maxHealth; _speed = speed; _attack = attack; _crit = critchance; _wildcards = wildcards;
     }
-    public void SetPosition(Vector2 newPos) {_boardPosition = newPos;}
+    // public void SetPosition(Vector2 newPos) {_boardPosition = newPos;}
     /// <summary>
     /// Calculates the next valid turn this entity can move based on speed
     /// </summary>
@@ -60,6 +61,28 @@ public class CombatEntity
             outgoingCrit = true;
         }
         return (outgoingDmg, outgoingCrit);
+    }
+    public bool TickDoT()
+    {
+        if (_dotLen < 0) {_effect = DoT.None;}
+        if (_effect == DoT.Bleed) {
+            _dotLen--;
+            ApplyDamage(2f);
+            return true;
+        }
+        return false;
+    }
+    public void ApplyDoT(DoT effect)
+    {
+        _effect = effect;
+        switch(_effect)
+        {
+            case DoT.None:
+                break;
+            case DoT.Bleed:
+                _dotLen = 3;
+                break;
+        }
     }
 }
 }
