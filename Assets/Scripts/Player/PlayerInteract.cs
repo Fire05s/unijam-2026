@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class PlayerInteract : MonoBehaviour
 {
     //This script is meant to handle the interactables. It should highlight then when they're being looked at and within range.
-    [Header("InteractSightline")]
+    [Header("InteractSightline (Player Camera)")]
     [SerializeField] private Transform _sightLineOrigin;
     [SerializeField] private float _sightLineDistance;
     [Header("Fossil Parts")]
