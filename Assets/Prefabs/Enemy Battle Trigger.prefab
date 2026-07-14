@@ -126,7 +126,7 @@ MonoBehaviour:
   _sightLineDistance: 20
   _enemyID: 0
   _transitionObject: {fileID: 0}
-  _battleScene: 
+  _battleScene: Combat
   _transitionDuration: 1
   _battleData: {fileID: 3491870696763761680}
 --- !u!114 &3491870696763761680

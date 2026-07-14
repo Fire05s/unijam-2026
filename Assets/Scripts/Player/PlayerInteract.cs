@@ -11,7 +11,7 @@ public class PlayerInteract : MonoBehaviour
     [Header("Fossil Parts")]
     [SerializeField] private List<BodyPartSO> _inventoryList;
     [Header("Scene Transition")]
-    [SerializeField] private GameObject _transitionObject;
+    [SerializeField] private ScreenTransition _transitionObject;
     [SerializeField] private string _creatureCombinerScene;
     [SerializeField] private float _transitionDuration;
 
@@ -56,6 +56,19 @@ public class PlayerInteract : MonoBehaviour
         }
     }
 
+    private void OnDrawGizmos()
+    {
+        if (_sightLineOrigin == null)
+        {
+            return;
+        }
+
+        Gizmos.color = Color.green;
+        Vector3 direction = transform.TransformDirection(Vector3.forward);
+        Gizmos.DrawRay(_sightLineOrigin.position, direction * _sightLineDistance);
+    }
+
+
     private void Update()
     {
         //Uses a raycast to see what the player's looking at. Currently only used for the interactables such as the excavation sites.
@@ -91,7 +104,7 @@ public class PlayerInteract : MonoBehaviour
             {
                 //Sends you to the creature combiner screen.
                 _mapManager.SavePlayerPosition(transform.position);
-                _transitionObject.GetComponent<screenTransition>().FadeAndLoad(_creatureCombinerScene, _transitionDuration);
+                _transitionObject.FadeAndLoad(_creatureCombinerScene, _transitionDuration);
             }
         }
     }

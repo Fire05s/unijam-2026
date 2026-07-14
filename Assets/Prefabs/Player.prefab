@@ -92,8 +92,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sightLineOrigin: {fileID: 0}
-  _sightLineDistance: 5
-  _inventoryList: []
+  _sightLineDistance: 2
+  _inventoryList:
+  - {fileID: 11400000, guid: 1377a3c4526ca2f4e8d1f3872a468405, type: 2}
+  - {fileID: 11400000, guid: 7d8c53dfbfd662a439c05f36d74036e1, type: 2}
+  - {fileID: 11400000, guid: f0bb13b60a3c78845828283a1c3a2c59, type: 2}
+  - {fileID: 11400000, guid: f3182f6d8eefc0049b65cb83f699baf8, type: 2}
+  - {fileID: 11400000, guid: c96ebe6098fb48c43b4cb87bbd397626, type: 2}
+  - {fileID: 11400000, guid: b982b31978b248f429e9a2048d8bc371, type: 2}
+  _transitionObject: {fileID: 7415429441633188947}
+  _creatureCombinerScene: CombinerScene
+  _transitionDuration: 0
 --- !u!1 &4754986788790003905
 GameObject:
   m_ObjectHideFlags: 0
