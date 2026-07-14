@@ -7,8 +7,8 @@ public class CombatEntity
 {
     public int _id {get; private set;}
     public EntitySide _side {get; private set;}
-    float _maxHealth;
-    float _health;
+    public float _maxHealth {get; private set;}
+    public float _health {get; private set;}
     public float _speed {get; private set;}
     private float _attack;
     private float _crit; 
