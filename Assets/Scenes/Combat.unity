@@ -148,10 +148,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba193515db77b9b429720b52a065a4b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EmptyTurnDelay: 0
-  AttackDelay: 0
-  InterTurnDelay: 0
-  DoTDelay: 0
+  EmptyTurnDelay: 1
+  AttackDelay: 2
+  InterTurnDelay: 2
+  DoTDelay: 1
+  WildCardDelay: 1
   RemainingPlayerDinosaurs: 
   RemainingEnemyDinosaurs: 
   currentTurnNumber: 0
