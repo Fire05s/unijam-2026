@@ -10,14 +10,14 @@ public class EnemySightlines : MonoBehaviour
     [Header("ID")]
     [SerializeField] private int _enemyID;
     [Header("Scene Transition")]
-    [SerializeField] private GameObject _transitionObject;
+    [SerializeField] private ScreenTransition _transitionObject;
     [SerializeField] private string _battleScene;
     [SerializeField] private float _transitionDuration;
-    [Header("Scene Transition")]
+    [Header("Associated Battle")]
     [SerializeField] private BattleData _battleData;
 
     private MapData _mapManager;
-    LayerMask _layerMask;
+    private LayerMask _layerMask;
     void Awake()
     {
         _layerMask = LayerMask.GetMask("Wall", "Default");
@@ -55,11 +55,19 @@ public class EnemySightlines : MonoBehaviour
             {
                 Debug.DrawRay(_sightLineOrigin.transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
                 //I added in a fading transition from a tutorial which is what this goes to. Should be easy to replace if something else is needed for the transition or scene change.
+                Debug.Log("Hit player, triggering battle");
                 _mapManager.MarkEnemyEncountered(_enemyID);
                 _mapManager.SavePlayerPosition(hit.transform.position);
-                _transitionObject.GetComponent<screenTransition>().FadeAndLoad(_battleScene, _transitionDuration);
+
+                if (BattleDataLoader.Instance == null)
+                {
+                    Debug.LogError("BattleDataLoader does not exist.");
+                    return;
+                }
+                BattleDataLoader.Instance.StartBattle(_battleData);
+
+                _transitionObject.FadeAndLoad(_battleScene, _transitionDuration);
             }
-            
         }
     }
 }

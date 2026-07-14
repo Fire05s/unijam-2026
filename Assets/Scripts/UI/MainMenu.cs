@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class MainMenu : MonoBehaviour
 {
-    [SerializeField] private screenTransition transition;
+    [SerializeField] private ScreenTransition transition;
 
     public void Play()
     {
