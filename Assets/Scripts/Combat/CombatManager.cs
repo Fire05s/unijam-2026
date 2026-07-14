@@ -91,7 +91,7 @@ namespace Combat
         }
         private void BuildInitialQueue()
         {
-            int currentSlotNum = 0;
+            int currentSlotNum;
             for (int i=10; i>0; i--)
             {
                 //Build list of Dinosaurs with equivalent speed
@@ -258,6 +258,7 @@ namespace Combat
         }
         IEnumerator HandleWildCard()
         {
+            bool repeat = false;
             for (int i=0; i<Dinosaurs[currentActingNum]._wildcards.Count; i++)
             {
                 switch(Dinosaurs[currentActingNum]._wildcards[i])
@@ -268,10 +269,33 @@ namespace Combat
                         int right = currentActingNum - 1;
                         if (RemainingPlayerDinosaurs.Contains(right) || RemainingEnemyDinosaurs.Contains(right)) {Dinosaurs[right].ApplyDamage(thisMoveAttack);}
                         break;
+                    case WildCard.Bleed:
+                        Dinosaurs[targetedDinosaur].ApplyDoT(DoT.Bleed);
+                        break;
+                    case WildCard.Doublehit:
+                        currentMoveData.addToQueue = false;
+                        ProcessDeath();
+                        repeat = true;
+                        break;
+                    case WildCard.Ravenousbite:
+                        Dinosaurs[currentActingNum].Heal(thisMoveAttack * 0.25f);
+                        break;
+                    case WildCard.Luckystreak:
+                        if (thisMoveCrit) {Dinosaurs[targetedDinosaur].ApplyDamage(thisMoveAttack);}
+                        break;
+                    case WildCard.Bloodlust:
+                        if (!Dinosaurs[targetedDinosaur].IsAlive())
+                        {
+                            currentMoveData.addToQueue = false;
+                            ProcessDeath();
+                            repeat = true;
+                        }
+                        break;
                 }
             }
             yield return new WaitForSeconds(WildCardDelay);
-            state = TurnStep.AwaitEnd;
+            if (repeat) {state = TurnStep.AwaitSelect;}
+            else { state = TurnStep.AwaitEnd;}
         }
         IEnumerator EndTurn()
         {
