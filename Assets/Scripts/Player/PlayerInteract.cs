@@ -19,11 +19,12 @@ public class PlayerInteract : MonoBehaviour
     private PlayerInventory playerInventory;
     private LayerMask layerMask;
     private GameObject previousObject;
+    private MapData mapManager;
 
     void Awake()
     {
         layerMask = LayerMask.GetMask("Wall", "Interactables");
-
+        mapManager = GameObject.Find("MapDataManager").GetComponent<MapData>();
         foreach (var partData in inventoryList)
         {
             partsList.Add(new DinosaurPart(partData));
@@ -32,6 +33,7 @@ public class PlayerInteract : MonoBehaviour
 
     private void Start()
     {
+        transform.position = mapManager.GetPlayerPosition();
         Debug.Log(inventoryList.Count);
         Debug.Log(partsList.Count);
         playerInventory = GameObject.Find("Inventory").GetComponent<PlayerInventory>();
@@ -102,7 +104,7 @@ public class PlayerInteract : MonoBehaviour
                 DinosaurPart randomPart = partsList[Random.Range(0, partsList.Count)];
                 Debug.Log("Adding part " + randomPart.Reference.name);
                 playerInventory.AddBodyPart(randomPart);
-
+                Destroy(previousObject);
             }
         }
     }

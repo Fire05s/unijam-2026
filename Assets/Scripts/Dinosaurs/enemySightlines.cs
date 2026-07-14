@@ -6,18 +6,26 @@ public class enemySightlines : MonoBehaviour
     [Header("Sightline")]
     public Transform sightLineOrigin;
     public float sightLineDistance;
+    [Header("ID")]
+    public int enemyID;
     [Header("Scene Transition")]
     public GameObject transitionObject;
     public string battleScene;
     public float transitionDuration;
 
-
+    public MapData mapManager;
     private bool hasLineOfSight;
     private GameObject player;
 
     void Start()
     {
+        mapManager = GameObject.Find("MapDataManager").GetComponent<MapData>();
         player = GameObject.FindGameObjectWithTag("Player");
+
+        if(mapManager.EnemyEncounteredBefore(enemyID))
+        {
+            Destroy(gameObject);
+        }
     }
     LayerMask layerMask;
     void Awake()
@@ -37,6 +45,8 @@ public class enemySightlines : MonoBehaviour
                 Debug.DrawRay(sightLineOrigin.transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
                 //Debug.Log("Hit player");
                 //I added in a fading transition from a tutorial which is what this goes to. Should be easy to replace if something else is needed for the transition or scene change.
+                mapManager.MarkEnemyEncountered(enemyID);
+                mapManager.SavePlayerPosition(hit.transform.position);
                 transitionObject.GetComponent<screenTransition>().FadeAndLoad(battleScene, transitionDuration);
             }
             else

@@ -342,6 +342,51 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ca25d1cf49704d4caa5bc57f5223883, type: 3}
+--- !u!1 &580614326
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 580614328}
+  - component: {fileID: 580614327}
+  m_Layer: 0
+  m_Name: MapDataManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &580614327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 580614326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 944384ec3b1302b449a1b981f87ad11c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerPosition: {x: 0, y: 0, z: 0}
+--- !u!4 &580614328
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 580614326}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.2909737, y: -2.4765508, z: 3.6251266}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &617784970
 GameObject:
   m_ObjectHideFlags: 0
@@ -806,9 +851,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sightLineOrigin: {fileID: 1030068838}
   sightLineDistance: 15
+  enemyID: 1
   transitionObject: {fileID: 1456399764}
   battleScene: ExplorationTesting
   transitionDuration: 0
+  mapManager: {fileID: 0}
 --- !u!136 &1030068835
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1199,17 +1246,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c34e8b72f8ac2b54f916d18b48f02942, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sightLineOrigin: {fileID: 1302170195}
+  sightLineOrigin: {fileID: 1456768562}
   sightLineDistance: 3
   inventoryList:
   - {fileID: 11400000, guid: 1377a3c4526ca2f4e8d1f3872a468405, type: 2}
   - {fileID: 11400000, guid: 61c8df7fbc2bd804081bb12a699feadb, type: 2}
   - {fileID: 11400000, guid: f3182f6d8eefc0049b65cb83f699baf8, type: 2}
---- !u!4 &1302170195 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6687135721514152375, guid: d9402a176c149d44e87fefae4ec5531c, type: 3}
-  m_PrefabInstance: {fileID: 204179711}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1435107291
 GameObject:
   m_ObjectHideFlags: 0
@@ -1407,6 +1449,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1456399764}
   m_CullTransparentMesh: 1
+--- !u!4 &1456768562 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6332421082577409117, guid: 20dd32d25cd2d2946ac3b5695f43a219, type: 3}
+  m_PrefabInstance: {fileID: 1006893605}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1483596431
 GameObject:
   m_ObjectHideFlags: 0
@@ -6548,3 +6595,4 @@ SceneRoots:
   - {fileID: 1064933409}
   - {fileID: 717602703}
   - {fileID: 20343774}
+  - {fileID: 580614328}
