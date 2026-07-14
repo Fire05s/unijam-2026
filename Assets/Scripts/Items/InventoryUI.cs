@@ -3,12 +3,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InventoryUI : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private InventorySlotUI _slotPrefab;
     [SerializeField] private Transform _contentParent;
+    [SerializeField] private Button _displayAllButton;
 
     private List<InventorySlotUI> _slots;
 
@@ -16,6 +18,18 @@ public class InventoryUI : MonoBehaviour
     {
         _slots = GetComponentsInChildren<InventorySlotUI>().ToList();
         Clear();
+        if (CreatureCombiner.Instance != null)
+        {
+            CreatureCombiner.Instance.DisplayUpdate += DisplayAll;
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (CreatureCombiner.Instance != null)
+        {
+            CreatureCombiner.Instance.DisplayUpdate -= DisplayAll;
+        }
     }
 
     private void Start()
@@ -48,10 +62,13 @@ public class InventoryUI : MonoBehaviour
         foreach (var item in PlayerInventory.Instance.BodyParts)
         {
             if (item.Type != type) continue;
+            if (IsInCombiner(item)) continue;
             InventorySlotUI newSlot = Instantiate(_slotPrefab, _contentParent);
             newSlot.SetItem(item);
             _slots.Add(newSlot);
         }
+
+        if (_displayAllButton != null) _displayAllButton.gameObject.SetActive(true);
     }
 
     /// <summary>
@@ -61,14 +78,15 @@ public class InventoryUI : MonoBehaviour
     {
         Clear();
 
-        Debug.Log($"Amount in Inv: {PlayerInventory.Instance.BodyParts.Count}");
-
         foreach (var item in PlayerInventory.Instance.BodyParts)
         {
+            if (IsInCombiner(item)) continue;
             InventorySlotUI newSlot = Instantiate(_slotPrefab, _contentParent);
             newSlot.SetItem(item);
             _slots.Add(newSlot);
         }
+
+        if (_displayAllButton != null) _displayAllButton.gameObject.SetActive(false);
     }
 
     private BodyPartType StringToBodyType(string name)
@@ -82,5 +100,11 @@ public class InventoryUI : MonoBehaviour
             Debug.LogWarning($"'{name}' is not a valid body type. Defaulted to Head type");
             return BodyPartType.Head;
         }
+    }
+
+    private bool IsInCombiner(DinosaurPart part)
+    {
+        if (CreatureCombiner.Instance == null) return false;
+        return CreatureCombiner.Instance.PartSlots.Values.Contains(part);
     }
 }

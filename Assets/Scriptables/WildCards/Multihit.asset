@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 989d1da2a4dcbe34bb12e39d2abb27dd, type: 3}
+  m_Name: Multihit
+  m_EditorClassIdentifier: 
+  <WildType>k__BackingField: 1
+  <Name>k__BackingField: Multihit
+  <Description>k__BackingField: hit the two targets (left and right) closest to the
+    targeted one in one attack (applies crit to all or none of the targets).
