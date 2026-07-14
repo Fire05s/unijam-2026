@@ -167,12 +167,14 @@ namespace Combat
             {
                 VerifyTarget();
             }
-            else if (state == TurnStep.PlayerAttack)
+            else if (state == TurnStep.AwaitPlayerAttack)
             {
+                state = TurnStep.PlayerAttack;
                 StartCoroutine(HandleAttack());
             }
-            else if (state == TurnStep.EnemyAttack)
+            else if (state == TurnStep.AwaitEnemyAttack)
             {
+                state = TurnStep.EnemyAttack;
                 StartCoroutine(HandleAttack());
             }
             else if (state == TurnStep.AwaitWildCard)
@@ -241,7 +243,7 @@ namespace Combat
         void VerifyTarget()
         {
             if (targetedDinosaur < 4 && targetedDinosaur > 15) {throw new Exception("Error in Target Selection: id number out of bounds");}
-            else {state = TurnStep.PlayerAttack;}
+            else {state = TurnStep.AwaitPlayerAttack;}
         }
         IEnumerator HandleAttack()
         {
