@@ -63,4 +63,9 @@ public class PlayerInventory : MonoBehaviour
     {
         _bodyParts.Remove(part);
     }
+
+    public List<DinosaurPart> GetBodyParts()
+    {
+        return _bodyParts;
+    }
 }
