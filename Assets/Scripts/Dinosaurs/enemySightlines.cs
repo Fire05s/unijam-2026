@@ -7,7 +7,7 @@ public class EnemySightlines : MonoBehaviour
     [SerializeField] private Transform _sightLineOrigin;
     [SerializeField] private float _sightLineDistance;
     [Header("Scene Transition")]
-    [SerializeField] private GameObject _transitionObject;
+    [SerializeField] private ScreenTransition _transitionObject;
     [SerializeField] private string _battleScene;
     [SerializeField] private float _transitionDuration;
     [Header("Associated Battle")]
@@ -40,7 +40,7 @@ public class EnemySightlines : MonoBehaviour
             {
                 Debug.Log("Hit player, triggering battle");
                 // CombatManager.Instance.SetupCombat(_battleData);
-                _transitionObject.GetComponent<ScreenTransition>().FadeAndLoad(_battleScene, _transitionDuration);
+                _transitionObject.FadeAndLoad(_battleScene, _transitionDuration);
             }
         }
     }

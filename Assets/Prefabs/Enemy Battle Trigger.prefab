@@ -122,11 +122,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0addea2fcfff19243b151243ba2181a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sightLineOrigin: {fileID: 423115425995918107}
-  sightLineDistance: 0
-  transitionObject: {fileID: 0}
-  battleScene: 
-  transitionDuration: 0
+  _sightLineOrigin: {fileID: 423115425995918107}
+  _sightLineDistance: 10
+  _transitionObject: {fileID: 0}
+  _battleScene: 
+  _transitionDuration: 1
+  _battleData: {fileID: 3491870696763761680}
 --- !u!114 &3491870696763761680
 MonoBehaviour:
   m_ObjectHideFlags: 0
