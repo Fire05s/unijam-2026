@@ -277,13 +277,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8313727294342769667, guid: d9402a176c149d44e87fefae4ec5531c, type: 3}
+      propertyPath: _sightLineOrigin
+      value: 
+      objectReference: {fileID: 1456768562}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 970718461717399296, guid: d9402a176c149d44e87fefae4ec5531c, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1302170192}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9402a176c149d44e87fefae4ec5531c, type: 3}
 --- !u!1001 &395161352
 PrefabInstance:
@@ -1184,32 +1185,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1205051124}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1302170191 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 970718461717399296, guid: d9402a176c149d44e87fefae4ec5531c, type: 3}
-  m_PrefabInstance: {fileID: 204179711}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1302170192
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1302170191}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c34e8b72f8ac2b54f916d18b48f02942, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _sightLineOrigin: {fileID: 1456768562}
-  _sightLineDistance: 5
-  _inventoryList:
-  - {fileID: 11400000, guid: 1377a3c4526ca2f4e8d1f3872a468405, type: 2}
-  - {fileID: 11400000, guid: 7d8c53dfbfd662a439c05f36d74036e1, type: 2}
-  - {fileID: 11400000, guid: f0bb13b60a3c78845828283a1c3a2c59, type: 2}
-  - {fileID: 11400000, guid: b982b31978b248f429e9a2048d8bc371, type: 2}
-  - {fileID: 11400000, guid: f3182f6d8eefc0049b65cb83f699baf8, type: 2}
-  - {fileID: 11400000, guid: c96ebe6098fb48c43b4cb87bbd397626, type: 2}
 --- !u!1 &1435107291
 GameObject:
   m_ObjectHideFlags: 0
@@ -1224,7 +1199,7 @@ GameObject:
   - component: {fileID: 1435107292}
   m_Layer: 6
   m_Name: Cube (1)
-  m_TagString: Interactable
+  m_TagString: CreatureCombiner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

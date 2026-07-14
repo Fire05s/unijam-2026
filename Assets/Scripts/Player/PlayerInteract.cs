@@ -10,6 +10,10 @@ public class PlayerInteract : MonoBehaviour
     [SerializeField] private float _sightLineDistance;
     [Header("Fossil Parts")]
     [SerializeField] private List<BodyPartSO> _inventoryList;
+    [Header("Scene Transition")]
+    [SerializeField] private GameObject _transitionObject;
+    [SerializeField] private string _creatureCombinerScene;
+    [SerializeField] private float _transitionDuration;
 
     private List<DinosaurPart> _partsList = new();
 
@@ -34,7 +38,6 @@ public class PlayerInteract : MonoBehaviour
     {
         transform.position = _mapManager.GetPlayerPosition();
         _playerInventory = GameObject.Find("Inventory").GetComponent<PlayerInventory>();
-        Debug.Log(_playerInventory);
         List<DinosaurPart> playerPartsInventory = _playerInventory.GetBodyParts();
 
         //Goes through each part in the given list of parts from the inspector and compares it to what the player already has. If the player has a part, remove that part from the pool.
@@ -83,6 +86,12 @@ public class PlayerInteract : MonoBehaviour
                 Debug.Log("Adding part " + randomPart.Reference.name);
                 _playerInventory.AddBodyPart(randomPart);
                 Destroy(_previousObject);
+            }
+            else if (_previousObject && _previousObject.CompareTag("CreatureCombiner"))
+            {
+                //Sends you to the creature combiner screen.
+                _mapManager.SavePlayerPosition(transform.position);
+                _transitionObject.GetComponent<screenTransition>().FadeAndLoad(_creatureCombinerScene, _transitionDuration);
             }
         }
     }
