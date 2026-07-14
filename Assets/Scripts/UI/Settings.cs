@@ -7,7 +7,7 @@ public class Settings : MonoBehaviour
     [SerializeField] private Slider sensXSlider;
     [SerializeField] private Slider sensYSlider;
 
-    private float defaultValue = 0.5f;
+    private float defaultValue = 1.0f;
 
     private void OnEnable()
     {
