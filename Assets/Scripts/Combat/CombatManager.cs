@@ -274,7 +274,6 @@ namespace Combat
                         break;
                     case WildCard.Doublehit:
                         currentMoveData.addToQueue = false;
-                        ProcessDeath();
                         repeat = true;
                         break;
                     case WildCard.Ravenousbite:
@@ -287,14 +286,32 @@ namespace Combat
                         if (!Dinosaurs[targetedDinosaur].IsAlive())
                         {
                             currentMoveData.addToQueue = false;
-                            ProcessDeath();
                             repeat = true;
                         }
+                        break;
+                    case WildCard.Scavenger:
+                        if (!Dinosaurs[targetedDinosaur].IsAlive())
+                        {
+                            Dinosaurs[currentActingNum].Heal(Dinosaurs[currentActingNum]._maxHealth * 0.25f);
+                        }
+                        break;
+                    case WildCard.Packtreats:
+                        int lowestHP = 1000000;
+                        int lowestHPID = -1;
+                        foreach (int id in RemainingPlayerDinosaurs)
+                        {
+                            if (Dinosaurs[id]._health < lowestHP)
+                            {
+                                lowestHPID = id;
+                            }
+                        }
+                        if (lowestHPID==-1) {throw new Exception("Error in WildCards: Packtreats did not find any dinosaurs");}
+                        Dinosaurs[lowestHPID].Heal(thisMoveAttack * .2f);
                         break;
                 }
             }
             yield return new WaitForSeconds(WildCardDelay);
-            if (repeat) {state = TurnStep.AwaitSelect;}
+            if (repeat) {ProcessDeath(); state = TurnStep.AwaitSelect;}
             else { state = TurnStep.AwaitEnd;}
         }
         IEnumerator EndTurn()
