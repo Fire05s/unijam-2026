@@ -374,11 +374,16 @@ namespace Combat
             if (RemainingEnemyDinosaurs.Count<=0)
             {
                 state = TurnStep.CombatVictory;
+                // TODO: set player dinos' health to combat results
                 BattleDataLoader.Instance.TriggerVictory();
             }
             else if (RemainingPlayerDinosaurs.Count<=0)
             {
                 state = TurnStep.CombatLose;
+                foreach (DinosaurData playerDino in PlayerInventory.Instance.Creatures)
+                {
+                    playerDino.HealDino(playerDino.GetAdjustedStat(StatType.Health));
+                }
                 BattleDataLoader.Instance.TriggerDefeat();
             }
             else {
