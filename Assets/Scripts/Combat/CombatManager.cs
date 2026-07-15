@@ -276,7 +276,9 @@ namespace Combat
                         Dinosaurs[targetedDinosaur].ApplyDoT(DoT.Bleed);
                         break;
                     case WildCard.Doublehit:
+                        if (!currentMoveData.canAttackAgain) {break;}
                         currentMoveData.addToQueue = false;
+                        currentMoveData.canAttackAgain = false;
                         repeat = true;
                         break;
                     case WildCard.Ravenousbite:
