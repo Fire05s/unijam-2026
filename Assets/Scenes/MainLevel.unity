@@ -2903,9 +2903,97 @@ PrefabInstance:
       value: Enemy Battle Trigger (13)
       objectReference: {fileID: 0}
     - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: enemyDinos.Array.data[0].BaseStats
       value: 
       objectReference: {fileID: 11400000, guid: 8ba2f7d1b590dfc4989572ee142960ae, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[1].BaseStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 8ba2f7d1b590dfc4989572ee142960ae, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[2].BaseStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 8ba2f7d1b590dfc4989572ee142960ae, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[3].BaseStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 8ba2f7d1b590dfc4989572ee142960ae, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[4].BaseStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 8ba2f7d1b590dfc4989572ee142960ae, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[0].BodyParts.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[1].BodyParts.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[2].BodyParts.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[3].BodyParts.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[4].BodyParts.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[0].BodyParts.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 84d8d57a05be2f04ca3963a1546231af, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[0].BodyParts.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: a3d85d2380abea84f938182a7cbb01e1, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[0].BodyParts.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 5e547d919e79aca419502c7ee6b654cb, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[1].BodyParts.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 19df64a918be9924ca68988a87622545, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[1].BodyParts.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 89dfb9d1db98f1c41949ecc5f9e7caaf, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[1].BodyParts.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: b1e75af649b67314bb1883dbdff64d17, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[2].BodyParts.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 84d8d57a05be2f04ca3963a1546231af, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[2].BodyParts.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: a3d85d2380abea84f938182a7cbb01e1, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[2].BodyParts.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 5e547d919e79aca419502c7ee6b654cb, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[3].BodyParts.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 19df64a918be9924ca68988a87622545, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[3].BodyParts.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 89dfb9d1db98f1c41949ecc5f9e7caaf, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[3].BodyParts.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: b1e75af649b67314bb1883dbdff64d17, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4876,9 +4964,65 @@ PrefabInstance:
       value: Enemy Battle Trigger (12)
       objectReference: {fileID: 0}
     - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: enemyDinos.Array.data[0].BaseStats
       value: 
       objectReference: {fileID: 11400000, guid: 8ba2f7d1b590dfc4989572ee142960ae, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[1].BaseStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 8ba2f7d1b590dfc4989572ee142960ae, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[2].BaseStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 8ba2f7d1b590dfc4989572ee142960ae, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[1].BodyParts.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[2].BodyParts.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[0].BodyParts.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 76ccc26ff10b3694b87ae5268137cbf4, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[0].BodyParts.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 89dfb9d1db98f1c41949ecc5f9e7caaf, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[0].BodyParts.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 7dc34178853aea043a2d117de34e5d1f, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[1].BodyParts.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 163d44caf7a16e642aca0f5d489849b3, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[1].BodyParts.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 7604e5bcd105bc64588182fd7a22d6b3, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[1].BodyParts.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 5e547d919e79aca419502c7ee6b654cb, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[2].BodyParts.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 76ccc26ff10b3694b87ae5268137cbf4, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[2].BodyParts.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 89dfb9d1db98f1c41949ecc5f9e7caaf, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[2].BodyParts.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 7dc34178853aea043a2d117de34e5d1f, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5778,6 +5922,7 @@ Transform:
   - {fileID: 1728648194}
   - {fileID: 379239806}
   - {fileID: 574464455}
+  - {fileID: 849351914}
   m_Father: {fileID: 1178474884}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &303911548
@@ -7302,7 +7447,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 138.3
+      value: 137.63
       objectReference: {fileID: 0}
     - target: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7310,11 +7455,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 83
+      value: 77.04
       objectReference: {fileID: 0}
     - target: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.029923495
+      value: 0.99252546
       objectReference: {fileID: 0}
     - target: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: m_LocalRotation.x
@@ -7322,7 +7467,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.9995522
+      value: -0.1220376
       objectReference: {fileID: 0}
     - target: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: m_LocalRotation.z
@@ -7334,7 +7479,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -176.571
+      value: -14.019
       objectReference: {fileID: 0}
     - target: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -7357,9 +7502,45 @@ PrefabInstance:
       value: Enemy Battle Trigger (18)
       objectReference: {fileID: 0}
     - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: enemyDinos.Array.data[0].BaseStats
       value: 
       objectReference: {fileID: 11400000, guid: 8ba2f7d1b590dfc4989572ee142960ae, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[1].BaseStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 8ba2f7d1b590dfc4989572ee142960ae, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[1].BodyParts.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[0].BodyParts.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 76ccc26ff10b3694b87ae5268137cbf4, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[0].BodyParts.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 89dfb9d1db98f1c41949ecc5f9e7caaf, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[0].BodyParts.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: b1e75af649b67314bb1883dbdff64d17, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[1].BodyParts.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 19df64a918be9924ca68988a87622545, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[1].BodyParts.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: a3d85d2380abea84f938182a7cbb01e1, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[1].BodyParts.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 7dc34178853aea043a2d117de34e5d1f, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9966,9 +10147,105 @@ PrefabInstance:
       value: Enemy Battle Trigger (11)
       objectReference: {fileID: 0}
     - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: enemyDinos.Array.data[0].BaseStats
       value: 
       objectReference: {fileID: 11400000, guid: 8ba2f7d1b590dfc4989572ee142960ae, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[1].BaseStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 8ba2f7d1b590dfc4989572ee142960ae, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[2].BaseStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 8ba2f7d1b590dfc4989572ee142960ae, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[3].BaseStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 8ba2f7d1b590dfc4989572ee142960ae, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[4].BaseStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 8ba2f7d1b590dfc4989572ee142960ae, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[1].BodyParts.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[2].BodyParts.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[3].BodyParts.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[4].BodyParts.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[0].BodyParts.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 19df64a918be9924ca68988a87622545, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[0].BodyParts.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: a5afc61a24fb67b4e8e5e266ab54da6a, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[0].BodyParts.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 7dc34178853aea043a2d117de34e5d1f, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[1].BodyParts.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 84d8d57a05be2f04ca3963a1546231af, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[1].BodyParts.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 7604e5bcd105bc64588182fd7a22d6b3, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[1].BodyParts.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: b1e75af649b67314bb1883dbdff64d17, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[2].BodyParts.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 84d8d57a05be2f04ca3963a1546231af, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[2].BodyParts.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 7604e5bcd105bc64588182fd7a22d6b3, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[2].BodyParts.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: b1e75af649b67314bb1883dbdff64d17, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[3].BodyParts.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 84d8d57a05be2f04ca3963a1546231af, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[3].BodyParts.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 7604e5bcd105bc64588182fd7a22d6b3, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[3].BodyParts.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: b1e75af649b67314bb1883dbdff64d17, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[4].BodyParts.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 19df64a918be9924ca68988a87622545, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[4].BodyParts.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: a5afc61a24fb67b4e8e5e266ab54da6a, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[4].BodyParts.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 7dc34178853aea043a2d117de34e5d1f, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10349,7 +10626,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 138.7
+      value: 138.5
       objectReference: {fileID: 0}
     - target: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: m_LocalPosition.y
@@ -10357,7 +10634,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 60.8
+      value: 61.8
       objectReference: {fileID: 0}
     - target: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: m_LocalRotation.w
@@ -10404,9 +10681,45 @@ PrefabInstance:
       value: Enemy Battle Trigger (20)
       objectReference: {fileID: 0}
     - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: enemyDinos.Array.data[0].BaseStats
       value: 
       objectReference: {fileID: 11400000, guid: 8ba2f7d1b590dfc4989572ee142960ae, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[1].BaseStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 8ba2f7d1b590dfc4989572ee142960ae, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[1].BodyParts.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[0].BodyParts.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 84d8d57a05be2f04ca3963a1546231af, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[0].BodyParts.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 7604e5bcd105bc64588182fd7a22d6b3, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[0].BodyParts.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: b1e75af649b67314bb1883dbdff64d17, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[1].BodyParts.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 163d44caf7a16e642aca0f5d489849b3, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[1].BodyParts.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: a3d85d2380abea84f938182a7cbb01e1, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[1].BodyParts.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 5e547d919e79aca419502c7ee6b654cb, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10806,9 +11119,105 @@ PrefabInstance:
       value: Enemy Battle Trigger (14)
       objectReference: {fileID: 0}
     - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: enemyDinos.Array.data[0].BaseStats
       value: 
       objectReference: {fileID: 11400000, guid: 8ba2f7d1b590dfc4989572ee142960ae, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[1].BaseStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 8ba2f7d1b590dfc4989572ee142960ae, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[2].BaseStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 8ba2f7d1b590dfc4989572ee142960ae, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[3].BaseStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 8ba2f7d1b590dfc4989572ee142960ae, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[4].BaseStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 8ba2f7d1b590dfc4989572ee142960ae, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[1].BodyParts.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[2].BodyParts.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[3].BodyParts.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[4].BodyParts.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[0].BodyParts.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 163d44caf7a16e642aca0f5d489849b3, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[0].BodyParts.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: a5afc61a24fb67b4e8e5e266ab54da6a, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[0].BodyParts.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 7dc34178853aea043a2d117de34e5d1f, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[1].BodyParts.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 19df64a918be9924ca68988a87622545, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[1].BodyParts.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 7604e5bcd105bc64588182fd7a22d6b3, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[1].BodyParts.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 281bc25cf4bf04842a455f135c91e153, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[2].BodyParts.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 76ccc26ff10b3694b87ae5268137cbf4, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[2].BodyParts.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 89dfb9d1db98f1c41949ecc5f9e7caaf, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[2].BodyParts.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 281bc25cf4bf04842a455f135c91e153, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[3].BodyParts.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 84d8d57a05be2f04ca3963a1546231af, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[3].BodyParts.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 7604e5bcd105bc64588182fd7a22d6b3, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[3].BodyParts.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 281bc25cf4bf04842a455f135c91e153, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[4].BodyParts.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 19df64a918be9924ca68988a87622545, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[4].BodyParts.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: a5afc61a24fb67b4e8e5e266ab54da6a, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[4].BodyParts.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 7dc34178853aea043a2d117de34e5d1f, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15723,6 +16132,144 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 844141971}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &849351913
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 303542249}
+    m_Modifications:
+    - target: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 224.57
+      objectReference: {fileID: 0}
+    - target: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 136.13
+      objectReference: {fileID: 0}
+    - target: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.99991655
+      objectReference: {fileID: 0}
+    - target: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.012920618
+      objectReference: {fileID: 0}
+    - target: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 1.481
+      objectReference: {fileID: 0}
+    - target: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1055767179522255783, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: _enemyID
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 1055767179522255783, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: _transitionObject
+      value: 
+      objectReference: {fileID: 1907807415}
+    - target: {fileID: 1055767179522255783, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: _sightLineDistance
+      value: 18.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1975666664625897130, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: m_Name
+      value: Enemy Battle Trigger (22)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[0].BaseStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 8ba2f7d1b590dfc4989572ee142960ae, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[1].BaseStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 8ba2f7d1b590dfc4989572ee142960ae, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[2].BaseStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 8ba2f7d1b590dfc4989572ee142960ae, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[0].BodyParts.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[1].BodyParts.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[2].BodyParts.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[0].BodyParts.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 84d8d57a05be2f04ca3963a1546231af, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[0].BodyParts.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 7604e5bcd105bc64588182fd7a22d6b3, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[0].BodyParts.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 5e547d919e79aca419502c7ee6b654cb, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[1].BodyParts.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 163d44caf7a16e642aca0f5d489849b3, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[1].BodyParts.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 7604e5bcd105bc64588182fd7a22d6b3, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[1].BodyParts.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 7dc34178853aea043a2d117de34e5d1f, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[2].BodyParts.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 19df64a918be9924ca68988a87622545, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[2].BodyParts.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 7604e5bcd105bc64588182fd7a22d6b3, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[2].BodyParts.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: b1e75af649b67314bb1883dbdff64d17, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+--- !u!4 &849351914 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+  m_PrefabInstance: {fileID: 849351913}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &850771282
 GameObject:
   m_ObjectHideFlags: 0
@@ -24798,6 +25345,210 @@ PrefabInstance:
       propertyPath: m_Name
       value: Final Battle Trigger
       objectReference: {fileID: 0}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[0].BaseStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 5d06de8a50674cd4f9d8bb291c95891c, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[1].BaseStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 5d06de8a50674cd4f9d8bb291c95891c, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[2].BaseStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 5d06de8a50674cd4f9d8bb291c95891c, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[3].BaseStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 5d06de8a50674cd4f9d8bb291c95891c, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[4].BaseStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 5d06de8a50674cd4f9d8bb291c95891c, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[5].BaseStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 5d06de8a50674cd4f9d8bb291c95891c, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[6].BaseStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 86e62eb4e5025e146aabf82bc5e2cd94, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[7].BaseStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 65b8130067982694f8346f1947127da5, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[8].BaseStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 02f6fb84784d5fd42b93b2f025aad8e3, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[9].BaseStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 8adcc488ef775d149b14d5d957db8914, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[1].BodyParts.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[2].BodyParts.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[3].BodyParts.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[4].BodyParts.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[5].BodyParts.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[6].BodyParts.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[7].BodyParts.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[8].BodyParts.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[9].BodyParts.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[10].BodyParts.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[0].BodyParts.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: b982b31978b248f429e9a2048d8bc371, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[0].BodyParts.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 7b8c79964f45ab54688a5f885d1a0211, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[0].BodyParts.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: d09790c6ae3f114439fb5c50ae7cac0d, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[1].BodyParts.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: f0bb13b60a3c78845828283a1c3a2c59, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[1].BodyParts.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 7b8c79964f45ab54688a5f885d1a0211, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[1].BodyParts.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: d09790c6ae3f114439fb5c50ae7cac0d, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[2].BodyParts.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 1377a3c4526ca2f4e8d1f3872a468405, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[2].BodyParts.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 7b8c79964f45ab54688a5f885d1a0211, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[2].BodyParts.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: d09790c6ae3f114439fb5c50ae7cac0d, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[3].BodyParts.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 7d8c53dfbfd662a439c05f36d74036e1, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[3].BodyParts.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 7b8c79964f45ab54688a5f885d1a0211, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[3].BodyParts.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: d09790c6ae3f114439fb5c50ae7cac0d, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[4].BodyParts.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: f3182f6d8eefc0049b65cb83f699baf8, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[4].BodyParts.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 7b8c79964f45ab54688a5f885d1a0211, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[4].BodyParts.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: d09790c6ae3f114439fb5c50ae7cac0d, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[5].BodyParts.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: c96ebe6098fb48c43b4cb87bbd397626, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[5].BodyParts.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 7b8c79964f45ab54688a5f885d1a0211, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[5].BodyParts.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: d09790c6ae3f114439fb5c50ae7cac0d, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[6].BodyParts.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 19df64a918be9924ca68988a87622545, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[6].BodyParts.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 89dfb9d1db98f1c41949ecc5f9e7caaf, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[6].BodyParts.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 281bc25cf4bf04842a455f135c91e153, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[7].BodyParts.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 163d44caf7a16e642aca0f5d489849b3, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[7].BodyParts.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: a5afc61a24fb67b4e8e5e266ab54da6a, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[7].BodyParts.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 7dc34178853aea043a2d117de34e5d1f, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[8].BodyParts.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 84d8d57a05be2f04ca3963a1546231af, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[8].BodyParts.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: a3d85d2380abea84f938182a7cbb01e1, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[8].BodyParts.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: b1e75af649b67314bb1883dbdff64d17, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[9].BodyParts.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 76ccc26ff10b3694b87ae5268137cbf4, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[9].BodyParts.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: a3d85d2380abea84f938182a7cbb01e1, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[9].BodyParts.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: b1e75af649b67314bb1883dbdff64d17, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -27739,6 +28490,10 @@ PrefabInstance:
       propertyPath: _transitionObject
       value: 
       objectReference: {fileID: 1907807415}
+    - target: {fileID: 1055767179522255783, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: _sightLineDistance
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1975666664625897130, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: m_Name
       value: Enemy Battle Trigger (10)
@@ -27747,6 +28502,18 @@ PrefabInstance:
       propertyPath: enemyDinos.Array.data[0].BaseStats
       value: 
       objectReference: {fileID: 11400000, guid: 8ba2f7d1b590dfc4989572ee142960ae, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[0].BodyParts.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 163d44caf7a16e642aca0f5d489849b3, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[0].BodyParts.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 89dfb9d1db98f1c41949ecc5f9e7caaf, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[0].BodyParts.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 281bc25cf4bf04842a455f135c91e153, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -30641,9 +31408,145 @@ PrefabInstance:
       value: Enemy Battle Trigger (15)
       objectReference: {fileID: 0}
     - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: enemyDinos.Array.data[0].BaseStats
       value: 
       objectReference: {fileID: 11400000, guid: 8ba2f7d1b590dfc4989572ee142960ae, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[1].BaseStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 8ba2f7d1b590dfc4989572ee142960ae, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[2].BaseStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 8ba2f7d1b590dfc4989572ee142960ae, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[3].BaseStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 8ba2f7d1b590dfc4989572ee142960ae, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[4].BaseStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 8ba2f7d1b590dfc4989572ee142960ae, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[5].BaseStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 8ba2f7d1b590dfc4989572ee142960ae, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[6].BaseStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 8ba2f7d1b590dfc4989572ee142960ae, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[1].BodyParts.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[2].BodyParts.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[3].BodyParts.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[4].BodyParts.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[5].BodyParts.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[6].BodyParts.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[0].BodyParts.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 163d44caf7a16e642aca0f5d489849b3, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[0].BodyParts.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 7604e5bcd105bc64588182fd7a22d6b3, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[0].BodyParts.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 5e547d919e79aca419502c7ee6b654cb, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[1].BodyParts.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 163d44caf7a16e642aca0f5d489849b3, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[1].BodyParts.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: a3d85d2380abea84f938182a7cbb01e1, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[1].BodyParts.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 5e547d919e79aca419502c7ee6b654cb, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[2].BodyParts.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 19df64a918be9924ca68988a87622545, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[2].BodyParts.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 7604e5bcd105bc64588182fd7a22d6b3, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[2].BodyParts.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 7dc34178853aea043a2d117de34e5d1f, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[3].BodyParts.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 84d8d57a05be2f04ca3963a1546231af, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[3].BodyParts.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 89dfb9d1db98f1c41949ecc5f9e7caaf, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[3].BodyParts.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: b1e75af649b67314bb1883dbdff64d17, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[4].BodyParts.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 84d8d57a05be2f04ca3963a1546231af, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[4].BodyParts.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: a3d85d2380abea84f938182a7cbb01e1, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[4].BodyParts.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 5e547d919e79aca419502c7ee6b654cb, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[5].BodyParts.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 76ccc26ff10b3694b87ae5268137cbf4, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[5].BodyParts.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 89dfb9d1db98f1c41949ecc5f9e7caaf, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[5].BodyParts.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: b1e75af649b67314bb1883dbdff64d17, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[6].BodyParts.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 76ccc26ff10b3694b87ae5268137cbf4, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[6].BodyParts.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 7604e5bcd105bc64588182fd7a22d6b3, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[6].BodyParts.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 7dc34178853aea043a2d117de34e5d1f, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
