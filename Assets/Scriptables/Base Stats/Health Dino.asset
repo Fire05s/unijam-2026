@@ -22,8 +22,8 @@ MonoBehaviour:
     MaxValue: 5
     AppearanceChance: 1
   - Type: 0
-    MinValue: 30
-    MaxValue: 35
+    MinValue: 20
+    MaxValue: 30
     AppearanceChance: 1
   - Type: 2
     MinValue: 2
