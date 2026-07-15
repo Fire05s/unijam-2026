@@ -1,9 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
-using TMPro;
-using System;
 
 public class CreatureCombiner : MonoBehaviour
 {
@@ -25,6 +26,7 @@ public class CreatureCombiner : MonoBehaviour
     private DinosaurData _displayDinosaur;
     private DinosaurPart _selectedPart;
     private int _selectedPartySlot;
+    private List<DinosaurPart> _history = new();
 
     public DinosaurData DisplayDinosaur => _displayDinosaur;
     public DinosaurPart SelectedPart => _selectedPart;
@@ -59,6 +61,7 @@ public class CreatureCombiner : MonoBehaviour
             foreach (var part in selectedData.GetBodyParts().Values)
             {
                 PlayerInventory.Instance.AddBodyPart(part);
+                _history.Add(part);
             }
             _partSlots = new Dictionary<BodyPartType, DinosaurPart>(selectedData.GetBodyParts());
         }
@@ -124,8 +127,22 @@ public class CreatureCombiner : MonoBehaviour
             PlayerInventory.Instance.RemoveBodyPart(part);
         }
         _partSlots.Clear();
+        _history.Clear();
         UnselectPart();
         _screenManager.SwitchScreen(0); // Party management screen
+    }
+
+    public void ReturnToParty()
+    {
+        foreach (var part in _history)
+        {
+            PlayerInventory.Instance.RemoveBodyPart(part);
+            EquipPart(part);
+        }
+        _partSlots.Clear();
+        _history.Clear();
+        UnselectPart();
+        _screenManager.SwitchScreen(0);
     }
 
     private void GenerateDinosaur()
