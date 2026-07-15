@@ -110,7 +110,7 @@ public class CreatureCombiner : MonoBehaviour
 
     public void FinalizeDinosaur()
     {
-        if (_partSlots.Count < _requiredPartCount)
+        if (!IsValidDinosaur())
         {
             Debug.Log($"Not enough parts selected, must select {_requiredPartCount}");
             return;
@@ -143,6 +143,11 @@ public class CreatureCombiner : MonoBehaviour
         _history.Clear();
         UnselectPart();
         _screenManager.SwitchScreen(0);
+    }
+
+    public bool IsValidDinosaur()
+    {
+        return _partSlots.Count >= _requiredPartCount;
     }
 
     private void GenerateDinosaur()

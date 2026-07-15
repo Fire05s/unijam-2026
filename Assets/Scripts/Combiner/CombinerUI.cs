@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CombinerUI : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class CombinerUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _statsText;
     [Header("Slots")]
     [SerializeField] private List<CombinerSlotUI> _slotObjs;
+    [Header("Button")]
+    [SerializeField] private Button _finishButton;
 
     private void OnEnable()
     {
@@ -34,6 +37,7 @@ public class CombinerUI : MonoBehaviour
     {
         UpdateStats();
         UpdateSlots();
+        UpdateButtons();
     }
 
     /// <summary>
@@ -70,6 +74,18 @@ public class CombinerUI : MonoBehaviour
             {
                 slot.SetPart(null);
             }
+        }
+    }
+
+    private void UpdateButtons()
+    {
+        if (CreatureCombiner.Instance.IsValidDinosaur())
+        {
+            _finishButton.gameObject.SetActive(true);
+        }
+        else
+        {
+            _finishButton.gameObject.SetActive(false);
         }
     }
 }
