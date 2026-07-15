@@ -143,11 +143,17 @@ namespace Combat
                 }
             }
         }
+        /// <summary>
+        /// Tell the Combat Manager to intiate combat. Run this after all combat entities are setup and the intial queue is created.
+        /// </summary>
         public void TriggerCombatStart()
         {
             TurnAdvanced?.Invoke(currentTurnNumber);
             state = TurnStep.TurnStart;
         }
+        /// <summary>
+        /// Main update loop. Checks for transition steps and shifts the manager to the next phase.
+        /// </summary>
         void Update()
         {
             if (state == TurnStep.TurnStart)
@@ -188,6 +194,10 @@ namespace Combat
                 StartCoroutine(EndTurn());
             }
         }
+        /// <summary>
+        /// Calls DoT on every dinosaur on field. Stores a list of affected dinosaurs.
+        /// </summary>
+        /// <returns></returns>
         IEnumerator HandleDoT()
         {
             //Tick DoT for all dinosaurs on field, store list of affected dinosaurs for UX
@@ -204,9 +214,12 @@ namespace Combat
             yield return new WaitForSeconds(DoTDelay);
             state = TurnStep.AwaitEmptyCheck;
         }
+        /// <summary>
+        /// Checks if the current turn is empty. If the turn does not appear in the list, skip to end phase.
+        /// Also checks if the current dinosaur has already died.
+        /// </summary>
         void HandleEmptyTurnChecks()
         {
-            //If the turn is not in the set, it is an empty slot
             if (!NonEmptyTurns.Contains(currentTurnNumber))
             {
                 StartCoroutine(EmptyTurn());
@@ -223,11 +236,18 @@ namespace Combat
             }
             state = TurnStep.AwaitSelect;
         }
+        /// <summary>
+        /// Stalls the game during an empty turn. Sends the turn system to the end phase.
+        /// </summary>
+        /// <returns></returns>
         IEnumerator EmptyTurn()
         {
             yield return new WaitForSeconds(EmptyTurnDelay);
             state = TurnStep.AwaitEnd;
         }
+        /// <summary>
+        /// Selects target for attack. If an enemy is moving, picks a random target. If a player is moving, returns control to Unity.
+        /// </summary>
         void HandleTargetSelection()
         {
             if (Dinosaurs[currentActingNum]._side == EntitySide.Enemy)
@@ -241,11 +261,19 @@ namespace Combat
                 state = TurnStep.PlayerSelect;
             }
         }
+        /// <summary>
+        /// Double checks the targetedDinosaur ID is within expected values. Does not verify if the ID is absolutely valid. This is only a sanity checker.
+        /// </summary>
+        /// <exception cref="Exception"></exception>
         void VerifyTarget()
         {
-            if (targetedDinosaur < 4 && targetedDinosaur > 15) {throw new Exception("Error in Target Selection: id number out of bounds");}
+            if (targetedDinosaur <= 4 || targetedDinosaur >= 15) {throw new Exception("Error in Target Selection: id number out of bounds");}
             else {state = TurnStep.AwaitPlayerAttack;}
         }
+        /// <summary>
+        /// Pulls attack data from the acting dinosaur and applies it to the target. Waits the specified delay. Will readd the dinosaur to the queue if flags are met.
+        /// </summary>
+        /// <returns></returns>
         IEnumerator HandleAttack()
         {
             (float,bool) result = Dinosaurs[currentActingNum].CalculateAttack();
@@ -259,6 +287,11 @@ namespace Combat
             if (currentMoveData.addToQueue) {AddToQueue(Dinosaurs[currentActingNum].CalculateNextTurn(currentTurnNumber), currentActingNum);}
             state = TurnStep.AwaitWildCard;
         }
+        /// <summary>
+        /// Handles logic for wildcards. Relies on flags set by earlier steps as well as TurnData.
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
         IEnumerator HandleWildCard()
         {
             bool repeat = false;
@@ -269,7 +302,7 @@ namespace Combat
                     case WildCard.Multihit:
                         int left = currentActingNum - 1;
                         if (RemainingPlayerDinosaurs.Contains(left) || RemainingEnemyDinosaurs.Contains(left)) {Dinosaurs[left].ApplyDamage(thisMoveAttack);}
-                        int right = currentActingNum - 1;
+                        int right = currentActingNum + 1;
                         if (RemainingPlayerDinosaurs.Contains(right) || RemainingEnemyDinosaurs.Contains(right)) {Dinosaurs[right].ApplyDamage(thisMoveAttack);}
                         break;
                     case WildCard.Bleed:
@@ -303,11 +336,24 @@ namespace Combat
                     case WildCard.Packtreats:
                         float lowestHP = float.MaxValue;
                         int lowestHPID = -1;
-                        foreach (int id in RemainingPlayerDinosaurs)
+                        if (Dinosaurs[currentActingNum]._side==EntitySide.Player)
                         {
-                            if (Dinosaurs[id]._health < lowestHP)
+                            foreach (int id in RemainingPlayerDinosaurs)
                             {
-                                lowestHPID = id;
+                                if (Dinosaurs[id]._health < lowestHP)
+                                {
+                                    lowestHPID = id;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            foreach (int id in RemainingEnemyDinosaurs)
+                            {
+                                if (Dinosaurs[id]._health < lowestHP)
+                                {
+                                    lowestHPID = id;
+                                }
                             }
                         }
                         if (lowestHPID==-1) {throw new Exception("Error in WildCards: Packtreats did not find any dinosaurs");}
@@ -319,6 +365,10 @@ namespace Combat
             if (repeat) {ProcessDeath(); state = TurnStep.AwaitSelect;}
             else { state = TurnStep.AwaitEnd;}
         }
+        /// <summary>
+        /// Checks for win conditions and resets the flags for next turn.
+        /// </summary>
+        /// <returns></returns>
         IEnumerator EndTurn()
         {
             state = TurnStep.TurnEnd;
@@ -341,31 +391,47 @@ namespace Combat
                 TurnAdvanced?.Invoke(currentTurnNumber);
             }
         }
+        /// <summary>
+        /// Sanity check for any dead dinosaurs
+        /// </summary>
+        /// <exception cref="Exception"></exception>
         private void ProcessDeath()
         {
-            foreach (int id in RemainingPlayerDinosaurs)
+            foreach (int id in Dinosaurs.Keys)
             {
                 if (!Dinosaurs[id].IsAlive())
                 {
                     Debug.Log($"{id} ran out of HP and died.");
-                    RemainingPlayerDinosaurs.Remove(id);
-                }
-            }
-            foreach (int id in RemainingEnemyDinosaurs)
-            {
-                if (!Dinosaurs[id].IsAlive())
-                {
-                    Debug.Log($"{id} ran out of HP and died.");
-                    RemainingEnemyDinosaurs.Remove(id);
+                    if (RemainingPlayerDinosaurs.Contains(id))
+                    {
+                        RemainingPlayerDinosaurs.Remove(id);
+                    }
+                    else if (RemainingEnemyDinosaurs.Contains(id))
+                    {
+                        RemainingEnemyDinosaurs.Remove(id);
+                    }
+                    else { throw new Exception("Error in Death Processing: dinosaur not tied to any alignment");}
                 }
             }
         }
+        /// <summary>
+        /// Adds a dinosaur to the queue.
+        /// </summary>
+        /// <param name="turn">Minimum next turn</param>
+        /// <param name="dinoID">ID</param>
+        /// <exception cref="Exception"></exception>
         private void AddToQueue(int turn, int dinoID)
         {
             int actualSlot = MoveOrderQueue.Enqueue(turn, dinoID, Dinosaurs[dinoID]._wildcards);
             if (NonEmptyTurns.Contains(actualSlot)) {throw new Exception("Error in Move Queue: duplicate turn hash found");}
             NonEmptyTurns.Add(actualSlot);
         }
+        /// <summary>
+        /// Pops the next item from the queue
+        /// </summary>
+        /// <param name="turn">Current turn number</param>
+        /// <returns>ID of next dinosaur</returns>
+        /// <exception cref="Exception"></exception>
         private int RemoveFromQueue(int turn)
         {
             (int, TurnData) deq = MoveOrderQueue.Dequeue();
