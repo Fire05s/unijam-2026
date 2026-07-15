@@ -10,27 +10,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b3530032e2dc41343802880e58187ca7, type: 3}
-  m_Name: Ravenous Head (T3)
+  m_Name: Scavenger Head (T2)
   m_EditorClassIdentifier: 
-  <Name>k__BackingField: '[NORMAL HEAD - T3]'
+  <Name>k__BackingField: Scavenger Head
   <Rarity>k__BackingField: 0
   <PartType>k__BackingField: 0
-  <ModelID>k__BackingField: 0
+  <ModelID>k__BackingField: 3
   <Stats>k__BackingField:
   - Type: 1
-    MinValue: 6
-    MaxValue: 8
+    MinValue: -6
+    MaxValue: -4
     AppearanceChance: 1
   - Type: 3
     MinValue: 10
     MaxValue: 15
     AppearanceChance: 0.3
   - Type: 0
-    MinValue: -10
-    MaxValue: -7
+    MinValue: 7
+    MaxValue: 10
     AppearanceChance: 1
   - Type: 2
     MinValue: 2
-    MaxValue: 4
+    MaxValue: 3
     AppearanceChance: 0.3
-  <Wild>k__BackingField: {fileID: 11400000, guid: 8a23e6aa29d22dc48b0ea704dc6c7d72, type: 2}
+  <Wild>k__BackingField: {fileID: 11400000, guid: 9f09815f29be49b4ea18fd2496e19dcb, type: 2}
