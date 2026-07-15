@@ -1159,7 +1159,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1178474884}
+    m_TransformParent: {fileID: 2056791766}
     m_Modifications:
     - target: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1213,6 +1213,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Battle Trigger (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[0].BaseStats
+      value: 
+      objectReference: {fileID: 11400000, guid: e01f6e6310a7ed540a1c47b98e5c2ffe, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2025,7 +2029,7 @@ GameObject:
   - component: {fileID: 77039593}
   - component: {fileID: 77039592}
   - component: {fileID: 77039591}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CC Placeholder (4)
   m_TagString: CreatureCombiner
   m_Icon: {fileID: 0}
@@ -2788,7 +2792,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1178474884}
+    m_TransformParent: {fileID: 303542249}
     m_Modifications:
     - target: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2804,7 +2808,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.3917731
+      value: 0.39177313
       objectReference: {fileID: 0}
     - target: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: m_LocalRotation.x
@@ -2812,7 +2816,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.9200618
+      value: 0.9200619
       objectReference: {fileID: 0}
     - target: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: m_LocalRotation.z
@@ -2842,6 +2846,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Battle Trigger (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[0].BaseStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 8ba2f7d1b590dfc4989572ee142960ae, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3512,7 +3520,7 @@ GameObject:
   - component: {fileID: 173055800}
   - component: {fileID: 173055799}
   - component: {fileID: 173055798}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CC Placeholder (2)
   m_TagString: CreatureCombiner
   m_Icon: {fileID: 0}
@@ -3830,7 +3838,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1178474884}
+    m_TransformParent: {fileID: 280390951}
     m_Modifications:
     - target: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3888,6 +3896,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Battle Trigger (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[0].BaseStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 0080a51658798204da4123d3b4a6e16e, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[0].BodyParts.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[0].BodyParts.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: fd599034b154d0243adb48c701d1a642, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4737,7 +4757,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1178474884}
+    m_TransformParent: {fileID: 303542249}
     m_Modifications:
     - target: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4757,7 +4777,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: m_LocalRotation.y
@@ -4765,7 +4785,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -4791,6 +4811,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Battle Trigger (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[0].BaseStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 8ba2f7d1b590dfc4989572ee142960ae, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5062,13 +5086,50 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 273667034}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &280390950
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 280390951}
+  m_Layer: 0
+  m_Name: Tier 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &280390951
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 280390950}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 506154461}
+  - {fileID: 2065768831}
+  - {fileID: 712187899}
+  - {fileID: 1130936319}
+  - {fileID: 202638380}
+  - {fileID: 453596488}
+  m_Father: {fileID: 1178474884}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &280403564
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1178474884}
+    m_TransformParent: {fileID: 2056791766}
     m_Modifications:
     - target: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5084,19 +5145,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.96553004
       objectReference: {fileID: 0}
     - target: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0.26029193
       objectReference: {fileID: 0}
     - target: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -5104,7 +5165,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -30.175
       objectReference: {fileID: 0}
     - target: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -5126,6 +5187,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Battle Trigger (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[0].BaseStats
+      value: 
+      objectReference: {fileID: 11400000, guid: e01f6e6310a7ed540a1c47b98e5c2ffe, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5568,6 +5633,45 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 300048168}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &303542248
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 303542249}
+  m_Layer: 0
+  m_Name: Tier 3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &303542249
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 303542248}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1549091293}
+  - {fileID: 561341527}
+  - {fileID: 242471046}
+  - {fileID: 136466745}
+  - {fileID: 607857865}
+  - {fileID: 1728648194}
+  - {fileID: 379239806}
+  - {fileID: 574464455}
+  m_Father: {fileID: 1178474884}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &303911548
 GameObject:
   m_ObjectHideFlags: 0
@@ -7086,7 +7190,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1178474884}
+    m_TransformParent: {fileID: 303542249}
     m_Modifications:
     - target: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7144,6 +7248,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Battle Trigger (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[0].BaseStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 8ba2f7d1b590dfc4989572ee142960ae, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7666,7 +7774,7 @@ GameObject:
   - component: {fileID: 426238805}
   - component: {fileID: 426238804}
   - component: {fileID: 426238803}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CC Placeholder (1)
   m_TagString: CreatureCombiner
   m_Icon: {fileID: 0}
@@ -8035,6 +8143,96 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 437387504}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &453596487
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 280390951}
+    m_Modifications:
+    - target: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 47.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 52.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9998101
+      objectReference: {fileID: 0}
+    - target: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.019487573
+      objectReference: {fileID: 0}
+    - target: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 2.233
+      objectReference: {fileID: 0}
+    - target: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1055767179522255783, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: _enemyID
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 1055767179522255783, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: _transitionObject
+      value: 
+      objectReference: {fileID: 1907807415}
+    - target: {fileID: 1055767179522255783, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: _sightLineDistance
+      value: 12.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1975666664625897130, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: m_Name
+      value: Enemy Battle Trigger (21)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[0].BaseStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 0080a51658798204da4123d3b4a6e16e, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[0].BodyParts.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: ca59042a0b1753447a991b626226fe03, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[0].BodyParts.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: e03e7edf17b85b34480c12aa5153ee41, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[0].BodyParts.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 27a2a39cf3b03a34f9488db4979b4422, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+--- !u!4 &453596488 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+  m_PrefabInstance: {fileID: 453596487}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &458825896
 GameObject:
   m_ObjectHideFlags: 0
@@ -8257,7 +8455,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1178474884}
+    m_TransformParent: {fileID: 2056791766}
     m_Modifications:
     - target: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8311,6 +8509,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Battle Trigger (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[0].BaseStats
+      value: 
+      objectReference: {fileID: 11400000, guid: e01f6e6310a7ed540a1c47b98e5c2ffe, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9561,7 +9763,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1178474884}
+    m_TransformParent: {fileID: 303542249}
     m_Modifications:
     - target: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9619,6 +9821,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Battle Trigger (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[0].BaseStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 8ba2f7d1b590dfc4989572ee142960ae, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9641,7 +9847,7 @@ GameObject:
   - component: {fileID: 561510203}
   - component: {fileID: 561510202}
   - component: {fileID: 561510201}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CC Placeholder
   m_TagString: CreatureCombiner
   m_Icon: {fileID: 0}
@@ -9995,7 +10201,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1178474884}
+    m_TransformParent: {fileID: 303542249}
     m_Modifications:
     - target: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10011,7 +10217,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.09884628
+      value: -0.09884629
       objectReference: {fileID: 0}
     - target: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: m_LocalRotation.x
@@ -10019,7 +10225,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.9951027
+      value: -0.99510276
       objectReference: {fileID: 0}
     - target: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: m_LocalRotation.z
@@ -10053,6 +10259,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Battle Trigger (20)
       objectReference: {fileID: 0}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[0].BaseStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 8ba2f7d1b590dfc4989572ee142960ae, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10393,7 +10603,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1178474884}
+    m_TransformParent: {fileID: 303542249}
     m_Modifications:
     - target: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10451,6 +10661,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Battle Trigger (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[0].BaseStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 8ba2f7d1b590dfc4989572ee142960ae, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12319,7 +12533,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1178474884}
+    m_TransformParent: {fileID: 2056791766}
     m_Modifications:
     - target: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12335,7 +12549,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.46272606
+      value: 0.4627261
       objectReference: {fileID: 0}
     - target: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: m_LocalRotation.x
@@ -12343,7 +12557,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.8865013
+      value: 0.8865014
       objectReference: {fileID: 0}
     - target: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: m_LocalRotation.z
@@ -12373,6 +12587,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Battle Trigger (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[0].BaseStats
+      value: 
+      objectReference: {fileID: 11400000, guid: e01f6e6310a7ed540a1c47b98e5c2ffe, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12929,7 +13147,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1178474884}
+    m_TransformParent: {fileID: 280390951}
     m_Modifications:
     - target: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12983,6 +13201,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Battle Trigger (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[0].BaseStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 0080a51658798204da4123d3b4a6e16e, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[1].BaseStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 0080a51658798204da4123d3b4a6e16e, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[1].BodyParts.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[0].BodyParts.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 7bd511eb7dafd2646b2189f55c160b0b, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[0].BodyParts.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 0425a9b69fbb8de45aa116b840db9534, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[1].BodyParts.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 951e0df24be2330478db0312aed4798a, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[1].BodyParts.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 0425a9b69fbb8de45aa116b840db9534, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -19771,7 +20021,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1178474884}
+    m_TransformParent: {fileID: 280390951}
     m_Modifications:
     - target: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: m_LocalPosition.x
@@ -19829,6 +20079,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Battle Trigger (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[0].BaseStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 0080a51658798204da4123d3b4a6e16e, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[0].BodyParts.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[0].BodyParts.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: e03e7edf17b85b34480c12aa5153ee41, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[0].BodyParts.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 27a2a39cf3b03a34f9488db4979b4422, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -20516,27 +20782,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 506154461}
-  - {fileID: 2065768831}
-  - {fileID: 465219764}
-  - {fileID: 688191143}
-  - {fileID: 42059365}
-  - {fileID: 1333129684}
-  - {fileID: 712187899}
-  - {fileID: 1549729293}
-  - {fileID: 1443063631}
-  - {fileID: 1180983552}
-  - {fileID: 1549091293}
-  - {fileID: 561341527}
-  - {fileID: 242471046}
-  - {fileID: 136466745}
-  - {fileID: 607857865}
-  - {fileID: 1728648194}
-  - {fileID: 1130936319}
-  - {fileID: 202638380}
-  - {fileID: 379239806}
-  - {fileID: 280403565}
-  - {fileID: 574464455}
+  - {fileID: 280390951}
+  - {fileID: 2056791766}
+  - {fileID: 303542249}
   - {fileID: 1441394619}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -20654,7 +20902,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1178474884}
+    m_TransformParent: {fileID: 2056791766}
     m_Modifications:
     - target: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: m_LocalPosition.x
@@ -20708,6 +20956,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Battle Trigger (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[0].BaseStats
+      value: 
+      objectReference: {fileID: 11400000, guid: e01f6e6310a7ed540a1c47b98e5c2ffe, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -22658,7 +22910,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1178474884}
+    m_TransformParent: {fileID: 2056791766}
     m_Modifications:
     - target: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: m_LocalPosition.x
@@ -22712,6 +22964,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Battle Trigger (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[0].BaseStats
+      value: 
+      objectReference: {fileID: 11400000, guid: e01f6e6310a7ed540a1c47b98e5c2ffe, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -24176,7 +24432,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1055767179522255783, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: _enemyID
-      value: 21
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 1055767179522255783, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: _transitionObject
@@ -24206,7 +24462,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1178474884}
+    m_TransformParent: {fileID: 2056791766}
     m_Modifications:
     - target: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: m_LocalPosition.x
@@ -24264,6 +24520,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Battle Trigger (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[0].BaseStats
+      value: 
+      objectReference: {fileID: 11400000, guid: e01f6e6310a7ed540a1c47b98e5c2ffe, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -27041,7 +27301,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1178474884}
+    m_TransformParent: {fileID: 303542249}
     m_Modifications:
     - target: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: m_LocalPosition.x
@@ -27095,6 +27355,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Battle Trigger (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[0].BaseStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 8ba2f7d1b590dfc4989572ee142960ae, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -27111,7 +27375,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1178474884}
+    m_TransformParent: {fileID: 2056791766}
     m_Modifications:
     - target: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: m_LocalPosition.x
@@ -27131,15 +27395,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -27165,6 +27429,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Battle Trigger (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[0].BaseStats
+      value: 
+      objectReference: {fileID: 11400000, guid: e01f6e6310a7ed540a1c47b98e5c2ffe, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -29914,7 +30182,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1178474884}
+    m_TransformParent: {fileID: 303542249}
     m_Modifications:
     - target: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: m_LocalPosition.x
@@ -29972,6 +30240,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Battle Trigger (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[0].BaseStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 8ba2f7d1b590dfc4989572ee142960ae, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -31759,7 +32031,7 @@ GameObject:
   - component: {fileID: 1781548358}
   - component: {fileID: 1781548357}
   - component: {fileID: 1781548356}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CC Placeholder (3)
   m_TagString: CreatureCombiner
   m_Icon: {fileID: 0}
@@ -34524,6 +34796,45 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2039702666}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &2056791765
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2056791766}
+  m_Layer: 0
+  m_Name: Tier 2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2056791766
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2056791765}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 465219764}
+  - {fileID: 688191143}
+  - {fileID: 42059365}
+  - {fileID: 1333129684}
+  - {fileID: 1549729293}
+  - {fileID: 1443063631}
+  - {fileID: 1180983552}
+  - {fileID: 280403565}
+  m_Father: {fileID: 1178474884}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2060697650
 GameObject:
   m_ObjectHideFlags: 0
@@ -34746,7 +35057,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1178474884}
+    m_TransformParent: {fileID: 280390951}
     m_Modifications:
     - target: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: m_LocalPosition.x
@@ -34800,6 +35111,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Battle Trigger (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[0].BaseStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 0080a51658798204da4123d3b4a6e16e, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[1].BaseStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 0080a51658798204da4123d3b4a6e16e, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[0].BodyParts.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: enemyDinos.Array.data[1].BodyParts.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[0].BodyParts.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: ca59042a0b1753447a991b626226fe03, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[0].BodyParts.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: ca59042a0b1753447a991b626226fe03, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[1].BodyParts.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: fd599034b154d0243adb48c701d1a642, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -36474,7 +36817,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1178474884}
+    m_TransformParent: {fileID: 280390951}
     m_Modifications:
     - target: {fileID: 423115425995918107, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: m_LocalPosition.x
@@ -36530,12 +36873,20 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 0080a51658798204da4123d3b4a6e16e, type: 2}
     - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: enemyDinos.Array.data[0].BodyParts.Array.size
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: 'enemyDinos.Array.data[0].BodyParts.Array.data[0]'
       value: 
+      objectReference: {fileID: 11400000, guid: ca59042a0b1753447a991b626226fe03, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[0].BodyParts.Array.data[1]'
+      value: 
       objectReference: {fileID: 11400000, guid: 1065d948b00f6f54abbd1573ac3a25f6, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[0].BodyParts.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: fd599034b154d0243adb48c701d1a642, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
