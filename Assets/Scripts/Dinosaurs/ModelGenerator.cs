@@ -6,7 +6,7 @@ public class ModelGenerator : MonoBehaviour
     [Header("References")]
     [SerializeField] private List<BodyPartSlot> _slots;
 
-    private Dictionary<BodyPartType, BodyPartSlot> _slotLookup;
+    private Dictionary<BodyPartType, BodyPartSlot> _slotLookup = new();
 
     private void Awake()
     {
