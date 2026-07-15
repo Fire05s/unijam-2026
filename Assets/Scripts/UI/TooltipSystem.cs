@@ -17,18 +17,18 @@ public class TooltipSystem : MonoBehaviour
         Instance = this;
     }
 
-    public static void Show(string content, string header = "")
+    public static void Show(string content, string header = "", float duration = 0.3f)
     {
         Instance.Tooltip.SetText(content, header);
-        Instance.Tooltip.gameObject.SetActive(true);
+        Instance.Tooltip.FadeIn(duration);
     }
 
-    public static void Hide()
+    public static void Hide(float duration = 0f)
     {
-        Instance.Tooltip.gameObject.SetActive(false);
+        Instance.Tooltip.FadeOut(duration);
     }
 
-    public static void ShowPart(DinosaurPart part)
+    public static void ShowPart(DinosaurPart part, float duration = 0.3f)
     {
         string header = part.Reference.Name;
         string content = "";
@@ -38,6 +38,6 @@ public class TooltipSystem : MonoBehaviour
         }
         if (part.Wildcard != null) content += $"{part.Wildcard.Name}: {part.Wildcard.Description}";
         Instance.Tooltip.SetText(content, header);
-        Instance.Tooltip.gameObject.SetActive(true);
+        Instance.Tooltip.FadeIn(duration);
     }
 }
