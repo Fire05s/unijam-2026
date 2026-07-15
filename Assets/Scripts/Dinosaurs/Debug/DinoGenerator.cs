@@ -10,6 +10,7 @@ public class DinoGenerator : MonoBehaviour
 
     private void Start()
     {
+        if (PlayerInventory.Instance == null || PlayerInventory.Instance.Creatures.Count != 0) return;
         DinosaurData startDino = new DinosaurData(_baseStats, _initialParts);
         PlayerInventory.Instance.AddCreature(startDino);
     }

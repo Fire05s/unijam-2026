@@ -5164,55 +5164,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1458097163}
   m_CullTransparentMesh: 1
---- !u!1 &1512495753
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1512495755}
-  - component: {fileID: 1512495754}
-  m_Layer: 0
-  m_Name: DinoGenerator
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1512495754
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1512495753}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e96991901b5324a4ab809ed24ccf4923, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _initialParts:
-  - {fileID: 11400000, guid: 7bd511eb7dafd2646b2189f55c160b0b, type: 2}
-  - {fileID: 11400000, guid: 951e0df24be2330478db0312aed4798a, type: 2}
-  - {fileID: 11400000, guid: 0425a9b69fbb8de45aa116b840db9534, type: 2}
-  _baseStats: {fileID: 11400000, guid: 7c0542bcad977394091feec2d9ff8a0d, type: 2}
---- !u!4 &1512495755
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1512495753}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 464.57788, y: 394.37125, z: -617.5363}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1576372586
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8250,4 +8201,3 @@ SceneRoots:
   - {fileID: 412874357}
   - {fileID: 2014687308}
   - {fileID: 2024888701}
-  - {fileID: 1512495755}
