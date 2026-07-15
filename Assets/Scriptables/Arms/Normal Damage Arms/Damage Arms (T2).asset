@@ -15,7 +15,7 @@ MonoBehaviour:
   <Name>k__BackingField: '[NORMAL DAMAGE ARMS - T2]'
   <Rarity>k__BackingField: 0
   <PartType>k__BackingField: 1
-  <Model>k__BackingField: {fileID: 0}
+  <ModelID>k__BackingField: 1
   <Stats>k__BackingField:
   - Type: 1
     MinValue: 6
@@ -33,4 +33,4 @@ MonoBehaviour:
     MinValue: -3
     MaxValue: -2
     AppearanceChance: 0.5
-  <Wild>k__BackingField: 0
+  <Wild>k__BackingField: {fileID: 0}

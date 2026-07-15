@@ -18,10 +18,10 @@ public class ModelGenerator : MonoBehaviour
 
     public void SetDinosaur(DinosaurData data)
     {
+        DisableAll();
         foreach (KeyValuePair<BodyPartType, DinosaurPart> entry in data.GetBodyParts())
         {
-            // TODO: some type of matching dinosaur part data to part id
-            // SetPart(entry.Key, entry.Value.Reference.ID); // where id is the part's assigned model id
+            SetPart(entry.Key, entry.Value.Reference.ModelID); // Id is the part's assigned model id
         }
     }
 

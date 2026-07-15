@@ -15,7 +15,7 @@ MonoBehaviour:
   <Name>k__BackingField: '[FOSSIL DAMAGE ARMS]'
   <Rarity>k__BackingField: 1
   <PartType>k__BackingField: 1
-  <Model>k__BackingField: {fileID: 0}
+  <ModelID>k__BackingField: 3
   <Stats>k__BackingField:
   - Type: 1
     MinValue: 8
@@ -25,4 +25,4 @@ MonoBehaviour:
     MinValue: 10
     MaxValue: 15
     AppearanceChance: 1
-  <Wild>k__BackingField: 0
+  <Wild>k__BackingField: {fileID: 0}

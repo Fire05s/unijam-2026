@@ -15,7 +15,7 @@ MonoBehaviour:
   <Name>k__BackingField: '[NORMAL CRIT ARMS - T2]'
   <Rarity>k__BackingField: 0
   <PartType>k__BackingField: 1
-  <Model>k__BackingField: {fileID: 0}
+  <ModelID>k__BackingField: 2
   <Stats>k__BackingField:
   - Type: 1
     MinValue: 4
@@ -33,4 +33,4 @@ MonoBehaviour:
     MinValue: 2
     MaxValue: 3
     AppearanceChance: 0.5
-  <Wild>k__BackingField: 0
+  <Wild>k__BackingField: {fileID: 0}

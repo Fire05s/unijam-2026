@@ -15,7 +15,7 @@ MonoBehaviour:
   <Name>k__BackingField: Velociraptor Head
   <Rarity>k__BackingField: 0
   <PartType>k__BackingField: 0
-  <Model>k__BackingField: {fileID: 0}
+  <ModelID>k__BackingField: 1
   <Stats>k__BackingField:
   - Type: 1
     MinValue: 7

@@ -12,7 +12,7 @@ public class BodyPartSO : ScriptableObject
     [field: SerializeField]
     public BodyPartType PartType { get; private set; }
     [field: SerializeField]
-    public GameObject Model {  get; private set; }
+    public int ModelID {  get; private set; }
     [field: SerializeField]
     public List<StatParameters> Stats { get; private set; }
     [field: SerializeField]
