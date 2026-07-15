@@ -7,11 +7,12 @@ using UnityEngine;
 /// </summary>
 public class DinosaurData
 {
-    [SerializeField] private BaseStatsSO _baseStats;
+    private BaseStatsSO _baseStats;
     private CreatureStats _stats = new();
-    [SerializeField] private Dictionary<BodyPartType, DinosaurPart> _bodyParts = new();
+    private Dictionary<BodyPartType, DinosaurPart> _bodyParts = new();
     private List<WildCard> _wildcardAbilities = new();
     private List<WildCardSO> _wildcardData = new();
+    private float _currentHealth;
 
     public DinosaurData(BaseStatsSO baseStats) {
         _baseStats = baseStats;
@@ -47,6 +48,8 @@ public class DinosaurData
                 _stats.Add(stat.Type, value);
             }
         }
+
+        _currentHealth = GetAdjustedStat(StatType.Health);
     }
 
     /// <summary>
@@ -142,5 +145,23 @@ public class DinosaurData
     public Dictionary<BodyPartType, DinosaurPart> GetBodyParts()
     {
         return _bodyParts;
+    }
+
+    /// <summary>
+    /// Gets the current health of this dino
+    /// </summary>
+    /// <returns> Value of this dino's current health </returns>
+    public float GetCurrentHealth()
+    {
+        return _currentHealth;
+    }
+
+    /// <summary>
+    /// Heals this dino by a specified amount
+    /// </summary>
+    /// <param name="value"> The heal amount </param>
+    public void HealDino(float value)
+    {
+        _currentHealth += Mathf.Clamp(_currentHealth + value, 0, GetAdjustedStat(StatType.Health));
     }
 }

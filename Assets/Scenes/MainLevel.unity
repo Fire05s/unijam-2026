@@ -1208,7 +1208,7 @@ PrefabInstance:
     - target: {fileID: 1055767179522255783, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: _transitionObject
       value: 
-      objectReference: {fileID: 1907807415}
+      objectReference: {fileID: 8743342352401821706}
     - target: {fileID: 1975666664625897130, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: m_Name
       value: Enemy Battle Trigger (4)
@@ -2946,7 +2946,7 @@ PrefabInstance:
     - target: {fileID: 1055767179522255783, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: _transitionObject
       value: 
-      objectReference: {fileID: 1907807415}
+      objectReference: {fileID: 8743342352401821706}
     - target: {fileID: 1975666664625897130, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: m_Name
       value: Enemy Battle Trigger (13)
@@ -4058,7 +4058,7 @@ PrefabInstance:
     - target: {fileID: 1055767179522255783, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: _transitionObject
       value: 
-      objectReference: {fileID: 1907807415}
+      objectReference: {fileID: 8743342352401821706}
     - target: {fileID: 1055767179522255783, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: _sightLineDistance
       value: 20
@@ -4369,6 +4369,10 @@ PrefabInstance:
       propertyPath: _sightLineOrigin
       value: 
       objectReference: {fileID: 1251122831}
+    - target: {fileID: 8313727294342769667, guid: d9402a176c149d44e87fefae4ec5531c, type: 3}
+      propertyPath: _transitionObject
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4985,7 +4989,7 @@ PrefabInstance:
     - target: {fileID: 1055767179522255783, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: _transitionObject
       value: 
-      objectReference: {fileID: 1907807415}
+      objectReference: {fileID: 8743342352401821706}
     - target: {fileID: 1975666664625897130, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: m_Name
       value: Enemy Battle Trigger (12)
@@ -5413,7 +5417,7 @@ PrefabInstance:
     - target: {fileID: 1055767179522255783, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: _transitionObject
       value: 
-      objectReference: {fileID: 1907807415}
+      objectReference: {fileID: 8743342352401821706}
     - target: {fileID: 1055767179522255783, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: _sightLineDistance
       value: 20
@@ -7497,7 +7501,7 @@ PrefabInstance:
     - target: {fileID: 1055767179522255783, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: _transitionObject
       value: 
-      objectReference: {fileID: 1907807415}
+      objectReference: {fileID: 8743342352401821706}
     - target: {fileID: 1055767179522255783, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: _sightLineDistance
       value: 20
@@ -8492,7 +8496,7 @@ PrefabInstance:
     - target: {fileID: 1055767179522255783, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: _transitionObject
       value: 
-      objectReference: {fileID: 1907807415}
+      objectReference: {fileID: 8743342352401821706}
     - target: {fileID: 1055767179522255783, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: _sightLineDistance
       value: 18.6
@@ -8822,10 +8826,14 @@ PrefabInstance:
     - target: {fileID: 1055767179522255783, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: _transitionObject
       value: 
-      objectReference: {fileID: 1907807415}
+      objectReference: {fileID: 8743342352401821706}
     - target: {fileID: 1975666664625897130, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: m_Name
       value: Enemy Battle Trigger (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: rewardsNewDino
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: enemyDinos.Array.data[0].BaseStats
@@ -10142,7 +10150,7 @@ PrefabInstance:
     - target: {fileID: 1055767179522255783, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: _transitionObject
       value: 
-      objectReference: {fileID: 1907807415}
+      objectReference: {fileID: 8743342352401821706}
     - target: {fileID: 1055767179522255783, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: _sightLineDistance
       value: 12.5
@@ -10676,7 +10684,7 @@ PrefabInstance:
     - target: {fileID: 1055767179522255783, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: _transitionObject
       value: 
-      objectReference: {fileID: 1907807415}
+      objectReference: {fileID: 8743342352401821706}
     - target: {fileID: 1055767179522255783, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: _sightLineDistance
       value: 20
@@ -11114,7 +11122,7 @@ PrefabInstance:
     - target: {fileID: 1055767179522255783, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: _transitionObject
       value: 
-      objectReference: {fileID: 1907807415}
+      objectReference: {fileID: 8743342352401821706}
     - target: {fileID: 1055767179522255783, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: _sightLineDistance
       value: 15
@@ -11122,6 +11130,10 @@ PrefabInstance:
     - target: {fileID: 1975666664625897130, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: m_Name
       value: Enemy Battle Trigger (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: rewardsNewDino
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: enemyDinos.Array.size
@@ -13140,7 +13152,7 @@ PrefabInstance:
     - target: {fileID: 1055767179522255783, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: _transitionObject
       value: 
-      objectReference: {fileID: 1907807415}
+      objectReference: {fileID: 8743342352401821706}
     - target: {fileID: 1975666664625897130, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: m_Name
       value: Enemy Battle Trigger (3)
@@ -13814,7 +13826,7 @@ PrefabInstance:
     - target: {fileID: 1055767179522255783, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: _transitionObject
       value: 
-      objectReference: {fileID: 1907807415}
+      objectReference: {fileID: 8743342352401821706}
     - target: {fileID: 1975666664625897130, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: m_Name
       value: Enemy Battle Trigger (6)
@@ -16202,7 +16214,7 @@ PrefabInstance:
     - target: {fileID: 1055767179522255783, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: _transitionObject
       value: 
-      objectReference: {fileID: 1907807415}
+      objectReference: {fileID: 8743342352401821706}
     - target: {fileID: 1055767179522255783, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: _sightLineDistance
       value: 18.6
@@ -20844,7 +20856,7 @@ PrefabInstance:
     - target: {fileID: 1055767179522255783, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: _transitionObject
       value: 
-      objectReference: {fileID: 1907807415}
+      objectReference: {fileID: 8743342352401821706}
     - target: {fileID: 1055767179522255783, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: _sightLineDistance
       value: 20
@@ -21729,7 +21741,7 @@ PrefabInstance:
     - target: {fileID: 1055767179522255783, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: _transitionObject
       value: 
-      objectReference: {fileID: 1907807415}
+      objectReference: {fileID: 8743342352401821706}
     - target: {fileID: 1975666664625897130, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: m_Name
       value: Enemy Battle Trigger (9)
@@ -23793,7 +23805,7 @@ PrefabInstance:
     - target: {fileID: 1055767179522255783, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: _transitionObject
       value: 
-      objectReference: {fileID: 1907807415}
+      objectReference: {fileID: 8743342352401821706}
     - target: {fileID: 1975666664625897130, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: m_Name
       value: Enemy Battle Trigger (5)
@@ -25351,7 +25363,7 @@ PrefabInstance:
     - target: {fileID: 1055767179522255783, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: _transitionObject
       value: 
-      objectReference: {fileID: 1907807415}
+      objectReference: {fileID: 8743342352401821706}
     - target: {fileID: 1055767179522255783, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: _sightLineDistance
       value: 10
@@ -25629,7 +25641,7 @@ PrefabInstance:
     - target: {fileID: 1055767179522255783, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: _transitionObject
       value: 
-      objectReference: {fileID: 1907807415}
+      objectReference: {fileID: 8743342352401821706}
     - target: {fileID: 1055767179522255783, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: _sightLineDistance
       value: 9.7
@@ -28482,7 +28494,7 @@ PrefabInstance:
     - target: {fileID: 1055767179522255783, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: _transitionObject
       value: 
-      objectReference: {fileID: 1907807415}
+      objectReference: {fileID: 8743342352401821706}
     - target: {fileID: 1055767179522255783, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: _sightLineDistance
       value: 10
@@ -28490,6 +28502,10 @@ PrefabInstance:
     - target: {fileID: 1975666664625897130, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: m_Name
       value: Enemy Battle Trigger (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: rewardsNewDino
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: enemyDinos.Array.data[0].BaseStats
@@ -28572,10 +28588,14 @@ PrefabInstance:
     - target: {fileID: 1055767179522255783, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: _transitionObject
       value: 
-      objectReference: {fileID: 1907807415}
+      objectReference: {fileID: 8743342352401821706}
     - target: {fileID: 1975666664625897130, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: m_Name
       value: Enemy Battle Trigger (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: rewardsNewDino
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: enemyDinos.Array.data[0].BaseStats
@@ -31391,7 +31411,7 @@ PrefabInstance:
     - target: {fileID: 1055767179522255783, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: _transitionObject
       value: 
-      objectReference: {fileID: 1907807415}
+      objectReference: {fileID: 8743342352401821706}
     - target: {fileID: 1055767179522255783, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: _sightLineDistance
       value: 15
@@ -35041,17 +35061,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1900336047}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1907807415 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7415429441633188947, guid: d9402a176c149d44e87fefae4ec5531c, type: 3}
-  m_PrefabInstance: {fileID: 219746136}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff75b7862ebecee4a9af399def67a55e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1908174607
 GameObject:
   m_ObjectHideFlags: 0
@@ -36380,7 +36389,7 @@ PrefabInstance:
     - target: {fileID: 1055767179522255783, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: _transitionObject
       value: 
-      objectReference: {fileID: 1907807415}
+      objectReference: {fileID: 8743342352401821706}
     - target: {fileID: 1975666664625897130, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: m_Name
       value: Enemy Battle Trigger (1)
@@ -38148,7 +38157,7 @@ PrefabInstance:
     - target: {fileID: 1055767179522255783, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: _transitionObject
       value: 
-      objectReference: {fileID: 1907807415}
+      objectReference: {fileID: 8743342352401821706}
     - target: {fileID: 1975666664625897130, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: m_Name
       value: Enemy Battle Trigger
@@ -38235,6 +38244,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f12cd44e52bc4ce4f8f603b9ec567bd2, type: 3}
+--- !u!114 &8743342352401821706 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7547495748892400502, guid: f12cd44e52bc4ce4f8f603b9ec567bd2, type: 3}
+  m_PrefabInstance: {fileID: 8743342352401821705}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff75b7862ebecee4a9af399def67a55e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

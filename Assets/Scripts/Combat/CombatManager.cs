@@ -72,9 +72,10 @@ namespace Combat
                 Debug.Log("Adding a player dino");
                 DinosaurData curDinosaur = PlayerInventory.Instance.Creatures[id];
                 RemainingPlayerDinosaurs.Add(id);
-                Dinosaurs[id] = new CombatEntity(id, EntitySide.Player, curDinosaur.GetAdjustedStat(StatType.Health), 
-                    curDinosaur.GetAdjustedStat(StatType.Speed), curDinosaur.GetAdjustedStat(StatType.Attack),
-                    curDinosaur.GetAdjustedStat(StatType.CritChance), curDinosaur.GetWildCardAbilities());
+                Dinosaurs[id] = new CombatEntity(id, EntitySide.Player, curDinosaur.GetAdjustedStat(StatType.Health),
+                    curDinosaur.GetCurrentHealth(), curDinosaur.GetAdjustedStat(StatType.Speed),
+                    curDinosaur.GetAdjustedStat(StatType.Attack), curDinosaur.GetAdjustedStat(StatType.CritChance),
+                    curDinosaur.GetWildCardAbilities());
             }
 
             // enemy dino id's go from 5-14
@@ -85,9 +86,10 @@ namespace Combat
                 Debug.Log("Adding an enemy dino");
                 DinosaurData curDinosaur = enemyDinosData[id - 5];
                 RemainingEnemyDinosaurs.Add(id);
-                Dinosaurs[id] = new CombatEntity(id, EntitySide.Enemy, curDinosaur.GetAdjustedStat(StatType.Health), 
-                    curDinosaur.GetAdjustedStat(StatType.Speed), curDinosaur.GetAdjustedStat(StatType.Attack),
-                    curDinosaur.GetAdjustedStat(StatType.CritChance), curDinosaur.GetWildCardAbilities());
+                Dinosaurs[id] = new CombatEntity(id, EntitySide.Enemy, curDinosaur.GetAdjustedStat(StatType.Health),
+                    curDinosaur.GetCurrentHealth(), curDinosaur.GetAdjustedStat(StatType.Speed),
+                    curDinosaur.GetAdjustedStat(StatType.Attack), curDinosaur.GetAdjustedStat(StatType.CritChance),
+                    curDinosaur.GetWildCardAbilities());
             }
 
             Debug.Log($"total dinosaurs {Dinosaurs.Count}");
@@ -372,12 +374,12 @@ namespace Combat
             if (RemainingEnemyDinosaurs.Count<=0)
             {
                 state = TurnStep.CombatVictory;
-                //handle win
+                BattleDataLoader.Instance.TriggerVictory();
             }
             else if (RemainingPlayerDinosaurs.Count<=0)
             {
                 state = TurnStep.CombatLose;
-                //handle loss
+                BattleDataLoader.Instance.TriggerDefeat();
             }
             else {
                 yield return new WaitForSeconds(InterTurnDelay);
