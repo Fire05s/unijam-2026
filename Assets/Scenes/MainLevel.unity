@@ -2029,7 +2029,7 @@ GameObject:
   - component: {fileID: 77039593}
   - component: {fileID: 77039592}
   - component: {fileID: 77039591}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CC Placeholder (4)
   m_TagString: CreatureCombiner
   m_Icon: {fileID: 0}
@@ -3520,7 +3520,7 @@ GameObject:
   - component: {fileID: 173055800}
   - component: {fileID: 173055799}
   - component: {fileID: 173055798}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CC Placeholder (2)
   m_TagString: CreatureCombiner
   m_Icon: {fileID: 0}
@@ -7774,7 +7774,7 @@ GameObject:
   - component: {fileID: 426238805}
   - component: {fileID: 426238804}
   - component: {fileID: 426238803}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CC Placeholder (1)
   m_TagString: CreatureCombiner
   m_Icon: {fileID: 0}
@@ -9847,7 +9847,7 @@ GameObject:
   - component: {fileID: 561510203}
   - component: {fileID: 561510202}
   - component: {fileID: 561510201}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CC Placeholder
   m_TagString: CreatureCombiner
   m_Icon: {fileID: 0}
@@ -32031,7 +32031,7 @@ GameObject:
   - component: {fileID: 1781548358}
   - component: {fileID: 1781548357}
   - component: {fileID: 1781548356}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CC Placeholder (3)
   m_TagString: CreatureCombiner
   m_Icon: {fileID: 0}
@@ -36873,12 +36873,20 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 0080a51658798204da4123d3b4a6e16e, type: 2}
     - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: enemyDinos.Array.data[0].BodyParts.Array.size
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
       propertyPath: 'enemyDinos.Array.data[0].BodyParts.Array.data[0]'
       value: 
+      objectReference: {fileID: 11400000, guid: ca59042a0b1753447a991b626226fe03, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[0].BodyParts.Array.data[1]'
+      value: 
       objectReference: {fileID: 11400000, guid: 1065d948b00f6f54abbd1573ac3a25f6, type: 2}
+    - target: {fileID: 3491870696763761680, guid: a03ff34286f6c524099dad5d8acee2ac, type: 3}
+      propertyPath: 'enemyDinos.Array.data[0].BodyParts.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: fd599034b154d0243adb48c701d1a642, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
