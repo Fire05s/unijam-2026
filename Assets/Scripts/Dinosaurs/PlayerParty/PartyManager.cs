@@ -7,6 +7,10 @@ public class PartyManager : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private UIScreenManager _screenManager;
+    [Header("Scene Transition")]
+    [SerializeField] private string _mainLevelName = "MainLevel";
+    [SerializeField] private float _transitionDuration = 0.5f;
+    [SerializeField] private ScreenTransition _screenTransition;
 
     public static PartyManager Instance { get; private set; }
     public event Action UpdateDisplay;
@@ -28,6 +32,12 @@ public class PartyManager : MonoBehaviour
         Instance = this;
     }
 
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
     public void SelectSlot(int slotNum)
     {
         if (slotNum < 0 || slotNum >= PlayerInventory.Instance.Creatures.Count)
@@ -47,6 +57,11 @@ public class PartyManager : MonoBehaviour
         _selectedDinosaur = null;
 
         UpdateDisplay?.Invoke();
+    }
+
+    public void ExitToMain()
+    {
+        _screenTransition.FadeAndLoad(_mainLevelName, _transitionDuration);
     }
 
     public void InitializeCombiner()
