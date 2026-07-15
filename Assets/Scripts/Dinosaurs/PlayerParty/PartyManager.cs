@@ -1,4 +1,6 @@
+using NUnit.Framework;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PartyManager : MonoBehaviour
@@ -10,7 +12,7 @@ public class PartyManager : MonoBehaviour
     public event Action UpdateDisplay;
 
     private DinosaurData _selectedDinosaur;
-    [SerializeField] private int _selectedSlot = -1; // no slots selected
+    private int _selectedSlot = -1; // no slots selected
     private int _maxDinosaurs = 5;
 
     public DinosaurData SelectedDinosaur => _selectedDinosaur;

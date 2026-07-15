@@ -15,7 +15,7 @@ MonoBehaviour:
   <Name>k__BackingField: '[FOSSIL HEALTH LEGS]'
   <Rarity>k__BackingField: 1
   <PartType>k__BackingField: 2
-  <Model>k__BackingField: {fileID: 0}
+  <ModelID>k__BackingField: 2
   <Stats>k__BackingField:
   - Type: 0
     MinValue: 15
@@ -25,4 +25,4 @@ MonoBehaviour:
     MinValue: 2
     MaxValue: 3
     AppearanceChance: 1
-  <Wild>k__BackingField: 0
+  <Wild>k__BackingField: {fileID: 0}

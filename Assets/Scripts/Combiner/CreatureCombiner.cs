@@ -14,6 +14,7 @@ public class CreatureCombiner : MonoBehaviour
     [SerializeField] private int _requiredPartCount = 3;
     [Header("Reference")]
     [SerializeField] private UIScreenManager _screenManager;
+    [SerializeField] private ModelGenerator _modelGenerator;
 
     [Header("Debug")]
     [SerializeField] private List<BodyPartSO> _testParts;
@@ -53,13 +54,14 @@ public class CreatureCombiner : MonoBehaviour
         Debug.Log($"Editing slot: {selectedSlot}");
         _selectedPartySlot = selectedSlot;
         _displayDinosaur = selectedData;
-        if (selectedData == null) return; // New slot
-
-        foreach (var part in selectedData.GetBodyParts().Values)
+        if (selectedData != null)
         {
-            PlayerInventory.Instance.AddBodyPart(part);
+            foreach (var part in selectedData.GetBodyParts().Values)
+            {
+                PlayerInventory.Instance.AddBodyPart(part);
+            }
+            _partSlots = new Dictionary<BodyPartType, DinosaurPart>(selectedData.GetBodyParts());
         }
-        _partSlots = new Dictionary<BodyPartType, DinosaurPart>(selectedData.GetBodyParts());
         GenerateDinosaur();
     }
     public void EquipPart(DinosaurPart part)
@@ -138,6 +140,7 @@ public class CreatureCombiner : MonoBehaviour
             _displayDinosaur.ApplyBodyPart(part);
         }
 
+        _modelGenerator.SetDinosaur(_displayDinosaur);
         DisplayUpdate?.Invoke();
     }
 }

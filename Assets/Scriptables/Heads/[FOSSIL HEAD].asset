@@ -15,7 +15,7 @@ MonoBehaviour:
   <Name>k__BackingField: '[FOSSIL HEAD]'
   <Rarity>k__BackingField: 1
   <PartType>k__BackingField: 0
-  <Model>k__BackingField: {fileID: 0}
+  <ModelID>k__BackingField: 2
   <Stats>k__BackingField:
   - Type: 0
     MinValue: -8
