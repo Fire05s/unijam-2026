@@ -69,4 +69,14 @@ public class PlayerInventory : MonoBehaviour
     {
         return _bodyParts;
     }
+
+    public void ClearBodyParts()
+    {
+        _bodyParts.Clear();
+    }
+
+    public void ClearCreatures()
+    {
+        _creatures.Clear();
+    }
 }
