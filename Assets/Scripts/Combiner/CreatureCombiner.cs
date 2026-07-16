@@ -22,6 +22,7 @@ public class CreatureCombiner : MonoBehaviour
 
     public static CreatureCombiner Instance { get; private set; }
     public event Action DisplayUpdate;
+    public event Action PartSelect;
 
     private DinosaurData _displayDinosaur;
     private DinosaurPart _selectedPart;
@@ -96,6 +97,7 @@ public class CreatureCombiner : MonoBehaviour
                 EquipPart(_selectedPart);
             }
             UnselectPart();
+            PartSelect?.Invoke();
         }
         else
         {
