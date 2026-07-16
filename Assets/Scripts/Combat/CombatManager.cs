@@ -420,7 +420,10 @@ namespace Combat
             {
                 if (!Dinosaurs[id].IsAlive())
                 {
+                    CombatSceneManager.Instance.UpdateSceneAfterDeath(id);
+
                     Debug.Log($"{id} ran out of HP and died.");
+                    
                     if (RemainingPlayerDinosaurs.Contains(id))
                     {
                         RemainingPlayerDinosaurs.Remove(id);
