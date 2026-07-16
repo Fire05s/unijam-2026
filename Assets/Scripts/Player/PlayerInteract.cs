@@ -85,6 +85,12 @@ public class PlayerInteract : MonoBehaviour
                 _previousObject = null;
             }
         }
+
+        if (_transitionObject == null)
+        {
+            _transitionObject = FindAnyObjectByType<ScreenTransition>();
+        }
+
         CheckForInput();
     }
     void CheckForInput()
