@@ -157,6 +157,15 @@ public class DinosaurData
     }
 
     /// <summary>
+    /// Set the current health of this dino
+    /// </summary>
+    /// <param name="value"> The heal amount </param>
+    public void SetCurrentHealth(float value)
+    {
+        _currentHealth = value;
+    }
+
+    /// <summary>
     /// Heals this dino by a specified amount
     /// </summary>
     /// <param name="value"> The heal amount </param>

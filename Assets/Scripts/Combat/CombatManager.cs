@@ -2,6 +2,7 @@ using UnityEngine;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data.Common;
 
 namespace Combat
 {
@@ -374,7 +375,19 @@ namespace Combat
             if (RemainingEnemyDinosaurs.Count<=0)
             {
                 state = TurnStep.CombatVictory;
-                // TODO: set player dinos' health to combat results
+                int dinoId = 0;
+                foreach (DinosaurData dino in PlayerInventory.Instance.Creatures)
+                {
+                    if (RemainingPlayerDinosaurs.Contains(dinoId))
+                    {
+                        dino.SetCurrentHealth(Dinosaurs[dinoId]._health);
+                    }
+                    else
+                    {
+                        dino.SetCurrentHealth(0f);
+                    }
+                    dinoId++;
+                }
                 BattleDataLoader.Instance.TriggerVictory();
             }
             else if (RemainingPlayerDinosaurs.Count<=0)
