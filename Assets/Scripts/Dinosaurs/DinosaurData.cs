@@ -171,6 +171,6 @@ public class DinosaurData
     /// <param name="value"> The heal amount </param>
     public void HealDino(float value)
     {
-        _currentHealth += Mathf.Clamp(_currentHealth + value, 0, GetAdjustedStat(StatType.Health));
+        _currentHealth = Mathf.Clamp(_currentHealth + value, 0, GetAdjustedStat(StatType.Health));
     }
 }

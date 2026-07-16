@@ -10,12 +10,12 @@ public class ScreenTransition : MonoBehaviour
     {
         StartCoroutine(FadeOut());
     }
-    public void FadeAndLoad(string sceneName, float duration)
+    public void FadeAndLoad(string sceneName, float duration, bool loadScene = true)
     {
-        StartCoroutine(Fader(sceneName, duration));
+        StartCoroutine(FadeIn(sceneName, duration, loadScene));
     }
 
-    IEnumerator Fader(string sceneName, float duration)
+    public IEnumerator FadeIn(string sceneName, float duration, bool loadScene)
     {
         float t = 0;
         Color c = faderImage.color;
@@ -26,10 +26,14 @@ public class ScreenTransition : MonoBehaviour
             faderImage.color = c;
             yield return null;
         }
-        SceneManager.LoadScene(sceneName);
+        if (loadScene)
+        {
+            yield return SceneManager.LoadSceneAsync(sceneName);
+            StartCoroutine(FadeOut());
+        }
     }
 
-    IEnumerator FadeOut()
+    public IEnumerator FadeOut()
     {
         float t = 0;
         Color c = faderImage.color;
