@@ -14,6 +14,8 @@ public class BodyPartSO : ScriptableObject
     [field: SerializeField]
     public int ModelID {  get; private set; }
     [field: SerializeField]
+    public Sprite Icon { get; private set; }
+    [field: SerializeField]
     public List<StatParameters> Stats { get; private set; }
     [field: SerializeField]
     public WildCardSO Wild { get; private set; }

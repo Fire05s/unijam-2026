@@ -21,6 +21,7 @@ public class InventoryUI : MonoBehaviour
         if (CreatureCombiner.Instance != null)
         {
             CreatureCombiner.Instance.DisplayUpdate += DisplayAll;
+            DisplayAll();
         }
     }
 

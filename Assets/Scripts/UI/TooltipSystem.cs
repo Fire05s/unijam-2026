@@ -25,6 +25,7 @@ public class TooltipSystem : MonoBehaviour
 
     public static void Hide(float duration = 0f)
     {
+        if (!Instance.Tooltip.gameObject.activeSelf) return;
         Instance.Tooltip.FadeOut(duration);
     }
 
