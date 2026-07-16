@@ -429,7 +429,6 @@ namespace Combat
                     {
                         RemainingEnemyDinosaurs.Remove(id);
                     }
-                    // else { throw new Exception("Error in Death Processing: dinosaur not tied to any alignment");}
                 }
             }
         }
