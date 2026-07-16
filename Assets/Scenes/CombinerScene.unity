@@ -2651,7 +2651,6 @@ GameObject:
   - component: {fileID: 900738060}
   - component: {fileID: 900738059}
   - component: {fileID: 900738062}
-  - component: {fileID: 900738063}
   m_Layer: 5
   m_Name: HeadPanel
   m_TagString: Untagged
@@ -2789,20 +2788,6 @@ MonoBehaviour:
   _slotType: 0
   _selectedColor: {r: 0.69803923, g: 1, b: 0.54509807, a: 1}
   _defaultColor: {r: 1, g: 1, b: 1, a: 1}
---- !u!114 &900738063
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 900738057}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dca48845fda9ef24c9e14e4360ad1999, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _duration: 0.5
-  _eastType: 3
 --- !u!1001 &1003549189
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5654,7 +5639,6 @@ GameObject:
   - component: {fileID: 1718458094}
   - component: {fileID: 1718458093}
   - component: {fileID: 1718458096}
-  - component: {fileID: 1718458097}
   m_Layer: 5
   m_Name: LegsPanel
   m_TagString: Untagged
@@ -5792,20 +5776,6 @@ MonoBehaviour:
   _slotType: 2
   _selectedColor: {r: 0.69803923, g: 1, b: 0.54509807, a: 1}
   _defaultColor: {r: 1, g: 1, b: 1, a: 1}
---- !u!114 &1718458097
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1718458091}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dca48845fda9ef24c9e14e4360ad1999, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _duration: 0.5
-  _eastType: 3
 --- !u!1 &1719691231
 GameObject:
   m_ObjectHideFlags: 0
@@ -7017,7 +6987,6 @@ GameObject:
   - component: {fileID: 1918107229}
   - component: {fileID: 1918107228}
   - component: {fileID: 1918107231}
-  - component: {fileID: 1918107232}
   m_Layer: 5
   m_Name: ArmsPanel
   m_TagString: Untagged
@@ -7155,20 +7124,6 @@ MonoBehaviour:
   _slotType: 1
   _selectedColor: {r: 0.69803923, g: 1, b: 0.54509807, a: 1}
   _defaultColor: {r: 1, g: 1, b: 1, a: 1}
---- !u!114 &1918107232
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1918107226}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dca48845fda9ef24c9e14e4360ad1999, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _duration: 0.5
-  _eastType: 3
 --- !u!1 &2013584222
 GameObject:
   m_ObjectHideFlags: 0

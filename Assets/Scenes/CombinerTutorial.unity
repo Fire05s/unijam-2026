@@ -953,6 +953,7 @@ GameObject:
   - component: {fileID: 160677403}
   - component: {fileID: 160677405}
   - component: {fileID: 160677404}
+  - component: {fileID: 160677406}
   m_Layer: 5
   m_Name: StatsPanel
   m_TagString: Untagged
@@ -1019,6 +1020,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 160677402}
   m_CullTransparentMesh: 1
+--- !u!114 &160677406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 160677402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dca48845fda9ef24c9e14e4360ad1999, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _duration: 0.5
+  _eastType: 3
 --- !u!1 &162271990
 GameObject:
   m_ObjectHideFlags: 0
@@ -2684,7 +2699,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 677258571}
-  m_Father: {fileID: 1897520937}
+  m_Father: {fileID: 821919906}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -4090,6 +4105,7 @@ RectTransform:
   - {fileID: 882701086}
   - {fileID: 2144185238}
   - {fileID: 919119712}
+  - {fileID: 416414485}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -8397,6 +8413,7 @@ GameObject:
   - component: {fileID: 1585000910}
   - component: {fileID: 1585000909}
   - component: {fileID: 1585000912}
+  - component: {fileID: 1585000913}
   m_Layer: 5
   m_Name: InventoryPanel
   m_TagString: Untagged
@@ -8509,6 +8526,20 @@ MonoBehaviour:
   _slotPrefab: {fileID: 1227057373876793165, guid: 10ec3c6e398dd8e45b9bdb86dedd0ee8, type: 3}
   _contentParent: {fileID: 35078980}
   _displayAllButton: {fileID: 325353698}
+--- !u!114 &1585000913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1585000907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dca48845fda9ef24c9e14e4360ad1999, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _duration: 0.5
+  _eastType: 3
 --- !u!1 &1673913523
 GameObject:
   m_ObjectHideFlags: 0
@@ -10250,7 +10281,6 @@ RectTransform:
   m_Children:
   - {fileID: 162575262}
   - {fileID: 840966584}
-  - {fileID: 416414485}
   m_Father: {fileID: 1673913527}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
