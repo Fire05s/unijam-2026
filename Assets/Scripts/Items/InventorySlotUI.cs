@@ -12,6 +12,11 @@ public class InventorySlotUI : MonoBehaviour, IPointerClickHandler, IDeselectHan
     {
         _nameText = GetComponentInChildren<TextMeshProUGUI>();
     }
+
+    private void OnDestroy()
+    {
+        TooltipSystem.Hide();
+    }
     public void SetItem(DinosaurPart item)
     {
         _heldItem = item;
