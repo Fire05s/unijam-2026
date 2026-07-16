@@ -41,7 +41,9 @@ namespace Combat
 
         private IEnumerator BattleDelay()
         {
+            StartCoroutine(_transitionObject.FadeIn(_mainLevelScene, _transitionDuration, false));
             yield return SceneManager.LoadSceneAsync("Combat");
+            StartCoroutine(_transitionObject.FadeOut());
             if (CombatManager.Instance == null)
             {
                 Debug.LogError("CombatManager does not exist. Scene may not have loaded.");

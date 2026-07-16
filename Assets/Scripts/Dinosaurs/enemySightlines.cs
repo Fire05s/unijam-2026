@@ -18,6 +18,7 @@ public class EnemySightlines : MonoBehaviour
 
     private MapData _mapManager;
     private LayerMask _layerMask;
+    private bool _triggered;
     void Awake()
     {
         _layerMask = LayerMask.GetMask("Wall", "Default");
@@ -51,8 +52,9 @@ public class EnemySightlines : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(_sightLineOrigin.transform.position, transform.TransformDirection(Vector3.forward), out hit, _sightLineDistance, _layerMask))
         {
-            if(hit.transform.gameObject.CompareTag("Player"))
+            if (hit.transform.gameObject.CompareTag("Player") && !_triggered)
             {
+                _triggered = true;
                 Debug.DrawRay(_sightLineOrigin.transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
                 //I added in a fading transition from a tutorial which is what this goes to. Should be easy to replace if something else is needed for the transition or scene change.
                 Debug.Log("Hit player, triggering battle");
@@ -65,8 +67,6 @@ public class EnemySightlines : MonoBehaviour
                     return;
                 }
                 BattleDataLoader.Instance.StartBattle(_battleData);
-
-                _transitionObject.FadeAndLoad(_battleScene, _transitionDuration);
             }
         }
     }
