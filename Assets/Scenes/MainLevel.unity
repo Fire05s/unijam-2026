@@ -4372,7 +4372,7 @@ PrefabInstance:
     - target: {fileID: 8313727294342769667, guid: d9402a176c149d44e87fefae4ec5531c, type: 3}
       propertyPath: _transitionObject
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8743342352401821706}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
