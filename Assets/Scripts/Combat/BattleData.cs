@@ -7,6 +7,7 @@ namespace Combat
 {
     public class BattleData : MonoBehaviour
     {
+        public bool rewardsNewDino = false;
         public List<EnemyDino> enemyDinos = new();
 
         public BattleData(BattleData other)
