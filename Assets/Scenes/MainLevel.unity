@@ -25712,10 +25712,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: MapDataManager
       objectReference: {fileID: 0}
-    - target: {fileID: 5482272386946206175, guid: 65d3157e8484e414fba9a3ae266d1e8c, type: 3}
-      propertyPath: _PlayerPosition.y
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 8493836729024850271, guid: 65d3157e8484e414fba9a3ae266d1e8c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
