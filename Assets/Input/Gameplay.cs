@@ -136,6 +136,33 @@ public partial class @GameplayInputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Confirm"",
+                    ""type"": ""Button"",
+                    ""id"": ""797c33b0-6cd9-4911-8220-6ec8e7e8ca5e"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SelectLeft"",
+                    ""type"": ""Button"",
+                    ""id"": ""06292706-8ec0-41e7-acd7-294715289191"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SelectRight"",
+                    ""type"": ""Button"",
+                    ""id"": ""837293a4-0e69-470a-9aaf-1cf11b4a336b"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -391,6 +418,39 @@ public partial class @GameplayInputs: IInputActionCollection2, IDisposable
                     ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6ed9e8e5-6718-47bd-bab4-9c6a8483e9d4"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Confirm"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cf7c28bd-a3f7-40db-b6f8-0a852530d244"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SelectLeft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fe3a14fa-1de8-492a-9928-a34aafa34034"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SelectRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -474,6 +534,9 @@ public partial class @GameplayInputs: IInputActionCollection2, IDisposable
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_Sprint = m_Player.FindAction("Sprint", throwIfNotFound: true);
+        m_Player_Confirm = m_Player.FindAction("Confirm", throwIfNotFound: true);
+        m_Player_SelectLeft = m_Player.FindAction("SelectLeft", throwIfNotFound: true);
+        m_Player_SelectRight = m_Player.FindAction("SelectRight", throwIfNotFound: true);
         // Camera
         m_Camera = asset.FindActionMap("Camera", throwIfNotFound: true);
         m_Camera_Orbit = m_Camera.FindAction("Orbit", throwIfNotFound: true);
@@ -564,6 +627,9 @@ public partial class @GameplayInputs: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_Sprint;
+    private readonly InputAction m_Player_Confirm;
+    private readonly InputAction m_Player_SelectLeft;
+    private readonly InputAction m_Player_SelectRight;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -595,6 +661,18 @@ public partial class @GameplayInputs: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/Sprint".
         /// </summary>
         public InputAction @Sprint => m_Wrapper.m_Player_Sprint;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/Confirm".
+        /// </summary>
+        public InputAction @Confirm => m_Wrapper.m_Player_Confirm;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/SelectLeft".
+        /// </summary>
+        public InputAction @SelectLeft => m_Wrapper.m_Player_SelectLeft;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/SelectRight".
+        /// </summary>
+        public InputAction @SelectRight => m_Wrapper.m_Player_SelectRight;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -636,6 +714,15 @@ public partial class @GameplayInputs: IInputActionCollection2, IDisposable
             @Sprint.started += instance.OnSprint;
             @Sprint.performed += instance.OnSprint;
             @Sprint.canceled += instance.OnSprint;
+            @Confirm.started += instance.OnConfirm;
+            @Confirm.performed += instance.OnConfirm;
+            @Confirm.canceled += instance.OnConfirm;
+            @SelectLeft.started += instance.OnSelectLeft;
+            @SelectLeft.performed += instance.OnSelectLeft;
+            @SelectLeft.canceled += instance.OnSelectLeft;
+            @SelectRight.started += instance.OnSelectRight;
+            @SelectRight.performed += instance.OnSelectRight;
+            @SelectRight.canceled += instance.OnSelectRight;
         }
 
         /// <summary>
@@ -662,6 +749,15 @@ public partial class @GameplayInputs: IInputActionCollection2, IDisposable
             @Sprint.started -= instance.OnSprint;
             @Sprint.performed -= instance.OnSprint;
             @Sprint.canceled -= instance.OnSprint;
+            @Confirm.started -= instance.OnConfirm;
+            @Confirm.performed -= instance.OnConfirm;
+            @Confirm.canceled -= instance.OnConfirm;
+            @SelectLeft.started -= instance.OnSelectLeft;
+            @SelectLeft.performed -= instance.OnSelectLeft;
+            @SelectLeft.canceled -= instance.OnSelectLeft;
+            @SelectRight.started -= instance.OnSelectRight;
+            @SelectRight.performed -= instance.OnSelectRight;
+            @SelectRight.canceled -= instance.OnSelectRight;
         }
 
         /// <summary>
@@ -844,6 +940,27 @@ public partial class @GameplayInputs: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnSprint(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Confirm" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnConfirm(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "SelectLeft" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnSelectLeft(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "SelectRight" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnSelectRight(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Camera" which allows adding and removing callbacks.

@@ -93,7 +93,8 @@ namespace Combat
             Debug.Log($"total dinosaurs {Dinosaurs.Count}");
             Debug.Log($"player dinosaurs list {RemainingPlayerDinosaurs.Count}");
             Debug.Log($"enemy dinosaurs list {RemainingEnemyDinosaurs.Count}");
-
+            
+            CombatSceneManager.Instance.SetupCombatScene(PlayerInventory.Instance.Creatures, enemyDinosData);
             BuildInitialQueue();
         }
         private void BuildInitialQueue()
@@ -255,6 +256,7 @@ namespace Combat
             } else
             {
                 state = TurnStep.PlayerSelect;
+                CombatSceneManager.Instance.StartTargetSelection();
             }
         }
         /// <summary>
@@ -384,6 +386,7 @@ namespace Combat
                 state = TurnStep.TurnStart;
                 currentTurnNumber++;
                 currentActingNum = -1;
+                targetedDinosaur = -1;
                 TurnAdvanced?.Invoke(currentTurnNumber);
             }
         }
@@ -406,7 +409,7 @@ namespace Combat
                     {
                         RemainingEnemyDinosaurs.Remove(id);
                     }
-                    else { throw new Exception("Error in Death Processing: dinosaur not tied to any alignment");}
+                    // else { throw new Exception("Error in Death Processing: dinosaur not tied to any alignment");}
                 }
             }
         }
