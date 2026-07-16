@@ -5,13 +5,9 @@ using UnityEngine.UI;
 
 public class InventorySlotUI : MonoBehaviour, IPointerClickHandler, IDeselectHandler, IPointerEnterHandler, IPointerExitHandler
 {
-    private TextMeshProUGUI _nameText;
+    [Header("Reference")]
+    [SerializeField] private Image _icon;
     private DinosaurPart _heldItem;
-
-    private void Awake()
-    {
-        _nameText = GetComponentInChildren<TextMeshProUGUI>();
-    }
 
     private void OnDestroy()
     {
@@ -33,8 +29,14 @@ public class InventorySlotUI : MonoBehaviour, IPointerClickHandler, IDeselectHan
     {
         if (_heldItem != null)
         {
-            _nameText.text = _heldItem.Reference.Name;
-            // TODO: update item display (possibly icons)
+            if (_heldItem.Reference.Icon != null)
+            {
+                _icon.sprite = _heldItem.Reference.Icon;
+            }
+            else
+            {
+                _icon.gameObject.SetActive(false);
+            }
         }
         else
         {
