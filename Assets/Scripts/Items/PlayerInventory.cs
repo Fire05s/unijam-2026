@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerInventory : MonoBehaviour
 {
+    [Header("Settings")]
+    [SerializeField] private int _initialPartyMax = 1;
     [Header("Debug")]
     [SerializeField] private List<BodyPartSO> _initialParts;
     public static PlayerInventory Instance { get; private set; }
@@ -12,6 +14,7 @@ public class PlayerInventory : MonoBehaviour
 
     public IReadOnlyList<DinosaurData> Creatures => _creatures;
     public IReadOnlyList<DinosaurPart> BodyParts => _bodyParts;
+    public int MaxPartySize { get; private set; }
 
     private void Awake()
     {
@@ -28,6 +31,11 @@ public class PlayerInventory : MonoBehaviour
         {
             AddBodyPart(new DinosaurPart(partData));
         }
+    }
+
+    private void Start()
+    {
+        MaxPartySize = _initialPartyMax;
     }
 
     public void AddCreature(DinosaurData creature)
@@ -78,5 +86,11 @@ public class PlayerInventory : MonoBehaviour
     public void ClearCreatures()
     {
         _creatures.Clear();
+    }
+
+    public void IncrementPartyCount()
+    {
+        if (MaxPartySize >= 5) return;
+        MaxPartySize++;
     }
 }
