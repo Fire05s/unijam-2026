@@ -13,14 +13,14 @@ public class CombatSceneManager : MonoBehaviour
     [SerializeField] public Transform playerPositionHolder;
     [SerializeField] public Transform enemyPositionHolder;
     [SerializeField] private GameObject dinoPlaceHolderPrefab;
-    private List<GameObject> playerDinos = new List<GameObject>();
-    private List<GameObject> enemyDinos = new List<GameObject>();
+    private List<GameObject> playerDinoPositions = new List<GameObject>();
+    private List<GameObject> enemyDinoPositions = new List<GameObject>();
 
 
-    [SerializeField] private CinemachineCamera cinemachineCamera;
+    [SerializeField] private CinemachineCamera followCamera;
+    [SerializeField] private CinemachineCamera overviewCamera;
 
-    [SerializeField] private int currentSelectedTarget = -1;
-    [SerializeField] private int currentSelectedTargetIndex = -1;  
+    [SerializeField] private int currentSelectedTarget = -1; 
 
     private CombatManager combatManager;  
 
@@ -56,7 +56,7 @@ public class CombatSceneManager : MonoBehaviour
             currentDinoPosition.x = (index - playerDinoPivotIndex) * distanceScaler;
             dino.transform.localPosition = currentDinoPosition;
 
-            playerDinos.Add(dino);
+            playerDinoPositions.Add(dino);
         }
         for (int index=0; index < enemyDinosData.Count; ++index)
         {
@@ -68,7 +68,7 @@ public class CombatSceneManager : MonoBehaviour
             currentDinoPosition.z = (index % 2 == 0) ? currentDinoPosition.z : distanceScaler;
             dino.transform.localPosition = currentDinoPosition;
 
-            enemyDinos.Add(dino);
+            enemyDinoPositions.Add(dino);
         }
     }
 
@@ -76,11 +76,15 @@ public class CombatSceneManager : MonoBehaviour
     {
         if (combatManager.RemainingPlayerDinosaurs.Contains(dinosaurID))
         {
-            Destroy(playerDinos[dinosaurID]);
+            GameObject dinoToDestroy = playerDinoPositions[dinosaurID];
+            playerDinoPositions[dinosaurID] = null;
+            Destroy(dinoToDestroy);
         }
         else if (combatManager.RemainingEnemyDinosaurs.Contains(dinosaurID))
         {
-            Destroy(enemyDinos[dinosaurID - 5]);
+            GameObject dinoToDestroy = enemyDinoPositions[dinosaurID - 5];
+            enemyDinoPositions[dinosaurID - 5] = null;
+            Destroy(dinoToDestroy);
         }
     }
 
@@ -89,62 +93,64 @@ public class CombatSceneManager : MonoBehaviour
         IReadOnlyList<int> enemyDinoList = combatManager.RemainingEnemyDinosaurs;
 
         if (enemyDinoList.Count == 0) { currentSelectedTarget = -1; return; }
-        currentSelectedTargetIndex = enemyDinoList.Count / 2;
-        currentSelectedTarget = enemyDinoList[currentSelectedTargetIndex];
+        int midIndex = enemyDinoList.Count / 2;
+        currentSelectedTarget = enemyDinoList[midIndex] - 5; // Standarize the dino ID to match the indices on the list
     }
     
     public void SelectTargetLeft()
     {
-        IReadOnlyList<int> enemyDinoList = combatManager.RemainingEnemyDinosaurs;
-
-        if (currentSelectedTargetIndex <= 0){ 
-            currentSelectedTargetIndex = enemyDinoList.Count - 1; 
+        if (currentSelectedTarget <= 0){ 
+            currentSelectedTarget = enemyDinoPositions.Count - 1; 
         }
         else
         {
-            currentSelectedTargetIndex -= 1;
+            currentSelectedTarget -= 1;
         }
 
-        currentSelectedTarget = enemyDinoList[currentSelectedTargetIndex];
+        if (enemyDinoPositions[currentSelectedTarget] == null)
+        {
+            SelectTargetLeft();
+        }
     }
 
     public void SelectTargetRight()
     {
-        IReadOnlyList<int> enemyDinoList = combatManager.RemainingEnemyDinosaurs;
-
-        if (currentSelectedTargetIndex >= enemyDinoList.Count - 1){ 
-            currentSelectedTargetIndex = 0; 
+        if (currentSelectedTarget >= enemyDinoPositions.Count - 1){ 
+            currentSelectedTarget = 0; 
         }
         else
         {
-            currentSelectedTargetIndex += 1;
+            currentSelectedTarget += 1;
         }
 
-        currentSelectedTarget = enemyDinoList[currentSelectedTargetIndex];
+        if (enemyDinoPositions[currentSelectedTarget] == null)
+        {
+            SelectTargetRight();
+        }
     }
 
     public void ConfirmSelectedTarget()
     {
         if (currentSelectedTarget == -1){ return; }
 
-        combatManager.targetedDinosaur = currentSelectedTarget;
+        combatManager.targetedDinosaur = currentSelectedTarget + 5; // Standarize the indices on the list to match dino ID
 
         currentSelectedTarget = -1;
-        currentSelectedTargetIndex = -1;
     }
     
-    public void UpdateCinemachineCamera()
+    private void UpdateCinemachineCamera()
     {
         if (combatManager.state == TurnStep.PlayerSelect)
         {
             // Player Dino ids correspond to its given index on the field
-            cinemachineCamera.Follow = playerDinos[combatManager.currentActingNum].transform;
-            cinemachineCamera.LookAt = enemyDinos[currentSelectedTargetIndex].transform;
+            followCamera.Follow = playerDinoPositions[combatManager.currentActingNum]?.transform;
+            followCamera.LookAt = enemyDinoPositions[currentSelectedTarget]?.transform;
+
+            followCamera.Prioritize();
         }
-        else if (combatManager.state == TurnStep.EnemyAttack)
+        else
         {
-            cinemachineCamera.Follow = playerDinos[combatManager.targetedDinosaur].transform;
-            cinemachineCamera.LookAt = enemyDinos[combatManager.currentActingNum - 5].transform;
+            overviewCamera.Prioritize();
         }
     }
 }
