@@ -363,8 +363,14 @@ namespace Combat
                 }
             }
             yield return new WaitForSeconds(WildCardDelay);
-            if (repeat) {ProcessDeath(); state = TurnStep.AwaitSelect;}
-            else { state = TurnStep.AwaitEnd;}
+            targetedDinosaur = -1;
+            if (repeat) {
+                ProcessDeath();
+                state = TurnStep.AwaitSelect;
+            }
+            else {
+                state = TurnStep.AwaitEnd;
+            }
         }
         /// <summary>
         /// Checks for win conditions and resets the flags for next turn.
@@ -374,39 +380,11 @@ namespace Combat
         {
             state = TurnStep.TurnEnd;
             ProcessDeath();
-            if (RemainingEnemyDinosaurs.Count<=0)
-            {
-                state = TurnStep.CombatVictory;
-                int dinoId = 0;
-                foreach (DinosaurData dino in PlayerInventory.Instance.Creatures)
-                {
-                    if (RemainingPlayerDinosaurs.Contains(dinoId))
-                    {
-                        dino.SetCurrentHealth(Dinosaurs[dinoId]._health);
-                    }
-                    else
-                    {
-                        dino.SetCurrentHealth(0f);
-                    }
-                    dinoId++;
-                }
-                BattleDataLoader.Instance.TriggerVictory();
-            }
-            else if (RemainingPlayerDinosaurs.Count<=0)
-            {
-                state = TurnStep.CombatLose;
-                foreach (DinosaurData playerDino in PlayerInventory.Instance.Creatures)
-                {
-                    playerDino.HealDino(playerDino.GetAdjustedStat(StatType.Health));
-                }
-                BattleDataLoader.Instance.TriggerDefeat();
-            }
-            else {
+            if (state != TurnStep.CombatVictory && state != TurnStep.CombatLose) {
                 yield return new WaitForSeconds(InterTurnDelay);
                 state = TurnStep.TurnStart;
                 currentTurnNumber++;
                 currentActingNum = -1;
-                targetedDinosaur = -1;
                 TurnAdvanced?.Invoke(currentTurnNumber);
             }
         }
@@ -433,6 +411,36 @@ namespace Combat
                         RemainingEnemyDinosaurs.Remove(id);
                     }
                 }
+            }
+
+            if (RemainingEnemyDinosaurs.Count<=0)
+            {
+                state = TurnStep.CombatVictory;
+                int dinoId = 0;
+                foreach (DinosaurData dino in PlayerInventory.Instance.Creatures)
+                {
+                    if (RemainingPlayerDinosaurs.Contains(dinoId))
+                    {
+                        dino.SetCurrentHealth(Dinosaurs[dinoId]._health);
+                    }
+                    else
+                    {
+                        dino.SetCurrentHealth(0f);
+                    }
+                    dinoId++;
+                }
+                StopAllCoroutines();
+                BattleDataLoader.Instance.TriggerVictory();
+            }
+            else if (RemainingPlayerDinosaurs.Count<=0)
+            {
+                state = TurnStep.CombatLose;
+                foreach (DinosaurData playerDino in PlayerInventory.Instance.Creatures)
+                {
+                    playerDino.HealDino(playerDino.GetAdjustedStat(StatType.Health));
+                }
+                StopAllCoroutines();
+                BattleDataLoader.Instance.TriggerDefeat();
             }
         }
         /// <summary>
