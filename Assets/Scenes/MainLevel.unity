@@ -601,7 +601,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4032880993169281767, guid: 469c819ce83731542a74bd1300e390ce, type: 3}
       propertyPath: m_Name
-      value: Interactable (1)
+      value: Excavation Point (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4671,7 +4671,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4032880993169281767, guid: 469c819ce83731542a74bd1300e390ce, type: 3}
       propertyPath: m_Name
-      value: Interactable
+      value: Excavation Point
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4841,7 +4841,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4032880993169281767, guid: 469c819ce83731542a74bd1300e390ce, type: 3}
       propertyPath: m_Name
-      value: Interactable (2)
+      value: Excavation Point (2)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12317,7 +12317,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4032880993169281767, guid: 469c819ce83731542a74bd1300e390ce, type: 3}
       propertyPath: m_Name
-      value: Interactable (3)
+      value: Excavation Point (3)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -38409,7 +38409,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4032880993169281767, guid: 469c819ce83731542a74bd1300e390ce, type: 3}
       propertyPath: m_Name
-      value: Interactable (4)
+      value: Excavation Point (4)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
