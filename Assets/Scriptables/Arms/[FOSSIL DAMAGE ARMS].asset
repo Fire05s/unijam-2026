@@ -15,7 +15,7 @@ MonoBehaviour:
   <Name>k__BackingField: '[FOSSIL DAMAGE ARMS]'
   <Rarity>k__BackingField: 1
   <PartType>k__BackingField: 1
-  <ModelID>k__BackingField: 3
+  <ModelID>k__BackingField: 2
   <Icon>k__BackingField: {fileID: -447792630, guid: f3e369cf7971f1140b382adfc1bb4ab9, type: 3}
   <Stats>k__BackingField:
   - Type: 1
