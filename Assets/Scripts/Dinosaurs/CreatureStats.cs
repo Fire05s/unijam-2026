@@ -38,7 +38,6 @@ public class CreatureStats
     {
         foreach (Stat stat in stats)
         {
-            if (Get(stat.Type) == 0) continue;
             _statValues[stat.Type] -= stat.Value;
         }
     }

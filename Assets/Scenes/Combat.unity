@@ -623,7 +623,7 @@ Transform:
   m_GameObject: {fileID: 611056439}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 4}
+  m_LocalPosition: {x: 0, y: 0, z: 4}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -1631,7 +1631,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPositionHolder: {fileID: 1922417730}
   enemyPositionHolder: {fileID: 611056440}
-  dinoPlaceHolderPrefab: {fileID: 963872658008757626, guid: 0bad4020b6925064f81896986cf85734, type: 3}
+  dinoPlaceHolderPrefab: {fileID: 5763586944821158026, guid: 0af8dc9c22046f849bf8841479f57dd2, type: 3}
   followCamera: {fileID: 870950333}
   overviewCamera: {fileID: 1153073496}
   currentSelectedTarget: -1
@@ -1660,7 +1660,7 @@ Transform:
   m_GameObject: {fileID: 1922417729}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 1, z: -4}
+  m_LocalPosition: {x: 0, y: 0, z: -4}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
