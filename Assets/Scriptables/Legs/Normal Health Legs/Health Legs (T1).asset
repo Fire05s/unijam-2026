@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3530032e2dc41343802880e58187ca7, type: 3}
   m_Name: Health Legs (T1)
   m_EditorClassIdentifier: 
-  <Name>k__BackingField: '[NORMAL HEALTH LEGS - T1]'
+  <Name>k__BackingField: Health Legs (T1)
   <Rarity>k__BackingField: 0
   <PartType>k__BackingField: 2
-  <ModelID>k__BackingField: 2
+  <ModelID>k__BackingField: 0
   <Icon>k__BackingField: {fileID: 824102882, guid: f3e369cf7971f1140b382adfc1bb4ab9, type: 3}
   <Stats>k__BackingField:
   - Type: 1

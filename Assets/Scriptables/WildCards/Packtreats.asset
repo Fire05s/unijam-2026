@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <WildType>k__BackingField: 9
   <Name>k__BackingField: Pack Treats
-  <Description>k__BackingField: heal the lowest health allied dino 20% of the damage
-    dealt (rounded up)
+  <Description>k__BackingField: Heal the lowest health allied Dino 20% of this Dino's
+    damage dealt.

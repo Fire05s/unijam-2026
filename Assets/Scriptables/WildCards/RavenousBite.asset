@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <WildType>k__BackingField: 4
   <Name>k__BackingField: Ravenous Bite
-  <Description>k__BackingField: heal 25% of the damage dealt (rounded up)
+  <Description>k__BackingField: Heal 25% of the damage this Dino deals.
