@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 586154799462388145}
   - component: {fileID: 1424669803400797590}
   m_Layer: 6
-  m_Name: Interactable
+  m_Name: Excavation Point
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
