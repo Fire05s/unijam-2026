@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <WildType>k__BackingField: 1
   <Name>k__BackingField: Multihit
-  <Description>k__BackingField: hit the two targets (left and right) closest to the
-    targeted one in one attack (applies crit to all or none of the targets).
+  <Description>k__BackingField: Hit both adjacent neighbors to the target of this
+    Dino's attack.

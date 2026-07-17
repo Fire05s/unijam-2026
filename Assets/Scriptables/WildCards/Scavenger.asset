@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <WildType>k__BackingField: 8
   <Name>k__BackingField: Scavenger
-  <Description>k__BackingField: heal 25% of your missing health upon killing a dino
-    (rounded up)
+  <Description>k__BackingField: Heal 25% of this Dino's missing health upon killing
+    a Dino.

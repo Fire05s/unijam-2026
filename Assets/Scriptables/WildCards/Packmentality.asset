@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <WildType>k__BackingField: 10
   <Name>k__BackingField: Pack Mentality
-  <Description>k__BackingField: apply a mark on attacked target(s) that are consumed
-    when another allied dino attacks the same target(s), dealing 3 bonus damage
+  <Description>k__BackingField: Apply a Mark on attacked Dino(s) that deals 3 bonus
+    Damage when an ally attacks the same Dino(s).
