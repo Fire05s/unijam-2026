@@ -19,8 +19,8 @@ MonoBehaviour:
   <Icon>k__BackingField: {fileID: 109141640, guid: f3e369cf7971f1140b382adfc1bb4ab9, type: 3}
   <Stats>k__BackingField:
   - Type: 1
-    MinValue: 6
-    MaxValue: 8
+    MinValue: 7
+    MaxValue: 9
     AppearanceChance: 1
   - Type: 3
     MinValue: 10
@@ -31,7 +31,7 @@ MonoBehaviour:
     MaxValue: -7
     AppearanceChance: 1
   - Type: 2
-    MinValue: 2
-    MaxValue: 4
+    MinValue: 1
+    MaxValue: 2
     AppearanceChance: 0.3
   <Wild>k__BackingField: {fileID: 11400000, guid: 8a23e6aa29d22dc48b0ea704dc6c7d72, type: 2}
