@@ -7,7 +7,7 @@ public class MainMenu : MonoBehaviour
 
     public void Play()
     {
-        transition.FadeAndLoad("MainLevel", duration: 2f);
+        transition.FadeAndLoad("CombinerTutorial", duration: 2f);
     }
 
     public void Setting()
