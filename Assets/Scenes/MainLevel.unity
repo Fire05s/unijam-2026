@@ -4248,10 +4248,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 4728166243918806071, guid: d9402a176c149d44e87fefae4ec5531c, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 6687135721514152375, guid: d9402a176c149d44e87fefae4ec5531c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -4296,14 +4292,6 @@ PrefabInstance:
       propertyPath: _sightLineOrigin
       value: 
       objectReference: {fileID: 1251122831}
-    - target: {fileID: 8313727294342769667, guid: d9402a176c149d44e87fefae4ec5531c, type: 3}
-      propertyPath: _transitionObject
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8496035757433429626, guid: d9402a176c149d44e87fefae4ec5531c, type: 3}
-      propertyPath: m_Mass
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -33751,7 +33739,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1763425030
 Transform:
   m_ObjectHideFlags: 0
