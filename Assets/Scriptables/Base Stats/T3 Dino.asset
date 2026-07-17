@@ -14,18 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Stats>k__BackingField:
   - Type: 1
-    MinValue: 9
-    MaxValue: 11
+    MinValue: 5
+    MaxValue: 7
     AppearanceChance: 1
   - Type: 3
-    MinValue: 10
-    MaxValue: 25
+    MinValue: 0
+    MaxValue: 15
     AppearanceChance: 1
   - Type: 0
     MinValue: 15
     MaxValue: 20
     AppearanceChance: 1
   - Type: 2
-    MinValue: 5
-    MaxValue: 7
+    MinValue: 1
+    MaxValue: 3
     AppearanceChance: 1
