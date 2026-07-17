@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
 using System.Collections.Generic;
 
 public class PlayerInteract : MonoBehaviour
@@ -8,6 +9,8 @@ public class PlayerInteract : MonoBehaviour
     [Header("InteractSightline (Player Camera)")]
     [SerializeField] private Transform _sightLineOrigin;
     [SerializeField] private float _sightLineDistance;
+    [Header("Excavating")]
+    [SerializeField] private int _timeToExcavate = 1;
     [Header("Fossil Parts")]
     [SerializeField] private List<BodyPartSO> _inventoryList;
     [Header("Scene Transition")]
@@ -101,10 +104,7 @@ public class PlayerInteract : MonoBehaviour
             if (_previousObject && _previousObject.CompareTag("Interactable"))
             {
                 //Adds random part from the list partsList to the player inventory.
-                DinosaurPart randomPart = _partsList[Random.Range(0, _partsList.Count)];
-                Debug.Log("Adding part " + randomPart.Reference.name);
-                _playerInventory.AddBodyPart(randomPart);
-                Destroy(_previousObject);
+                StartCoroutine(ExcavateEnumerator(_timeToExcavate, _previousObject));
             }
             else if (_previousObject && _previousObject.CompareTag("CreatureCombiner"))
             {
@@ -113,5 +113,23 @@ public class PlayerInteract : MonoBehaviour
                 _transitionObject.FadeAndLoad(_creatureCombinerScene, _transitionDuration);
             }
         }
+    }
+
+    IEnumerator ExcavateEnumerator(int seconds, GameObject excavationObject)
+    {
+        AudioSource excavationAudio = excavationObject.GetComponent<AudioSource>();
+        if (excavationAudio)
+        {
+            excavationAudio.Play();
+        }
+        excavationObject.transform.GetChild(0).gameObject.SetActive(false);
+        excavationObject.transform.GetChild(1).gameObject.SetActive(true);
+        yield return new WaitForSeconds(seconds);
+
+        excavationObject.transform.GetChild(1).transform.gameObject.SetActive(false);
+        DinosaurPart randomPart = _partsList[Random.Range(0, _partsList.Count)];
+        Debug.Log("Adding part " + randomPart.Reference.name);
+        _playerInventory.AddBodyPart(randomPart);
+        Destroy(excavationObject);
     }
 }
