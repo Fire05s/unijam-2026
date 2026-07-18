@@ -47,6 +47,7 @@ namespace Combat
         [SerializeField] public int targetedDinosaur;
         private bool thisMoveCrit;
         private float thisMoveAttack;
+        public TurnQueue TurnQueue => MoveOrderQueue;
         
 
         void Awake()

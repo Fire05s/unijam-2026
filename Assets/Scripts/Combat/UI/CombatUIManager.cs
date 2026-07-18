@@ -7,6 +7,8 @@ public class CombatUIManager : MonoBehaviour
 {
     [Header("Slots")]
     [SerializeField] private List<CombatSlotUI> _playerSlots;
+    [SerializeField] private TurnSlotUI _turnSlotPrefab;
+    [SerializeField] private GameObject _turnSlotPanel;
     [Header("Turn Indicator")]
     [SerializeField] private GameObject _turnPanel;
     [SerializeField] private TextMeshProUGUI _turnText;
@@ -18,6 +20,8 @@ public class CombatUIManager : MonoBehaviour
     [SerializeField] private CombatUIFollower _crosshairFollow;
 
     private Dictionary<int, HealthUI> _healthBars = new();
+    private List<KeyValuePair<int, TurnData>> _existingQueue = new();
+    private List<TurnSlotUI> _turnSlots = new();
 
     private void Start()
     {
@@ -53,6 +57,7 @@ public class CombatUIManager : MonoBehaviour
     private void OnNewTurn(int turnNum)
     {
         _turnText.text = $"Turn: {turnNum}";
+        UpdateTurnSlots();
     }
 
     private void OnDeath(int id)
@@ -149,6 +154,49 @@ public class CombatUIManager : MonoBehaviour
         {
             _crosshairFollow.gameObject.SetActive(true);
             _crosshairFollow.SetTarget(CombatSceneManager.Instance.CreatureObjects[target + 5].LookTarget);
+        }
+    }
+
+    private void UpdateTurnSlots()
+    {
+        List<KeyValuePair<int, TurnData>> turnQueue = CombatManager.Instance.TurnQueue.PeekX(5); // peeks 5 turns ahead
+        List<(int index, KeyValuePair<int, TurnData> value)> removed = new();
+        List<(int index, KeyValuePair<int, TurnData> value)> added = new();
+
+        // Find old slots
+        for (int i = _existingQueue.Count - 1; i >= 0; i--)
+        {
+            if (!turnQueue.Contains(_existingQueue[i]))
+            {
+                removed.Add((i, _existingQueue[i]));
+            }
+        }
+
+        // Find new slots
+        for (int i = 0; i < turnQueue.Count; i++)
+        {
+            if (!_existingQueue.Contains(turnQueue[i]))
+            {
+                added.Add((i, turnQueue[i]));
+            }
+        }
+
+        // Remove old slots
+        foreach (var r in removed)
+        {
+            _existingQueue.RemoveAt(r.index);
+            _turnSlots[r.index].Hide();
+            _turnSlots.RemoveAt(r.index);
+        }
+
+        // Add new slots
+        foreach (var a in added)
+        {
+            _existingQueue.Insert(a.index, a.value);
+            TurnSlotUI newSlot = Instantiate(_turnSlotPrefab, _turnSlotPanel.transform);
+            newSlot.SetSlot(a.value.Key, a.value.Value);
+            newSlot.transform.SetSiblingIndex(a.index + 1);
+            _turnSlots.Insert(a.index, newSlot);
         }
     }
 }
