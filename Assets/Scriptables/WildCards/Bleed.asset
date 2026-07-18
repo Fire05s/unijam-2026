@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <WildType>k__BackingField: 2
   <Name>k__BackingField: Bleed
-  <Description>k__BackingField: deal 2 damage per turn for 3 turns to all units hit
-    by your attack
+  <Description>k__BackingField: Apply Bleed (2 Damage per Turn for 3 Turns) to all
+    damaged enemies.

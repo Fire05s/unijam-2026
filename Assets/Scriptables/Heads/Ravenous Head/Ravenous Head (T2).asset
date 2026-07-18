@@ -12,19 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3530032e2dc41343802880e58187ca7, type: 3}
   m_Name: Ravenous Head (T2)
   m_EditorClassIdentifier: 
-  <Name>k__BackingField: '[NORMAL HEAD - T2]'
+  <Name>k__BackingField: Ravenous Head (T2)
   <Rarity>k__BackingField: 0
   <PartType>k__BackingField: 0
   <ModelID>k__BackingField: 0
   <Icon>k__BackingField: {fileID: 109141640, guid: f3e369cf7971f1140b382adfc1bb4ab9, type: 3}
   <Stats>k__BackingField:
   - Type: 1
-    MinValue: 4
-    MaxValue: 6
+    MinValue: 5
+    MaxValue: 7
     AppearanceChance: 1
   - Type: 3
-    MinValue: 5
-    MaxValue: 10
+    MinValue: 1
+    MaxValue: 4
     AppearanceChance: 0.3
   - Type: 0
     MinValue: -8
@@ -32,6 +32,6 @@ MonoBehaviour:
     AppearanceChance: 1
   - Type: 2
     MinValue: 1
-    MaxValue: 3
+    MaxValue: 2
     AppearanceChance: 0.3
   <Wild>k__BackingField: {fileID: 11400000, guid: 8a23e6aa29d22dc48b0ea704dc6c7d72, type: 2}

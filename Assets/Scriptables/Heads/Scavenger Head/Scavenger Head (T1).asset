@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3530032e2dc41343802880e58187ca7, type: 3}
   m_Name: Scavenger Head (T1)
   m_EditorClassIdentifier: 
-  <Name>k__BackingField: Scavenger Head
+  <Name>k__BackingField: Scavenger Head (T1)
   <Rarity>k__BackingField: 0
   <PartType>k__BackingField: 0
-  <ModelID>k__BackingField: 3
+  <ModelID>k__BackingField: 0
   <Icon>k__BackingField: {fileID: 109141640, guid: f3e369cf7971f1140b382adfc1bb4ab9, type: 3}
   <Stats>k__BackingField:
   - Type: 1
@@ -23,8 +23,8 @@ MonoBehaviour:
     MaxValue: -2
     AppearanceChance: 1
   - Type: 3
-    MinValue: 5
-    MaxValue: 10
+    MinValue: 3
+    MaxValue: 5
     AppearanceChance: 0.3
   - Type: 0
     MinValue: 3

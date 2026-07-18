@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3530032e2dc41343802880e58187ca7, type: 3}
   m_Name: Speed Legs (T2)
   m_EditorClassIdentifier: 
-  <Name>k__BackingField: '[NORMAL SPEED LEGS - T2]'
+  <Name>k__BackingField: Speed Legs (T2)
   <Rarity>k__BackingField: 0
   <PartType>k__BackingField: 2
-  <ModelID>k__BackingField: 1
+  <ModelID>k__BackingField: 2
   <Icon>k__BackingField: {fileID: 824102882, guid: f3e369cf7971f1140b382adfc1bb4ab9, type: 3}
   <Stats>k__BackingField:
   - Type: 1
@@ -23,8 +23,8 @@ MonoBehaviour:
     MaxValue: 5
     AppearanceChance: 0.5
   - Type: 3
-    MinValue: -10
-    MaxValue: -5
+    MinValue: -4
+    MaxValue: -1
     AppearanceChance: 0.5
   - Type: 0
     MinValue: 10

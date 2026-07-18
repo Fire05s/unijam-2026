@@ -11,6 +11,10 @@ namespace Combat
         public static CombatManager Instance {get; private set;}
         public delegate void IntDelegate(int value);
         public event IntDelegate TurnAdvanced;
+        public event Action<int> DinoDamaged;
+        public event Action<int> DinoHealed;
+        public event Action<List<int>> DOTApplied;
+        public event Action<int, int> AttackPerformed;
 
         /// <summary>
         /// Total dinosaur list with ID and Combat Entity class
@@ -96,7 +100,8 @@ namespace Combat
             Debug.Log($"total dinosaurs {Dinosaurs.Count}");
             Debug.Log($"player dinosaurs list {RemainingPlayerDinosaurs.Count}");
             Debug.Log($"enemy dinosaurs list {RemainingEnemyDinosaurs.Count}");
-
+            
+            CombatSceneManager.Instance.SetupCombatScene(PlayerInventory.Instance.Creatures, enemyDinosData);
             BuildInitialQueue();
         }
         private void BuildInitialQueue()
@@ -209,6 +214,7 @@ namespace Combat
             {
                 if (Dinosaurs[id].TickDoT()) {TakenDamage.Add(id);}
             }
+            DOTApplied?.Invoke(TakenDamage);
             ProcessDeath();
             yield return new WaitForSeconds(DoTDelay);
             state = TurnStep.AwaitEmptyCheck;
@@ -258,6 +264,7 @@ namespace Combat
             } else
             {
                 state = TurnStep.PlayerSelect;
+                CombatSceneManager.Instance.StartTargetSelection();
             }
         }
         /// <summary>
@@ -278,8 +285,9 @@ namespace Combat
             (float,bool) result = Dinosaurs[currentActingNum].CalculateAttack();
             thisMoveAttack = result.Item1;
             thisMoveCrit = result.Item2;
-            Dinosaurs[targetedDinosaur].ApplyDamage(thisMoveAttack);
+            ProcessDamage(targetedDinosaur, thisMoveAttack);
             Debug.Log($"{currentActingNum} dealt {thisMoveAttack} damage to {targetedDinosaur}.");
+            AttackPerformed?.Invoke(targetedDinosaur, currentActingNum);
             yield return new WaitForSeconds(AttackDelay);
             Debug.Log($"{currentActingNum} with speed of {Dinosaurs[currentActingNum]._speed} will move on or after turn {Dinosaurs[currentActingNum].CalculateNextTurn(currentTurnNumber)}");
             
@@ -300,9 +308,9 @@ namespace Combat
                 {
                     case WildCard.Multihit:
                         int left = currentActingNum - 1;
-                        if (RemainingPlayerDinosaurs.Contains(left) || RemainingEnemyDinosaurs.Contains(left)) {Dinosaurs[left].ApplyDamage(thisMoveAttack);}
+                        if (RemainingPlayerDinosaurs.Contains(left) || RemainingEnemyDinosaurs.Contains(left)) { ProcessDamage(left, thisMoveAttack); }
                         int right = currentActingNum + 1;
-                        if (RemainingPlayerDinosaurs.Contains(right) || RemainingEnemyDinosaurs.Contains(right)) {Dinosaurs[right].ApplyDamage(thisMoveAttack);}
+                        if (RemainingPlayerDinosaurs.Contains(right) || RemainingEnemyDinosaurs.Contains(right)) { ProcessDamage(right, thisMoveAttack); }
                         break;
                     case WildCard.Bleed:
                         Dinosaurs[targetedDinosaur].ApplyDoT(DoT.Bleed);
@@ -314,10 +322,10 @@ namespace Combat
                         repeat = true;
                         break;
                     case WildCard.Ravenousbite:
-                        Dinosaurs[currentActingNum].Heal(thisMoveAttack * 0.25f);
+                        ProcessHeal(currentActingNum, thisMoveAttack * 0.25f);
                         break;
                     case WildCard.Luckystreak:
-                        if (thisMoveCrit) {Dinosaurs[targetedDinosaur].ApplyDamage(thisMoveAttack);}
+                        if (thisMoveCrit) { ProcessDamage(targetedDinosaur, thisMoveAttack); }
                         break;
                     case WildCard.Bloodlust:
                         if (!Dinosaurs[targetedDinosaur].IsAlive())
@@ -329,7 +337,7 @@ namespace Combat
                     case WildCard.Scavenger:
                         if (!Dinosaurs[targetedDinosaur].IsAlive())
                         {
-                            Dinosaurs[currentActingNum].Heal(Dinosaurs[currentActingNum]._maxHealth * 0.25f);
+                            ProcessHeal(currentActingNum, Dinosaurs[currentActingNum]._maxHealth * 0.25f);
                         }
                         break;
                     case WildCard.Packtreats:
@@ -356,13 +364,19 @@ namespace Combat
                             }
                         }
                         if (lowestHPID==-1) {throw new Exception("Error in WildCards: Packtreats did not find any dinosaurs");}
-                        Dinosaurs[lowestHPID].Heal(thisMoveAttack * .2f);
+                        ProcessHeal(lowestHPID, thisMoveAttack * .2f);
                         break;
                 }
             }
             yield return new WaitForSeconds(WildCardDelay);
-            if (repeat) {ProcessDeath(); state = TurnStep.AwaitSelect;}
-            else { state = TurnStep.AwaitEnd;}
+            targetedDinosaur = -1;
+            if (repeat) {
+                ProcessDeath();
+                state = TurnStep.AwaitSelect;
+            }
+            else {
+                state = TurnStep.AwaitEnd;
+            }
         }
         /// <summary>
         /// Checks for win conditions and resets the flags for next turn.
@@ -372,34 +386,7 @@ namespace Combat
         {
             state = TurnStep.TurnEnd;
             ProcessDeath();
-            if (RemainingEnemyDinosaurs.Count<=0)
-            {
-                state = TurnStep.CombatVictory;
-                int dinoId = 0;
-                foreach (DinosaurData dino in PlayerInventory.Instance.Creatures)
-                {
-                    if (RemainingPlayerDinosaurs.Contains(dinoId))
-                    {
-                        dino.SetCurrentHealth(Dinosaurs[dinoId]._health);
-                    }
-                    else
-                    {
-                        dino.SetCurrentHealth(0f);
-                    }
-                    dinoId++;
-                }
-                BattleDataLoader.Instance.TriggerVictory();
-            }
-            else if (RemainingPlayerDinosaurs.Count<=0)
-            {
-                state = TurnStep.CombatLose;
-                foreach (DinosaurData playerDino in PlayerInventory.Instance.Creatures)
-                {
-                    playerDino.HealDino(playerDino.GetAdjustedStat(StatType.Health));
-                }
-                BattleDataLoader.Instance.TriggerDefeat();
-            }
-            else {
+            if (state != TurnStep.CombatVictory && state != TurnStep.CombatLose) {
                 yield return new WaitForSeconds(InterTurnDelay);
                 state = TurnStep.TurnStart;
                 currentTurnNumber++;
@@ -417,7 +404,10 @@ namespace Combat
             {
                 if (!Dinosaurs[id].IsAlive())
                 {
+                    CombatSceneManager.Instance.UpdateSceneAfterDeath(id);
+
                     Debug.Log($"{id} ran out of HP and died.");
+                    
                     if (RemainingPlayerDinosaurs.Contains(id))
                     {
                         RemainingPlayerDinosaurs.Remove(id);
@@ -427,6 +417,36 @@ namespace Combat
                         RemainingEnemyDinosaurs.Remove(id);
                     }
                 }
+            }
+
+            if (RemainingEnemyDinosaurs.Count<=0)
+            {
+                state = TurnStep.CombatVictory;
+                int dinoId = 0;
+                foreach (DinosaurData dino in PlayerInventory.Instance.Creatures)
+                {
+                    if (RemainingPlayerDinosaurs.Contains(dinoId))
+                    {
+                        dino.SetCurrentHealth(Dinosaurs[dinoId]._health);
+                    }
+                    else
+                    {
+                        dino.SetCurrentHealth(0f);
+                    }
+                    dinoId++;
+                }
+                StopAllCoroutines();
+                BattleDataLoader.Instance.TriggerVictory();
+            }
+            else if (RemainingPlayerDinosaurs.Count<=0)
+            {
+                state = TurnStep.CombatLose;
+                foreach (DinosaurData playerDino in PlayerInventory.Instance.Creatures)
+                {
+                    playerDino.HealDino(playerDino.GetAdjustedStat(StatType.Health));
+                }
+                StopAllCoroutines();
+                BattleDataLoader.Instance.TriggerDefeat();
             }
         }
         /// <summary>
@@ -455,6 +475,28 @@ namespace Combat
             NonEmptyTurns.Remove(currentTurnNumber);
             currentMoveData = deq.Item2;
             return currentMoveData.dinoID;
+        }
+
+        /// <summary>
+        /// Wraps the apply damage function with an event call
+        /// </summary>
+        /// <param name="targetId"></param>
+        /// <param name="damage"></param>
+        private void ProcessDamage(int targetId, float damage)
+        {
+            DinoDamaged?.Invoke(targetId);
+            Dinosaurs[targetId].ApplyDamage(damage);
+        }
+
+        /// <summary>
+        /// Wraps the heal function with an event 
+        /// </summary>
+        /// <param name="targetId"></param>
+        /// <param name="heal"></param>
+        private void ProcessHeal(int targetId, float heal)
+        {
+            DinoHealed?.Invoke(targetId);
+            Dinosaurs[targetId].Heal(heal);
         }
     }
 }

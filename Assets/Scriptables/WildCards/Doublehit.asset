@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <WildType>k__BackingField: 3
   <Name>k__BackingField: Double Attack
-  <Description>k__BackingField: take another attack choice immediately
+  <Description>k__BackingField: Make a second attack choice each turn.

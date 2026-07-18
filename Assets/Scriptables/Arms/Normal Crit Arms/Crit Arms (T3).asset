@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3530032e2dc41343802880e58187ca7, type: 3}
   m_Name: Crit Arms (T3)
   m_EditorClassIdentifier: 
-  <Name>k__BackingField: '[NORMAL CRIT ARMS - T3]'
+  <Name>k__BackingField: Crit Arms (T3)
   <Rarity>k__BackingField: 0
   <PartType>k__BackingField: 1
-  <ModelID>k__BackingField: 2
+  <ModelID>k__BackingField: 0
   <Icon>k__BackingField: {fileID: -447792630, guid: f3e369cf7971f1140b382adfc1bb4ab9, type: 3}
   <Stats>k__BackingField:
   - Type: 1
@@ -23,15 +23,15 @@ MonoBehaviour:
     MaxValue: 8
     AppearanceChance: 1
   - Type: 3
-    MinValue: 20
-    MaxValue: 30
+    MinValue: 7
+    MaxValue: 10
     AppearanceChance: 1
   - Type: 0
     MinValue: -8
     MaxValue: -6
     AppearanceChance: 0.5
   - Type: 2
-    MinValue: 3
-    MaxValue: 4
+    MinValue: 1
+    MaxValue: 2
     AppearanceChance: 0.5
   <Wild>k__BackingField: {fileID: 0}

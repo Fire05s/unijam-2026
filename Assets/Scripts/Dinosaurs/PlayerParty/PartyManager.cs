@@ -17,7 +17,6 @@ public class PartyManager : MonoBehaviour
 
     private DinosaurData _selectedDinosaur;
     private int _selectedSlot = -1; // no slots selected
-    private int _maxDinosaurs = 5;
 
     public DinosaurData SelectedDinosaur => _selectedDinosaur;
     public int SelectedSlot => _selectedSlot;
@@ -66,7 +65,7 @@ public class PartyManager : MonoBehaviour
 
     public void InitializeCombiner()
     {
-        if (_selectedDinosaur == null && PlayerInventory.Instance.Creatures.Count >= _maxDinosaurs)
+        if (_selectedDinosaur == null && PlayerInventory.Instance.Creatures.Count >= PlayerInventory.Instance.MaxPartySize)
         {
             Debug.Log("Max dinosaurs reached in party reached, please select an existing member");
             return;

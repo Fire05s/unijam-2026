@@ -44,4 +44,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 944384ec3b1302b449a1b981f87ad11c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _PlayerPosition: {x: 0, y: 2, z: 0}
+  _PlayerPosition: {x: 0, y: 6, z: 0}

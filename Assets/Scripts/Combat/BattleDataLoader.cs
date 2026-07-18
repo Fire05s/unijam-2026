@@ -61,7 +61,7 @@ namespace Combat
 
             if (IsRewardingNewDino)
             {
-                PlayerInventory.Instance.AddCreature(new DinosaurData(PlayerDinoBaseStats));
+                PlayerInventory.Instance.IncrementPartyCount();
             }
 
             float limbDropChance = Random.Range(0f, 1f);

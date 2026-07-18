@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <WildType>k__BackingField: 6
   <Name>k__BackingField: Bloodlust
-  <Description>k__BackingField: take another attack choice if you killed a dino with
-    your last attack
+  <Description>k__BackingField: Attack again in a turn if this Dino killed another
+    Dino.
