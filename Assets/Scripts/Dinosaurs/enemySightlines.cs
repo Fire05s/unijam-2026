@@ -1,5 +1,6 @@
 using Combat;
 using UnityEngine;
+using System.Collections;
 
 public class EnemySightlines : MonoBehaviour
 {
@@ -54,20 +55,33 @@ public class EnemySightlines : MonoBehaviour
         {
             if (hit.transform.gameObject.CompareTag("Player") && !_triggered)
             {
+                Transform playerCam = GameObject.Find("CinemachineCamera").transform;
+                playerCam.parent.Find("CinemachineCamera").GetComponent<PlayerCam>().camUnlocked = false;
+                GameObject.Find("Player").GetComponent<PlayerController>().ChangeSpeed(0);
                 _triggered = true;
                 Debug.DrawRay(_sightLineOrigin.transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
                 //I added in a fading transition from a tutorial which is what this goes to. Should be easy to replace if something else is needed for the transition or scene change.
                 Debug.Log("Hit player, triggering battle");
                 _mapManager.MarkEnemyEncountered(_enemyID);
                 _mapManager.SavePlayerPosition(hit.transform.position);
-
                 if (BattleDataLoader.Instance == null)
                 {
                     Debug.LogError("BattleDataLoader does not exist.");
                     return;
                 }
-                BattleDataLoader.Instance.StartBattle(_battleData);
+                Debug.Log(playerCam);
+                StartCoroutine(BattleCoroutine(playerCam));
             }
         }
+    }
+
+    IEnumerator BattleCoroutine(Transform cam)
+    {
+        Debug.Log("COROUTINE");
+        Debug.Log("LOOK");
+        cam.GetComponent<PlayerCam>().GiveTransformTarget(transform);
+        yield return new WaitForSeconds(2);
+
+        BattleDataLoader.Instance.StartBattle(_battleData);
     }
 }

@@ -56,4 +56,9 @@ public class PlayerController : MonoBehaviour
             _rb.linearVelocity = new Vector3(limitedVel.x, _rb.linearVelocity.y, limitedVel.z);
         }
     }
+
+    public void ChangeSpeed(int newSpeed)
+    {
+        _moveSpeed = newSpeed;
+    }
 }

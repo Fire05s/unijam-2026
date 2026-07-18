@@ -15,6 +15,8 @@ public class PlayerCam : MonoBehaviour
     private float _xRotation;
     private float _yRotation;
 
+    private Transform _target = null;
+
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -37,11 +39,20 @@ public class PlayerCam : MonoBehaviour
             transform.rotation = Quaternion.Euler(_xRotation, _yRotation, 0);
             _orientation.rotation = Quaternion.Euler(0, _yRotation, 0);
         }
+        else if (_target)
+        {
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(_target.position - transform.position), 2 * Time.deltaTime);
+        }
     }
 
     public void ChangeSens(float sensXValue, float sensYValue)
     {
         sensX = sensXValue;
         sensY = sensYValue;
+    }
+
+    public void GiveTransformTarget(Transform target)
+    {
+        _target = target;
     }
 }
