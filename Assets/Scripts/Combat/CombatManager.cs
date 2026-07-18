@@ -287,6 +287,7 @@ namespace Combat
             thisMoveAttack = result.Item1;
             thisMoveCrit = result.Item2;
             ProcessDamage(targetedDinosaur, thisMoveAttack);
+            Debug.Log($"{currentActingNum} has {Dinosaurs[currentActingNum]._health} out of {Dinosaurs[currentActingNum]._maxHealth} health");
             Debug.Log($"{currentActingNum} dealt {thisMoveAttack} damage to {targetedDinosaur}.");
             AttackPerformed?.Invoke(targetedDinosaur, currentActingNum);
             yield return new WaitForSeconds(AttackDelay);

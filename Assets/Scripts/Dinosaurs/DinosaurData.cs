@@ -61,7 +61,7 @@ public class DinosaurData
         // remove existing body part
         if (_bodyParts.TryGetValue(dinoPart.Type, out DinosaurPart existing))
         {
-            _stats.Subtract(existing.Stats);
+            _currentHealth += _stats.Subtract(existing.Stats, _currentHealth);
             if (existing.Wildcard != null)
             {
                 _wildcardData.Remove(existing.Wildcard);
@@ -70,7 +70,7 @@ public class DinosaurData
         }
 
         _bodyParts[dinoPart.Type] = dinoPart;
-        _stats.Add(dinoPart.Stats);
+        _currentHealth += _stats.Add(dinoPart.Stats, _currentHealth);
         if (dinoPart.Wildcard != null)
         {
             _wildcardData.Add(dinoPart.Wildcard);
@@ -85,7 +85,7 @@ public class DinosaurData
     {
         foreach (var part in _bodyParts.Values)
         {
-            _stats.Subtract(part.Stats);
+            _currentHealth += _stats.Subtract(part.Stats, _currentHealth);
         }
         _bodyParts.Clear();
         _wildcardAbilities.Clear();
