@@ -135,9 +135,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 2960889021056119943}
-  camUnlocked: 1
-  sensX: 120
-  sensY: 120
+  CamUnlocked: 1
+  XSens: 0
+  YSens: 0
 --- !u!1 &2066772885916415973
 GameObject:
   m_ObjectHideFlags: 0

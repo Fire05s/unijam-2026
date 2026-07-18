@@ -2,20 +2,27 @@ using UnityEngine;
 
 public class MainMenu : MonoBehaviour
 {
-    [SerializeField] private ScreenTransition transition;
-    [SerializeField] private GameObject SettingsGO;
+    [SerializeField] private ScreenTransition _transition;
+    [SerializeField] private GameObject _mainMenuGO;
+    [SerializeField] private GameObject _settingsGO;
 
-    public void Play()
+    public void Tutorial()
     {
-        transition.FadeAndLoad("CombinerTutorial", duration: 2f);
+        _transition.FadeAndLoad("CombinerTutorial", duration: 2f);
     }
 
-    public void Setting()
+    public void MainGame()
     {
-        SettingsGO.SetActive(true);
+        _transition.FadeAndLoad("MainLevel", duration: 2f);
     }
 
-    public void Exit()
+    public void Settings()
+    {
+        _mainMenuGO.SetActive(false);
+        _settingsGO.SetActive(true);
+    }
+
+    public void Quit()
     {
         Application.Quit();
     }
