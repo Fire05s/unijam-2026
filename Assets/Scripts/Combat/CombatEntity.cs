@@ -16,7 +16,7 @@ public class CombatEntity
     private DoT _effect;
     private short _dotLen;
 
-    public CombatEntity(int id, EntitySide side, float maxHealth, float health=-1f, float speed, float attack, float critchance, List<WildCard> wildcards)
+    public CombatEntity(int id, EntitySide side, float maxHealth, float health, float speed, float attack, float critchance, List<WildCard> wildcards)
     {
         _id = id; _side = side; _maxHealth = maxHealth; _speed = speed; _attack = attack; _crit = critchance; _wildcards = wildcards; _health = health;
     }
