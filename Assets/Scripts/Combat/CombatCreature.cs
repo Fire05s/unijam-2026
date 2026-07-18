@@ -1,3 +1,4 @@
+using Unity.Cinemachine;
 using UnityEngine;
 
 public class CombatCreature : MonoBehaviour
@@ -6,9 +7,11 @@ public class CombatCreature : MonoBehaviour
     [SerializeField] private ModelGenerator _slotModel;
     [SerializeField] private Transform _lookTarget;
     [SerializeField] private Camera _slotCam;
+    [SerializeField] private CinemachineCamera _followCam;
     public ModelGenerator SlotModel => _slotModel;
     public Transform LookTarget => _lookTarget;
     public RenderTexture CameraTexture { get; private set; }
+    public CinemachineCamera FollowCamera => _followCam;
 
     private void Awake()
     {

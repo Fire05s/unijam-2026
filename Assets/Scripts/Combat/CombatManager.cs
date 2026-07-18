@@ -13,6 +13,7 @@ namespace Combat
         public event IntDelegate TurnAdvanced;
         public event Action<int> DinoDamaged;
         public event Action<int> DinoHealed;
+        public event Action<int> DinoDied;
         public event Action<List<int>> DOTApplied;
         public event Action<int, int> AttackPerformed;
 
@@ -405,7 +406,6 @@ namespace Combat
                 if (!Dinosaurs[id].IsAlive())
                 {
                     CombatSceneManager.Instance.UpdateSceneAfterDeath(id);
-
                     Debug.Log($"{id} ran out of HP and died.");
                     
                     if (RemainingPlayerDinosaurs.Contains(id))
@@ -416,6 +416,8 @@ namespace Combat
                     {
                         RemainingEnemyDinosaurs.Remove(id);
                     }
+
+                    DinoDied?.Invoke(id);
                 }
             }
 
@@ -484,8 +486,8 @@ namespace Combat
         /// <param name="damage"></param>
         private void ProcessDamage(int targetId, float damage)
         {
-            DinoDamaged?.Invoke(targetId);
             Dinosaurs[targetId].ApplyDamage(damage);
+            DinoDamaged?.Invoke(targetId);
         }
 
         /// <summary>
@@ -495,8 +497,8 @@ namespace Combat
         /// <param name="heal"></param>
         private void ProcessHeal(int targetId, float heal)
         {
-            DinoHealed?.Invoke(targetId);
             Dinosaurs[targetId].Heal(heal);
+            DinoHealed?.Invoke(targetId);
         }
     }
 }

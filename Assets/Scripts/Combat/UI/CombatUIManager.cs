@@ -1,7 +1,5 @@
 using Combat;
-using NUnit.Framework;
 using System.Collections.Generic;
-using System.Linq;
 using TMPro;
 using UnityEngine;
 
@@ -12,11 +10,21 @@ public class CombatUIManager : MonoBehaviour
     [Header("Turn Indicator")]
     [SerializeField] private GameObject _turnPanel;
     [SerializeField] private TextMeshProUGUI _turnText;
+    [Header("Enemy Health")]
+    [SerializeField] private Transform _healthBarParent;
+    [SerializeField] private HealthUI _healthBarPrefab;
+    [SerializeField] private float _yOffset;
+
+    private Dictionary<int, HealthUI> _healthBars = new();
 
     private void Start()
     {
         CombatSceneManager.Instance.SceneInitialized += OnSceneInitialized;
         CombatManager.Instance.TurnAdvanced += OnNewTurn;
+        CombatManager.Instance.DinoDamaged += UpdateHealthBar;
+        CombatManager.Instance.DinoHealed += UpdateHealthBar;
+        CombatManager.Instance.DOTApplied += UpdateHealthBars;
+        CombatManager.Instance.DinoDied += OnDeath;
         OnSceneInitialized();
     }
 
@@ -24,17 +32,26 @@ public class CombatUIManager : MonoBehaviour
     {
         CombatSceneManager.Instance.SceneInitialized -= OnSceneInitialized;
         CombatManager.Instance.TurnAdvanced -= OnNewTurn;
+        CombatManager.Instance.DinoDamaged -= UpdateHealthBar;
+        CombatManager.Instance.DinoHealed -= UpdateHealthBar;
     }
 
     private void OnSceneInitialized()
     {
         UpdatePlayerSlots();
+        InitializeEnemyHealth();
+        UpdateAllHealthBars();
     }
 
     private void OnNewTurn(int turnNum)
     {
-        if (!_turnPanel.gameObject.activeSelf) _turnText.gameObject.SetActive(true);
+        if (!_turnPanel.activeSelf) _turnText.gameObject.SetActive(true);
         _turnText.text = $"Turn: {turnNum}";
+    }
+
+    private void OnDeath(int id)
+    {
+        ClearHealthBar(id);
     }
 
     private void UpdatePlayerSlots()
@@ -46,11 +63,70 @@ public class CombatUIManager : MonoBehaviour
             {
                 slot.gameObject.SetActive(true);
                 slot.SetIcon(creature.CameraTexture);
+                _healthBars.Add(i, slot.HealthBar);
             }
             else
             {
                 slot.gameObject.SetActive(false);
             }
+        }
+    }
+
+    public void InitializeEnemyHealth()
+    {
+        foreach (int id in CombatSceneManager.Instance.CreatureObjects.Keys)
+        {
+            if (id >= 5)
+            {
+                HealthUI enemyHealth = Instantiate(_healthBarPrefab, _healthBarParent);
+                CombatUIFollower follower = enemyHealth.gameObject.AddComponent<CombatUIFollower>();
+                follower.Initialize(CombatSceneManager.Instance.CreatureObjects[id].LookTarget, _yOffset);
+                _healthBars.Add(id, enemyHealth);
+            }
+        }
+    }
+
+    private void UpdateAllHealthBars()
+    {
+        if (CombatManager.Instance == null) return;
+        foreach (var id in CombatManager.Instance.Dinosaurs.Keys)
+        {
+            UpdateHealthBar(id);
+        }
+    }
+
+    private void UpdateHealthBar(int creatureId)
+    {
+        if (!_healthBars.ContainsKey(creatureId))
+        {
+            Debug.LogWarning($"Health bars UI don't contain {creatureId}");
+            return;
+        }
+        CombatEntity data = CombatManager.Instance.Dinosaurs[creatureId];
+        float healthPercent = data._health / data._maxHealth;
+        _healthBars[creatureId].SetHealth(healthPercent);
+    }
+    private void UpdateHealthBars(List<int> creatureIds)
+    {
+        foreach (var creatureId in creatureIds)
+        {
+            if (!_healthBars.ContainsKey(creatureId))
+            {
+                Debug.LogWarning($"Health bars UI don't contain {creatureId}");
+                return;
+            }
+            CombatEntity data = CombatManager.Instance.Dinosaurs[creatureId];
+            float healthPercent = data._health / data._maxHealth;
+            _healthBars[creatureId].SetHealth(healthPercent);
+        }
+    }
+
+    private void ClearHealthBar(int id)
+    {
+        if (_healthBars.ContainsKey(id))
+        {
+            Destroy(_healthBars[id].gameObject);
+            _healthBars.Remove(id);
         }
     }
 }
