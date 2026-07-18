@@ -6,8 +6,9 @@ public class PlayerInventory : MonoBehaviour
 {
     [Header("Settings")]
     [SerializeField] private int _initialPartyMax = 1;
-    [Header("Debug")]
-    [SerializeField] private List<BodyPartSO> _initialParts;
+    // [Header("Debug")]
+    // [SerializeField] private List<BodyPartSO> _initialParts;
+    public List<BodyPartSO> FossilParts;
     public static PlayerInventory Instance { get; private set; }
     private List<DinosaurData> _creatures = new();
     private List<DinosaurPart> _bodyParts = new();
@@ -27,10 +28,10 @@ public class PlayerInventory : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         // DEBUG
-        foreach (var partData in _initialParts)
-        {
-            AddBodyPart(new DinosaurPart(partData));
-        }
+        // foreach (var partData in _initialParts)
+        // {
+        //     AddBodyPart(new DinosaurPart(partData));
+        // }
     }
 
     private void Start()

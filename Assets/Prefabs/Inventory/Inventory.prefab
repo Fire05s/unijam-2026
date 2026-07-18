@@ -44,10 +44,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d5eef2cd4212174882eff27c02e0528, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _initialParts:
-  - {fileID: 11400000, guid: 1377a3c4526ca2f4e8d1f3872a468405, type: 2}
+  _initialPartyMax: 1
+  _initialParts: []
+  FossilParts:
   - {fileID: 11400000, guid: b982b31978b248f429e9a2048d8bc371, type: 2}
-  - {fileID: 11400000, guid: f3182f6d8eefc0049b65cb83f699baf8, type: 2}
   - {fileID: 11400000, guid: f0bb13b60a3c78845828283a1c3a2c59, type: 2}
+  - {fileID: 11400000, guid: 1377a3c4526ca2f4e8d1f3872a468405, type: 2}
+  - {fileID: 11400000, guid: 7d8c53dfbfd662a439c05f36d74036e1, type: 2}
   - {fileID: 11400000, guid: f3182f6d8eefc0049b65cb83f699baf8, type: 2}
-  - {fileID: 11400000, guid: f3182f6d8eefc0049b65cb83f699baf8, type: 2}
+  - {fileID: 11400000, guid: c96ebe6098fb48c43b4cb87bbd397626, type: 2}
