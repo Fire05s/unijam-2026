@@ -15,17 +15,15 @@ public class PlayerInteract : MonoBehaviour
 
     private LayerMask _layerMask;
     private GameObject _previousObject;
-    private MapData _mapManager;
 
     void Awake()
     {
         _layerMask = LayerMask.GetMask("Wall", "Interactables");
-        _mapManager = GameObject.Find("MapDataManager").GetComponent<MapData>();
     }
 
     private void Start()
     {
-        transform.position = _mapManager.GetPlayerPosition();
+        transform.position = MapData.Instance.GetPlayerPosition();
     }
 
     private void OnDrawGizmos()
@@ -76,13 +74,14 @@ public class PlayerInteract : MonoBehaviour
                 DinosaurPart randomPart = new DinosaurPart(randomBodyPartSO);
                 Debug.Log("Adding part " + randomPart.Reference.name);
                 PlayerInventory.Instance.AddBodyPart(randomPart);
-                Destroy(_previousObject);
                 PlayerInventory.Instance.FossilParts.Remove(randomBodyPartSO);
+                MapData.Instance.MarkExcavationUsed(_previousObject.GetComponent<ExcavationPoint>().ExcavationID);
+                Destroy(_previousObject);
             }
             else if (_previousObject && _previousObject.CompareTag("CreatureCombiner"))
             {
                 // Sends you to the creature combiner screen.
-                _mapManager.SavePlayerPosition(transform.position);
+                MapData.Instance.SavePlayerPosition(transform.position);
                 _transitionObject.FadeAndLoad(_creatureCombinerScene, _transitionDuration);
             }
         }

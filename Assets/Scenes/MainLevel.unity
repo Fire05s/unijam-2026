@@ -603,6 +603,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Excavation Point (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8682884264816486669, guid: 469c819ce83731542a74bd1300e390ce, type: 3}
+      propertyPath: ExcavationID
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8682884264816486669, guid: 469c819ce83731542a74bd1300e390ce, type: 3}
+      propertyPath: _excavationID
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4756,6 +4764,14 @@ PrefabInstance:
     - target: {fileID: 4032880993169281767, guid: 469c819ce83731542a74bd1300e390ce, type: 3}
       propertyPath: m_Name
       value: Excavation Point (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8682884264816486669, guid: 469c819ce83731542a74bd1300e390ce, type: 3}
+      propertyPath: ExcavationID
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8682884264816486669, guid: 469c819ce83731542a74bd1300e390ce, type: 3}
+      propertyPath: _excavationID
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12102,6 +12118,14 @@ PrefabInstance:
     - target: {fileID: 4032880993169281767, guid: 469c819ce83731542a74bd1300e390ce, type: 3}
       propertyPath: m_Name
       value: Excavation Point (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8682884264816486669, guid: 469c819ce83731542a74bd1300e390ce, type: 3}
+      propertyPath: ExcavationID
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8682884264816486669, guid: 469c819ce83731542a74bd1300e390ce, type: 3}
+      propertyPath: _excavationID
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -38066,6 +38090,14 @@ PrefabInstance:
     - target: {fileID: 4032880993169281767, guid: 469c819ce83731542a74bd1300e390ce, type: 3}
       propertyPath: m_Name
       value: Excavation Point (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8682884264816486669, guid: 469c819ce83731542a74bd1300e390ce, type: 3}
+      propertyPath: ExcavationID
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8682884264816486669, guid: 469c819ce83731542a74bd1300e390ce, type: 3}
+      propertyPath: _excavationID
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
