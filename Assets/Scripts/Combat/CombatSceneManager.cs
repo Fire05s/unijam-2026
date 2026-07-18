@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Combat;
 using Unity.Cinemachine;
@@ -12,9 +13,10 @@ public class CombatSceneManager : MonoBehaviour
     public static CombatSceneManager Instance {get; private set;}
     [SerializeField] public Transform playerPositionHolder;
     [SerializeField] public Transform enemyPositionHolder;
-    [SerializeField] private GameObject dinoPlaceHolderPrefab;
+    [SerializeField] private CombatCreature dinoPrefab;
     private List<GameObject> playerDinoPositions = new List<GameObject>();
     private List<GameObject> enemyDinoPositions = new List<GameObject>();
+    private Dictionary<int, CombatCreature> _creaturesObjects = new();
 
 
     [SerializeField] private CinemachineCamera followCamera;
@@ -22,7 +24,10 @@ public class CombatSceneManager : MonoBehaviour
 
     [SerializeField] private int currentSelectedTarget = -1; 
 
-    private CombatManager combatManager;  
+    private CombatManager combatManager;
+
+    public Dictionary<int, CombatCreature> CreatureObjects => _creaturesObjects; 
+    public event Action SceneInitialized;
 
     private void Awake()
     {
@@ -49,27 +54,32 @@ public class CombatSceneManager : MonoBehaviour
 
         for (int index=0; index < playerDinosData.Count; ++index)
         {
-            GameObject dino = Instantiate(dinoPlaceHolderPrefab, playerPositionHolder);
-            dino.GetComponent<ModelGenerator>().SetDinosaur(playerDinosData[index]);
+            // Processes player dinos
+            CombatCreature dino = Instantiate(dinoPrefab, playerPositionHolder);
+            dino.SlotModel.SetDinosaur(playerDinosData[index]);
+            _creaturesObjects.Add(index, dino);
 
             Vector3 currentDinoPosition = dino.transform.localPosition;
             currentDinoPosition.x = (index - playerDinoPivotIndex) * distanceScaler;
             dino.transform.localPosition = currentDinoPosition;
 
-            playerDinoPositions.Add(dino);
+            playerDinoPositions.Add(dino.gameObject);
         }
         for (int index=0; index < enemyDinosData.Count; ++index)
         {
-            GameObject dino = Instantiate(dinoPlaceHolderPrefab, enemyPositionHolder);
-            dino.GetComponent<ModelGenerator>().SetDinosaur(enemyDinosData[index]);
+            // Processes enemy dinos
+            CombatCreature dino = Instantiate(dinoPrefab, enemyPositionHolder);
+            dino.SlotModel.SetDinosaur(enemyDinosData[index]);
+            _creaturesObjects.Add(index + 5, dino);
 
             Vector3 currentDinoPosition = dino.transform.localPosition;
             currentDinoPosition.x = (index - enemyDinoPivotIndex) * distanceScaler;
             currentDinoPosition.z = (index % 2 == 0) ? currentDinoPosition.z : distanceScaler;
             dino.transform.localPosition = currentDinoPosition;
 
-            enemyDinoPositions.Add(dino);
+            enemyDinoPositions.Add(dino.gameObject);
         }
+        SceneInitialized?.Invoke();
     }
 
     public void UpdateSceneAfterDeath(int dinosaurID)
@@ -132,7 +142,7 @@ public class CombatSceneManager : MonoBehaviour
     public void ConfirmSelectedTarget()
     {
         if (currentSelectedTarget == -1){ return; }
-
+        Debug.Log($"Selected {currentSelectedTarget}");
         combatManager.targetedDinosaur = currentSelectedTarget + 5; // Standarize the indices on the list to match dino ID
 
         currentSelectedTarget = -1;
