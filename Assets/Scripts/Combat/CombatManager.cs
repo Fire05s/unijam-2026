@@ -309,9 +309,9 @@ namespace Combat
                 switch(Dinosaurs[currentActingNum]._wildcards[i])
                 {
                     case WildCard.Multihit:
-                        int left = currentActingNum - 1;
+                        int left = targetedDinosaur - 1;
                         if (RemainingPlayerDinosaurs.Contains(left) || RemainingEnemyDinosaurs.Contains(left)) { ProcessDamage(left, thisMoveAttack); }
-                        int right = currentActingNum + 1;
+                        int right = targetedDinosaur + 1;
                         if (RemainingPlayerDinosaurs.Contains(right) || RemainingEnemyDinosaurs.Contains(right)) { ProcessDamage(right, thisMoveAttack); }
                         break;
                     case WildCard.Bleed:
