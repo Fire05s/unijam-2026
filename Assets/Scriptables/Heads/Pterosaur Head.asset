@@ -23,7 +23,7 @@ MonoBehaviour:
     MaxValue: -5
     AppearanceChance: 1
   - Type: 3
-    MinValue: 15
-    MaxValue: 25
+    MinValue: 5
+    MaxValue: 8
     AppearanceChance: 1
   <Wild>k__BackingField: {fileID: 11400000, guid: 40cc390243e79d04ea939385e6fbc35a, type: 2}

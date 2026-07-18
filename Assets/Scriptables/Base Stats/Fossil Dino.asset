@@ -18,12 +18,12 @@ MonoBehaviour:
     MaxValue: 7
     AppearanceChance: 1
   - Type: 3
-    MinValue: 5
-    MaxValue: 15
+    MinValue: 0
+    MaxValue: 5
     AppearanceChance: 1
   - Type: 0
-    MinValue: 20
-    MaxValue: 25
+    MinValue: 15
+    MaxValue: 20
     AppearanceChance: 1
   - Type: 2
     MinValue: 1

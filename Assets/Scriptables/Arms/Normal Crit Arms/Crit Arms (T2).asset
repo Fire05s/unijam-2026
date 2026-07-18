@@ -23,8 +23,8 @@ MonoBehaviour:
     MaxValue: 6
     AppearanceChance: 1
   - Type: 3
-    MinValue: 15
-    MaxValue: 25
+    MinValue: 6
+    MaxValue: 9
     AppearanceChance: 1
   - Type: 0
     MinValue: -6

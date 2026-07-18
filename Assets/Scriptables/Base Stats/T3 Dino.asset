@@ -19,7 +19,7 @@ MonoBehaviour:
     AppearanceChance: 1
   - Type: 3
     MinValue: 0
-    MaxValue: 15
+    MaxValue: 5
     AppearanceChance: 1
   - Type: 0
     MinValue: 15
