@@ -50,22 +50,22 @@ public class HealthUI : MonoBehaviour
 
             _backSlider.DOValue(healthPercent, _lerpDuration)
                 .SetEase(Ease.OutCubic)
-                .SetDelay(_damageDelay);
+                .SetDelay(_damageDelay)
+                .SetLink(gameObject);
 
             _frontFill.DOColor(_flashColor, _flashDuration)
                 .OnComplete(() =>
                 {
                     _frontFill.DOColor(
                         _healthGradient.Evaluate(healthPercent),
-                        0.12f);
-                });
+                        0.12f)
+                        .SetLink(gameObject);
+                }).SetLink(gameObject);
         }
         else
         {
-            _frontSlider.DOValue(healthPercent, 0.25f);
-            _backSlider.DOValue(healthPercent, 0.25f);
+            _frontSlider.DOValue(healthPercent, 0.25f).SetLink(gameObject);
+            _backSlider.DOValue(healthPercent, 0.25f).SetLink(gameObject);
         }
-
-        _frontFill.color = _healthGradient.Evaluate(healthPercent);
     }
 }

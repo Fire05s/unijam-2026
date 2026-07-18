@@ -45,7 +45,6 @@ public class CombatUIManager : MonoBehaviour
 
     private void OnNewTurn(int turnNum)
     {
-        if (!_turnPanel.activeSelf) _turnText.gameObject.SetActive(true);
         _turnText.text = $"Turn: {turnNum}";
     }
 
