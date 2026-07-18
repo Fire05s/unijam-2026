@@ -93,7 +93,7 @@ namespace Combat
                 DinosaurData curDinosaur = enemyDinosData[id - 5];
                 RemainingEnemyDinosaurs.Add(id);
                 Dinosaurs[id] = new CombatEntity(id, EntitySide.Enemy, curDinosaur.GetAdjustedStat(StatType.Health),
-                    curDinosaur.GetCurrentHealth(), curDinosaur.GetAdjustedStat(StatType.Speed),
+                    curDinosaur.GetAdjustedStat(StatType.Health), curDinosaur.GetAdjustedStat(StatType.Speed),
                     curDinosaur.GetAdjustedStat(StatType.Attack), curDinosaur.GetAdjustedStat(StatType.CritChance),
                     curDinosaur.GetWildCardAbilities());
             }
