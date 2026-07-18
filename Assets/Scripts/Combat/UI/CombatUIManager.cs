@@ -12,8 +12,10 @@ public class CombatUIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _turnText;
     [Header("Enemy Health")]
     [SerializeField] private Transform _healthBarParent;
-    [SerializeField] private HealthUI _healthBarPrefab;
+    [SerializeField] private GameObject _healthBarPrefab;
     [SerializeField] private float _yOffset;
+    [Header("Crosshair")]
+    [SerializeField] private CombatUIFollower _crosshairFollow;
 
     private Dictionary<int, HealthUI> _healthBars = new();
 
@@ -34,6 +36,11 @@ public class CombatUIManager : MonoBehaviour
         CombatManager.Instance.TurnAdvanced -= OnNewTurn;
         CombatManager.Instance.DinoDamaged -= UpdateHealthBar;
         CombatManager.Instance.DinoHealed -= UpdateHealthBar;
+    }
+
+    private void Update()
+    {
+        UpdateCrosshair();
     }
 
     private void OnSceneInitialized()
@@ -77,8 +84,9 @@ public class CombatUIManager : MonoBehaviour
         {
             if (id >= 5)
             {
-                HealthUI enemyHealth = Instantiate(_healthBarPrefab, _healthBarParent);
-                CombatUIFollower follower = enemyHealth.gameObject.AddComponent<CombatUIFollower>();
+                GameObject healthContainer = Instantiate(_healthBarPrefab, _healthBarParent);
+                HealthUI enemyHealth = healthContainer.GetComponentInChildren<HealthUI>();
+                CombatUIFollower follower = healthContainer.gameObject.AddComponent<CombatUIFollower>();
                 follower.Initialize(CombatSceneManager.Instance.CreatureObjects[id].LookTarget, _yOffset);
                 _healthBars.Add(id, enemyHealth);
             }
@@ -126,6 +134,21 @@ public class CombatUIManager : MonoBehaviour
         {
             Destroy(_healthBars[id].gameObject);
             _healthBars.Remove(id);
+        }
+    }
+
+    private void UpdateCrosshair()
+    {
+        if (CombatSceneManager.Instance == null) return;
+        int target = CombatSceneManager.Instance.CurrentSelectedTarget;
+        if (target == -1 || !CombatSceneManager.Instance.CreatureObjects.ContainsKey(target + 5))
+        {
+            _crosshairFollow.gameObject.SetActive(false);
+        }
+        else
+        {
+            _crosshairFollow.gameObject.SetActive(true);
+            _crosshairFollow.SetTarget(CombatSceneManager.Instance.CreatureObjects[target + 5].LookTarget);
         }
     }
 }

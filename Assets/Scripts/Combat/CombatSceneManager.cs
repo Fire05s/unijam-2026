@@ -26,7 +26,8 @@ public class CombatSceneManager : MonoBehaviour
 
     private CombatManager combatManager;
 
-    public Dictionary<int, CombatCreature> CreatureObjects => _creaturesObjects; 
+    public Dictionary<int, CombatCreature> CreatureObjects => _creaturesObjects;
+    public int CurrentSelectedTarget => currentSelectedTarget;
     public event Action SceneInitialized;
 
     private void Awake()
