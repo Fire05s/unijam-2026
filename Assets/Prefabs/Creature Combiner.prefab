@@ -93,6 +93,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 32eb510d9e1198c4a828a405ea129644, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 09a491c778d10a248961ad55a351633f, type: 2}
     - target: {fileID: 919132149155446097, guid: 32eb510d9e1198c4a828a405ea129644, type: 3}
       propertyPath: m_Name
       value: CombinerStand
@@ -205,6 +209,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 4a946b082574d2d4f8f36332bafd62c8, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: e839204cc17beed4ca61e0fc7053469c, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 4a946b082574d2d4f8f36332bafd62c8, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: e839204cc17beed4ca61e0fc7053469c, type: 2}
     - target: {fileID: 919132149155446097, guid: 4a946b082574d2d4f8f36332bafd62c8, type: 3}
       propertyPath: m_Name
       value: CreatureCombiner
