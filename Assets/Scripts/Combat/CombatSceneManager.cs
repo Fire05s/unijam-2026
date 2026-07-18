@@ -156,8 +156,11 @@ public class CombatSceneManager : MonoBehaviour
         if (combatManager.state == TurnStep.PlayerSelect)
         {
             // Player Dino ids correspond to its given index on the field
-            CameraManager.Instance.SwitchCamera(combatManager.currentActingNum);
-            CameraManager.Instance.SetLookAt(_creaturesObjects[currentSelectedTarget + 5].LookTarget);
+            if (_creaturesObjects.ContainsKey(currentSelectedTarget + 5))
+            {
+                CameraManager.Instance.SwitchCamera(combatManager.currentActingNum);
+                CameraManager.Instance.SetLookAt(_creaturesObjects[currentSelectedTarget + 5].LookTarget);
+            }
         }
         else
         {
