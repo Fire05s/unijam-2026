@@ -327,7 +327,16 @@ namespace Combat
                         ProcessHeal(currentActingNum, thisMoveAttack * 0.25f);
                         break;
                     case WildCard.Luckystreak:
-                        if (thisMoveCrit) { ProcessDamage(targetedDinosaur, thisMoveAttack); }
+                        if (thisMoveCrit && Dinosaurs[targetedDinosaur].IsAlive()) 
+                        { 
+                            (float,bool) result = Dinosaurs[currentActingNum].CalculateAttack();
+                            thisMoveAttack = result.Item1;
+                            thisMoveCrit = result.Item2;
+                            ProcessDamage(targetedDinosaur, thisMoveAttack);
+                            AttackPerformed?.Invoke(targetedDinosaur, currentActingNum);
+                            Debug.Log("lucky streak attack again");
+                            yield return new WaitForSeconds(AttackDelay);
+                        }
                         break;
                     case WildCard.Bloodlust:
                         if (!Dinosaurs[targetedDinosaur].IsAlive())
