@@ -11,6 +11,8 @@ public class PartyManager : MonoBehaviour
     [SerializeField] private string _mainLevelName = "MainLevel";
     [SerializeField] private float _transitionDuration = 0.5f;
     [SerializeField] private ScreenTransition _screenTransition;
+    [Header("Audio")]
+    [SerializeField] private int _audioListIndex = 0;
 
     public static PartyManager Instance { get; private set; }
     public event Action UpdateDisplay;
@@ -44,6 +46,7 @@ public class PartyManager : MonoBehaviour
             Debug.Log($"Selected invalid slot num: {slotNum}");
         }
         Debug.Log($"Selected slot: {slotNum}");
+        AudioManager.Instance.PlayInstantSFX(_audioListIndex);
         _selectedSlot = slotNum;
         _selectedDinosaur = PlayerInventory.Instance.Creatures[slotNum];
 
@@ -52,6 +55,7 @@ public class PartyManager : MonoBehaviour
 
     public void UnselectSlot()
     {
+        AudioManager.Instance.PlayInstantSFX(_audioListIndex);
         _selectedSlot = -1;
         _selectedDinosaur = null;
 
@@ -60,6 +64,7 @@ public class PartyManager : MonoBehaviour
 
     public void ExitToMain()
     {
+        AudioManager.Instance.PlayInstantSFX(_audioListIndex);
         _screenTransition.FadeAndLoad(_mainLevelName, _transitionDuration);
     }
 
@@ -67,7 +72,7 @@ public class PartyManager : MonoBehaviour
     {
         if (_selectedDinosaur == null && PlayerInventory.Instance.Creatures.Count >= PlayerInventory.Instance.MaxPartySize)
         {
-            Debug.Log("Max dinosaurs reached in party reached, please select an existing member");
+            Debug.Log("Max dinosaurs in party reached, please select an existing member");
             return;
         }
 
