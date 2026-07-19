@@ -46,7 +46,7 @@ public class PartyManager : MonoBehaviour
             Debug.Log($"Selected invalid slot num: {slotNum}");
         }
         Debug.Log($"Selected slot: {slotNum}");
-        AudioManager.Instance.PlayInstantSFX(_audioListIndex);
+        AudioManager.Instance?.PlayInstantSFX(_audioListIndex);
         _selectedSlot = slotNum;
         _selectedDinosaur = PlayerInventory.Instance.Creatures[slotNum];
 
@@ -55,7 +55,7 @@ public class PartyManager : MonoBehaviour
 
     public void UnselectSlot()
     {
-        AudioManager.Instance.PlayInstantSFX(_audioListIndex);
+        AudioManager.Instance?.PlayInstantSFX(_audioListIndex);
         _selectedSlot = -1;
         _selectedDinosaur = null;
 
@@ -64,7 +64,7 @@ public class PartyManager : MonoBehaviour
 
     public void ExitToMain()
     {
-        AudioManager.Instance.PlayInstantSFX(_audioListIndex);
+        AudioManager.Instance?.PlayInstantSFX(_audioListIndex);
         _screenTransition.FadeAndLoad(_mainLevelName, _transitionDuration);
     }
 

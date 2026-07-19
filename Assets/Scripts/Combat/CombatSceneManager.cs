@@ -20,10 +20,6 @@ public class CombatSceneManager : MonoBehaviour
     private List<GameObject> enemyDinoPositions = new List<GameObject>();
     private Dictionary<int, CombatCreature> _creaturesObjects = new();
 
-
-    [SerializeField] private CinemachineCamera followCamera;
-    [SerializeField] private CinemachineCamera overviewCamera;
-
     [SerializeField] private int currentSelectedTarget = -1;
 
     [Header("Animations")]
@@ -70,7 +66,7 @@ public class CombatSceneManager : MonoBehaviour
         {
             // Processes player dinos
             CombatCreature dino = Instantiate(dinoPrefab, playerPositionHolder);
-            dino.SlotModel.SetDinosaur(playerDinosData[index]);
+            dino.SetModel(playerDinosData[index].Model);
             _creaturesObjects.Add(index, dino);
             // Player dino follow cam
             CameraManager.Instance.AddCamera(new CameraManager.CameraEntry { Id = index, Camera = dino.FollowCamera }); 
@@ -85,7 +81,7 @@ public class CombatSceneManager : MonoBehaviour
         {
             // Processes enemy dinos
             CombatCreature dino = Instantiate(dinoPrefab, enemyPositionHolder);
-            dino.SlotModel.SetDinosaur(enemyDinosData[index]);
+            dino.SetModel(playerDinosData[index].Model);
             _creaturesObjects.Add(index + 5, dino);
 
             Vector3 currentDinoPosition = dino.transform.localPosition;

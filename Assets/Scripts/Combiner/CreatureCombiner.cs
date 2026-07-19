@@ -12,6 +12,7 @@ public class CreatureCombiner : MonoBehaviour
     [Header("Reference")]
     [SerializeField] private UIScreenManager _screenManager;
     [SerializeField] private ModelGenerator _modelGenerator;
+    [SerializeField] private ModelDatabaseSO _modelDatabase;
     [Header("Audio")]
     [SerializeField] private int _audioListIndex = 0;
 
@@ -69,7 +70,7 @@ public class CreatureCombiner : MonoBehaviour
     public void EquipPart(DinosaurPart part)
     {
         if (part == null || _partSlots.ContainsValue(part)) return; // invalid part or already equipped
-        AudioManager.Instance.PlayInstantSFX(_audioListIndex);
+        AudioManager.Instance?.PlayInstantSFX(_audioListIndex);
         _partSlots[part.Type] = part;
 
         GenerateDinosaur();
@@ -77,7 +78,7 @@ public class CreatureCombiner : MonoBehaviour
 
     public void UnequipPart(BodyPartType type)
     {
-        AudioManager.Instance.PlayInstantSFX(_audioListIndex);
+        AudioManager.Instance?.PlayInstantSFX(_audioListIndex);
         _partSlots.Remove(type);
         GenerateDinosaur();
     }
@@ -87,7 +88,7 @@ public class CreatureCombiner : MonoBehaviour
         Debug.Log("select part");
         if (_selectedPart == part)
         {
-            AudioManager.Instance.PlayInstantSFX(_audioListIndex);
+            AudioManager.Instance?.PlayInstantSFX(_audioListIndex);
             if (_partSlots.ContainsValue(part))
             {
                 // Part is in slot
@@ -114,12 +115,14 @@ public class CreatureCombiner : MonoBehaviour
 
     public void FinalizeDinosaur()
     {
-        AudioManager.Instance.PlayInstantSFX(_audioListIndex);
+        AudioManager.Instance?.PlayInstantSFX(_audioListIndex);
         if (!IsValidDinosaur())
         {
             Debug.Log($"Not enough parts selected, must select {_requiredPartCount}");
             return;
         }
+
+        ApplyModel();
 
         // Add creature to inventory
         if (!PlayerInventory.Instance.SetCreature(_displayDinosaur, _selectedPartySlot))
@@ -137,9 +140,19 @@ public class CreatureCombiner : MonoBehaviour
         _screenManager.SwitchScreen(0); // Party management screen
     }
 
+    private void ApplyModel()
+    {
+        int headId = _partSlots[BodyPartType.Head].Reference.ModelID;
+        int armsId = _partSlots[BodyPartType.Arms].Reference.ModelID;
+        int legsId = _partSlots[BodyPartType.Legs].Reference.ModelID;
+        CreatureModel model = _modelDatabase.GetModel(headId, armsId, legsId).GetComponent<CreatureModel>();
+        if (model != null) _displayDinosaur.SetModel(model);
+        else Debug.LogWarning($"Can't find creature model with ID {headId}-{armsId}-{legsId}");
+    }
+
     public void ReturnToParty()
     {
-        AudioManager.Instance.PlayInstantSFX(_audioListIndex);
+        AudioManager.Instance?.PlayInstantSFX(_audioListIndex);
         foreach (var part in _history)
         {
             PlayerInventory.Instance.RemoveBodyPart(part);
