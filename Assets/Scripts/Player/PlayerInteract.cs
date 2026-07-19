@@ -114,6 +114,7 @@ public class PlayerInteract : MonoBehaviour
         Debug.Log("Adding part " + randomPart.Reference.name);
         PlayerInventory.Instance.AddBodyPart(randomPart);
         PlayerInventory.Instance.FossilParts.Remove(randomBodyPartSO);
+        MapData.Instance.MarkExcavationUsed(excavationObject.GetComponent<ExcavationPoint>().ExcavationID);
         Destroy(excavationObject);
     }
 

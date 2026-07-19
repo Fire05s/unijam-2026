@@ -17,6 +17,7 @@ public class PauseController : MonoBehaviour
         {
             _pauseActive = !_pauseActive;
             _pauseGO.SetActive(_pauseActive);
+            _playerCam.CamUnlocked = !_pauseActive;
         }
 
         if (_pauseActive)
@@ -31,12 +32,12 @@ public class PauseController : MonoBehaviour
             _settingsGO.SetActive(false);
         }
 
-        _playerCam.CamUnlocked = !_pauseActive;
         _playerCam.UpdateSens();
     }
 
     public void Resume()
     {
+        _playerCam.CamUnlocked = true;
         _pauseActive = false;
         _pauseGO.SetActive(false);
     }
