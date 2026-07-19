@@ -12,6 +12,8 @@ public class CreatureCombiner : MonoBehaviour
     [Header("Reference")]
     [SerializeField] private UIScreenManager _screenManager;
     [SerializeField] private ModelGenerator _modelGenerator;
+    [Header("Audio")]
+    [SerializeField] private int _audioListIndex = 0;
 
     [Header("Debug")]
     [SerializeField] private List<BodyPartSO> _testParts;
@@ -67,6 +69,7 @@ public class CreatureCombiner : MonoBehaviour
     public void EquipPart(DinosaurPart part)
     {
         if (part == null || _partSlots.ContainsValue(part)) return; // invalid part or already equipped
+        AudioManager.Instance.PlayInstantSFX(_audioListIndex);
         _partSlots[part.Type] = part;
 
         GenerateDinosaur();
@@ -74,14 +77,17 @@ public class CreatureCombiner : MonoBehaviour
 
     public void UnequipPart(BodyPartType type)
     {
+        AudioManager.Instance.PlayInstantSFX(_audioListIndex);
         _partSlots.Remove(type);
         GenerateDinosaur();
     }
 
     public void SelectPart(DinosaurPart part)
     {
+        Debug.Log("select part");
         if (_selectedPart == part)
         {
+            AudioManager.Instance.PlayInstantSFX(_audioListIndex);
             if (_partSlots.ContainsValue(part))
             {
                 // Part is in slot
@@ -108,6 +114,7 @@ public class CreatureCombiner : MonoBehaviour
 
     public void FinalizeDinosaur()
     {
+        AudioManager.Instance.PlayInstantSFX(_audioListIndex);
         if (!IsValidDinosaur())
         {
             Debug.Log($"Not enough parts selected, must select {_requiredPartCount}");
@@ -132,6 +139,7 @@ public class CreatureCombiner : MonoBehaviour
 
     public void ReturnToParty()
     {
+        AudioManager.Instance.PlayInstantSFX(_audioListIndex);
         foreach (var part in _history)
         {
             PlayerInventory.Instance.RemoveBodyPart(part);

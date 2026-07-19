@@ -178,6 +178,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _musicClips:
   - {fileID: 8300000, guid: 14027517a593b3b4782ce70d7dd60233, type: 3}
+  - {fileID: 8300000, guid: c96ffa5c966b2e74a87798dbf49871ce, type: 3}
   _sfxClips:
   - {fileID: 8300000, guid: b84e7dc0176fcd34daba0ecd2b358c5b, type: 3}
   - {fileID: 8300000, guid: 68bf67b26df734a4a8e64ea915565596, type: 3}

@@ -7,7 +7,7 @@ public class ExcavationPoint : MonoBehaviour
 
     void Start()
     {
-        if (MapData.Instance.ExcavationUsedBefore(ExcavationID))
+        if (MapData.Instance && MapData.Instance.ExcavationUsedBefore(ExcavationID))
         {
             Destroy(gameObject);
         }
