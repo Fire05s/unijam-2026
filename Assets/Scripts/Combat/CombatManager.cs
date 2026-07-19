@@ -217,8 +217,8 @@ namespace Combat
             {
                 if (Dinosaurs[id].TickDoT()) {TakenDamage.Add(id);}
             }
-            DOTApplied?.Invoke(TakenDamage);
             ProcessDeath();
+            DOTApplied?.Invoke(TakenDamage);
             yield return new WaitForSeconds(DoTDelay);
             state = TurnStep.AwaitEmptyCheck;
         }
