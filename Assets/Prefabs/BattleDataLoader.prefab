@@ -139,7 +139,11 @@ MonoBehaviour:
   HealPercent: 0.5
   _transitionObject: {fileID: 9141536246358697261}
   _mainLevelScene: MainLevel
+  _winScreenScene: WinScreen
+  _loseScreenScene: LoseScreen
   _transitionDuration: 2
+  _lastBattleID: 0
+  _lastBattleWon: 0
 --- !u!1 &6602754925688045895
 GameObject:
   m_ObjectHideFlags: 0

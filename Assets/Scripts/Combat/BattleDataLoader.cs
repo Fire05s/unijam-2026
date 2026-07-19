@@ -19,9 +19,12 @@ namespace Combat
         [Header("Scene Transition")]
         [SerializeField] private ScreenTransition _transitionObject;
         [SerializeField] private string _mainLevelScene;
+        [SerializeField] private string _winScreenScene;
+        [SerializeField] private string _loseScreenScene;
         [SerializeField] private float _transitionDuration;
         [SerializeField] int _lastBattleID;
         [SerializeField] bool _lastBattleWon;
+        [SerializeField] private List<DinosaurPart> _recentPartsWon;
 
         void Awake()
         {
@@ -96,6 +99,7 @@ namespace Combat
             droppedLimbs = EnemyDinosData.Count < droppedLimbs ? EnemyDinosData.Count : droppedLimbs;
 
             float limbChoice;
+            List<DinosaurPart> partsWon = new List<DinosaurPart>();
             for (int i = 1; i <= droppedLimbs; i++)
             {
                 DinosaurData randomDino = EnemyDinosData[Random.Range(0, EnemyDinosData.Count - 1)];
@@ -103,27 +107,32 @@ namespace Combat
                 if (limbChoice < 0.2f)
                 {
                     PlayerInventory.Instance.AddBodyPart(randomDino.GetBodyParts()[BodyPartType.Head]);
+                    partsWon.Add(randomDino.GetBodyParts()[BodyPartType.Head]);
+                    
                 }
                 else if (limbChoice < 0.6f)
                 {
                     PlayerInventory.Instance.AddBodyPart(randomDino.GetBodyParts()[BodyPartType.Arms]);
+                    partsWon.Add(randomDino.GetBodyParts()[BodyPartType.Arms]);
                 }
                 else
                 {
                     PlayerInventory.Instance.AddBodyPart(randomDino.GetBodyParts()[BodyPartType.Legs]);
+                    partsWon.Add(randomDino.GetBodyParts()[BodyPartType.Legs]);
                 }
             }
 
             // TODO: Call Victory UI Screen here
+            _recentPartsWon = partsWon;
             _lastBattleWon = true;
-            _transitionObject.FadeAndLoad(_mainLevelScene, _transitionDuration);
+            _transitionObject.FadeAndLoad(_winScreenScene, _transitionDuration);
         }
 
         public void TriggerDefeat()
         {
             // TODO: Call Defeat UI Screen Here
             _lastBattleWon = false;
-            _transitionObject.FadeAndLoad(_mainLevelScene, _transitionDuration);
+            _transitionObject.FadeAndLoad(_loseScreenScene, _transitionDuration);
         }
 
         public void SetBattleID(int id)
@@ -140,5 +149,11 @@ namespace Combat
         {
             return _lastBattleWon;
         }
+
+        public List<DinosaurPart> GetPartsWon()
+        {
+            return _recentPartsWon;
+        }
+
     }
 }
