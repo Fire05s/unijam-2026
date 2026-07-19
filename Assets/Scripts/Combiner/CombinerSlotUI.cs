@@ -9,6 +9,8 @@ public class CombinerSlotUI : MonoBehaviour, IPointerClickHandler, IDeselectHand
     [SerializeField] private BodyPartType _slotType;
     [SerializeField] private Color _selectedColor;
     [SerializeField] private Color _defaultColor;
+    [Header("References")]
+    [SerializeField] private Image _icon;
 
     private DinosaurPart _heldPart;
     private TextMeshProUGUI _nameText;
@@ -37,11 +39,14 @@ public class CombinerSlotUI : MonoBehaviour, IPointerClickHandler, IDeselectHand
     {
         if (_heldPart != null)
         {
-            _nameText.text = _heldPart.Reference.Name;
-            // TODO: add icons here (if planned)
+            _nameText.gameObject.SetActive(false);
+            _icon.gameObject.SetActive(true);
+            _icon.sprite = _heldPart.Reference.Icon;
         }
         else
         {
+            _nameText.gameObject.SetActive(true);
+            _icon.gameObject.SetActive(false);
             _nameText.text = "None";
         }
     }

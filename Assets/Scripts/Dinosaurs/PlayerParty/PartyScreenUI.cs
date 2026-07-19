@@ -10,7 +10,9 @@ public class PartyScreenUI : MonoBehaviour
     [SerializeField] private List<RenderTexture> _partyCameraTextures;
     [SerializeField] private List<CreatureModel> _partyModels;
     [SerializeField] private TextMeshProUGUI _combinerScreenText;
+    [SerializeField] private Button _combinerButton;
     [SerializeField] private Button _cancelSelectButton;
+    [SerializeField] private TextMeshProUGUI _slotsText;
 
     private void OnEnable()
     {
@@ -74,6 +76,7 @@ public class PartyScreenUI : MonoBehaviour
         if (PartyManager.Instance == null) return;
         UpdateSelection();
         UpdateButtons();
+        UpdateSlotsText();
     }
 
     private void UpdateSelection()
@@ -88,13 +91,26 @@ public class PartyScreenUI : MonoBehaviour
     {
         if (PartyManager.Instance.SelectedSlot >= 0)
         {
+            _combinerButton.gameObject.SetActive(true);
             _combinerScreenText.text = "Synthesize";
             _cancelSelectButton.gameObject.SetActive(true);
         }
-        else
+        else if (PlayerInventory.Instance.Creatures.Count < PlayerInventory.Instance.MaxPartySize)
         {
+            _combinerButton.gameObject.SetActive(true);
             _combinerScreenText.text = "New Dinosaur";
             _cancelSelectButton.gameObject.SetActive(false);
         }
+        else
+        {
+            _combinerButton.gameObject.SetActive(false);
+            _cancelSelectButton.gameObject.SetActive(false);
+        }
+    }
+
+    private void UpdateSlotsText()
+    {
+        PlayerInventory inventory = PlayerInventory.Instance;
+        _slotsText.text = $"{inventory.Creatures.Count}/{inventory.MaxPartySize} Slots";
     }
 }
