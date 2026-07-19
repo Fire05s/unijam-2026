@@ -36,7 +36,6 @@ public class EnemySightlines : MonoBehaviour
 
     void Start()
     {
-        _sightLineOrigin = transform;
         if (MapData.Instance && MapData.Instance.EnemyEncounteredBefore(_enemyID))
         {
             if (BattleDataLoader.Instance && BattleDataLoader.Instance.GetBattleID() == _enemyID && BattleDataLoader.Instance.WasBattleWon() == false)

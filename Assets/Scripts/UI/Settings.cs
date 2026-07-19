@@ -11,7 +11,7 @@ public class Settings : MonoBehaviour
     [Header("Audio")]
     [SerializeField] private int _audioListIndex = 0;
 
-    private float defaultValue = 1.0f;
+    private float defaultValue = 0.5f;
 
     private void OnEnable()
     {

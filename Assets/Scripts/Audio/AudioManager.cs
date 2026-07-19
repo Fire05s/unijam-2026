@@ -56,8 +56,8 @@ public class AudioManager : MonoBehaviour
 
     public void LoadVolumeSettings()
     {
-        _musicVolume = PlayerPrefs.GetFloat(MUSIC_VOL_KEY, 1f);
-        _sfxVolume = PlayerPrefs.GetFloat(SFX_VOL_KEY, 1f);
+        _musicVolume = PlayerPrefs.GetFloat(MUSIC_VOL_KEY, 0.5f);
+        _sfxVolume = PlayerPrefs.GetFloat(SFX_VOL_KEY, 0.5f);
 
         _musicSourceActive.volume = _musicVolume;
         if (_musicSourceFade != null) _musicSourceFade.volume = 0f;
