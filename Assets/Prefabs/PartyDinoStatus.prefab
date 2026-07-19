@@ -91,7 +91,7 @@ GameObject:
   - component: {fileID: 5960308996784499392}
   - component: {fileID: 136497235050662409}
   m_Layer: 5
-  m_Name: Image
+  m_Name: DinoImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -166,7 +166,7 @@ GameObject:
   - component: {fileID: 4085281470523415589}
   - component: {fileID: 7887191013081300450}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: HealthText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

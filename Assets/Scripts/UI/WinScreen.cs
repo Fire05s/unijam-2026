@@ -10,7 +10,9 @@ public class WinScreen : MonoBehaviour
     [SerializeField] private GameObject _mainMenuGO;
     [SerializeField] private GameObject _settingsGO;
     private GameObject _itemsWon;
+    private GameObject _partyStatus;
     [SerializeField] private GameObject _itemWonPrefab;
+    [SerializeField] private GameObject _dinoPartyPrefab;
 
     [Header("Audio")]
     [SerializeField] private int _audioListIndex = 0;
@@ -23,11 +25,18 @@ public class WinScreen : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         _itemsWon = GameObject.Find("ItemsWon");
+        _partyStatus = GameObject.Find("PartyStatus");
         _partsWon = BattleDataLoader.Instance.GetPartsWon();
         List <DinosaurData> creatures = PlayerInventory.Instance.GetCreatures();
         for(int i = 0; i < creatures.Count; i++)
         {
-            GameObject.Find("PartyStatus").GetComponent<TextMeshProUGUI>().text = GameObject.Find("PartyStatus").GetComponent<TextMeshProUGUI>().text + "Dinosaur " + i + ": " + creatures[i].GetCurrentHealth() + "\n";
+            GameObject dino = Instantiate(_dinoPartyPrefab, _partyStatus.transform);
+            dino.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = (creatures[i].GetCurrentHealth().ToString());
+        }
+        if(BattleDataLoader.Instance.IsRewardingNewDino)
+        {
+            GameObject dino = Instantiate(_dinoPartyPrefab, _partyStatus.transform);
+            dino.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "New Dinosaur Unlocked";
         }
         if (_partsWon.Count > 0)
         {
