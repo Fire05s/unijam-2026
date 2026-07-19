@@ -22,6 +22,7 @@ public class PlayerInteract : MonoBehaviour
     [SerializeField] private float _transitionDuration;
     [Header("Interactable Text")]
     [SerializeField] private TextMeshProUGUI _interactableText;
+    [SerializeField] private TextMeshProUGUI _excavationText;
 
     private LayerMask _layerMask;
     private GameObject _previousObject;
@@ -112,10 +113,14 @@ public class PlayerInteract : MonoBehaviour
         // Adds a new random part from all possible fossil parts.
         BodyPartSO randomBodyPartSO = PlayerInventory.Instance.FossilParts[Random.Range(0, PlayerInventory.Instance.FossilParts.Count)];
         DinosaurPart randomPart = new DinosaurPart(randomBodyPartSO);
-        Debug.Log("Adding part " + randomPart.Reference.name);
+        //Debug.Log("Adding part " + randomPart.Reference.name);
+        _excavationText.SetText("New " + randomPart.Reference.Name + " found");
+        _excavationText.gameObject.SetActive(true);
         PlayerInventory.Instance.AddBodyPart(randomPart);
         PlayerInventory.Instance.FossilParts.Remove(randomBodyPartSO);
         MapData.Instance.MarkExcavationUsed(excavationObject.GetComponent<ExcavationPoint>().ExcavationID);
         Destroy(excavationObject);
+        yield return new WaitForSeconds(3);
+        _excavationText.gameObject.SetActive(false);
     }
 }
