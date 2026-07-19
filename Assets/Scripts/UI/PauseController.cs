@@ -16,7 +16,6 @@ public class PauseController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             _pauseActive = !_pauseActive;
-            _playerCam.CamUnlocked = !_pauseActive;
             _pauseGO.SetActive(_pauseActive);
         }
 
@@ -32,6 +31,7 @@ public class PauseController : MonoBehaviour
             _settingsGO.SetActive(false);
         }
 
+        _playerCam.CamUnlocked = !_pauseActive;
         _playerCam.UpdateSens();
     }
 
