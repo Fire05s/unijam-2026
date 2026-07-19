@@ -11,13 +11,13 @@ public class MainMenu : MonoBehaviour
     public void Tutorial()
     {
         AudioManager.Instance.PlayInstantSFX(_audioListIndex);
-        _transition.FadeAndLoad("CombinerTutorial", duration: 2f);
+        _transition.FadeAndLoad("CombinerTutorial", duration: 1f);
     }
 
     public void MainGame()
     {
         AudioManager.Instance.PlayInstantSFX(_audioListIndex);
-        _transition.FadeAndLoad("MainLevel", duration: 2f);
+        _transition.FadeAndLoad("MainLevel", duration: 1f);
     }
 
     public void Settings()

@@ -21,19 +21,14 @@ public class Settings : MonoBehaviour
         sensYSlider.value = PlayerPrefs.GetFloat("YSens", defaultValue * 3);
     }
 
-    public void Back()
-    {
-        _originatorGO.SetActive(true);
-        gameObject.SetActive(false);
-        AudioManager.Instance.PlayInstantSFX(_audioListIndex);
-    }
-
-    public void Confirm()
+    public void Save()
     {
         PlayerPrefs.SetFloat("SFXVolume", sfxVolumeSlider.value);
         PlayerPrefs.SetFloat("MusicVolume", musicVolumeSlider.value);
         PlayerPrefs.SetFloat("XSens", sensXSlider.value);
         PlayerPrefs.SetFloat("YSens", sensYSlider.value * 3);
+        _originatorGO.SetActive(true);
+        gameObject.SetActive(false);
         AudioManager.Instance?.LoadVolumeSettings();
         AudioManager.Instance.PlayInstantSFX(_audioListIndex);
     }
