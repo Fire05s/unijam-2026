@@ -15,7 +15,7 @@ MonoBehaviour:
   <Name>k__BackingField: Daring Arms (T1)
   <Rarity>k__BackingField: 0
   <PartType>k__BackingField: 1
-  <ModelID>k__BackingField: 2
+  <ModelID>k__BackingField: 1
   <Icon>k__BackingField: {fileID: 21300000, guid: ec614a0ccafdf8a48a419bae299de01d, type: 3}
   <Stats>k__BackingField:
   - Type: 1
