@@ -20,10 +20,6 @@ public class CombatSceneManager : MonoBehaviour
     private List<GameObject> enemyDinoPositions = new List<GameObject>();
     private Dictionary<int, CombatCreature> _creaturesObjects = new();
 
-
-    [SerializeField] private CinemachineCamera followCamera;
-    [SerializeField] private CinemachineCamera overviewCamera;
-
     [SerializeField] private int currentSelectedTarget = -1;
 
     [Header("Animations")]
@@ -47,11 +43,13 @@ public class CombatSceneManager : MonoBehaviour
     {
         combatManager = CombatManager.Instance;
         combatManager.AttackPerformed += OnDinoAttacked;
+        combatManager.DinoDamaged += OnDinoDamaged;
     }
 
     private void OnDestroy()
     {
         combatManager.AttackPerformed -= OnDinoAttacked;
+        combatManager.DinoDamaged -= OnDinoDamaged;
     }
 
     private void Update()
@@ -70,7 +68,7 @@ public class CombatSceneManager : MonoBehaviour
         {
             // Processes player dinos
             CombatCreature dino = Instantiate(dinoPrefab, playerPositionHolder);
-            dino.SlotModel.SetDinosaur(playerDinosData[index]);
+            dino.SetModel(playerDinosData[index].Model);
             _creaturesObjects.Add(index, dino);
             // Player dino follow cam
             CameraManager.Instance.AddCamera(new CameraManager.CameraEntry { Id = index, Camera = dino.FollowCamera }); 
@@ -85,7 +83,7 @@ public class CombatSceneManager : MonoBehaviour
         {
             // Processes enemy dinos
             CombatCreature dino = Instantiate(dinoPrefab, enemyPositionHolder);
-            dino.SlotModel.SetDinosaur(enemyDinosData[index]);
+            dino.SetModel(enemyDinosData[index].Model);
             _creaturesObjects.Add(index + 5, dino);
 
             Vector3 currentDinoPosition = dino.transform.localPosition;
@@ -96,22 +94,31 @@ public class CombatSceneManager : MonoBehaviour
             enemyDinoPositions.Add(dino.gameObject);
         }
         SceneInitialized?.Invoke();
+
+        foreach (var dino in _creaturesObjects.Values)
+        {
+            // Intro anim
+            dino.SlotModel.SetIntro();
+            AudioManager.Instance?.PlayHitSFX();
+        }
     }
 
     public void UpdateSceneAfterDeath(int dinosaurID)
     {
         if (combatManager.RemainingPlayerDinosaurs.Contains(dinosaurID))
         {
-            GameObject dinoToDestroy = playerDinoPositions[dinosaurID];
+            //GameObject dinoToDestroy = playerDinoPositions[dinosaurID];
             playerDinoPositions[dinosaurID] = null;
-            Destroy(dinoToDestroy);
+            //Destroy(dinoToDestroy);
         }
         else if (combatManager.RemainingEnemyDinosaurs.Contains(dinosaurID))
         {
-            GameObject dinoToDestroy = enemyDinoPositions[dinosaurID - 5];
+            //GameObject dinoToDestroy = enemyDinoPositions[dinosaurID - 5];
             enemyDinoPositions[dinosaurID - 5] = null;
-            Destroy(dinoToDestroy);
+            //Destroy(dinoToDestroy);
         }
+        _creaturesObjects[dinosaurID].SlotModel.SetDead();
+        AudioManager.Instance?.PlayHitSFX();
     }
 
     public void StartTargetSelection()
@@ -203,10 +210,16 @@ public class CombatSceneManager : MonoBehaviour
         seq.Append(attackerTransform.DOMove(attackPos, attackMoveDuration)
             .SetEase(Ease.OutQuad));
 
-        // Play attack animation here
+        attacker.SlotModel.SetAttack();
         seq.AppendInterval(attackPauseDuration);
 
         seq.Append(attackerTransform.DOMove(startPos, attackMoveDuration)
             .SetEase(Ease.InQuad));
+    }
+
+    private void OnDinoDamaged(int targetId)
+    {
+        _creaturesObjects[targetId].SlotModel.SetHurt();
+        AudioManager.Instance?.PlayScreechSFX();
     }
 }

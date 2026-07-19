@@ -39,7 +39,9 @@ public class CombinerTutorial : MonoBehaviour
     {
         PlayerInventory.Instance.ClearBodyParts();
         PlayerInventory.Instance.ClearCreatures();
-        PlayerInventory.Instance.AddCreature(new DinosaurData(_baseStats, _initialParts));
+        DinosaurData starterDino = new DinosaurData(_baseStats, _initialParts);
+        starterDino.SetModel(CreatureCombiner.Instance.Database.GetModelByParts(_initialParts).GetComponent<CreatureModel>());
+        PlayerInventory.Instance.AddCreature(starterDino);
         PartyManager.Instance.ExitToMain();
     }
 }

@@ -10,14 +10,21 @@ public class PauseController : MonoBehaviour
     [SerializeField] private PlayerCam _playerCam;
 
     private bool _pauseActive = false;
+    private PlayerController _playerController;
+
+    private void Start()
+    {
+        _playerController = FindAnyObjectByType<PlayerController>();
+    }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             _pauseActive = !_pauseActive;
-            _playerCam.CamUnlocked = !_pauseActive;
             _pauseGO.SetActive(_pauseActive);
+            _playerCam.CamUnlocked = !_pauseActive;
+            _playerController.CanMove = !_pauseActive;
         }
 
         if (_pauseActive)
@@ -37,6 +44,8 @@ public class PauseController : MonoBehaviour
 
     public void Resume()
     {
+        _playerCam.CamUnlocked = true;
+        _playerController.CanMove = true;
         _pauseActive = false;
         _pauseGO.SetActive(false);
     }
@@ -52,7 +61,7 @@ public class PauseController : MonoBehaviour
         Destroy(PlayerInventory.Instance.gameObject);
         Destroy(BattleDataLoader.Instance.gameObject);
         Destroy(MapData.Instance.gameObject);
-        _transition.FadeAndLoad("MainMenu", duration: 2f);
+        _transition.FadeAndLoad("MainMenu", duration: 1f);
     }
 
     public void Quit()

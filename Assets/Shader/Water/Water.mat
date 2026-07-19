@@ -53,9 +53,9 @@ Material:
     m_Floats:
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Rotation: 15.29
-    - _Speed: 0.16
-    - _WaveHeight: 0.37
+    - _Rotation: 11.6
+    - _Speed: 0.06
+    - _WaveHeight: 1.04
     m_Colors: []
   m_BuildTextureStacks: []
   m_AllowLocking: 1

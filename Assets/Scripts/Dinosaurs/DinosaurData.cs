@@ -13,6 +13,7 @@ public class DinosaurData
     private List<WildCard> _wildcardAbilities = new();
     private List<WildCardSO> _wildcardData = new();
     private float _currentHealth;
+    public CreatureModel Model { get; private set; }
 
     public DinosaurData(BaseStatsSO baseStats) {
         _baseStats = baseStats;
@@ -90,6 +91,15 @@ public class DinosaurData
         _bodyParts.Clear();
         _wildcardAbilities.Clear();
         _wildcardData.Clear();
+    }
+
+    /// <summary>
+    /// Sets the model for the dinosaur
+    /// </summary>
+    /// <param name="model"></param>
+    public void SetModel(CreatureModel model)
+    {
+        Model = model;
     }
 
     /// <summary>

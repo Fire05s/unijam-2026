@@ -11,6 +11,8 @@ public class InventoryUI : MonoBehaviour
     [SerializeField] private InventorySlotUI _slotPrefab;
     [SerializeField] private Transform _contentParent;
     [SerializeField] private Button _displayAllButton;
+    [Header("Audio")]
+    [SerializeField] private int _audioListIndex = 0;
 
     private List<InventorySlotUI> _slots;
 
@@ -57,6 +59,7 @@ public class InventoryUI : MonoBehaviour
     /// <param name="type"> Specified type </param>
     public void DisplayType(string typeName)
     {
+        AudioManager.Instance.PlayInstantSFX(_audioListIndex);
         Clear();
 
         BodyPartType type = StringToBodyType(typeName);
@@ -77,6 +80,7 @@ public class InventoryUI : MonoBehaviour
     /// </summary>
     public void DisplayAll()
     {
+        AudioManager.Instance.PlayInstantSFX(_audioListIndex);
         Clear();
 
         foreach (var item in PlayerInventory.Instance.BodyParts)

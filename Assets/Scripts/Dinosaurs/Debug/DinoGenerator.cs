@@ -1,3 +1,4 @@
+using Combat;
 using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,7 @@ public class DinoGenerator : MonoBehaviour
     {
         if (PlayerInventory.Instance == null || PlayerInventory.Instance.Creatures.Count != 0) return;
         DinosaurData startDino = new DinosaurData(_baseStats, _initialParts);
+        startDino.SetModel(BattleDataLoader.Instance.AllModels.GetModelByParts(_initialParts).GetComponent<CreatureModel>());
         PlayerInventory.Instance.AddCreature(startDino);
     }
 }

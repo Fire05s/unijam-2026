@@ -16,6 +16,8 @@ namespace Combat
         public bool IsRewardingNewDino;
         [Range(0f, 1f)]
         public float HealPercent;
+        [Header("Database")]
+        [SerializeField] private ModelDatabaseSO _models;
         [Header("Scene Transition")]
         [SerializeField] private ScreenTransition _transitionObject;
         [SerializeField] private string _mainLevelScene;
@@ -25,6 +27,8 @@ namespace Combat
         [SerializeField] int _lastBattleID;
         [SerializeField] bool _lastBattleWon;
         [SerializeField] private List<DinosaurPart> _recentPartsWon;
+
+        public ModelDatabaseSO AllModels => _models;
 
         void Awake()
         {
@@ -39,7 +43,7 @@ namespace Combat
 
         public void StartBattle(BattleData battleData)
         {
-            EnemyDinosData = battleData.InitializeEnemyDinos();
+            EnemyDinosData = battleData.InitializeEnemyDinos(_models);
             IsRewardingNewDino = battleData.rewardsNewDino;
             StartCoroutine(BattleDelay());
         }
@@ -54,6 +58,7 @@ namespace Combat
             {
                 Debug.LogError("CombatManager does not exist. Scene may not have loaded.");
             }
+            AudioManager.Instance.PlayMusic(1);
             CombatManager.Instance.SetupCombat(EnemyDinosData);
             CombatManager.Instance.TriggerCombatStart();
         }
@@ -125,6 +130,7 @@ namespace Combat
             // TODO: Call Victory UI Screen here
             _recentPartsWon = partsWon;
             _lastBattleWon = true;
+            AudioManager.Instance.PlayMusic(0);
             _transitionObject.FadeAndLoad(_winScreenScene, _transitionDuration);
         }
 
@@ -132,6 +138,7 @@ namespace Combat
         {
             // TODO: Call Defeat UI Screen Here
             _lastBattleWon = false;
+            AudioManager.Instance.PlayMusic(0);
             _transitionObject.FadeAndLoad(_loseScreenScene, _transitionDuration);
         }
 
