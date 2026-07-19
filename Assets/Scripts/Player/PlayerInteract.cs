@@ -118,12 +118,4 @@ public class PlayerInteract : MonoBehaviour
         MapData.Instance.MarkExcavationUsed(excavationObject.GetComponent<ExcavationPoint>().ExcavationID);
         Destroy(excavationObject);
     }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Checkpoint"))
-        {
-            MapData.Instance.SavePlayerCheckpoint(other.gameObject.GetComponent<Checkpoint>().GetCheckpointPosition());
-        }
-    }
 }

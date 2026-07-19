@@ -44,6 +44,7 @@ public class CombatSceneManager : MonoBehaviour
         combatManager = CombatManager.Instance;
         combatManager.AttackPerformed += OnDinoAttacked;
         combatManager.DinoDamaged += OnDinoDamaged;
+        combatManager.DOTApplied += OnDOT;
     }
 
     private void OnDestroy()
@@ -221,5 +222,13 @@ public class CombatSceneManager : MonoBehaviour
     {
         _creaturesObjects[targetId].SlotModel.SetHurt();
         AudioManager.Instance?.PlayScreechSFX();
+    }
+
+    private void OnDOT(List<int> targets)
+    {
+        foreach (int targetId in targets)
+        {
+            OnDinoDamaged(targetId);
+        }
     }
 }

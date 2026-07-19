@@ -1,3 +1,4 @@
+using Combat;
 using UnityEngine;
 
 public class LoseScreen : MonoBehaviour
@@ -28,6 +29,9 @@ public class LoseScreen : MonoBehaviour
 
     public void MainMenu()
     {
+        Destroy(PlayerInventory.Instance.gameObject);
+        Destroy(BattleDataLoader.Instance.gameObject);
+        Destroy(MapData.Instance.gameObject);
         AudioManager.Instance.PlayInstantSFX(_audioListIndex);
         _transition.FadeAndLoad("MainMenu", duration: 2f);
     }
