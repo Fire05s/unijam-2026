@@ -17,6 +17,7 @@ public class ScreenTransition : MonoBehaviour
 
     public IEnumerator FadeIn(string sceneName, float duration, bool loadScene)
     {
+        Debug.Log("fading in");
         float t = 0;
         Color c = faderImage.color;
         while(t < duration)
@@ -35,6 +36,7 @@ public class ScreenTransition : MonoBehaviour
 
     public IEnumerator FadeOut()
     {
+        Debug.Log("fading out");
         float t = 0;
         Color c = faderImage.color;
         while (t < 1)

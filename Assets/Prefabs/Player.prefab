@@ -405,6 +405,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _moveSpeed: 8
   _orientation: {fileID: 379326207123506167}
+  _walkSounds:
+  - {fileID: 8300000, guid: 070d070e8835fe4449074f65fcfa6af6, type: 3}
+  - {fileID: 8300000, guid: b5a943b03e2b19547a5d98f4225e964e, type: 3}
+  - {fileID: 8300000, guid: 5c8aaf9ec3dab1a4280c8a9ec4265194, type: 3}
+  - {fileID: 8300000, guid: 9c36040ce5c86044483754a18820b0f7, type: 3}
+  _walkSoundDelay: 0.6
+  _walkSoundPitchRange: {x: 0, y: 0}
 --- !u!114 &8313727294342769667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -419,6 +426,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sightLineOrigin: {fileID: 5284330919095159108}
   _sightLineDistance: 2
+  _timeToExcavate: 1
+  _excavationAudioListIndex: 10
+  _inventoryList: []
   _transitionObject: {fileID: 9202853369229372218}
   _creatureCombinerScene: CombinerScene
   _transitionDuration: 2
@@ -2330,6 +2340,7 @@ MonoBehaviour:
   musicVolumeSlider: {fileID: 8018101336091944713}
   sensXSlider: {fileID: 3402587235083824085}
   sensYSlider: {fileID: 6270011311769325404}
+  _audioListIndex: 0
 --- !u!1 &4449268252951772533
 GameObject:
   m_ObjectHideFlags: 0

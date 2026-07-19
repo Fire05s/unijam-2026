@@ -13,7 +13,7 @@ public class PlayerInteract : MonoBehaviour
     [SerializeField] private float _sightLineDistance;
     [Header("Excavating")]
     [SerializeField] private int _timeToExcavate = 1;
-    [SerializeField] private int _audioListIndex = 0;
+    [SerializeField] private int _excavationAudioListIndex = 10;
     [Header("Fossil Parts")]
     [SerializeField] private List<BodyPartSO> _inventoryList;
     [Header("Scene Transition")]
@@ -105,7 +105,7 @@ public class PlayerInteract : MonoBehaviour
 
     IEnumerator ExcavateEnumerator(int seconds, GameObject excavationObject)
     {
-        AudioManager.Instance.PlayInstantSFX(_audioListIndex);
+        AudioManager.Instance.PlayInstantSFX(_excavationAudioListIndex);
         yield return new WaitForSeconds(seconds);
 
         // Adds a new random part from all possible fossil parts.

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Combat;
+using DG.Tweening;
 using Unity.Cinemachine;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -10,6 +11,7 @@ using UnityEngine;
 /// </summary>
 public class CombatSceneManager : MonoBehaviour
 {
+    [Header("References")]
     public static CombatSceneManager Instance {get; private set;}
     [SerializeField] public Transform playerPositionHolder;
     [SerializeField] public Transform enemyPositionHolder;
@@ -22,7 +24,12 @@ public class CombatSceneManager : MonoBehaviour
     [SerializeField] private CinemachineCamera followCamera;
     [SerializeField] private CinemachineCamera overviewCamera;
 
-    [SerializeField] private int currentSelectedTarget = -1; 
+    [SerializeField] private int currentSelectedTarget = -1;
+
+    [Header("Animations")]
+    [SerializeField] private float attackMoveDuration = 0.3f;
+    [SerializeField] private float attackPauseDuration = 0.4f;
+    [SerializeField] private float attackDistance = 2.0f;
 
     private CombatManager combatManager;
 
@@ -39,6 +46,12 @@ public class CombatSceneManager : MonoBehaviour
     private void Start()
     {
         combatManager = CombatManager.Instance;
+        combatManager.AttackPerformed += OnDinoAttacked;
+    }
+
+    private void OnDestroy()
+    {
+        combatManager.AttackPerformed -= OnDinoAttacked;
     }
 
     private void Update()
@@ -166,5 +179,34 @@ public class CombatSceneManager : MonoBehaviour
         {
             CameraManager.Instance.SwitchCamera(-1);
         }
+    }
+
+    private void OnDinoAttacked(int targetId, int attackerId)
+    {
+        if (!_creaturesObjects.TryGetValue(attackerId, out CombatCreature attacker))
+            return;
+
+        if (!_creaturesObjects.TryGetValue(targetId, out CombatCreature target))
+            return;
+
+        Transform attackerTransform = attacker.transform;
+        Transform targetTransform = target.transform;
+
+        Vector3 startPos = attackerTransform.position;
+        Vector3 direction = (targetTransform.position - attackerTransform.position).normalized;
+        Vector3 attackPos = targetTransform.position - direction * attackDistance;
+
+        attackerTransform.DOKill();
+
+        DG.Tweening.Sequence seq = DOTween.Sequence();
+
+        seq.Append(attackerTransform.DOMove(attackPos, attackMoveDuration)
+            .SetEase(Ease.OutQuad));
+
+        // Play attack animation here
+        seq.AppendInterval(attackPauseDuration);
+
+        seq.Append(attackerTransform.DOMove(startPos, attackMoveDuration)
+            .SetEase(Ease.InQuad));
     }
 }
