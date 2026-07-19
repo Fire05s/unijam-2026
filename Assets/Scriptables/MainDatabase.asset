@@ -1,0 +1,123 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c8d9a8e1ae785b45a2884cfb8764fce, type: 3}
+  m_Name: MainDatabase
+  m_EditorClassIdentifier: 
+  _models:
+  - headID: 0
+    bodyID: 0
+    legsID: 0
+    prefab: {fileID: 2771943777042893319, guid: 38bff3631c080624c9d553c8e3e4d372, type: 3}
+  - headID: 0
+    bodyID: 0
+    legsID: 1
+    prefab: {fileID: 3662806417550076611, guid: 7b44940581bb2db49a328c14eb084ca0, type: 3}
+  - headID: 0
+    bodyID: 0
+    legsID: 2
+    prefab: {fileID: 1021288562494118396, guid: e2df7be896dbce5419235a60d82efc05, type: 3}
+  - headID: 0
+    bodyID: 1
+    legsID: 0
+    prefab: {fileID: 7106552709281059819, guid: eb4ab2305932ba546a32212e469c7418, type: 3}
+  - headID: 0
+    bodyID: 1
+    legsID: 1
+    prefab: {fileID: 3055582044499681248, guid: 124acdb691b3652428aeff0166ab5d77, type: 3}
+  - headID: 0
+    bodyID: 1
+    legsID: 2
+    prefab: {fileID: 8449380737159723110, guid: 4d0e404b1644587409240cd965271823, type: 3}
+  - headID: 0
+    bodyID: 2
+    legsID: 0
+    prefab: {fileID: 3460931790999219482, guid: 3df3abd056d1c0d43b0de4f22b49e138, type: 3}
+  - headID: 0
+    bodyID: 2
+    legsID: 1
+    prefab: {fileID: 5921255905218531882, guid: 00be6aa5fc1030a43b930d67c66d533a, type: 3}
+  - headID: 0
+    bodyID: 2
+    legsID: 2
+    prefab: {fileID: 946246564614075718, guid: 2e6c572c6f95bb3469c13ca04ca10664, type: 3}
+  - headID: 1
+    bodyID: 0
+    legsID: 0
+    prefab: {fileID: 6099195570932425197, guid: 1713386d8eef66e4fbbad4a402695ba1, type: 3}
+  - headID: 1
+    bodyID: 0
+    legsID: 1
+    prefab: {fileID: 2131622849046261818, guid: 6cc4a3e0e48066947b885006d04b5fa6, type: 3}
+  - headID: 1
+    bodyID: 0
+    legsID: 2
+    prefab: {fileID: 3287602538484024380, guid: 48133e86190e9f545a9a6f791dec944a, type: 3}
+  - headID: 1
+    bodyID: 1
+    legsID: 0
+    prefab: {fileID: 1377693188133844208, guid: 34ac5e1ffc6caaa45a327d6e43626bf3, type: 3}
+  - headID: 1
+    bodyID: 1
+    legsID: 1
+    prefab: {fileID: 7433805393412473674, guid: 2d882f9b0481a0e48ad88836fccb564f, type: 3}
+  - headID: 1
+    bodyID: 1
+    legsID: 2
+    prefab: {fileID: 1739693808426768959, guid: ca31b515f1a7a8e44bf8c94b52435d88, type: 3}
+  - headID: 1
+    bodyID: 2
+    legsID: 0
+    prefab: {fileID: 7335938778305321728, guid: 69188b9a59eda93429404c3e35712ffc, type: 3}
+  - headID: 1
+    bodyID: 2
+    legsID: 1
+    prefab: {fileID: 6096823601674431038, guid: dd7a55bc589c9d64c89ad42022d3149c, type: 3}
+  - headID: 1
+    bodyID: 2
+    legsID: 2
+    prefab: {fileID: 7045068011838741833, guid: 315c333c265b41543899726ef8774ecb, type: 3}
+  - headID: 2
+    bodyID: 0
+    legsID: 0
+    prefab: {fileID: 4222831970983984348, guid: 2aa16269a7a00ad479d3892c01bcf5a6, type: 3}
+  - headID: 2
+    bodyID: 0
+    legsID: 1
+    prefab: {fileID: 3890340886759710078, guid: c04ad3c6b2eb16d4c8a7c5f397400fb5, type: 3}
+  - headID: 2
+    bodyID: 0
+    legsID: 2
+    prefab: {fileID: 2919863839515905502, guid: 968e2ab288675c34c85a96e10889ff87, type: 3}
+  - headID: 2
+    bodyID: 1
+    legsID: 0
+    prefab: {fileID: 7585388542595018595, guid: 024450035b660bd4689da4866c1f5d9d, type: 3}
+  - headID: 2
+    bodyID: 1
+    legsID: 1
+    prefab: {fileID: 1394692484619001127, guid: 9a3d48ed8b0d0e94198a02399e2532f4, type: 3}
+  - headID: 2
+    bodyID: 1
+    legsID: 2
+    prefab: {fileID: 7661325889430643616, guid: 24ff2df98b09492439651d0001527bc4, type: 3}
+  - headID: 2
+    bodyID: 2
+    legsID: 0
+    prefab: {fileID: 6227192231058521830, guid: 14489405280b4664190bf7d261921075, type: 3}
+  - headID: 2
+    bodyID: 2
+    legsID: 1
+    prefab: {fileID: 8867572443793236185, guid: cfac36c948591244b98885ef407b79e2, type: 3}
+  - headID: 2
+    bodyID: 2
+    legsID: 2
+    prefab: {fileID: 5413285719298055471, guid: b9b3706c1ff678245ad5bdcaea333046, type: 3}
