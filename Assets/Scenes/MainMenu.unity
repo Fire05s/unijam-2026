@@ -1659,6 +1659,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Creature Combiner
       objectReference: {fileID: 0}
+    - target: {fileID: 8129770395821133340, guid: e5033d3c2ae70ab4b85eb5957046dd32, type: 3}
+      propertyPath: _disableSounds
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

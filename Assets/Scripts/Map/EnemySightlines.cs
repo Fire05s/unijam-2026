@@ -37,7 +37,7 @@ public class EnemySightlines : MonoBehaviour
     void Start()
     {
         _sightLineOrigin = transform;
-        if (MapData.Instance.EnemyEncounteredBefore(_enemyID))
+        if (MapData.Instance && MapData.Instance.EnemyEncounteredBefore(_enemyID))
         {
             if (BattleDataLoader.Instance && BattleDataLoader.Instance.GetBattleID() == _enemyID && BattleDataLoader.Instance.WasBattleWon() == false)
             {
@@ -66,8 +66,8 @@ public class EnemySightlines : MonoBehaviour
                 Debug.DrawRay(_sightLineOrigin.transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
                 //I added in a fading transition from a tutorial which is what this goes to. Should be easy to replace if something else is needed for the transition or scene change.
                 //Debug.Log("Hit player, triggering battle");
-                MapData.Instance.MarkEnemyEncountered(_enemyID);
-                MapData.Instance.SavePlayerPosition(hit.transform.position, hit.transform.rotation);
+                MapData.Instance?.MarkEnemyEncountered(_enemyID);
+                MapData.Instance?.SavePlayerPosition(hit.transform.position, hit.transform.rotation);
                 if (BattleDataLoader.Instance == null)
                 {
                     Debug.LogError("BattleDataLoader does not exist.");

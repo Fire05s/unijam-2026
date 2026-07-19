@@ -51,6 +51,7 @@ namespace Combat
             {
                 Debug.LogError("CombatManager does not exist. Scene may not have loaded.");
             }
+            AudioManager.Instance.PlayMusic(1);
             CombatManager.Instance.SetupCombat(EnemyDinosData);
             CombatManager.Instance.TriggerCombatStart();
         }
@@ -116,6 +117,7 @@ namespace Combat
 
             // TODO: Call Victory UI Screen here
             _lastBattleWon = true;
+            AudioManager.Instance.PlayMusic(0);
             _transitionObject.FadeAndLoad(_mainLevelScene, _transitionDuration);
         }
 
@@ -123,6 +125,7 @@ namespace Combat
         {
             // TODO: Call Defeat UI Screen Here
             _lastBattleWon = false;
+            AudioManager.Instance.PlayMusic(0);
             _transitionObject.FadeAndLoad(_mainLevelScene, _transitionDuration);
         }
 

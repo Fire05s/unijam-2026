@@ -32,7 +32,6 @@ public class AudioManager : MonoBehaviour
     private float _musicVolume = 1.0f;
     private float _sfxVolume = 1.0f;
     private Dictionary<string, AudioSource> _loopingSFX = new Dictionary<string, AudioSource>();
-    private Dictionary<GameObject, AudioSource> inWorldLoops = new Dictionary<GameObject, AudioSource>();
     private Coroutine _crossfadeCoroutine;
 
     private void Awake()
@@ -70,10 +69,6 @@ public class AudioManager : MonoBehaviour
         }
 
         foreach (var source in _loopingSFX.Values)
-        {
-            if (source != null) source.volume = _sfxVolume;
-        }
-        foreach (var source in inWorldLoops.Values)
         {
             if (source != null) source.volume = _sfxVolume;
         }
@@ -130,9 +125,8 @@ public class AudioManager : MonoBehaviour
     public void PlayInWorldLoop(int index, GameObject emitter)
     {
         if (index < 0 || index >= _sfxClips.Length || emitter == null) return;
-        if (inWorldLoops.ContainsKey(emitter)) return; // Already playing a loop on this object
+        // if (inWorldLoops.ContainsKey(emitter)) return; // already playing a loop on this object
 
-        // Create a new AudioSource directly on the in-world object
         AudioSource source = emitter.AddComponent<AudioSource>();
         source.clip = _sfxClips[index];
         source.loop = true;
@@ -144,22 +138,6 @@ public class AudioManager : MonoBehaviour
         source.maxDistance = 20.0f;
 
         source.Play();
-        inWorldLoops.Add(emitter, source);
-    }
-
-    public void StopInWorldLoop(GameObject emitter)
-    {
-        if (emitter == null) return;
-
-        if (inWorldLoops.TryGetValue(emitter, out AudioSource source))
-        {
-            if (source != null)
-            {
-                source.Stop();
-                Destroy(source);
-            }
-            inWorldLoops.Remove(emitter);
-        }
     }
 
     public void PlayMusic(int index, float fadeDuration = 1.5f)
