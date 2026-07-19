@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
+using TMPro;
 
 public class PlayerInteract : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class PlayerInteract : MonoBehaviour
     [SerializeField] private ScreenTransition _transitionObject;
     [SerializeField] private string _creatureCombinerScene;
     [SerializeField] private float _transitionDuration;
+    [Header("Interactable Text")]
+    [SerializeField] private TextMeshProUGUI _interactableText;
 
     private LayerMask _layerMask;
     private GameObject _previousObject;
@@ -47,6 +50,7 @@ public class PlayerInteract : MonoBehaviour
         {
             // Tracks what is currently being hit by the raycast.
             _previousObject = hit.transform.gameObject;
+            _interactableText.gameObject.SetActive(true);
         }
         else
         {
@@ -54,6 +58,7 @@ public class PlayerInteract : MonoBehaviour
             {
                 _previousObject = null;
             }
+            _interactableText.gameObject.SetActive(false);
         }
 
         if (_transitionObject == null)

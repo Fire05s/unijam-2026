@@ -51,9 +51,10 @@ public class HealthUI : MonoBehaviour
     {
         healthPercent = Mathf.Clamp01(healthPercent);
 
+        bool healthChange = healthPercent != _frontSlider.value;
         bool damage = healthPercent < _frontSlider.value;
 
-        if (damage)
+        if (healthChange)
         {
             _frontSlider.value = healthPercent;
 
@@ -71,7 +72,10 @@ public class HealthUI : MonoBehaviour
                         .SetLink(gameObject);
                 }).SetLink(gameObject);
 
-            ApplyShake();
+            if (damage)
+            {
+                ApplyShake();
+            }
         }
         else
         {

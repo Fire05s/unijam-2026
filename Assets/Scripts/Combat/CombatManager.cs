@@ -94,7 +94,7 @@ namespace Combat
                 DinosaurData curDinosaur = enemyDinosData[id - 5];
                 RemainingEnemyDinosaurs.Add(id);
                 Dinosaurs[id] = new CombatEntity(id, EntitySide.Enemy, curDinosaur.GetAdjustedStat(StatType.Health),
-                    curDinosaur.GetCurrentHealth(), curDinosaur.GetAdjustedStat(StatType.Speed),
+                    curDinosaur.GetAdjustedStat(StatType.Health), curDinosaur.GetAdjustedStat(StatType.Speed),
                     curDinosaur.GetAdjustedStat(StatType.Attack), curDinosaur.GetAdjustedStat(StatType.CritChance),
                     curDinosaur.GetWildCardAbilities());
             }
@@ -310,9 +310,9 @@ namespace Combat
                 switch(Dinosaurs[currentActingNum]._wildcards[i])
                 {
                     case WildCard.Multihit:
-                        int left = currentActingNum - 1;
+                        int left = targetedDinosaur - 1;
                         if (RemainingPlayerDinosaurs.Contains(left) || RemainingEnemyDinosaurs.Contains(left)) { ProcessDamage(left, thisMoveAttack); }
-                        int right = currentActingNum + 1;
+                        int right = targetedDinosaur + 1;
                         if (RemainingPlayerDinosaurs.Contains(right) || RemainingEnemyDinosaurs.Contains(right)) { ProcessDamage(right, thisMoveAttack); }
                         break;
                     case WildCard.Bleed:
@@ -328,7 +328,16 @@ namespace Combat
                         ProcessHeal(currentActingNum, thisMoveAttack * 0.25f);
                         break;
                     case WildCard.Luckystreak:
-                        if (thisMoveCrit) { ProcessDamage(targetedDinosaur, thisMoveAttack); }
+                        if (thisMoveCrit && Dinosaurs[targetedDinosaur].IsAlive()) 
+                        { 
+                            (float,bool) result = Dinosaurs[currentActingNum].CalculateAttack();
+                            thisMoveAttack = result.Item1;
+                            thisMoveCrit = result.Item2;
+                            ProcessDamage(targetedDinosaur, thisMoveAttack);
+                            AttackPerformed?.Invoke(targetedDinosaur, currentActingNum);
+                            Debug.Log("lucky streak attack again");
+                            yield return new WaitForSeconds(AttackDelay);
+                        }
                         break;
                     case WildCard.Bloodlust:
                         if (!Dinosaurs[targetedDinosaur].IsAlive())

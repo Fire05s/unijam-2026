@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <WildType>k__BackingField: 5
   <Name>k__BackingField: Lucky Streak
-  <Description>k__BackingField: Strike the same Dino(s) again if this Dino crit.
+  <Description>k__BackingField: Strike the same targeted Dino again if this Dino
+    crit.
