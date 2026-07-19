@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Interactable
   - CreatureCombiner
+  - Checkpoint
   layers:
   - Default
   - TransparentFX

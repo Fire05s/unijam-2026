@@ -6,6 +6,8 @@ public class MapData : MonoBehaviour
     public static MapData Instance { get; private set; }
 
     [SerializeField] private Vector3 _PlayerPosition;
+    [SerializeField] private Quaternion _PlayerRotation;
+    [SerializeField] private Vector3 _checkpointPosition;
     private List<int> _enemiesEncountered;
     private void Awake()
     {
@@ -26,9 +28,21 @@ public class MapData : MonoBehaviour
             _enemiesEncountered.Add(id);
         }
     }
-    public void SavePlayerPosition(Vector3 pos)
+    public void RemoveEnemyEncountered(int id)
+    {
+        if(_enemiesEncountered.Contains(id))
+        {
+            _enemiesEncountered.Remove(id);
+        }
+    }
+    public void SavePlayerPosition(Vector3 pos, Quaternion rot)
     {
         _PlayerPosition = pos;
+        _PlayerRotation = rot;
+    }
+    public void SavePlayerCheckpoint(Vector3 pos)
+    {
+        _checkpointPosition = pos;
     }
     public bool EnemyEncounteredBefore(int id)
     {
@@ -41,5 +55,15 @@ public class MapData : MonoBehaviour
     public Vector3 GetPlayerPosition()
     {
         return _PlayerPosition;
+    }
+
+    public Quaternion GetPlayerRotation()
+    {
+        return _PlayerRotation;
+    }
+    
+    public Vector3 GetCheckpointPosition()
+    {
+        return _checkpointPosition;
     }
 }

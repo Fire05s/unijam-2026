@@ -42,7 +42,14 @@ public class EnemySightlines : MonoBehaviour
         _sightLineOrigin = transform;
         if(_mapManager.EnemyEncounteredBefore(_enemyID))
         {
-            Destroy(gameObject);
+            if (BattleDataLoader.Instance && BattleDataLoader.Instance.GetBattleID() == _enemyID && BattleDataLoader.Instance.WasBattleWon() == false)
+            {
+                _mapManager.RemoveEnemyEncountered(_enemyID);
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
     }
 
@@ -61,15 +68,15 @@ public class EnemySightlines : MonoBehaviour
                 _triggered = true;
                 Debug.DrawRay(_sightLineOrigin.transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
                 //I added in a fading transition from a tutorial which is what this goes to. Should be easy to replace if something else is needed for the transition or scene change.
-                Debug.Log("Hit player, triggering battle");
+                //Debug.Log("Hit player, triggering battle");
                 _mapManager.MarkEnemyEncountered(_enemyID);
-                _mapManager.SavePlayerPosition(hit.transform.position);
+                _mapManager.SavePlayerPosition(hit.transform.position, hit.transform.rotation);
                 if (BattleDataLoader.Instance == null)
                 {
                     Debug.LogError("BattleDataLoader does not exist.");
                     return;
                 }
-                Debug.Log(playerCam);
+                //Debug.Log(playerCam);
                 StartCoroutine(BattleCoroutine(playerCam));
             }
         }
@@ -77,11 +84,9 @@ public class EnemySightlines : MonoBehaviour
 
     IEnumerator BattleCoroutine(Transform cam)
     {
-        Debug.Log("COROUTINE");
-        Debug.Log("LOOK");
         cam.GetComponent<PlayerCam>().GiveTransformTarget(transform);
         yield return new WaitForSeconds(2);
-
+        BattleDataLoader.Instance.SetBattleID(_enemyID);
         BattleDataLoader.Instance.StartBattle(_battleData);
     }
 }

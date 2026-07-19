@@ -20,6 +20,8 @@ namespace Combat
         [SerializeField] private ScreenTransition _transitionObject;
         [SerializeField] private string _mainLevelScene;
         [SerializeField] private float _transitionDuration;
+        [SerializeField] int _lastBattleID;
+        [SerializeField] bool _lastBattleWon;
 
         void Awake()
         {
@@ -112,14 +114,30 @@ namespace Combat
             }
 
             // TODO: Call Victory UI Screen here
-
+            _lastBattleWon = true;
             _transitionObject.FadeAndLoad(_mainLevelScene, _transitionDuration);
         }
 
         public void TriggerDefeat()
         {
             // TODO: Call Defeat UI Screen Here
+            _lastBattleWon = false;
             _transitionObject.FadeAndLoad(_mainLevelScene, _transitionDuration);
+        }
+
+        public void SetBattleID(int id)
+        {
+            _lastBattleID = id;
+        }
+
+        public int GetBattleID()
+        {
+            return _lastBattleID;
+        }
+
+        public bool WasBattleWon()
+        {
+            return _lastBattleWon;
         }
     }
 }

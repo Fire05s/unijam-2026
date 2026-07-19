@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections;
 using System.Collections.Generic;
+using Combat;
 
 public class PlayerInteract : MonoBehaviour
 {
@@ -26,6 +27,7 @@ public class PlayerInteract : MonoBehaviour
     private LayerMask _layerMask;
     private GameObject _previousObject;
     private MapData _mapManager;
+    private BattleDataLoader _battleManager;
 
     void Awake()
     {
@@ -39,7 +41,16 @@ public class PlayerInteract : MonoBehaviour
 
     private void Start()
     {
-        transform.position = _mapManager.GetPlayerPosition();
+        _battleManager = GameObject.Find("BattleDataLoader").GetComponent<BattleDataLoader>();
+        if(_battleManager.WasBattleWon())
+        {
+            transform.position = _mapManager.GetPlayerPosition();
+            transform.rotation = _mapManager.GetPlayerRotation();
+        }
+        else
+        {
+            transform.position = _mapManager.GetCheckpointPosition();
+        }
         _playerInventory = GameObject.Find("Inventory").GetComponent<PlayerInventory>();
         List<DinosaurPart> playerPartsInventory = _playerInventory.GetBodyParts();
 
@@ -109,7 +120,7 @@ public class PlayerInteract : MonoBehaviour
             else if (_previousObject && _previousObject.CompareTag("CreatureCombiner"))
             {
                 //Sends you to the creature combiner screen.
-                _mapManager.SavePlayerPosition(transform.position);
+                _mapManager.SavePlayerPosition(transform.position, transform.rotation);
                 _transitionObject.FadeAndLoad(_creatureCombinerScene, _transitionDuration);
             }
         }
@@ -131,5 +142,13 @@ public class PlayerInteract : MonoBehaviour
         Debug.Log("Adding part " + randomPart.Reference.name);
         _playerInventory.AddBodyPart(randomPart);
         Destroy(excavationObject);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Checkpoint"))
+        {
+            _mapManager.SavePlayerCheckpoint(other.gameObject.GetComponent<Checkpoint>().GetCheckpointPosition());
+        }
     }
 }
