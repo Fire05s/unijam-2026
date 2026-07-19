@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Dino123
+  m_Controller: {fileID: 9100000, guid: 01d3e4ccb5c808342981a3998f4f2f81, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: -7763269135828111865, guid: 9f9e6157868a8e64cbd3f418b66ac91f, type: 3}
+    m_OverrideClip: {fileID: -4133628146369465293, guid: dc54015b7bc533b45aa6670914ae2e85, type: 3}
+  - m_OriginalClip: {fileID: -2197964993998828958, guid: 9f9e6157868a8e64cbd3f418b66ac91f, type: 3}
+    m_OverrideClip: {fileID: -1868057758573214400, guid: dc54015b7bc533b45aa6670914ae2e85, type: 3}
+  - m_OriginalClip: {fileID: -3944046669225911118, guid: 9f9e6157868a8e64cbd3f418b66ac91f, type: 3}
+    m_OverrideClip: {fileID: -2002891599763935931, guid: dc54015b7bc533b45aa6670914ae2e85, type: 3}
+  - m_OriginalClip: {fileID: 4495290078792821316, guid: 9f9e6157868a8e64cbd3f418b66ac91f, type: 3}
+    m_OverrideClip: {fileID: 4226222959694641727, guid: dc54015b7bc533b45aa6670914ae2e85, type: 3}
+  - m_OriginalClip: {fileID: 221788460649137697, guid: 9f9e6157868a8e64cbd3f418b66ac91f, type: 3}
+    m_OverrideClip: {fileID: 3513749459921112070, guid: dc54015b7bc533b45aa6670914ae2e85, type: 3}
+  - m_OriginalClip: {fileID: 312677949577922628, guid: 9f9e6157868a8e64cbd3f418b66ac91f, type: 3}
+    m_OverrideClip: {fileID: -2708184302531396349, guid: dc54015b7bc533b45aa6670914ae2e85, type: 3}
+  - m_OriginalClip: {fileID: 8402833459448590235, guid: 9f9e6157868a8e64cbd3f418b66ac91f, type: 3}
+    m_OverrideClip: {fileID: -123337625917869532, guid: dc54015b7bc533b45aa6670914ae2e85, type: 3}
