@@ -146,7 +146,7 @@ public class CreatureCombiner : MonoBehaviour
         int headId = _partSlots[BodyPartType.Head].Reference.ModelID;
         int armsId = _partSlots[BodyPartType.Arms].Reference.ModelID;
         int legsId = _partSlots[BodyPartType.Legs].Reference.ModelID;
-        CreatureModel model = _modelDatabase.GetModel(headId, armsId, legsId).GetComponent<CreatureModel>();
+        CreatureModel model = _modelDatabase.GetModel(headId, legsId, armsId).GetComponent<CreatureModel>();
         if (model != null) _displayDinosaur.SetModel(model);
         else Debug.LogWarning($"Can't find creature model with ID {headId}-{armsId}-{legsId}");
     }

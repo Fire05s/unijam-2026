@@ -228,7 +228,10 @@ public class CombatSceneManager : MonoBehaviour
     {
         foreach (int targetId in targets)
         {
-            OnDinoDamaged(targetId);
+            if (CombatManager.Instance.Dinosaurs[targetId]._health > 0)
+            {
+                OnDinoDamaged(targetId);
+            }
         }
     }
 }
