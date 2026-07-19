@@ -94,4 +94,9 @@ public class PlayerInventory : MonoBehaviour
         if (MaxPartySize >= 5) return;
         MaxPartySize++;
     }
+
+    public List<DinosaurData> GetCreatures()
+    {
+        return _creatures;
+    }
 }
