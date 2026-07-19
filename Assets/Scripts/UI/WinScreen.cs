@@ -31,7 +31,7 @@ public class WinScreen : MonoBehaviour
         for(int i = 0; i < creatures.Count; i++)
         {
             GameObject dino = Instantiate(_dinoPartyPrefab, _partyStatus.transform);
-            dino.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = (creatures[i].GetCurrentHealth().ToString());
+            dino.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "HP: " + creatures[i].GetCurrentHealth().ToString();
         }
         if(BattleDataLoader.Instance.IsRewardingNewDino)
         {
