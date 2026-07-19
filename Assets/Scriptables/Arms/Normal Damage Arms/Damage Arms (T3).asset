@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3530032e2dc41343802880e58187ca7, type: 3}
   m_Name: Damage Arms (T3)
   m_EditorClassIdentifier: 
-  <Name>k__BackingField: Damage Arms (T3)
+  <Name>k__BackingField: Sharp Arms (T3)
   <Rarity>k__BackingField: 0
   <PartType>k__BackingField: 1
-  <ModelID>k__BackingField: 0
-  <Icon>k__BackingField: {fileID: 21300000, guid: 12cd33ce1b986c34db750617cf271663, type: 3}
+  <ModelID>k__BackingField: 2
+  <Icon>k__BackingField: {fileID: 21300000, guid: 258da7baa5dca924f87bb7f807269de6, type: 3}
   <Stats>k__BackingField:
   - Type: 1
     MinValue: 8

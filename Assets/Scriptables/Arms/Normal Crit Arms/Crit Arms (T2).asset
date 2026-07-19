@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3530032e2dc41343802880e58187ca7, type: 3}
   m_Name: Crit Arms (T2)
   m_EditorClassIdentifier: 
-  <Name>k__BackingField: Crit Arms (T2)
+  <Name>k__BackingField: Daring Arms (T2)
   <Rarity>k__BackingField: 0
   <PartType>k__BackingField: 1
-  <ModelID>k__BackingField: 0
-  <Icon>k__BackingField: {fileID: 21300000, guid: 12cd33ce1b986c34db750617cf271663, type: 3}
+  <ModelID>k__BackingField: 2
+  <Icon>k__BackingField: {fileID: 21300000, guid: ec614a0ccafdf8a48a419bae299de01d, type: 3}
   <Stats>k__BackingField:
   - Type: 1
     MinValue: 4

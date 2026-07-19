@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3530032e2dc41343802880e58187ca7, type: 3}
   m_Name: Lucky Streak Legs
   m_EditorClassIdentifier: 
-  <Name>k__BackingField: Lucky Streak Legs
+  <Name>k__BackingField: Lucky Legs
   <Rarity>k__BackingField: 0
   <PartType>k__BackingField: 2
   <ModelID>k__BackingField: 0
