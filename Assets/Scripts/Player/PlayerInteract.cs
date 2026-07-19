@@ -121,7 +121,7 @@ public class PlayerInteract : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Checkpoint"))
         {
-            _mapManager.SavePlayerCheckpoint(other.gameObject.GetComponent<Checkpoint>().GetCheckpointPosition());
+            MapData.Instance.SavePlayerCheckpoint(other.gameObject.GetComponent<Checkpoint>().GetCheckpointPosition());
         }
     }
 }
