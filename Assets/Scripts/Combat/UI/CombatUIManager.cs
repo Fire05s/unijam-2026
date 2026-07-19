@@ -18,6 +18,8 @@ public class CombatUIManager : MonoBehaviour
     [SerializeField] private float _yOffset;
     [Header("Crosshair")]
     [SerializeField] private CombatUIFollower _crosshairFollow;
+    [Header("Text")]
+    [SerializeField] private GameObject _controlsPanel;
 
     private Dictionary<int, HealthUI> _healthBars = new();
     private List<KeyValuePair<int, TurnData>> _existingQueue = new();
@@ -149,10 +151,12 @@ public class CombatUIManager : MonoBehaviour
         if (target == -1 || !CombatSceneManager.Instance.CreatureObjects.ContainsKey(target + 5))
         {
             _crosshairFollow.gameObject.SetActive(false);
+            _controlsPanel.SetActive(false);
         }
         else
         {
             _crosshairFollow.gameObject.SetActive(true);
+            _controlsPanel.SetActive(true);
             _crosshairFollow.SetTarget(CombatSceneManager.Instance.CreatureObjects[target + 5].LookTarget);
         }
     }
