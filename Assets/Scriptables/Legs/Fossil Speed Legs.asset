@@ -16,7 +16,7 @@ MonoBehaviour:
   <Rarity>k__BackingField: 1
   <PartType>k__BackingField: 2
   <ModelID>k__BackingField: 2
-  <Icon>k__BackingField: {fileID: 824102882, guid: f3e369cf7971f1140b382adfc1bb4ab9, type: 3}
+  <Icon>k__BackingField: {fileID: 21300000, guid: d7dae43a290f9b14cbbd166c352463f7, type: 3}
   <Stats>k__BackingField:
   - Type: 0
     MinValue: 5

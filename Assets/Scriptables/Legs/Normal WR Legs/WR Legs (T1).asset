@@ -15,8 +15,8 @@ MonoBehaviour:
   <Name>k__BackingField: Well-rounded Legs (T1)
   <Rarity>k__BackingField: 0
   <PartType>k__BackingField: 2
-  <ModelID>k__BackingField: 2
-  <Icon>k__BackingField: {fileID: 824102882, guid: f3e369cf7971f1140b382adfc1bb4ab9, type: 3}
+  <ModelID>k__BackingField: 0
+  <Icon>k__BackingField: {fileID: 21300000, guid: 87160f7aee1168a43816e94a12ffc57e, type: 3}
   <Stats>k__BackingField:
   - Type: 1
     MinValue: 2
