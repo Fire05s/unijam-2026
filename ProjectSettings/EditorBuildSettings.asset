@@ -8,8 +8,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: d0e1c72f71d44004aa60c15164a73c73
-  - enabled: 1
-    path: Assets/Scenes/CombinerTutorial.unity
+  - enabled: 0
+    path: Assets/Scenes/CombinerTutorialOLD.unity
     guid: 104812214032dc84e9e74af1f2216e0c
   - enabled: 1
     path: Assets/Scenes/MainLevel.unity
@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Combat.unity
     guid: 2dfb39390f9672545b4b4bb6926e7b06
+  - enabled: 1
+    path: Assets/Scenes/CombinerTutorial.unity
+    guid: cb1d289dce9695a4a864da6c49574cb2
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

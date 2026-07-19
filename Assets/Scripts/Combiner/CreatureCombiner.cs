@@ -31,6 +31,7 @@ public class CreatureCombiner : MonoBehaviour
     public DinosaurData DisplayDinosaur => _displayDinosaur;
     public DinosaurPart SelectedPart => _selectedPart;
     public Dictionary<BodyPartType, DinosaurPart> PartSlots => _partSlots;
+    public ModelDatabaseSO Database => _modelDatabase;
 
     private void Awake()
     {
