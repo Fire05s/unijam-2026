@@ -10,4 +10,11 @@ public class Checkpoint : MonoBehaviour
         return _checkpointPosition;
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            MapData.Instance.SavePlayerCheckpoint(transform.position);
+        }
+    }
 }
