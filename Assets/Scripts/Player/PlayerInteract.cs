@@ -13,6 +13,7 @@ public class PlayerInteract : MonoBehaviour
     [SerializeField] private float _sightLineDistance;
     [Header("Excavating")]
     [SerializeField] private int _timeToExcavate = 1;
+    [SerializeField] private int _audioListIndex = 0;
     [Header("Fossil Parts")]
     [SerializeField] private List<BodyPartSO> _inventoryList;
     [Header("Scene Transition")]
@@ -34,8 +35,7 @@ public class PlayerInteract : MonoBehaviour
 
     private void Start()
     {
-        _battleManager = GameObject.Find("BattleDataLoader").GetComponent<BattleDataLoader>();
-        if(_battleManager.WasBattleWon())
+        if(BattleDataLoader.Instance.WasBattleWon())
         {
             transform.position = MapData.Instance.GetPlayerPosition();
             transform.rotation = MapData.Instance.GetPlayerRotation();
@@ -43,23 +43,6 @@ public class PlayerInteract : MonoBehaviour
         else
         {
             transform.position = MapData.Instance.GetCheckpointPosition();
-        }
-        _playerInventory = GameObject.Find("Inventory").GetComponent<PlayerInventory>();
-        List<DinosaurPart> playerPartsInventory = _playerInventory.GetBodyParts();
-
-        //Goes through each part in the given list of parts from the inspector and compares it to what the player already has. If the player has a part, remove that part from the pool.
-        for(int i = 0; i < playerPartsInventory.Count; i++)
-        {
-            for(int j = 0; j < _partsList.Count; j++)
-            {
-                //Debug.Log("Checking " + playerPartsInventory[i].Reference + " and " + _partsList[j].Reference);
-                if(playerPartsInventory[i].Reference == _partsList[j].Reference)
-                {
-                    //Debug.Log("REMOVING " + _partsList[j]);
-                    _partsList.RemoveAt(j);
-                    break;
-                }
-            }
         }
     }
 
@@ -113,21 +96,8 @@ public class PlayerInteract : MonoBehaviour
             }
             else if (_previousObject && _previousObject.CompareTag("CreatureCombiner"))
             {
-                //Sends you to the creature combiner screen.
-                _mapManager.SavePlayerPosition(transform.position, transform.rotation);
-                // Adds a new random part from all possible fossil parts.
-                BodyPartSO randomBodyPartSO = PlayerInventory.Instance.FossilParts[Random.Range(0, PlayerInventory.Instance.FossilParts.Count)];
-                DinosaurPart randomPart = new DinosaurPart(randomBodyPartSO);
-                Debug.Log("Adding part " + randomPart.Reference.name);
-                PlayerInventory.Instance.AddBodyPart(randomPart);
-                PlayerInventory.Instance.FossilParts.Remove(randomBodyPartSO);
-                MapData.Instance.MarkExcavationUsed(_previousObject.GetComponent<ExcavationPoint>().ExcavationID);
-                Destroy(_previousObject);
-            }
-            else if (_previousObject && _previousObject.CompareTag("CreatureCombiner"))
-            {
                 // Sends you to the creature combiner screen.
-                MapData.Instance.SavePlayerPosition(transform.position);
+                MapData.Instance.SavePlayerPosition(transform.position, transform.rotation);
                 _transitionObject.FadeAndLoad(_creatureCombinerScene, _transitionDuration);
             }
         }
@@ -135,19 +105,15 @@ public class PlayerInteract : MonoBehaviour
 
     IEnumerator ExcavateEnumerator(int seconds, GameObject excavationObject)
     {
-        AudioSource excavationAudio = excavationObject.GetComponent<AudioSource>();
-        if (excavationAudio)
-        {
-            excavationAudio.Play();
-        }
-        excavationObject.transform.GetChild(0).gameObject.SetActive(false);
-        excavationObject.transform.GetChild(1).gameObject.SetActive(true);
+        AudioManager.Instance.PlayInstantSFX(_audioListIndex);
         yield return new WaitForSeconds(seconds);
 
-        excavationObject.transform.GetChild(1).transform.gameObject.SetActive(false);
-        DinosaurPart randomPart = _partsList[Random.Range(0, _partsList.Count)];
+        // Adds a new random part from all possible fossil parts.
+        BodyPartSO randomBodyPartSO = PlayerInventory.Instance.FossilParts[Random.Range(0, PlayerInventory.Instance.FossilParts.Count)];
+        DinosaurPart randomPart = new DinosaurPart(randomBodyPartSO);
         Debug.Log("Adding part " + randomPart.Reference.name);
-        _playerInventory.AddBodyPart(randomPart);
+        PlayerInventory.Instance.AddBodyPart(randomPart);
+        PlayerInventory.Instance.FossilParts.Remove(randomBodyPartSO);
         Destroy(excavationObject);
     }
 

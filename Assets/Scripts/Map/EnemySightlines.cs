@@ -37,11 +37,11 @@ public class EnemySightlines : MonoBehaviour
     void Start()
     {
         _sightLineOrigin = transform;
-        if(MapData.Instance.EnemyEncounteredBefore(_enemyID))
+        if (MapData.Instance.EnemyEncounteredBefore(_enemyID))
         {
             if (BattleDataLoader.Instance && BattleDataLoader.Instance.GetBattleID() == _enemyID && BattleDataLoader.Instance.WasBattleWon() == false)
             {
-                _mapManager.RemoveEnemyEncountered(_enemyID);
+                MapData.Instance.RemoveEnemyEncountered(_enemyID);
             }
             else
             {
@@ -60,7 +60,7 @@ public class EnemySightlines : MonoBehaviour
             if (hit.transform.gameObject.CompareTag("Player") && !_triggered)
             {
                 Transform playerCam = GameObject.Find("CinemachineCamera").transform;
-                playerCam.parent.Find("CinemachineCamera").GetComponent<PlayerCam>().camUnlocked = false;
+                playerCam.parent.Find("CinemachineCamera").GetComponent<PlayerCam>().CamUnlocked = false;
                 GameObject.Find("Player").GetComponent<PlayerController>().ChangeSpeed(0);
                 _triggered = true;
                 Debug.DrawRay(_sightLineOrigin.transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);

@@ -31,7 +31,6 @@ public class PlayerCam : MonoBehaviour
     {
         if (CamUnlocked)
         {
-            Debug.Log($"x sens {XSens}, y sens {YSens}");
             float mouseX = Input.GetAxisRaw("Mouse X") * XSens * PlayerPrefs.GetFloat("SensX", defaultValue: 1.0f);
             float mouseY = Input.GetAxisRaw("Mouse Y") * YSens * PlayerPrefs.GetFloat("SensY", defaultValue: 3.0f);
 

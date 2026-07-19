@@ -37,7 +37,6 @@ public class MapData : MonoBehaviour
             _enemiesEncountered.Remove(id);
         }
     }
-    public void SavePlayerPosition(Vector3 pos, Quaternion rot)
     public void MarkExcavationUsed(int id)
     {
         if(!_excavationUsed.Contains(id))
@@ -45,7 +44,7 @@ public class MapData : MonoBehaviour
             _excavationUsed.Add(id);
         }
     }
-    public void SavePlayerPosition(Vector3 pos)
+    public void SavePlayerPosition(Vector3 pos, Quaternion rot)
     {
         _PlayerPosition = pos;
         _PlayerRotation = rot;

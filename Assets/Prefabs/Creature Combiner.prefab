@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3117160713131640058}
+  - component: {fileID: 8129770395821133340}
   m_Layer: 6
   m_Name: Creature Combiner
   m_TagString: CreatureCombiner
@@ -33,6 +34,20 @@ Transform:
   - {fileID: 7076510142658470754}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8129770395821133340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7691159912876804296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3cd3d5b4f4b76746833b1f1cf516cb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioListIndex1: 1
+  _audioListIndex2: 2
 --- !u!1001 &7331412718570046601
 PrefabInstance:
   m_ObjectHideFlags: 0
