@@ -5,6 +5,7 @@ public class PlayerController : MonoBehaviour
 {
     [Header("Movement")]
     [SerializeField] private float _moveSpeed;
+    public bool CanMove = true;
 
     [Header("Component")]
     [SerializeField] private Transform _orientation;
@@ -17,7 +18,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody _rb;
 
     [Header("Walk Sound")]
-    [SerializeField] float _walkSoundDelay = 0.6f;
+    [SerializeField] float _walkSoundDelay = 0.4f;
     [SerializeField] Vector2 _walkSoundPitchRange;
     private float _walkSoundTimer;
 
@@ -50,6 +51,7 @@ public class PlayerController : MonoBehaviour
 
     private void MovePlayer()
     {
+        if (!CanMove) { return; }
         _moveDirection = _orientation.forward * _verticalInput + _orientation.right * _horizontalInput;
 
         _rb.AddForce(_moveDirection.normalized * _moveSpeed * 10f, ForceMode.Force);

@@ -97,6 +97,7 @@ public class PlayerInteract : MonoBehaviour
             else if (_previousObject && _previousObject.CompareTag("CreatureCombiner"))
             {
                 // Sends you to the creature combiner screen.
+                FindAnyObjectByType<PlayerController>().CanMove = false;
                 MapData.Instance.SavePlayerPosition(transform.position, transform.rotation);
                 _transitionObject.FadeAndLoad(_creatureCombinerScene, _transitionDuration);
             }

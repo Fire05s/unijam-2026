@@ -10,6 +10,12 @@ public class PauseController : MonoBehaviour
     [SerializeField] private PlayerCam _playerCam;
 
     private bool _pauseActive = false;
+    private PlayerController _playerController;
+
+    private void Start()
+    {
+        _playerController = FindAnyObjectByType<PlayerController>();
+    }
 
     private void Update()
     {
@@ -18,6 +24,7 @@ public class PauseController : MonoBehaviour
             _pauseActive = !_pauseActive;
             _pauseGO.SetActive(_pauseActive);
             _playerCam.CamUnlocked = !_pauseActive;
+            _playerController.CanMove = !_pauseActive;
         }
 
         if (_pauseActive)
@@ -38,6 +45,7 @@ public class PauseController : MonoBehaviour
     public void Resume()
     {
         _playerCam.CamUnlocked = true;
+        _playerController.CanMove = true;
         _pauseActive = false;
         _pauseGO.SetActive(false);
     }
