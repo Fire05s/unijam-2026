@@ -201,6 +201,8 @@ MonoBehaviour:
   _dinoScreechEnd: 5
   _hitStart: 6
   _hitEnd: 9
+  _walkStart: 11
+  _walkEnd: 14
 --- !u!1 &6994727242952308669
 GameObject:
   m_ObjectHideFlags: 0

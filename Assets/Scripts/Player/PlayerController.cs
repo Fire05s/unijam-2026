@@ -17,7 +17,6 @@ public class PlayerController : MonoBehaviour
     private Rigidbody _rb;
 
     [Header("Walk Sound")]
-    [SerializeField] AudioClip[] _walkSounds;
     [SerializeField] float _walkSoundDelay = 0.6f;
     [SerializeField] Vector2 _walkSoundPitchRange;
     private float _walkSoundTimer;
@@ -70,12 +69,9 @@ public class PlayerController : MonoBehaviour
     private void PlayWalkSound()
     {
         _walkSoundTimer += Time.deltaTime;
-        AudioSource soundSource = GetComponent<AudioSource>();
         if (_walkSoundTimer > _walkSoundDelay)
         {
-            soundSource.resource = _walkSounds[Random.Range(0, _walkSounds.Length)];
-            soundSource.pitch = Random.Range(_walkSoundPitchRange.x, _walkSoundPitchRange.y);
-            soundSource.Play();
+            AudioManager.Instance.PlayWalkSFX();
             _walkSoundTimer = 0f;
         }
     }

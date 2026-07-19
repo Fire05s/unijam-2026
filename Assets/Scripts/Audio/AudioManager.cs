@@ -20,6 +20,8 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private int _dinoScreechEnd;
     [SerializeField] private int _hitStart;
     [SerializeField] private int _hitEnd;
+    [SerializeField] private int _walkStart;
+    [SerializeField] private int _walkEnd;
 
     public float GetMusicVolume() => _musicVolume;
     public float GetSFXVolume() => _sfxVolume;
@@ -53,7 +55,7 @@ public class AudioManager : MonoBehaviour
         PlayMusic(0);
     }
 
-    public   void LoadVolumeSettings()
+    public void LoadVolumeSettings()
     {
         _musicVolume = PlayerPrefs.GetFloat(MUSIC_VOL_KEY, 1f);
         _sfxVolume = PlayerPrefs.GetFloat(SFX_VOL_KEY, 1f);
@@ -85,6 +87,11 @@ public class AudioManager : MonoBehaviour
     public void PlayHitSFX()
     {
         PlayInstantSFX(Random.Range(_hitStart, _hitEnd));
+    }
+
+    public void PlayWalkSFX()
+    {
+        PlayInstantSFX(Random.Range(_walkStart, _walkEnd));
     }
 
     public void PlayInstantSFX(int index)
