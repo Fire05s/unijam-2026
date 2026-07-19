@@ -13,6 +13,7 @@ namespace Combat
         public event IntDelegate TurnAdvanced;
         public event Action<int> DinoDamaged;
         public event Action<int> DinoHealed;
+        public event Action<int> DinoDodged;
         public event Action<int> DinoDied;
         public event Action<List<int>> DOTApplied;
         public event Action<int, int> AttackPerformed;
@@ -287,7 +288,7 @@ namespace Combat
             (float,bool) result = Dinosaurs[currentActingNum].CalculateAttack();
             thisMoveAttack = result.Item1;
             thisMoveCrit = result.Item2;
-            ProcessDamage(targetedDinosaur, thisMoveAttack);
+            ProcessDamage(targetedDinosaur, thisMoveAttack, true);
             Debug.Log($"{currentActingNum} has {Dinosaurs[currentActingNum]._health} out of {Dinosaurs[currentActingNum]._maxHealth} health");
             Debug.Log($"{currentActingNum} dealt {thisMoveAttack} damage to {targetedDinosaur}.");
             AttackPerformed?.Invoke(targetedDinosaur, currentActingNum);
@@ -311,9 +312,9 @@ namespace Combat
                 {
                     case WildCard.Multihit:
                         int left = targetedDinosaur - 1;
-                        if (RemainingPlayerDinosaurs.Contains(left) || RemainingEnemyDinosaurs.Contains(left)) { ProcessDamage(left, thisMoveAttack); }
+                        if (RemainingPlayerDinosaurs.Contains(left) || RemainingEnemyDinosaurs.Contains(left)) { ProcessDamage(left, thisMoveAttack, true); }
                         int right = targetedDinosaur + 1;
-                        if (RemainingPlayerDinosaurs.Contains(right) || RemainingEnemyDinosaurs.Contains(right)) { ProcessDamage(right, thisMoveAttack); }
+                        if (RemainingPlayerDinosaurs.Contains(right) || RemainingEnemyDinosaurs.Contains(right)) { ProcessDamage(right, thisMoveAttack, true); }
                         break;
                     case WildCard.Bleed:
                         Dinosaurs[targetedDinosaur].ApplyDoT(DoT.Bleed);
@@ -333,7 +334,7 @@ namespace Combat
                             (float,bool) result = Dinosaurs[currentActingNum].CalculateAttack();
                             thisMoveAttack = result.Item1;
                             thisMoveCrit = result.Item2;
-                            ProcessDamage(targetedDinosaur, thisMoveAttack);
+                            ProcessDamage(targetedDinosaur, thisMoveAttack, true);
                             AttackPerformed?.Invoke(targetedDinosaur, currentActingNum);
                             Debug.Log("lucky streak attack again");
                             yield return new WaitForSeconds(AttackDelay);
@@ -495,8 +496,18 @@ namespace Combat
         /// </summary>
         /// <param name="targetId"></param>
         /// <param name="damage"></param>
-        private void ProcessDamage(int targetId, float damage)
+        private void ProcessDamage(int targetId, float damage, bool canDodge=false)
         {
+            if (canDodge) {
+                foreach (WildCard card in Dinosaurs[targetId]._wildcards)
+                {
+                    if (card == WildCard.Dodge && UnityEngine.Random.Range(0, 10) < 3)
+                    {
+                        DinoDodged?.Invoke(targetId);
+                        return;
+                    }
+                }
+            }
             Dinosaurs[targetId].ApplyDamage(damage);
             DinoDamaged?.Invoke(targetId);
         }
