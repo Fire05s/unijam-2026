@@ -42,6 +42,8 @@ public class CombatUIManager : MonoBehaviour
         CombatManager.Instance.TurnAdvanced -= OnNewTurn;
         CombatManager.Instance.DinoDamaged -= UpdateHealthBar;
         CombatManager.Instance.DinoHealed -= UpdateHealthBar;
+        CombatManager.Instance.DOTApplied -= UpdateHealthBars;
+        CombatManager.Instance.DinoDied -= OnDeath;
     }
 
     private void Update()
