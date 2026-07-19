@@ -68,7 +68,7 @@ namespace Combat
 
             float limbDropChance = Random.Range(0f, 1f);
             int droppedLimbs;
-            if (limbDropChance < 0.3f)
+            if (limbDropChance < 0.2f)
             {
                 droppedLimbs = 0;
             }

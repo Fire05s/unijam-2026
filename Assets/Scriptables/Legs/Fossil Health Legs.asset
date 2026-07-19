@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3530032e2dc41343802880e58187ca7, type: 3}
   m_Name: Fossil Health Legs
   m_EditorClassIdentifier: 
-  <Name>k__BackingField: '[FOSSIL HEALTH LEGS]'
+  <Name>k__BackingField: Stubby Legs (Fossil)
   <Rarity>k__BackingField: 1
   <PartType>k__BackingField: 2
-  <ModelID>k__BackingField: 2
+  <ModelID>k__BackingField: 1
   <Icon>k__BackingField: {fileID: 824102882, guid: f3e369cf7971f1140b382adfc1bb4ab9, type: 3}
   <Stats>k__BackingField:
   - Type: 0

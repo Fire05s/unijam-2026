@@ -26,7 +26,8 @@ public class CombatSceneManager : MonoBehaviour
 
     private CombatManager combatManager;
 
-    public Dictionary<int, CombatCreature> CreatureObjects => _creaturesObjects; 
+    public Dictionary<int, CombatCreature> CreatureObjects => _creaturesObjects;
+    public int CurrentSelectedTarget => currentSelectedTarget;
     public event Action SceneInitialized;
 
     private void Awake()
@@ -58,6 +59,8 @@ public class CombatSceneManager : MonoBehaviour
             CombatCreature dino = Instantiate(dinoPrefab, playerPositionHolder);
             dino.SlotModel.SetDinosaur(playerDinosData[index]);
             _creaturesObjects.Add(index, dino);
+            // Player dino follow cam
+            CameraManager.Instance.AddCamera(new CameraManager.CameraEntry { Id = index, Camera = dino.FollowCamera }); 
 
             Vector3 currentDinoPosition = dino.transform.localPosition;
             currentDinoPosition.x = (index - playerDinoPivotIndex) * distanceScaler;
@@ -153,14 +156,15 @@ public class CombatSceneManager : MonoBehaviour
         if (combatManager.state == TurnStep.PlayerSelect)
         {
             // Player Dino ids correspond to its given index on the field
-            followCamera.Follow = playerDinoPositions[combatManager.currentActingNum]?.transform;
-            followCamera.LookAt = enemyDinoPositions[currentSelectedTarget]?.transform;
-
-            followCamera.Prioritize();
+            if (_creaturesObjects.ContainsKey(currentSelectedTarget + 5))
+            {
+                CameraManager.Instance.SwitchCamera(combatManager.currentActingNum);
+                CameraManager.Instance.SetLookAt(_creaturesObjects[currentSelectedTarget + 5].LookTarget);
+            }
         }
         else
         {
-            overviewCamera.Prioritize();
+            CameraManager.Instance.SwitchCamera(-1);
         }
     }
 }

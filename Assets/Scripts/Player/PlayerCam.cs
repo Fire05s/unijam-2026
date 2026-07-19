@@ -5,10 +5,10 @@ public class PlayerCam : MonoBehaviour
 {
     [Header("Camera")]
     [SerializeField] private CinemachineCamera _camera;
-    public bool camUnlocked = true;
+    public bool CamUnlocked = true;
     [Header("Sensitivity")]
-    public float sensX;
-    public float sensY;
+    public float XSens;
+    public float YSens;
 
     private Transform _orientation;
 
@@ -23,20 +23,23 @@ public class PlayerCam : MonoBehaviour
         Cursor.visible = false;
         _orientation = GameObject.Find("CamOrientation").transform;
         _camera.Follow = GameObject.Find("CamPos").transform;
+        XSens = PlayerPrefs.GetFloat("XSens", 1f);
+        YSens = PlayerPrefs.GetFloat("YSens", 3f);
     }
 
     private void Update()
     {
-        if (camUnlocked)
+        if (CamUnlocked)
         {
-            float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX * PlayerPrefs.GetFloat("SensX", defaultValue: 1.0f);
-            float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensY * PlayerPrefs.GetFloat("SensY", defaultValue: 1.0f);
+            Debug.Log($"x sens {XSens}, y sens {YSens}");
+            float mouseX = Input.GetAxisRaw("Mouse X") * XSens * PlayerPrefs.GetFloat("SensX", defaultValue: 1.0f);
+            float mouseY = Input.GetAxisRaw("Mouse Y") * YSens * PlayerPrefs.GetFloat("SensY", defaultValue: 3.0f);
 
             _yRotation += mouseX;
             _xRotation -= mouseY;
             _xRotation = Mathf.Clamp(_xRotation, -90f, 90f);
 
-            transform.rotation = Quaternion.Euler(_xRotation, _yRotation, 0);
+            _camera.transform.rotation = Quaternion.Euler(_xRotation, _yRotation, 0);
             _orientation.rotation = Quaternion.Euler(0, _yRotation, 0);
         }
         else if (_target)
@@ -45,10 +48,10 @@ public class PlayerCam : MonoBehaviour
         }
     }
 
-    public void ChangeSens(float sensXValue, float sensYValue)
+    public void UpdateSens()
     {
-        sensX = sensXValue;
-        sensY = sensYValue;
+        XSens = PlayerPrefs.GetFloat("XSens");
+        YSens = PlayerPrefs.GetFloat("YSens");
     }
 
     public void GiveTransformTarget(Transform target)

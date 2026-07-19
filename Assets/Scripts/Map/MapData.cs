@@ -9,6 +9,7 @@ public class MapData : MonoBehaviour
     [SerializeField] private Quaternion _PlayerRotation;
     [SerializeField] private Vector3 _checkpointPosition;
     private List<int> _enemiesEncountered;
+    private List<int> _excavationUsed;
     private void Awake()
     {
         if (Instance != null)
@@ -17,6 +18,7 @@ public class MapData : MonoBehaviour
             return;
         }
         _enemiesEncountered = new List<int>();
+        _excavationUsed = new List<int>();
         Instance = this;
         DontDestroyOnLoad(gameObject);
     }
@@ -36,6 +38,14 @@ public class MapData : MonoBehaviour
         }
     }
     public void SavePlayerPosition(Vector3 pos, Quaternion rot)
+    public void MarkExcavationUsed(int id)
+    {
+        if(!_excavationUsed.Contains(id))
+        {
+            _excavationUsed.Add(id);
+        }
+    }
+    public void SavePlayerPosition(Vector3 pos)
     {
         _PlayerPosition = pos;
         _PlayerRotation = rot;
@@ -47,6 +57,14 @@ public class MapData : MonoBehaviour
     public bool EnemyEncounteredBefore(int id)
     {
         if(_enemiesEncountered.Contains(id))
+        {
+            return true;
+        }
+        return false;
+    }
+    public bool ExcavationUsedBefore(int id)
+    {
+        if(_excavationUsed.Contains(id))
         {
             return true;
         }

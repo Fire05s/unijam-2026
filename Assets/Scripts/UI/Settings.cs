@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 public class Settings : MonoBehaviour
 {
+    [SerializeField] private GameObject _originatorGO;
     [SerializeField] private Slider volumeSlider;
     [SerializeField] private Slider sensXSlider;
     [SerializeField] private Slider sensYSlider;
@@ -12,19 +13,20 @@ public class Settings : MonoBehaviour
     private void OnEnable()
     {
         volumeSlider.value = PlayerPrefs.GetFloat("Volume", defaultValue);
-        sensXSlider.value = PlayerPrefs.GetFloat("SensX", defaultValue);
-        sensYSlider.value = PlayerPrefs.GetFloat("SensY", defaultValue);
+        sensXSlider.value = PlayerPrefs.GetFloat("XSens", defaultValue);
+        sensYSlider.value = PlayerPrefs.GetFloat("YSens", defaultValue * 3);
     }
 
     public void Back()
     {
+        _originatorGO.SetActive(true);
         gameObject.SetActive(false);
     }
 
     public void Confirm()
     {
         PlayerPrefs.SetFloat("Volume", volumeSlider.value);
-        PlayerPrefs.SetFloat("SensX", sensXSlider.value);
-        PlayerPrefs.SetFloat("SensY", sensYSlider.value);
+        PlayerPrefs.SetFloat("XSens", sensXSlider.value);
+        PlayerPrefs.SetFloat("YSens", sensYSlider.value * 3);
     }
 }

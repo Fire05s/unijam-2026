@@ -8,6 +8,7 @@ public class PlayerInventory : MonoBehaviour
     [SerializeField] private int _initialPartyMax = 1;
     [Header("Debug")]
     [SerializeField] private List<BodyPartSO> _initialParts;
+    public List<BodyPartSO> FossilParts;
     public static PlayerInventory Instance { get; private set; }
     private List<DinosaurData> _creatures = new();
     private List<DinosaurPart> _bodyParts = new();

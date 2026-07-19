@@ -16,8 +16,6 @@ public class EnemySightlines : MonoBehaviour
     [SerializeField] private float _transitionDuration;
     [Header("Associated Battle")]
     [SerializeField] private BattleData _battleData;
-
-    private MapData _mapManager;
     private LayerMask _layerMask;
     private bool _triggered;
     void Awake()
@@ -38,9 +36,8 @@ public class EnemySightlines : MonoBehaviour
 
     void Start()
     {
-        _mapManager = GameObject.Find("MapDataManager").GetComponent<MapData>();
         _sightLineOrigin = transform;
-        if(_mapManager.EnemyEncounteredBefore(_enemyID))
+        if(MapData.Instance.EnemyEncounteredBefore(_enemyID))
         {
             if (BattleDataLoader.Instance && BattleDataLoader.Instance.GetBattleID() == _enemyID && BattleDataLoader.Instance.WasBattleWon() == false)
             {
@@ -69,8 +66,8 @@ public class EnemySightlines : MonoBehaviour
                 Debug.DrawRay(_sightLineOrigin.transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
                 //I added in a fading transition from a tutorial which is what this goes to. Should be easy to replace if something else is needed for the transition or scene change.
                 //Debug.Log("Hit player, triggering battle");
-                _mapManager.MarkEnemyEncountered(_enemyID);
-                _mapManager.SavePlayerPosition(hit.transform.position, hit.transform.rotation);
+                MapData.Instance.MarkEnemyEncountered(_enemyID);
+                MapData.Instance.SavePlayerPosition(hit.transform.position, hit.transform.rotation);
                 if (BattleDataLoader.Instance == null)
                 {
                     Debug.LogError("BattleDataLoader does not exist.");

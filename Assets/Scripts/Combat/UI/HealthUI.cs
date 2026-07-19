@@ -22,6 +22,15 @@ public class HealthUI : MonoBehaviour
     [SerializeField] private Color _flashColor = Color.white;
     [SerializeField] private float _flashDuration = 0.08f;
 
+    [Header("Shake")]
+    [SerializeField] private float _shakeDuration = 0.18f;
+    [SerializeField] private float _shakeStrength = 8f;
+    [SerializeField] private int _shakeVibrato = 20;
+    [SerializeField] private float _shakeRandomness = 90f;
+
+    [SerializeField] private RectTransform _rect;
+    private Tween _shakeTween;
+
     private void Awake()
     {
         _frontSlider.value = 1f;
@@ -42,30 +51,54 @@ public class HealthUI : MonoBehaviour
     {
         healthPercent = Mathf.Clamp01(healthPercent);
 
+        bool healthChange = healthPercent != _frontSlider.value;
         bool damage = healthPercent < _frontSlider.value;
 
-        if (damage)
+        if (healthChange)
         {
             _frontSlider.value = healthPercent;
 
             _backSlider.DOValue(healthPercent, _lerpDuration)
                 .SetEase(Ease.OutCubic)
-                .SetDelay(_damageDelay);
+                .SetDelay(_damageDelay)
+                .SetLink(gameObject);
 
             _frontFill.DOColor(_flashColor, _flashDuration)
                 .OnComplete(() =>
                 {
                     _frontFill.DOColor(
                         _healthGradient.Evaluate(healthPercent),
-                        0.12f);
-                });
+                        0.12f)
+                        .SetLink(gameObject);
+                }).SetLink(gameObject);
+
+            if (damage)
+            {
+                ApplyShake();
+            }
         }
         else
         {
-            _frontSlider.DOValue(healthPercent, 0.25f);
-            _backSlider.DOValue(healthPercent, 0.25f);
+            _frontSlider.DOValue(healthPercent, 0.25f).SetLink(gameObject);
+            _backSlider.DOValue(healthPercent, 0.25f).SetLink(gameObject);
         }
+    }
 
-        _frontFill.color = _healthGradient.Evaluate(healthPercent);
+    private void ApplyShake()
+    {
+        _shakeTween?.Kill();
+
+        _rect.anchoredPosition = Vector2.zero;
+
+        _shakeTween = _rect
+            .DOShakeAnchorPos(
+                _shakeDuration,
+                _shakeStrength,
+                _shakeVibrato,
+                _shakeRandomness,
+                false,
+                true)
+            .SetLink(gameObject)
+            .OnComplete(() => _rect.anchoredPosition = Vector2.zero);
     }
 }

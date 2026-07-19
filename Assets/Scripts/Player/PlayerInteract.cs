@@ -3,10 +3,11 @@ using UnityEngine.InputSystem;
 using System.Collections;
 using System.Collections.Generic;
 using Combat;
+using TMPro;
 
 public class PlayerInteract : MonoBehaviour
 {
-    //This script is meant to handle the interactables. It should highlight then when they're being looked at and within range.
+    // This script is meant to handle the interactables. It should highlight then when they're being looked at and within range.
     [Header("InteractSightline (Player Camera)")]
     [SerializeField] private Transform _sightLineOrigin;
     [SerializeField] private float _sightLineDistance;
@@ -18,12 +19,9 @@ public class PlayerInteract : MonoBehaviour
     [SerializeField] private ScreenTransition _transitionObject;
     [SerializeField] private string _creatureCombinerScene;
     [SerializeField] private float _transitionDuration;
+    [Header("Interactable Text")]
+    [SerializeField] private TextMeshProUGUI _interactableText;
 
-    private List<DinosaurPart> _partsList = new();
-
-    public IReadOnlyList<DinosaurPart> BodyParts => _partsList;
-
-    private PlayerInventory _playerInventory;
     private LayerMask _layerMask;
     private GameObject _previousObject;
     private MapData _mapManager;
@@ -32,11 +30,6 @@ public class PlayerInteract : MonoBehaviour
     void Awake()
     {
         _layerMask = LayerMask.GetMask("Wall", "Interactables");
-        _mapManager = GameObject.Find("MapDataManager").GetComponent<MapData>();
-        foreach (var partData in _inventoryList)
-        {
-            _partsList.Add(new DinosaurPart(partData));
-        }
     }
 
     private void Start()
@@ -44,12 +37,12 @@ public class PlayerInteract : MonoBehaviour
         _battleManager = GameObject.Find("BattleDataLoader").GetComponent<BattleDataLoader>();
         if(_battleManager.WasBattleWon())
         {
-            transform.position = _mapManager.GetPlayerPosition();
-            transform.rotation = _mapManager.GetPlayerRotation();
+            transform.position = MapData.Instance.GetPlayerPosition();
+            transform.rotation = MapData.Instance.GetPlayerRotation();
         }
         else
         {
-            transform.position = _mapManager.GetCheckpointPosition();
+            transform.position = MapData.Instance.GetCheckpointPosition();
         }
         _playerInventory = GameObject.Find("Inventory").GetComponent<PlayerInventory>();
         List<DinosaurPart> playerPartsInventory = _playerInventory.GetBodyParts();
@@ -85,12 +78,13 @@ public class PlayerInteract : MonoBehaviour
 
     private void Update()
     {
-        //Uses a raycast to see what the player's looking at. Currently only used for the interactables such as the excavation sites.
+        // Uses a raycast to see what the player's looking at. Currently only used for the interactables such as the excavation sites.
         RaycastHit hit;
         if (Physics.Raycast(_sightLineOrigin.transform.position, _sightLineOrigin.transform.TransformDirection(Vector3.forward), out hit, _sightLineDistance, _layerMask))
         {
-            //Tracks what is currently being hit by the raycast.
+            // Tracks what is currently being hit by the raycast.
             _previousObject = hit.transform.gameObject;
+            _interactableText.gameObject.SetActive(true);
         }
         else
         {
@@ -98,6 +92,7 @@ public class PlayerInteract : MonoBehaviour
             {
                 _previousObject = null;
             }
+            _interactableText.gameObject.SetActive(false);
         }
 
         if (_transitionObject == null)
@@ -109,7 +104,6 @@ public class PlayerInteract : MonoBehaviour
     }
     void CheckForInput()
     {
-        //I'm going to be honest I haven't used the new input system much so I'm just using the old one for the moment for the sake of writing this code tonight. I plan on switching it over.
         if (Input.GetKeyDown(KeyCode.F))
         {
             if (_previousObject && _previousObject.CompareTag("Interactable"))
@@ -121,6 +115,19 @@ public class PlayerInteract : MonoBehaviour
             {
                 //Sends you to the creature combiner screen.
                 _mapManager.SavePlayerPosition(transform.position, transform.rotation);
+                // Adds a new random part from all possible fossil parts.
+                BodyPartSO randomBodyPartSO = PlayerInventory.Instance.FossilParts[Random.Range(0, PlayerInventory.Instance.FossilParts.Count)];
+                DinosaurPart randomPart = new DinosaurPart(randomBodyPartSO);
+                Debug.Log("Adding part " + randomPart.Reference.name);
+                PlayerInventory.Instance.AddBodyPart(randomPart);
+                PlayerInventory.Instance.FossilParts.Remove(randomBodyPartSO);
+                MapData.Instance.MarkExcavationUsed(_previousObject.GetComponent<ExcavationPoint>().ExcavationID);
+                Destroy(_previousObject);
+            }
+            else if (_previousObject && _previousObject.CompareTag("CreatureCombiner"))
+            {
+                // Sends you to the creature combiner screen.
+                MapData.Instance.SavePlayerPosition(transform.position);
                 _transitionObject.FadeAndLoad(_creatureCombinerScene, _transitionDuration);
             }
         }

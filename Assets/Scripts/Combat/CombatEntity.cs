@@ -18,7 +18,7 @@ public class CombatEntity
 
     public CombatEntity(int id, EntitySide side, float maxHealth, float health, float speed, float attack, float critchance, List<WildCard> wildcards)
     {
-        _id = id; _side = side; _maxHealth = maxHealth; _health = _maxHealth; _speed = speed; _attack = attack; _crit = critchance; _wildcards = wildcards;
+        _id = id; _side = side; _maxHealth = maxHealth; _health = health; _speed = speed; _attack = attack; _crit = critchance; _wildcards = wildcards;
     }
     // public void SetPosition(Vector2 newPos) {_boardPosition = newPos;}
     /// <summary>

@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: d0e1c72f71d44004aa60c15164a73c73
   - enabled: 1
+    path: Assets/Scenes/CombinerTutorial.unity
+    guid: 104812214032dc84e9e74af1f2216e0c
+  - enabled: 1
     path: Assets/Scenes/MainLevel.unity
     guid: 9dcfc19ee446aa143b95a0e3aadc15c9
   - enabled: 1
