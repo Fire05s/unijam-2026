@@ -8,6 +8,12 @@ public class LoseScreen : MonoBehaviour
     [Header("Audio")]
     [SerializeField] private int _audioListIndex = 0;
 
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
     public void Tutorial()
     {
         AudioManager.Instance.PlayInstantSFX(_audioListIndex);
