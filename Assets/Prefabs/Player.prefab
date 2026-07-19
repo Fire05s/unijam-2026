@@ -314,7 +314,7 @@ MonoBehaviour:
   _inventoryList: []
   _transitionObject: {fileID: 9202853369229372218}
   _creatureCombinerScene: CombinerScene
-  _transitionDuration: 2
+  _transitionDuration: 1
   _interactableText: {fileID: 3985236688730997595}
 --- !u!1 &2360106587604862096
 GameObject:

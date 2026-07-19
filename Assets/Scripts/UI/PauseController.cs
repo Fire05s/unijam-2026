@@ -52,7 +52,7 @@ public class PauseController : MonoBehaviour
         Destroy(PlayerInventory.Instance.gameObject);
         Destroy(BattleDataLoader.Instance.gameObject);
         Destroy(MapData.Instance.gameObject);
-        _transition.FadeAndLoad("MainMenu", duration: 2f);
+        _transition.FadeAndLoad("MainMenu", duration: 1f);
     }
 
     public void Quit()
