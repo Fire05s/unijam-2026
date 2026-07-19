@@ -2,6 +2,7 @@ using UnityEngine;
 using Combat;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using TMPro;
 
 public class WinScreen : MonoBehaviour
 {
@@ -19,15 +20,22 @@ public class WinScreen : MonoBehaviour
 
     private void Start()
     {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         _itemsWon = GameObject.Find("ItemsWon");
         _partsWon = BattleDataLoader.Instance.GetPartsWon();
+        List <DinosaurData> creatures = PlayerInventory.Instance.GetCreatures();
+        for(int i = 0; i < creatures.Count; i++)
+        {
+            GameObject.Find("PartyStatus").GetComponent<TextMeshProUGUI>().text = GameObject.Find("PartyStatus").GetComponent<TextMeshProUGUI>().text + "Dinosaur " + i + ": " + creatures[i].GetCurrentHealth() + "\n";
+        }
         if (_partsWon.Count > 0)
         {
             for (int i = 0; i < _partsWon.Count; i++)
             {
                 GameObject item = Instantiate(_itemWonPrefab, _itemsWon.transform);
                 item.transform.GetChild(0).GetComponent<Image>().sprite = _partsWon[i].Reference.Icon;
-                item.transform.GetChild(1).GetComponent<Text>().text = _partsWon[i].Reference.Name;
+                item.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = _partsWon[i].Reference.Name;
             }
         }
     }
