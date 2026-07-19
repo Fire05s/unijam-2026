@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
 using System.Collections.Generic;
+using Combat;
 using TMPro;
 
 public class PlayerInteract : MonoBehaviour
@@ -9,6 +11,11 @@ public class PlayerInteract : MonoBehaviour
     [Header("InteractSightline (Player Camera)")]
     [SerializeField] private Transform _sightLineOrigin;
     [SerializeField] private float _sightLineDistance;
+    [Header("Excavating")]
+    [SerializeField] private int _timeToExcavate = 1;
+    [SerializeField] private int _excavationAudioListIndex = 10;
+    [Header("Fossil Parts")]
+    [SerializeField] private List<BodyPartSO> _inventoryList;
     [Header("Scene Transition")]
     [SerializeField] private ScreenTransition _transitionObject;
     [SerializeField] private string _creatureCombinerScene;
@@ -18,6 +25,8 @@ public class PlayerInteract : MonoBehaviour
 
     private LayerMask _layerMask;
     private GameObject _previousObject;
+    private MapData _mapManager;
+    private BattleDataLoader _battleManager;
 
     void Awake()
     {
@@ -26,7 +35,15 @@ public class PlayerInteract : MonoBehaviour
 
     private void Start()
     {
-        transform.position = MapData.Instance.GetPlayerPosition();
+        if(BattleDataLoader.Instance.WasBattleWon())
+        {
+            transform.position = MapData.Instance.GetPlayerPosition();
+            transform.rotation = MapData.Instance.GetPlayerRotation();
+        }
+        else
+        {
+            transform.position = MapData.Instance.GetCheckpointPosition();
+        }
     }
 
     private void OnDrawGizmos()
@@ -74,21 +91,37 @@ public class PlayerInteract : MonoBehaviour
         {
             if (_previousObject && _previousObject.CompareTag("Interactable"))
             {
-                // Adds a new random part from all possible fossil parts.
-                BodyPartSO randomBodyPartSO = PlayerInventory.Instance.FossilParts[Random.Range(0, PlayerInventory.Instance.FossilParts.Count)];
-                DinosaurPart randomPart = new DinosaurPart(randomBodyPartSO);
-                Debug.Log("Adding part " + randomPart.Reference.name);
-                PlayerInventory.Instance.AddBodyPart(randomPart);
-                PlayerInventory.Instance.FossilParts.Remove(randomBodyPartSO);
-                MapData.Instance.MarkExcavationUsed(_previousObject.GetComponent<ExcavationPoint>().ExcavationID);
-                Destroy(_previousObject);
+                //Adds random part from the list partsList to the player inventory.
+                StartCoroutine(ExcavateEnumerator(_timeToExcavate, _previousObject));
             }
             else if (_previousObject && _previousObject.CompareTag("CreatureCombiner"))
             {
                 // Sends you to the creature combiner screen.
-                MapData.Instance.SavePlayerPosition(transform.position);
+                MapData.Instance.SavePlayerPosition(transform.position, transform.rotation);
                 _transitionObject.FadeAndLoad(_creatureCombinerScene, _transitionDuration);
             }
+        }
+    }
+
+    IEnumerator ExcavateEnumerator(int seconds, GameObject excavationObject)
+    {
+        AudioManager.Instance.PlayInstantSFX(_excavationAudioListIndex);
+        yield return new WaitForSeconds(seconds);
+
+        // Adds a new random part from all possible fossil parts.
+        BodyPartSO randomBodyPartSO = PlayerInventory.Instance.FossilParts[Random.Range(0, PlayerInventory.Instance.FossilParts.Count)];
+        DinosaurPart randomPart = new DinosaurPart(randomBodyPartSO);
+        Debug.Log("Adding part " + randomPart.Reference.name);
+        PlayerInventory.Instance.AddBodyPart(randomPart);
+        PlayerInventory.Instance.FossilParts.Remove(randomBodyPartSO);
+        Destroy(excavationObject);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Checkpoint"))
+        {
+            _mapManager.SavePlayerCheckpoint(other.gameObject.GetComponent<Checkpoint>().GetCheckpointPosition());
         }
     }
 }

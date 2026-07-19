@@ -16,6 +16,11 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody _rb;
 
+    [Header("Walk Sound")]
+    [SerializeField] float _walkSoundDelay = 0.6f;
+    [SerializeField] Vector2 _walkSoundPitchRange;
+    private float _walkSoundTimer;
+
     private void Start()
     {
         _rb = GetComponent<Rigidbody>();
@@ -31,6 +36,10 @@ public class PlayerController : MonoBehaviour
     {
         MovePlayer();
         SpeedControl();
+        if (_rb.linearVelocity != Vector3.zero)
+        {
+            PlayWalkSound();
+        }
     }
 
     private void GetInput()
@@ -55,5 +64,20 @@ public class PlayerController : MonoBehaviour
             Vector3 limitedVel = flatVel.normalized * _moveSpeed;
             _rb.linearVelocity = new Vector3(limitedVel.x, _rb.linearVelocity.y, limitedVel.z);
         }
+    }
+
+    private void PlayWalkSound()
+    {
+        _walkSoundTimer += Time.deltaTime;
+        if (_walkSoundTimer > _walkSoundDelay)
+        {
+            AudioManager.Instance.PlayWalkSFX();
+            _walkSoundTimer = 0f;
+        }
+    }
+
+    public void ChangeSpeed(int newSpeed)
+    {
+        _moveSpeed = newSpeed;
     }
 }

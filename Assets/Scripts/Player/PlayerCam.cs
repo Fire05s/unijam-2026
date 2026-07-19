@@ -15,6 +15,8 @@ public class PlayerCam : MonoBehaviour
     private float _xRotation;
     private float _yRotation;
 
+    private Transform _target = null;
+
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -29,7 +31,6 @@ public class PlayerCam : MonoBehaviour
     {
         if (CamUnlocked)
         {
-            Debug.Log($"x sens {XSens}, y sens {YSens}");
             float mouseX = Input.GetAxisRaw("Mouse X") * XSens * PlayerPrefs.GetFloat("SensX", defaultValue: 1.0f);
             float mouseY = Input.GetAxisRaw("Mouse Y") * YSens * PlayerPrefs.GetFloat("SensY", defaultValue: 3.0f);
 
@@ -40,11 +41,20 @@ public class PlayerCam : MonoBehaviour
             _camera.transform.rotation = Quaternion.Euler(_xRotation, _yRotation, 0);
             _orientation.rotation = Quaternion.Euler(0, _yRotation, 0);
         }
+        else if (_target)
+        {
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(_target.position - transform.position), 2 * Time.deltaTime);
+        }
     }
 
     public void UpdateSens()
     {
         XSens = PlayerPrefs.GetFloat("XSens");
         YSens = PlayerPrefs.GetFloat("YSens");
+    }
+
+    public void GiveTransformTarget(Transform target)
+    {
+        _target = target;
     }
 }

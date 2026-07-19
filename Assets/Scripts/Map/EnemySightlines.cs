@@ -1,5 +1,6 @@
 using Combat;
 using UnityEngine;
+using System.Collections;
 
 public class EnemySightlines : MonoBehaviour
 {
@@ -36,9 +37,16 @@ public class EnemySightlines : MonoBehaviour
     void Start()
     {
         _sightLineOrigin = transform;
-        if(MapData.Instance.EnemyEncounteredBefore(_enemyID))
+        if (MapData.Instance.EnemyEncounteredBefore(_enemyID))
         {
-            Destroy(gameObject);
+            if (BattleDataLoader.Instance && BattleDataLoader.Instance.GetBattleID() == _enemyID && BattleDataLoader.Instance.WasBattleWon() == false)
+            {
+                MapData.Instance.RemoveEnemyEncountered(_enemyID);
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
     }
 
@@ -51,20 +59,31 @@ public class EnemySightlines : MonoBehaviour
         {
             if (hit.transform.gameObject.CompareTag("Player") && !_triggered)
             {
+                Transform playerCam = GameObject.Find("CinemachineCamera").transform;
+                playerCam.parent.Find("CinemachineCamera").GetComponent<PlayerCam>().CamUnlocked = false;
+                GameObject.Find("Player").GetComponent<PlayerController>().ChangeSpeed(0);
                 _triggered = true;
                 Debug.DrawRay(_sightLineOrigin.transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
                 //I added in a fading transition from a tutorial which is what this goes to. Should be easy to replace if something else is needed for the transition or scene change.
-                Debug.Log("Hit player, triggering battle");
+                //Debug.Log("Hit player, triggering battle");
                 MapData.Instance.MarkEnemyEncountered(_enemyID);
-                MapData.Instance.SavePlayerPosition(hit.transform.position);
-
+                MapData.Instance.SavePlayerPosition(hit.transform.position, hit.transform.rotation);
                 if (BattleDataLoader.Instance == null)
                 {
                     Debug.LogError("BattleDataLoader does not exist.");
                     return;
                 }
-                BattleDataLoader.Instance.StartBattle(_battleData);
+                //Debug.Log(playerCam);
+                StartCoroutine(BattleCoroutine(playerCam));
             }
         }
+    }
+
+    IEnumerator BattleCoroutine(Transform cam)
+    {
+        cam.GetComponent<PlayerCam>().GiveTransformTarget(transform);
+        yield return new WaitForSeconds(2);
+        BattleDataLoader.Instance.SetBattleID(_enemyID);
+        BattleDataLoader.Instance.StartBattle(_battleData);
     }
 }
