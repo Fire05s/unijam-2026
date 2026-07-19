@@ -148,11 +148,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba193515db77b9b429720b52a065a4b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EmptyTurnDelay: 0.1
+  EmptyTurnDelay: 0
   AttackDelay: 2
-  InterTurnDelay: 0.6
+  InterTurnDelay: 0.1
   DoTDelay: 1
-  WildCardDelay: 1
+  WildCardDelay: 0.5
   RemainingPlayerDinosaurs: 
   RemainingEnemyDinosaurs: 
   currentTurnNumber: 0
@@ -802,8 +802,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 492757405}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.3864744, y: -0.0033039905, z: 0.0001853512, w: 0.92229426}
-  m_LocalPosition: {x: -0.027080886, y: 4.2025914, z: -3.9205222}
+  m_LocalRotation: {x: 0.13459873, y: -0.0032393825, z: -0.0006760985, w: 0.99089473}
+  m_LocalPosition: {x: -0.024325527, y: 2.4, z: -4.7134323}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1810,13 +1810,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1153073493}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.3864744, y: -0.0033039905, z: 0.0001853512, w: 0.92229426}
-  m_LocalPosition: {x: -0.027080886, y: 4.2025914, z: -3.9205222}
+  m_LocalRotation: {x: 0.13459873, y: -0.0032393825, z: -0.0006760985, w: 0.99089473}
+  m_LocalPosition: {x: -0.024325527, y: 2.4, z: -4.7134323}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 15.47, y: -0.392, z: -0.131}
 --- !u!114 &1153073498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2396,7 +2396,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 66.35
+  m_fontSize: 65.1
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2673,6 +2673,18 @@ PrefabInstance:
       value: Combat Scene
       objectReference: {fileID: 0}
     - target: {fileID: 9157628388315424753, guid: 4e6230fef78877f4da4ec5336bfa249a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9157628388315424753, guid: 4e6230fef78877f4da4ec5336bfa249a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9157628388315424753, guid: 4e6230fef78877f4da4ec5336bfa249a, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9157628388315424753, guid: 4e6230fef78877f4da4ec5336bfa249a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.104252696
       objectReference: {fileID: 0}
@@ -2711,6 +2723,10 @@ PrefabInstance:
     - target: {fileID: 9157628388315424753, guid: 4e6230fef78877f4da4ec5336bfa249a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9157628388315424753, guid: 4e6230fef78877f4da4ec5336bfa249a, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
