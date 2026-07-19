@@ -53,7 +53,7 @@ Material:
     m_Floats:
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Rotation: 0
+    - _Rotation: 15.29
     - _Speed: 0.16
     - _WaveHeight: 0.37
     m_Colors: []
