@@ -61,7 +61,7 @@ public class EnemySightlines : MonoBehaviour
             {
                 Transform playerCam = GameObject.Find("CinemachineCamera").transform;
                 playerCam.parent.Find("CinemachineCamera").GetComponent<PlayerCam>().CamUnlocked = false;
-                GameObject.Find("Player").GetComponent<PlayerController>().ChangeSpeed(0);
+                FindAnyObjectByType<PlayerController>().CanMove = false;
                 _triggered = true;
                 Debug.DrawRay(_sightLineOrigin.transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
                 //I added in a fading transition from a tutorial which is what this goes to. Should be easy to replace if something else is needed for the transition or scene change.
