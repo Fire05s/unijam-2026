@@ -803,7 +803,7 @@ Transform:
   m_GameObject: {fileID: 492757405}
   serializedVersion: 2
   m_LocalRotation: {x: 0.3864744, y: -0.0033039905, z: 0.0001853512, w: 0.92229426}
-  m_LocalPosition: {x: -0.015178413, y: 5.6283665, z: -5.3230286}
+  m_LocalPosition: {x: -0.027080886, y: 4.2025914, z: -3.9205222}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -959,7 +959,7 @@ Transform:
   m_GameObject: {fileID: 611056439}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 3}
+  m_LocalPosition: {x: 0, y: 0, z: 2}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -1811,7 +1811,7 @@ Transform:
   m_GameObject: {fileID: 1153073493}
   serializedVersion: 2
   m_LocalRotation: {x: 0.3864744, y: -0.0033039905, z: 0.0001853512, w: 0.92229426}
-  m_LocalPosition: {x: -0.015178413, y: 5.6283665, z: -5.3230286}
+  m_LocalPosition: {x: -0.027080886, y: 4.2025914, z: -3.9205222}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2764,8 +2764,6 @@ MonoBehaviour:
   playerPositionHolder: {fileID: 1922417730}
   enemyPositionHolder: {fileID: 611056440}
   dinoPrefab: {fileID: 8924867311296339818, guid: 40ee9953eb5b1af478a43177f9fcb5fc, type: 3}
-  followCamera: {fileID: 0}
-  overviewCamera: {fileID: 1153073496}
   currentSelectedTarget: -1
   attackMoveDuration: 0.3
   attackPauseDuration: 0.4
@@ -2795,7 +2793,7 @@ Transform:
   m_GameObject: {fileID: 1922417729}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: -3}
+  m_LocalPosition: {x: 0, y: 0, z: -2}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -2944,10 +2942,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 832179733}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 70}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1943.8167, y: 866.9099}
-  m_SizeDelta: {x: 266.0894, y: 839.6176}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 23.81665, y: -275.0901}
+  m_SizeDelta: {x: 266.08936, y: 839.6177}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &2127099576
 MonoBehaviour:

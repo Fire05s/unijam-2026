@@ -43,7 +43,7 @@ public class CombatCreature : MonoBehaviour
     {
         if (model == null)
         {
-            Debug.LogWarning($"Model for {name} doesn't exist, using default");
+            Debug.LogWarning($"Model for doesn't exist, using default");
             return;
         }
         if (_slotModel != null)

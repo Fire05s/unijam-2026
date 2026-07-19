@@ -137,6 +137,7 @@ MonoBehaviour:
   PlayerDinoBaseStats: {fileID: 11400000, guid: 7c0542bcad977394091feec2d9ff8a0d, type: 2}
   IsRewardingNewDino: 0
   HealPercent: 0.5
+  _models: {fileID: 11400000, guid: 07731b2dcae41eb4eaa2ab478eaa0c7c, type: 2}
   _transitionObject: {fileID: 9141536246358697261}
   _mainLevelScene: MainLevel
   _transitionDuration: 1

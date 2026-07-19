@@ -16,12 +16,16 @@ namespace Combat
         public bool IsRewardingNewDino;
         [Range(0f, 1f)]
         public float HealPercent;
+        [Header("Database")]
+        [SerializeField] private ModelDatabaseSO _models;
         [Header("Scene Transition")]
         [SerializeField] private ScreenTransition _transitionObject;
         [SerializeField] private string _mainLevelScene;
         [SerializeField] private float _transitionDuration;
         [SerializeField] int _lastBattleID;
         [SerializeField] bool _lastBattleWon;
+
+        public ModelDatabaseSO AllModels => _models;
 
         void Awake()
         {
@@ -36,7 +40,7 @@ namespace Combat
 
         public void StartBattle(BattleData battleData)
         {
-            EnemyDinosData = battleData.InitializeEnemyDinos();
+            EnemyDinosData = battleData.InitializeEnemyDinos(_models);
             IsRewardingNewDino = battleData.rewardsNewDino;
             StartCoroutine(BattleDelay());
         }

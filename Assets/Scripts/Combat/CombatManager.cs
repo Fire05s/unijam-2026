@@ -415,7 +415,8 @@ namespace Combat
         {
             foreach (int id in Dinosaurs.Keys)
             {
-                if (!Dinosaurs[id].IsAlive())
+                if (!Dinosaurs[id].IsAlive() &&
+                    (RemainingPlayerDinosaurs.Contains(id) || RemainingEnemyDinosaurs.Contains(id)))
                 {
                     CombatSceneManager.Instance.UpdateSceneAfterDeath(id);
                     Debug.Log($"{id} ran out of HP and died.");

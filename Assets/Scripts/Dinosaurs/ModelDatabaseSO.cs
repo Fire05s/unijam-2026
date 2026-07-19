@@ -29,6 +29,30 @@ public class ModelDatabaseSO : ScriptableObject
         _lookup.TryGetValue((headID, bodyID, legsID), out var prefab);
         return prefab;
     }
+
+    public GameObject GetModelByParts(List<BodyPartSO> parts)
+    {
+        int headID = 0;
+        int bodyID = 0;
+        int legsID = 0;
+        foreach (var part in parts)
+        {
+            switch (part.PartType)
+            {
+                case BodyPartType.Head:
+                    headID = part.ModelID;
+                    break;
+                case BodyPartType.Arms:
+                    bodyID = part.ModelID;
+                    break;
+                case BodyPartType.Legs:
+                    legsID = part.ModelID;
+                    break;
+            }
+        }
+        Debug.Log($"Getting model {headID}-{bodyID}-{legsID}");
+        return GetModel(headID, bodyID, legsID);
+    }
 }
 
 [System.Serializable]

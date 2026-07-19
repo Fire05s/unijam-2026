@@ -15,12 +15,14 @@ namespace Combat
             enemyDinos = new List<EnemyDino>(other.enemyDinos);
         }
 
-        public List<DinosaurData> InitializeEnemyDinos()
+        public List<DinosaurData> InitializeEnemyDinos(ModelDatabaseSO _models)
         {
             List<DinosaurData> enemyDinosData = new();
             foreach (EnemyDino enemyDino in enemyDinos)
             {
-                enemyDinosData.Add(new DinosaurData(enemyDino.BaseStats, enemyDino.BodyParts));
+                DinosaurData newDino = new DinosaurData(enemyDino.BaseStats, enemyDino.BodyParts);
+                newDino.SetModel(_models.GetModelByParts(enemyDino.BodyParts).GetComponent<CreatureModel>());
+                enemyDinosData.Add(newDino);
             }
             return enemyDinosData;
         }
