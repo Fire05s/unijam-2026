@@ -23,16 +23,16 @@ public class PlayerCam : MonoBehaviour
         Cursor.visible = false;
         _orientation = GameObject.Find("CamOrientation").transform;
         _camera.Follow = GameObject.Find("CamPos").transform;
-        XSens = PlayerPrefs.GetFloat("XSens", 1f);
-        YSens = PlayerPrefs.GetFloat("YSens", 1f);
+        XSens = PlayerPrefs.GetFloat("XSens", 0.5f);
+        YSens = PlayerPrefs.GetFloat("YSens", 0.5f);
     }
 
     private void Update()
     {
         if (CamUnlocked)
         {
-            float mouseX = Input.GetAxisRaw("Mouse X") * PlayerPrefs.GetFloat("SensX", defaultValue: 1.0f);
-            float mouseY = Input.GetAxisRaw("Mouse Y") * PlayerPrefs.GetFloat("SensY", defaultValue: 1.0f);
+            float mouseX = Input.GetAxisRaw("Mouse X") * PlayerPrefs.GetFloat("SensX", 0.5f);
+            float mouseY = Input.GetAxisRaw("Mouse Y") * PlayerPrefs.GetFloat("SensY", 0.5f);
 
             _yRotation += mouseX;
             _xRotation -= mouseY;
