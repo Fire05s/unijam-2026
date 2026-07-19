@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3530032e2dc41343802880e58187ca7, type: 3}
   m_Name: Bleed Head (T3)
   m_EditorClassIdentifier: 
-  <Name>k__BackingField: Bleed Head (T3)
+  <Name>k__BackingField: Ruthless Head (T3)
   <Rarity>k__BackingField: 0
   <PartType>k__BackingField: 0
   <ModelID>k__BackingField: 0

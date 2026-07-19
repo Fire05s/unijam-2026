@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3530032e2dc41343802880e58187ca7, type: 3}
   m_Name: Speed Legs (T1)
   m_EditorClassIdentifier: 
-  <Name>k__BackingField: Speed Legs (T1)
+  <Name>k__BackingField: Running Legs (T1)
   <Rarity>k__BackingField: 0
   <PartType>k__BackingField: 2
-  <ModelID>k__BackingField: 0
-  <Icon>k__BackingField: {fileID: 21300000, guid: 87160f7aee1168a43816e94a12ffc57e, type: 3}
+  <ModelID>k__BackingField: 2
+  <Icon>k__BackingField: {fileID: 21300000, guid: d7dae43a290f9b14cbbd166c352463f7, type: 3}
   <Stats>k__BackingField:
   - Type: 1
     MinValue: 1
