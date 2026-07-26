@@ -198,6 +198,7 @@ public class CombatUIManager : MonoBehaviour
         // Add new slots
         foreach (var a in added)
         {
+            if (_existingQueue.Count >= 5) break;
             _existingQueue.Insert(a.index, a.value);
             TurnSlotUI newSlot = Instantiate(_turnSlotPrefab, _turnSlotPanel.transform);
             newSlot.SetSlot(a.value.Key, a.value.Value);
